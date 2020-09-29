@@ -1,0 +1,72 @@
+
+/* Class = "UILabel"; text = "Create a password"; ObjectID = "10b-lP-03G"; */
+"10b-lP-03G.text" = "Créer un mot de passe";
+
+/* Class = "UILabel"; text = "Free on Radiofy."; ObjectID = "60e-FL-38f"; */
+"60e-FL-38f.text" = "Radiofy.";
+
+/* Class = "UIButton"; normalTitle = "LOG IN"; ObjectID = "6bG-yx-TpL"; */
+"6bG-yx-TpL.normalTitle" = "SE CONNECTER";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "82V-Du-m4J"; */
+"82V-Du-m4J.text" = "Mot de passe";
+
+/* Class = "UILabel"; text = "Error"; ObjectID = "DQA-KS-CLA"; */
+"DQA-KS-CLA.text" = "Error";
+
+/* Class = "UIButton"; normalTitle = "LOG IN"; ObjectID = "FeC-Ny-xRJ"; */
+"FeC-Ny-xRJ.normalTitle" = "SE CONNECTER";
+
+/* Class = "UIButton"; normalTitle = "SIGN UP"; ObjectID = "GK0-8N-ggh"; */
+"GK0-8N-ggh.normalTitle" = "S'INSCRIRE";
+
+/* Class = "UILabel"; text = "Best radio stations."; ObjectID = "IQu-Wa-3fn"; */
+"IQu-Wa-3fn.text" = "Les meilleures radios et podcasts sur";
+
+/* Class = "UITextField"; accessibilityLabel = "passwordTextSign"; ObjectID = "Iu8-lg-m9c"; */
+"Iu8-lg-m9c.accessibilityLabel" = "passwordTextSign";
+
+/* Class = "UILabel"; text = "R"; ObjectID = "P1v-4B-WPt"; */
+"P1v-4B-WPt.text" = "R";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "PL7-t3-JdH"; */
+"PL7-t3-JdH.text" = "Email";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "UVD-fM-7Tl"; */
+"UVD-fM-7Tl.text" = "Email";
+
+/* Class = "UITextField"; accessibilityLabel = "nameTextSign"; ObjectID = "Ux6-zh-dZo"; */
+"Ux6-zh-dZo.accessibilityLabel" = "nameTextSign";
+
+/* Class = "UILabel"; text = "Error"; ObjectID = "Wtg-W6-PYG"; */
+"Wtg-W6-PYG.text" = "Error";
+
+/* Class = "UILabel"; text = "What's your email?"; ObjectID = "Y3V-OY-WpT"; */
+"Y3V-OY-WpT.text" = "Quelle est votre adresse e-mail?";
+
+/* Class = "UIButton"; normalTitle = "RESET PASSWORD"; ObjectID = "Y6e-iJ-vAg"; */
+"Y6e-iJ-vAg.normalTitle" = "RÉINITIALISER MOT DE PASSE";
+
+/* Class = "UILabel"; text = "Error"; ObjectID = "gd5-aV-wYo"; */
+"gd5-aV-wYo.text" = "Error";
+
+/* Class = "UIButton"; normalTitle = "FORGETTEN MY PASSWORD"; ObjectID = "hMZ-b6-BQ5"; */
+"hMZ-b6-BQ5.normalTitle" = "MOT DE PASSE OUBLIÉ";
+
+/* Class = "UILabel"; text = "You'll need to confirm this email later."; ObjectID = "hWp-yk-bIj"; */
+"hWp-yk-bIj.text" = "Vous devrez confirmer cette addresse e-mail par la suite.";
+
+/* Class = "UILabel"; text = "Use a least 8 characters, 1 number & 1 special character."; ObjectID = "iYW-vS-jeJ"; */
+"iYW-vS-jeJ.text" = "Utilisez au moins 8 caractères, 1 numèro & 1 caractère spéciale.";
+
+/* Class = "UITextField"; accessibilityLabel = "emailTextSign"; ObjectID = "maJ-GD-CWs"; */
+"maJ-GD-CWs.accessibilityLabel" = "emailTextSign";
+
+/* Class = "UILabel"; text = "Enter your name"; ObjectID = "qqr-0O-TpB"; */
+"qqr-0O-TpB.text" = "Nom d'utilisateur";
+
+/* Class = "UIButton"; normalTitle = "SIGN UP"; ObjectID = "syU-v6-7tN"; */
+"syU-v6-7tN.normalTitle" = "S'INSCRIRE";
+
+/* Class = "UIButton"; normalTitle = "SKIP FOR NOW"; ObjectID = "HAv-Ie-yVa"; */
+"HAv-Ie-yVa.normalTitle" = "PLUS TARD";

@@ -1,0 +1,51 @@
+//
+//  PodcastViewModel.swift
+//  Radiofy
+//
+//  Created by Fabrice Etiennette on 30/04/2020.
+//  Copyright © 2020 Fabrice Etiennette. All rights reserved.
+//
+
+import Foundation
+
+protocol PodcastViewModelDelegate: class {
+    func selectPocastStation(_ selectedPodcast: PodcastStation)
+}
+
+class PodcastViewModel {
+
+    private weak var delegate: PodcastViewModelDelegate?
+
+    var errorHandler: ((_ title: String, _ message: String) -> Void)?
+    var allPodcastStationsHandler: ((_ podcast: [PodcastStation]) -> Void)?
+
+    private let firestoreService: FirestoreService
+
+    var podcastStation: [PodcastStation] = []
+
+    init(
+        delegate: PodcastViewModelDelegate?,
+        firestoreService: FirestoreService = .init()
+    ) {
+        self.delegate = delegate
+        self.firestoreService = firestoreService
+    }
+
+    // Show user selected Podcast Station Page
+    func showSelectedPodcastStation(with selectedPodcast: PodcastStation) {
+        delegate?.selectPocastStation(selectedPodcast)
+    }
+
+    // Get podcaststation from database
+    func getPodcastStation() {
+        firestoreService.getPodcastStationFromDatabase(with: "podcastStations") { result in
+            switch result {
+            case .success(let podcastStations):
+                self.podcastStation = podcastStations
+                self.allPodcastStationsHandler?(self.podcastStation)
+            case .failure(let error):
+                self.errorHandler?(L1s.error, error.localizedDescription)
+            }
+        }
+    }
+}

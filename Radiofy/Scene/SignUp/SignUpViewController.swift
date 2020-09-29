@@ -1,0 +1,139 @@
+//
+//  SignUpViewController.swift
+//  Radiofy
+//
+//  Created by Fabrice Etiennette on 27/03/2020.
+//  Copyright © 2020 Fabrice Etiennette. All rights reserved.
+//
+
+import UIKit
+
+class SignUpViewController: UIViewController {
+
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var errorTextLabel: UILabel!
+    @IBOutlet private weak var signUpButton: SignMeUpButtonView!
+    @IBOutlet private weak var signUpButtonWidth: NSLayoutConstraint!
+
+    private var buttonContraint = [NSLayoutConstraint]()
+    var viewModel: SignUpViewModel!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+        configureViewModel()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        buttonContraint = signUpButton.constraints
+    }
+
+    @objc private func tapView() {
+        viewEndEditing()
+    }
+
+    @objc private func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        errorTextLabel.slideOut()
+        guard
+            let name = nameTextField.text, !name.isEmpty,
+            let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty
+            else
+        {
+            signUpButton.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.3018799424, green: 0.3020585179, blue: 0.2976047993, alpha: 1))
+            signUpButton.isEnabled = false
+            return
+        }
+        signUpButton.backgroundColor = .white
+        signUpButton.isEnabled = true
+    }
+
+    @IBAction private func signUpButtonTapped(_ sender: Any) {
+        viewEndEditing()
+
+        let name = nameTextField.text
+        let email = emailTextField.text
+        let password = passwordTextField.text
+
+        viewModel.signUpOneUser(name, email, password)
+    }
+
+    @IBAction private func textFieldTapped(_ sender: UITextField) {
+        sender.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.4382694662, green: 0.443403244, blue: 0.4388435185, alpha: 1))
+        switch sender.tag {
+        case 1:
+            emailTextField.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.2548763454, green: 0.2549183369, blue: 0.2548671067, alpha: 1))
+            passwordTextField.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.2548763454, green: 0.2549183369, blue: 0.2548671067, alpha: 1))
+        case 2:
+            nameTextField.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.2548763454, green: 0.2549183369, blue: 0.2548671067, alpha: 1))
+            passwordTextField.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.2548763454, green: 0.2549183369, blue: 0.2548671067, alpha: 1))
+        case 3:
+            nameTextField.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.2548763454, green: 0.2549183369, blue: 0.2548671067, alpha: 1))
+            emailTextField.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.2548763454, green: 0.2549183369, blue: 0.2548671067, alpha: 1))
+        default: break
+        }
+    }
+}
+
+private extension SignUpViewController {
+
+    func configureViewModel() {
+        viewModel.errorHandler = { [weak self] message in
+            guard let me = self else { return }
+            if me.errorTextLabel.text != message {
+                me.errorTextLabel.slideInFromBottom()
+            }
+            me.errorTextLabel.text = message
+            me.errorTextLabel.alpha = 1
+            me.signUpButton.animateWhileAwaitingResponse(
+                showLoading: false,
+                originalConstraints: me.buttonContraint,
+                identifier: "signUpButtonWidth",
+                title: L1s.signUp
+            )
+        }
+
+        viewModel.spinnerHandler = { [weak self] in
+            guard let me = self else { return }
+            me.signUpButton.animateWhileAwaitingResponse(
+                showLoading: true,
+                originalConstraints: me.signUpButton.constraints,
+                identifier: "signUpButtonWidth",
+                title: L1s.signUp
+            )
+        }
+    }
+
+    func configureView() {
+        errorTextLabel.alpha = 0
+        nameTextField.becomeFirstResponder()
+        signUpButtonWidth.constant = UIScreen.main.bounds.width -
+            (UIScreen.main.bounds.width - signUpButton.frame.width )
+        signUpButton.isEnabled = false
+        view.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(tapView)))
+        [nameTextField, emailTextField, passwordTextField]
+            .forEach { $0?.addTarget(self, action: #selector(editingChanged), for: .editingChanged)}
+    }
+
+    func viewEndEditing() {
+        view.endEditing(true)
+        textFieldNotFocus()
+    }
+
+    func textFieldNotFocus() {
+        [nameTextField, emailTextField, passwordTextField]
+            .forEach { $0.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.2548763454, green: 0.2549183369, blue: 0.2548671067, alpha: 1)) }
+    }
+}
+
+extension SignUpViewController: Storyboarded {}

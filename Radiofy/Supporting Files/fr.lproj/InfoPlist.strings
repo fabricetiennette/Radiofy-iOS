@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Radiofy
+
+  Created by Fabrice Etiennette on 07/05/2020.
+  Copyright © 2020 Fabrice Etiennette. All rights reserved.
+*/
+
+NSCameraUsageDescription = "Cela vous permettra de prendre une photo avec votre mobile et l’enregistrer comme image de profil sur Radiofy.";
+NSPhotoLibraryAddUsageDescription = "Cela vous permettra d'accéder à votre bibliothèque pour enregistrer une de vos photos en tant qu’image de profil dans l’application.";

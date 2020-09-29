@@ -1,0 +1,66 @@
+
+/* Class = "UIButton"; normalTitle = "SIGN OUT"; ObjectID = "1Su-T7-gAv"; */
+"1Su-T7-gAv.normalTitle" = "DÉCONNEXION";
+
+/* Class = "UIButton"; normalTitle = "Third-party software"; ObjectID = "4f4-HL-6lL"; */
+"4f4-HL-6lL.normalTitle" = "Logiciel tiers";
+
+/* Class = "UILabel"; text = "Radiofy"; ObjectID = "DnQ-Ru-YCF"; */
+"DnQ-Ru-YCF.text" = "Radiofy";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "HM4-sa-aU4"; */
+"HM4-sa-aU4.text" = "À propos";
+
+/* Class = "UILabel"; text = "Account"; ObjectID = "Li4-r0-0JX"; */
+"Li4-r0-0JX.text" = "Compte";
+
+/* Class = "UILabel"; text = "Popular stations"; ObjectID = "ShD-Qm-2sb"; */
+"ShD-Qm-2sb.text" = "Populaires";
+
+/* Class = "UILabel"; text = "National stations"; ObjectID = "Tfz-dx-OwC"; */
+"Tfz-dx-OwC.text" = "Internationales";
+
+/* Class = "UILabel"; text = "Recently played"; ObjectID = "W8H-c0-5AW"; */
+"W8H-c0-5AW.text" = "Écoutés récemment";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "Y0B-lR-ktr"; */
+"Y0B-lR-ktr.text" = "Version";
+
+/* Class = "UILabel"; text = "enjoy your favorite radio stations."; ObjectID = "ax0-Id-XR4"; */
+"ax0-Id-XR4.text" = "toutes vos radio et podcast préférées.";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "csv-3N-9Cf"; */
+"csv-3N-9Cf.text" = "Nom d'utilisateur";
+
+/* Class = "UILabel"; text = "1.5"; ObjectID = "eRf-B5-wcO"; */
+"eRf-B5-wcO.text" = "1.5";
+
+/* Class = "UIButton"; normalTitle = "DELETE ACCOUNT"; ObjectID = "fQx-Yf-2iP"; */
+"fQx-Yf-2iP.normalTitle" = "SUPPRIMER VOTRE COMPTE";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "g6R-Lj-rBq"; */
+"g6R-Lj-rBq.text" = "Email";
+
+/* Class = "UILabel"; text = "Good morning"; ObjectID = "iyk-MJ-inu"; */
+"iyk-MJ-inu.text" = "Bonjour";
+
+/* Class = "UILabel"; text = "Welcome to"; ObjectID = "pG2-S9-IF2"; */
+"pG2-S9-IF2.text" = "Bienvenue";
+
+/* Class = "UIButton"; normalTitle = "CHANGE PHOTO"; ObjectID = "qT4-S8-Da4"; */
+"qT4-S8-Da4.normalTitle" = "MODIFIER LA PHOTO";
+
+/* Class = "UILabel"; text = "This could be your first name or a nickname."; ObjectID = "u2L-L8-qDx"; */
+"u2L-L8-qDx.text" = "Il peut d'agir de votre prénom ou d'un surnom.";
+
+/* Class = "UIButton"; normalTitle = "Show Privacy Policy"; ObjectID = "uSN-Ek-qeN"; */
+"uSN-Ek-qeN.normalTitle" = "Politique de confidentialité";
+
+/* Class = "UIButton"; normalTitle = "EDIT YOUR PROFILE"; ObjectID = "yMV-bP-Fgd"; */
+"yMV-bP-Fgd.normalTitle" = "MODIFIER LE PROFIL";
+
+/* Class = "UILabel"; text = "unknown"; ObjectID = "LWo-zT-99S"; */
+"LWo-zT-99S.text" = "inconnu";
+
+/* Class = "UILabel"; text = "unknown"; ObjectID = "bZh-l7-rtv"; */
+"bZh-l7-rtv.text" = "inconnu";

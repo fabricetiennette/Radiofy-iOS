@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Just 1,99 € /month."; ObjectID = "7Fo-Mw-YVK"; */
+"7Fo-Mw-YVK.text" = "Seulement €1,99 par mois.";
+
+/* Class = "UILabel"; text = "Cancel anytime."; ObjectID = "HSP-5S-S5J"; */
+"HSP-5S-S5J.text" = "Annulez à tout moment.";
+
+/* Class = "UILabel"; text = "Radiofy is a recurring subscription. You will automatically be billed the amount listed above through iTunes. Your subscription will auto-renew unless you cancel or turn off auto-renew at least 24 hours before the end of the current period. You can manage your subscription on iTunes."; ObjectID = "LIl-Jv-YOb"; */
+"LIl-Jv-YOb.text" = "Radiofy est un abonnement récurrent. Le montant indiqué ci-dessus vous sera automatiquement facturé par iTunes. Votre abonnement sera automatiquement renouvelé à moins que vous n'annuliez ou désactiviez le renouvellement automatique au moins 24 heures avant la fin de la période en cours. Vous pouvez gérer votre abonnement dans iTunes.";
+
+/* Class = "UILabel"; text = "No Ads Interruptions"; ObjectID = "Nk1-dq-YNp"; */
+"Nk1-dq-YNp.text" = "Pas de Publicité";
+
+/* Class = "UILabel"; text = "Radiofy Premium"; ObjectID = "P8s-aD-Wjb"; */
+"P8s-aD-Wjb.text" = "Radiofy Premium";
+
+/* Class = "UILabel"; text = "Premium"; ObjectID = "Umd-OA-Ti8"; */
+"Umd-OA-Ti8.text" = "Premium";
+
+/* Class = "UILabel"; text = "Free"; ObjectID = "WLu-7f-3V6"; */
+"WLu-7f-3V6.text" = "Gratuit";
+
+/* Class = "UILabel"; text = "Premium"; ObjectID = "XJD-9e-VuM"; */
+"XJD-9e-VuM.text" = "Premium";
+
+/* Class = "UILabel"; text = "Free"; ObjectID = "drY-1J-siC"; */
+"drY-1J-siC.text" = "Gratuit";
+
+/* Class = "UIButton"; normalTitle = "SUBSCRIBE"; ObjectID = "fat-JT-1Rc"; */
+"fat-JT-1Rc.normalTitle" = "C'EST PARTI !";
+
+/* Class = "UILabel"; text = "Unlimited listens"; ObjectID = "jeA-PX-RsS"; */
+"jeA-PX-RsS.text" = "Écoute illimitée";
+
+/* Class = "UIButton"; normalTitle = "SKIP OFFER"; ObjectID = "oy6-BX-d2n"; */
+"oy6-BX-d2n.normalTitle" = "IGNORER";
+
+/* Class = "UILabel"; text = "40 Minutes per day"; ObjectID = "tSR-uM-0IP"; */
+"tSR-uM-0IP.text" = "40 Minutes par jour";
+
+/* Class = "UILabel"; text = "and"; ObjectID = "yBy-f6-atk"; */
+"yBy-f6-atk.text" = "et";
+
+/* Class = "UILabel"; text = "Ads"; ObjectID = "yD3-Bv-phc"; */
+"yD3-Bv-phc.text" = "Avec Publicité";
