@@ -353,7 +353,9 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
   - PromisesObjC (1.2.10)
-  - Purchases (3.2.2)
+  - Purchases (3.7.2):
+    - PurchasesCoreSwift (= 3.7.2)
+  - PurchasesCoreSwift (3.7.2)
   - SDWebImage (5.9.2):
     - SDWebImage/Core (= 5.9.2)
   - SDWebImage/Core (5.9.2)
@@ -361,7 +363,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - FeedKit (= 7.0.1)
+  - FeedKit (~> 7.0.1)
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
@@ -373,7 +375,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - lottie-ios
   - NVActivityIndicatorView (~> 4.8.0)
-  - Purchases (= 3.2.2)
+  - Purchases (~> 3.7.0)
   - SwiftLint
 
 SPEC REPOS:
@@ -407,6 +409,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - PromisesObjC
     - Purchases
+    - PurchasesCoreSwift
     - SDWebImage
     - SwiftLint
 
@@ -439,10 +442,11 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
-  Purchases: 392c729893c011c7d4d37d7f7c9f863e597d4a9b
+  Purchases: f4b90cb0493bc32b4c9a1037cf0953df7dd89834
+  PurchasesCoreSwift: 8b5b6ae27eba12fcd123165e486f8ac128e35d45
   SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: deffcf295e4454dfde98c39b5336ad7a1bd39693
+PODFILE CHECKSUM: 9b705b465ae3121cea2b9b8161f6c64e1df9f205
 
 COCOAPODS: 1.9.1
