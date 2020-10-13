@@ -57,4 +57,5 @@ protocol FirestoreProtocol {
         with email: String,
         callback: @escaping (Result<Void, Error>) -> Void
     )
+    func isPurchasesAuthorized(callback: @escaping (Result<Bool, Error>) -> Void)
 }

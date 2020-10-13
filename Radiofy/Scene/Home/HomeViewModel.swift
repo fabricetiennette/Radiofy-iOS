@@ -115,12 +115,23 @@ class HomeViewModel {
     }
 
     func isPremium() {
-        purchase.purchaserInfo { purchaserInfo, _ in
-            if purchaserInfo?.entitlements["Premium"]?.isActive == true {
-                self.isPremiumHandler?()
-            } else {
-                self.isNotPremiumHandler?()
-                self.delegate?.showPayWall()
+        firestoreService.isPurchasesAuthorized { [weak self] result in
+            guard let me = self else { return }
+            switch result {
+            case .success(let purchaseAuthorized):
+                if purchaseAuthorized {
+                    me.purchase.purchaserInfo { purchaserInfo, _ in
+                        if purchaserInfo?.entitlements["Premium"]?.isActive == true {
+                            me.isPremiumHandler?()
+                        } else {
+                            me.isNotPremiumHandler?()
+                            me.delegate?.showPayWall()
+                        }
+                    }
+                } else {
+                    me.isPremiumHandler?()
+                }
+            case .failure: break
             }
         }
     }
