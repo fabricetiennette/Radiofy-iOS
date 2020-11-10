@@ -133,6 +133,10 @@ public class FirestoreService {
         }
     }
 
+    func saveDocumentToDatabase(imageUrl: String, mainColor: String, name: String, streamUrl: String) {
+        firestoreManager.saveDocumentToDatabase(imageUrl: imageUrl, mainColor: mainColor, name: name, streamUrl: streamUrl)
+    }
+
     // Get document
     func getDocument(
         collection: String,

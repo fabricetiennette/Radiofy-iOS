@@ -12,7 +12,7 @@ struct RadioStation: Codable {
     let name: String
     let imageURL: String
     let streamURL: String
-    private let unformattedColor: String
+    let unformattedColor: String
 
     init(name: String, imageURL: String, streamURL: String, unformattedColor: String) {
         self.name = name
