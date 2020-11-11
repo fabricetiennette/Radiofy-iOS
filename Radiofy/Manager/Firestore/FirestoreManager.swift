@@ -15,6 +15,8 @@ class FirestoreManager: FirestoreProtocol {
 
     let database = Firestore.firestore()
 
+    func saveDocumentToDatabase(imageUrl: String, mainColor: String, name: String, streamUrl: String) {}
+
     // get radio from database with collection name
     func getStationDetails(
         with collectionName: String,

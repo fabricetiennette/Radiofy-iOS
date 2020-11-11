@@ -63,6 +63,8 @@ class HomeViewModel {
             return radioStation.first
         }
         recentlyPlayedRadioHandler?(recentlyPlayedStations)
+        guard let radios = recentlyPlayedStations.first else { return }
+        firestoreService.saveDocumentToDatabase(imageUrl: radios.imageURL, mainColor: radios.unformattedColor, name: radios.name, streamUrl: radios.streamURL)
     }
 
     func launchSettingsPage() {
@@ -74,7 +76,7 @@ class HomeViewModel {
     }
 
     func getAllRadioStations() {
-        firestoreService.getStationDetails(with: "allStations") { [weak self] result in
+        firestoreService.getStationDetails(with: "stations") { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success(let radioStation):

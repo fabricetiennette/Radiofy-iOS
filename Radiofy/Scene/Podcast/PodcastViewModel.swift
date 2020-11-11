@@ -38,7 +38,7 @@ class PodcastViewModel {
 
     // Get podcaststation from database
     func getPodcastStation() {
-        firestoreService.getPodcastStationFromDatabase(with: "podcastStations") { result in
+        firestoreService.getPodcastStationFromDatabase(with: "podcast") { result in
             switch result {
             case .success(let podcastStations):
                 self.podcastStation = podcastStations
