@@ -37,6 +37,12 @@ protocol FirestoreProtocol {
         name: String,
         callback: @escaping (Result<Void, Error>) -> Void
     )
+    func saveDocumentToDatabase(
+        imageUrl: String,
+        mainColor: String,
+        name: String,
+        streamUrl: String
+    )
     func mergeNewInfoToUserDatabase(
         email: String,
         url: URL,
@@ -57,4 +63,5 @@ protocol FirestoreProtocol {
         with email: String,
         callback: @escaping (Result<Void, Error>) -> Void
     )
+    func isPurchasesAuthorized(callback: @escaping (Result<Bool, Error>) -> Void)
 }

@@ -31,6 +31,17 @@ public class FirestoreService {
         }
     }
 
+    func isPurchasesAuthorized(callback: @escaping (Result<Bool, Error>) -> Void) {
+        firestoreManager.isPurchasesAuthorized { result in
+            switch result {
+            case .success(let authorization):
+                callback(.success(authorization))
+            case .failure(let error):
+                callback(.failure(error))
+            }
+        }
+    }
+
     func getPodcastStationFromDatabase(
            with collectionName: String,
            callback: @escaping (Result<[PodcastStation], Error>) -> Void
@@ -120,6 +131,10 @@ public class FirestoreService {
                 callback(.failure(error))
             }
         }
+    }
+
+    func saveDocumentToDatabase(imageUrl: String, mainColor: String, name: String, streamUrl: String) {
+        firestoreManager.saveDocumentToDatabase(imageUrl: imageUrl, mainColor: mainColor, name: name, streamUrl: streamUrl)
     }
 
     // Get document

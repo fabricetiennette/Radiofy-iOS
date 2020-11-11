@@ -15,6 +15,8 @@ class FirestoreManager: FirestoreProtocol {
 
     let database = Firestore.firestore()
 
+    func saveDocumentToDatabase(imageUrl: String, mainColor: String, name: String, streamUrl: String) {}
+
     // get radio from database with collection name
     func getStationDetails(
         with collectionName: String,
@@ -143,6 +145,19 @@ class FirestoreManager: FirestoreProtocol {
                 }
                 callback(.success(()))
         }
+    }
+
+    // check if purchases is authorized
+    func isPurchasesAuthorized(callback: @escaping (Result<Bool, Error>) -> Void) {
+        database.collection("purchases").document("purchase")
+            .getDocument { (authorizationDoc, error) in
+                if let error = error {
+                    callback(.failure(error))
+                    return
+                }
+                guard let authorization = authorizationDoc?.get("authorization") as? Bool else { return }
+                callback(.success(authorization))
+            }
     }
 
     // merge new picture and userner into to existing one

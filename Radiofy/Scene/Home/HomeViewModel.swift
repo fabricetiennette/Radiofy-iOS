@@ -63,6 +63,8 @@ class HomeViewModel {
             return radioStation.first
         }
         recentlyPlayedRadioHandler?(recentlyPlayedStations)
+        guard let radios = recentlyPlayedStations.first else { return }
+        firestoreService.saveDocumentToDatabase(imageUrl: radios.imageURL, mainColor: radios.unformattedColor, name: radios.name, streamUrl: radios.streamURL)
     }
 
     func launchSettingsPage() {
@@ -74,7 +76,7 @@ class HomeViewModel {
     }
 
     func getAllRadioStations() {
-        firestoreService.getStationDetails(with: "allStations") { [weak self] result in
+        firestoreService.getStationDetails(with: "stations") { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success(let radioStation):
@@ -115,12 +117,23 @@ class HomeViewModel {
     }
 
     func isPremium() {
-        purchase.purchaserInfo { purchaserInfo, _ in
-            if purchaserInfo?.entitlements["Premium"]?.isActive == true {
-                self.isPremiumHandler?()
-            } else {
-                self.isNotPremiumHandler?()
-                self.delegate?.showPayWall()
+        firestoreService.isPurchasesAuthorized { [weak self] result in
+            guard let me = self else { return }
+            switch result {
+            case .success(let purchaseAuthorized):
+                if purchaseAuthorized {
+                    me.purchase.purchaserInfo { purchaserInfo, _ in
+                        if purchaserInfo?.entitlements["Premium"]?.isActive == true {
+                            me.isPremiumHandler?()
+                        } else {
+                            me.isNotPremiumHandler?()
+                            me.delegate?.showPayWall()
+                        }
+                    }
+                } else {
+                    me.isPremiumHandler?()
+                }
+            case .failure: break
             }
         }
     }
