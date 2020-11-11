@@ -7,23 +7,19 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 class RadioViewController: UIViewController {
 
     @IBOutlet private weak var radioImageView: UIImageView!
     @IBOutlet private weak var radioLabel: UILabel!
     @IBOutlet private weak var radioMagicView: UIView!
-    @IBOutlet private weak var bannerView: GADBannerView!
 
     var viewModel: RadioViewModel!
 
     private let favoriteBtn = UIButton(type: .custom)
-    var interstitial = GADInterstitial(adUnitID: "ca-app-pub-2776074318440444/2919889497")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureAdMob()
         navigationItem.largeTitleDisplayMode = .never
         configureViewModel()
         addFavoriteButton()
@@ -47,28 +43,7 @@ extension RadioViewController {
     }
 
     @IBAction func playButtonTapped(_ sender: Any) {
-        let currentDate = Date()
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .long
-        let current = formatter.string(from: currentDate)
-        let date = UserDefaultConfig.blockingTime
-        if current > date || HomeViewController.isUserPremium == true {
-            if interstitial.isReady {
-                interstitial.present(fromRootViewController: self)
-            } else {
-                viewModel.playRadio()
-            }
-        } else {
-            showAlertAndGoPremium(
-                title: L1s.limitReached,
-                message: L1s.limitMessage,
-                submitTitle: L1s.goPremium,
-                cancelTitle: L1s.cancelButton
-            ) {
-                self.viewModel.showPayWall()
-            }
-        }
+        viewModel.playRadio()
     }
 }
 
@@ -125,25 +100,5 @@ private extension RadioViewController {
         let currHeight = favoriteBtnItem.customView?.heightAnchor.constraint(equalToConstant: 24)
         currHeight?.isActive = true
         navigationItem.rightBarButtonItem = favoriteBtnItem
-    }
-
-    func configureAdMob() {
-        bannerView.isHidden = true
-        if HomeViewController.isUserPremium == false {
-            interstitial.delegate = self
-            interstitial.load(GADRequest())
-            bannerView.isHidden = false
-            bannerView.adUnitID = "ca-app-pub-2776074318440444/3415741188"
-            bannerView.rootViewController = self
-            let bannerLoad = GADRequest()
-            bannerView.load(bannerLoad)
-        }
-    }
-}
-
-extension RadioViewController: GADInterstitialDelegate {
-
-    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
-        viewModel.playRadio()
     }
 }

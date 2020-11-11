@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Purchases
 
 protocol HomeViewModelDelegate: class {
     func launchSettings()
@@ -21,7 +20,6 @@ class HomeViewModel {
 
     private weak var delegate: HomeViewModelDelegate?
     private let firestoreService: FirestoreService
-    private let purchase: Purchases
 
     var errorHandler: ((_ title: String, _ message: String) -> Void)?
     var recentlyPlayedRadioHandler: ((_ stations: [RadioStation]) -> Void)?
@@ -41,12 +39,10 @@ class HomeViewModel {
 
     init(
         delegate: HomeViewModelDelegate?,
-        firestoreService: FirestoreService = .init(),
-        purchase: Purchases = .shared
+        firestoreService: FirestoreService = .init()
     ) {
         self.delegate = delegate
         self.firestoreService = firestoreService
-        self.purchase = purchase
     }
 
     // MARK: - Functions
@@ -112,28 +108,6 @@ class HomeViewModel {
                 me.nationalRadioHandler?(me.nationalStations)
             case .failure:
                 me.errorHandler?(L1s.error, L1s.stationUnavailable)
-            }
-        }
-    }
-
-    func isPremium() {
-        firestoreService.isPurchasesAuthorized { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success(let purchaseAuthorized):
-                if purchaseAuthorized {
-                    me.purchase.purchaserInfo { purchaserInfo, _ in
-                        if purchaserInfo?.entitlements["Premium"]?.isActive == true {
-                            me.isPremiumHandler?()
-                        } else {
-                            me.isNotPremiumHandler?()
-                            me.delegate?.showPayWall()
-                        }
-                    }
-                } else {
-                    me.isPremiumHandler?()
-                }
-            case .failure: break
             }
         }
     }

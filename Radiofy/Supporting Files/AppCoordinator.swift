@@ -9,8 +9,6 @@
 import UIKit
 import Firebase
 import IQKeyboardManagerSwift
-import GoogleMobileAds
-import Purchases
 
 class AppCoordinator {
 
@@ -42,27 +40,8 @@ extension AppCoordinator {
     private func showMain() {
         FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
-        isUserPremium()
         IQKeyboardManager.shared.enable = true
         mainCoordinator = MainCoordinator(presenter: appDelegate.window!)
         mainCoordinator?.start()
-    }
-
-    private func isUserPremium() {
-        configurePurchases()
-        Purchases.shared.purchaserInfo { purchaserInfo, _ in
-            if purchaserInfo?.entitlements["Premium"]?.isActive == false {
-                self.configureAddMob()
-            }
-        }
-    }
-
-    private func configureAddMob() {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-    }
-
-    private func configurePurchases() {
-        Purchases.debugLogsEnabled = true
-        Purchases.configure(withAPIKey: "NShPdrfWROxxEWZZPvYqtjztEkkwTiIX")
     }
 }

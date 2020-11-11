@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +37,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1a-aI-qSf" customClass="ButtonRadioView" customModule="Radiofy" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1a-aI-qSf" customClass="ButtonRadioView" customModule="Radiofy" customModuleProvider="target">
                                 <rect key="frame" x="119.66666666666669" y="430" width="175" height="50"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="playButtonRadioView"/>
@@ -52,15 +53,8 @@
                                     <action selector="playButtonTapped:" destination="cKf-ne-fuY" eventType="touchUpInside" id="M3m-Jg-cId"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-ey-6XG" customClass="GADBannerView">
-                                <rect key="frame" x="47" y="505" width="320" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="BfZ-qP-TL7"/>
-                                    <constraint firstAttribute="height" constant="50" id="i2I-RF-7sd"/>
-                                </constraints>
-                            </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="KGd-iz-G9Y"/>
                         <color key="backgroundColor" red="0.098069019620000003" green="0.097960807380000001" blue="0.1019614115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -72,17 +66,13 @@
                             <constraint firstAttribute="bottom" secondItem="92I-Qs-Z4O" secondAttribute="bottom" id="Mb0-VN-bkX"/>
                             <constraint firstAttribute="trailing" secondItem="92I-Qs-Z4O" secondAttribute="trailing" id="RlR-wR-0Ij"/>
                             <constraint firstItem="0if-jm-wc2" firstAttribute="top" secondItem="qER-9w-ggV" secondAttribute="bottom" constant="40" id="UtI-ed-GeI"/>
-                            <constraint firstItem="ajD-ey-6XG" firstAttribute="centerX" secondItem="U8y-w1-vpo" secondAttribute="centerX" id="dy0-B1-SBo"/>
                             <constraint firstItem="R1a-aI-qSf" firstAttribute="top" secondItem="0if-jm-wc2" secondAttribute="bottom" constant="50" id="eED-gG-Hhw"/>
                             <constraint firstItem="0if-jm-wc2" firstAttribute="centerX" secondItem="U8y-w1-vpo" secondAttribute="centerX" id="h9d-in-ucp"/>
                             <constraint firstItem="0if-jm-wc2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="U8y-w1-vpo" secondAttribute="leading" id="kwb-bv-E1Z"/>
-                            <constraint firstItem="ajD-ey-6XG" firstAttribute="top" secondItem="R1a-aI-qSf" secondAttribute="bottom" constant="25" id="lis-iG-q8k"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0if-jm-wc2" secondAttribute="trailing" id="wXe-dU-426"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="KGd-iz-G9Y"/>
                     </view>
                     <connections>
-                        <outlet property="bannerView" destination="ajD-ey-6XG" id="UkZ-IO-ydy"/>
                         <outlet property="radioImageView" destination="qER-9w-ggV" id="B87-FU-kqg"/>
                         <outlet property="radioLabel" destination="0if-jm-wc2" id="i8N-yt-ICj"/>
                         <outlet property="radioMagicView" destination="92I-Qs-Z4O" id="R32-kF-cx7"/>
@@ -93,6 +83,11 @@
             <point key="canvasLocation" x="235" y="-92"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="R1a-aI-qSf">
+            <size key="intrinsicContentSize" width="48" height="41"/>
+        </designable>
+    </designables>
     <resources>
         <image name="NoPicture" width="275" height="275"/>
     </resources>

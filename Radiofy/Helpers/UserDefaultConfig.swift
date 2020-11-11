@@ -14,13 +14,4 @@ struct UserDefaultConfig {
 
     @UserDefault("favoriteStations", defaultValue: [])
     static var favoriteStations: [String]
-
-    @UserDefault("audioTimer", defaultValue: 0.0)
-    static var audioTimer: Double
-
-    @UserDefault("blockingTime", defaultValue: "")
-    static var blockingTime: String
-
-    @UserDefault("isToday", defaultValue: [])
-    static var isToday: [Date]
 }
