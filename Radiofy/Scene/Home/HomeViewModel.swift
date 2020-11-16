@@ -26,14 +26,13 @@ class HomeViewModel {
     var popularRadioHandler: ((_ stations: [RadioStation]) -> Void)?
     var nationalRadioHandler: ((_ stations: [RadioStation]) -> Void)?
     var headerRadioHandler: ((_ stations: [RadioStation]) -> Void)?
-    var isNotPremiumHandler: (() -> Void)?
-    var isPremiumHandler: (() -> Void)?
 
     static var allRadioStations: [RadioStation] = []
     private var headerRadio: [RadioStation] = []
     private var recentlyPlayedStations: [RadioStation] = []
     private var popularStations: [RadioStation] = []
     private var nationalStations: [RadioStation] = []
+    private var radioArray = ["stations", "popularStations", "nationalStations"]
 
     // MARK: - Init
 
@@ -72,7 +71,7 @@ class HomeViewModel {
     }
 
     func getAllRadioStations() {
-        firestoreService.getStationDetails(with: "stations") { [weak self] result in
+        firestoreService.getStationDetails(with: radioArray[0]) { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success(let radioStation):
@@ -87,7 +86,7 @@ class HomeViewModel {
     }
 
     func getPopularStationsDetails() {
-        firestoreService.getStationDetails(with: "popularStations") { [weak self] result in
+        firestoreService.getStationDetails(with: radioArray[1]) { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success(let radioStation):
@@ -100,7 +99,7 @@ class HomeViewModel {
     }
 
     func getNationalStationsDetails() {
-        firestoreService.getStationDetails(with: "nationalStations") { [weak self] result in
+        firestoreService.getStationDetails(with: radioArray[2]) { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success(let radioStation):
@@ -108,6 +107,25 @@ class HomeViewModel {
                 me.nationalRadioHandler?(me.nationalStations)
             case .failure:
                 me.errorHandler?(L1s.error, L1s.stationUnavailable)
+            }
+        }
+    }
+
+    func verifiedAndFetchRadioStations() {
+        firestoreService.isFullAppAccessAuthorized { result in
+            switch result {
+            case .success(let authorization):
+                if authorization == false {
+                    self.radioArray = ["allStations", "popularStations", "nationalStations"]
+                    self.getAllRadioStations()
+                    self.getPopularStationsDetails()
+                    self.getNationalStationsDetails()
+                } else {
+                    self.getAllRadioStations()
+                    self.getPopularStationsDetails()
+                    self.getNationalStationsDetails()
+                }
+            case .failure: break
             }
         }
     }

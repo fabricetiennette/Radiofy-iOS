@@ -147,15 +147,15 @@ class FirestoreManager: FirestoreProtocol {
         }
     }
 
-    // check if purchases is authorized
-    func isPurchasesAuthorized(callback: @escaping (Result<Bool, Error>) -> Void) {
-        database.collection("purchases").document("purchase")
+    // check if develop stage
+    func isFullAppAccessAuthorized(callback: @escaping (Result<Bool, Error>) -> Void) {
+        database.collection("development").document("develop")
             .getDocument { (authorizationDoc, error) in
                 if let error = error {
                     callback(.failure(error))
                     return
                 }
-                guard let authorization = authorizationDoc?.get("authorization") as? Bool else { return }
+                guard let authorization = authorizationDoc?.get("release21") as? Bool else { return }
                 callback(.success(authorization))
             }
     }

@@ -31,8 +31,8 @@ public class FirestoreService {
         }
     }
 
-    func isPurchasesAuthorized(callback: @escaping (Result<Bool, Error>) -> Void) {
-        firestoreManager.isPurchasesAuthorized { result in
+    func isFullAppAccessAuthorized(callback: @escaping (Result<Bool, Error>) -> Void) {
+        firestoreManager.isFullAppAccessAuthorized { result in
             switch result {
             case .success(let authorization):
                 callback(.success(authorization))

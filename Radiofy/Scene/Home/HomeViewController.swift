@@ -81,9 +81,7 @@ private extension HomeViewController {
                 me.homeTableView.reloadData()
             }
         }
-        viewModel.getAllRadioStations()
-        viewModel.getPopularStationsDetails()
-        viewModel.getNationalStationsDetails()
+        viewModel.verifiedAndFetchRadioStations()
     }
 
     func bindViewModel(to dataSource: HomeDataSource) {

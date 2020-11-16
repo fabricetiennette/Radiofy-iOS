@@ -41,7 +41,7 @@ private extension PodcastViewController {
                 me.podcastTableView.reloadData()
             }
         }
-        viewModel.getPodcastStation()
+        viewModel.verifiedAndFetchPodcastStations()
     }
 
     func bindViewModel(to dataSource: PodcastDataSource) {
