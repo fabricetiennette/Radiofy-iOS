@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good morning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyk-MJ-inu">
-                                                    <rect key="frame" x="20" y="51" width="354" height="30"/>
+                                                    <rect key="frame" x="20" y="36" width="354" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="SPm-VN-pRt"/>
                                                     </constraints>
@@ -38,22 +38,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jhw-Ge-vKl">
-                                                    <rect key="frame" x="20" y="101" width="374" height="179"/>
+                                                    <rect key="frame" x="20" y="86" width="374" height="194"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yl2-yV-FNM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="54.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
                                                             <subviews>
                                                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYE-YY-S1C" customClass="MorningHomeCellView" customModule="Radiofy" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="183" height="54.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="183" height="59.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderPicture" translatesAutoresizingMaskIntoConstraints="NO" id="6NJ-Sk-lap" customClass="MorningHomeCellImageView" customModule="Radiofy" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="54.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="59.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="6NJ-Sk-lap" secondAttribute="height" multiplier="58:55" id="aT6-GT-18q"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="4fX-B6-3ZW">
-                                                                            <rect key="frame" x="62.5" y="10" width="115.5" height="34.5"/>
+                                                                            <rect key="frame" x="67.5" y="10" width="110.5" height="39.5"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -77,16 +77,16 @@
                                                                     </connections>
                                                                 </view>
                                                                 <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vr-pd-wTj" customClass="MorningHomeCellView" customModule="Radiofy" customModuleProvider="target">
-                                                                    <rect key="frame" x="191" y="0.0" width="183" height="54.5"/>
+                                                                    <rect key="frame" x="191" y="0.0" width="183" height="59.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderPicture" translatesAutoresizingMaskIntoConstraints="NO" id="hpT-3z-yGu" customClass="MorningHomeCellImageView" customModule="Radiofy" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="54.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="59.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="hpT-3z-yGu" secondAttribute="height" multiplier="58:55" id="TNl-2P-rs3"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="kCl-aO-7Kf">
-                                                                            <rect key="frame" x="62.5" y="10" width="115.5" height="34.5"/>
+                                                                            <rect key="frame" x="67.5" y="10" width="110.5" height="39.5"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -112,19 +112,19 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VM3-wV-gVt">
-                                                            <rect key="frame" x="0.0" y="62.5" width="374" height="54"/>
+                                                            <rect key="frame" x="0.0" y="67.5" width="374" height="59"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2m-tj-Kmb" customClass="MorningHomeCellView" customModule="Radiofy" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="183" height="54"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="183" height="59"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderPicture" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-tY-L4p" customClass="MorningHomeCellImageView" customModule="Radiofy" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="54"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="59"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="gxk-tY-L4p" secondAttribute="height" multiplier="58:55" id="I3G-kd-ICX"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="hFB-OW-Wob">
-                                                                            <rect key="frame" x="62.5" y="10" width="115.5" height="34"/>
+                                                                            <rect key="frame" x="67.5" y="10" width="110.5" height="39"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -148,16 +148,16 @@
                                                                     </connections>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VU-gP-fX1" customClass="MorningHomeCellView" customModule="Radiofy" customModuleProvider="target">
-                                                                    <rect key="frame" x="191" y="0.0" width="183" height="54"/>
+                                                                    <rect key="frame" x="191" y="0.0" width="183" height="59"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="yP0-15-pzH">
-                                                                            <rect key="frame" x="62.5" y="10" width="115.5" height="34"/>
+                                                                            <rect key="frame" x="67.5" y="10" width="110.5" height="39"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderPicture" translatesAutoresizingMaskIntoConstraints="NO" id="RXG-rk-dnS" customClass="MorningHomeCellImageView" customModule="Radiofy" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="54"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="59"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="RXG-rk-dnS" secondAttribute="height" multiplier="58:55" id="7Vd-RU-8Uo"/>
                                                                             </constraints>
@@ -183,19 +183,19 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZN3-3x-oF2">
-                                                            <rect key="frame" x="0.0" y="124.5" width="374" height="54.5"/>
+                                                            <rect key="frame" x="0.0" y="134.5" width="374" height="59.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tO6-Pw-bKR" customClass="MorningHomeCellView" customModule="Radiofy" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="183" height="54.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="183" height="59.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderPicture" translatesAutoresizingMaskIntoConstraints="NO" id="iuF-gb-n44" customClass="MorningHomeCellImageView" customModule="Radiofy" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="54.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="59.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="iuF-gb-n44" secondAttribute="height" multiplier="58:55" id="bFb-vE-eCK"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="0cU-ue-o6f">
-                                                                            <rect key="frame" x="62.5" y="10" width="115.5" height="34.5"/>
+                                                                            <rect key="frame" x="67.5" y="10" width="110.5" height="39.5"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -219,16 +219,16 @@
                                                                     </connections>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qe8-NJ-D1e" customClass="MorningHomeCellView" customModule="Radiofy" customModuleProvider="target">
-                                                                    <rect key="frame" x="191" y="0.0" width="183" height="54.5"/>
+                                                                    <rect key="frame" x="191" y="0.0" width="183" height="59.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderPicture" translatesAutoresizingMaskIntoConstraints="NO" id="zCd-3s-ZmB" customClass="MorningHomeCellImageView" customModule="Radiofy" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="54.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="59.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="zCd-3s-ZmB" secondAttribute="height" multiplier="58:55" id="JXZ-xx-KIG"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="wV6-7j-lEw">
-                                                                            <rect key="frame" x="62.5" y="10" width="115.5" height="34.5"/>
+                                                                            <rect key="frame" x="67.5" y="10" width="110.5" height="39.5"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -258,7 +258,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="iyk-MJ-inu" firstAttribute="top" secondItem="tjC-Sn-y5X" secondAttribute="topMargin" constant="40" id="1Ne-an-e6P"/>
+                                                <constraint firstItem="iyk-MJ-inu" firstAttribute="top" secondItem="tjC-Sn-y5X" secondAttribute="topMargin" constant="25" id="1Ne-an-e6P"/>
                                                 <constraint firstItem="Jhw-Ge-vKl" firstAttribute="leading" secondItem="tjC-Sn-y5X" secondAttribute="leading" constant="20" id="E5D-7E-Vh3"/>
                                                 <constraint firstItem="iyk-MJ-inu" firstAttribute="leading" secondItem="tjC-Sn-y5X" secondAttribute="leadingMargin" id="P5C-Bs-WMj"/>
                                                 <constraint firstAttribute="trailing" secondItem="Jhw-Ge-vKl" secondAttribute="trailing" constant="20" id="bHn-oY-iSC"/>
@@ -593,12 +593,12 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0z-UL-ZJM" customClass="SettingButtonView" customModule="Radiofy" customModuleProvider="target">
-                                <rect key="frame" x="364" y="44" width="40" height="40"/>
+                                <rect key="frame" x="377" y="49" width="22" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="SettingButtonView"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="AiU-Kv-5hW"/>
-                                    <constraint firstAttribute="width" constant="40" id="KgN-dd-97j"/>
+                                    <constraint firstAttribute="width" constant="22" id="KgN-dd-97j"/>
+                                    <constraint firstAttribute="width" secondItem="T0z-UL-ZJM" secondAttribute="height" multiplier="1:1" id="hpf-4m-Had"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -611,12 +611,12 @@
                         <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dVG-rm-dgQ" firstAttribute="trailing" secondItem="T0z-UL-ZJM" secondAttribute="trailing" constant="10" id="04t-pz-Bpr"/>
+                            <constraint firstItem="dVG-rm-dgQ" firstAttribute="trailing" secondItem="T0z-UL-ZJM" secondAttribute="trailing" constant="15" id="04t-pz-Bpr"/>
                             <constraint firstItem="5VG-5s-VBO" firstAttribute="trailing" secondItem="dVG-rm-dgQ" secondAttribute="trailing" id="QrB-bb-zFM"/>
+                            <constraint firstAttribute="topMargin" secondItem="T0z-UL-ZJM" secondAttribute="top" constant="-5" id="UwJ-od-1uy"/>
                             <constraint firstItem="dVG-rm-dgQ" firstAttribute="bottom" secondItem="5VG-5s-VBO" secondAttribute="bottom" id="aow-rp-NFX"/>
                             <constraint firstItem="5VG-5s-VBO" firstAttribute="leading" secondItem="dVG-rm-dgQ" secondAttribute="leading" id="iX0-iJ-1w9"/>
                             <constraint firstItem="5VG-5s-VBO" firstAttribute="top" secondItem="dVG-rm-dgQ" secondAttribute="top" id="ndW-3v-4m8"/>
-                            <constraint firstItem="T0z-UL-ZJM" firstAttribute="top" secondItem="dVG-rm-dgQ" secondAttribute="top" id="uup-Yv-gsN"/>
                         </constraints>
                     </view>
                     <connections>
