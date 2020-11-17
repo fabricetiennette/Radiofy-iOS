@@ -8,14 +8,12 @@
 
 import UIKit
 import NVActivityIndicatorView
-import GoogleMobileAds
 
 class AccountViewController: UIViewController {
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var deleteButton: DeleteAccountView!
-    @IBOutlet private weak var bannerView: GADBannerView!
 
     var viewModel: AccountViewModel!
 
@@ -23,16 +21,6 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         configureViewModel()
         configureView()
-        configureAdMob()
-    }
-
-    @IBAction func restorePurchases(_ sender: Any) {
-        startAnimation()
-        viewModel.restorePurchase()
-    }
-
-    @IBAction func showPremiumOffer(_ sender: Any) {
-        viewModel.openSubscriptionPage()
     }
 
     @IBAction func deleteAccountTapped(_ sender: Any) {
@@ -77,16 +65,6 @@ private extension AccountViewController {
 
     func configureView() {
         navigationItem.title = L1s.compte
-    }
-
-    func configureAdMob() {
-        bannerView.isHidden = true
-        if HomeViewController.isUserPremium == false {
-            bannerView.isHidden = false
-            bannerView.adUnitID = "ca-app-pub-2776074318440444/3415741188"
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
-        }
     }
 }
 

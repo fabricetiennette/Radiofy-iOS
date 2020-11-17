@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 class AboutViewController: UIViewController {
-
-    @IBOutlet private weak var bannerView: GADBannerView!
 
     var viewModel: AboutViewModel!
 
@@ -19,7 +16,6 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         configureViewModel()
         configureView()
-        configureAdMob()
     }
 
     @IBAction private func thirdPartySoftwareTapped(_ sender: Any) {
@@ -46,16 +42,6 @@ private extension AboutViewController {
 
     func configureView() {
         navigationItem.title = L1s.about
-    }
-
-    func configureAdMob() {
-        bannerView.isHidden = true
-        if HomeViewController.isUserPremium == false {
-            bannerView.isHidden = false
-            bannerView.adUnitID = "ca-app-pub-2776074318440444/3415741188"
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
-        }
     }
 }
 

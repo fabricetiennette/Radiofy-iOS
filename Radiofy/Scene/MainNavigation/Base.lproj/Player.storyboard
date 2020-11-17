@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,6 +63,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="kmO-Bm-ITq"/>
                         <color key="backgroundColor" red="0.15686407690000001" green="0.15686029200000001" blue="0.15686288479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="pUh-KK-5Eb" firstAttribute="bottom" secondItem="dZu-dE-DQY" secondAttribute="bottom" id="0Rv-M4-PB8"/>
@@ -80,7 +81,6 @@
                             <constraint firstItem="pUh-KK-5Eb" firstAttribute="centerY" secondItem="x6N-lT-2L1" secondAttribute="centerY" id="mbV-7k-oqa"/>
                             <constraint firstItem="pUh-KK-5Eb" firstAttribute="leading" secondItem="x6N-lT-2L1" secondAttribute="leading" constant="1" id="upZ-yK-e9K"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="kmO-Bm-ITq"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="52"/>
@@ -165,17 +165,10 @@
                                             <constraint firstAttribute="width" secondItem="DdX-vz-geY" secondAttribute="height" multiplier="1:1" id="Ide-V1-KhS"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ik-wx-736" customClass="GADBannerView">
-                                        <rect key="frame" x="62.666666666666657" y="136.66666666666663" width="249.99999999999997" height="250"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="9Ik-wx-736" secondAttribute="height" multiplier="1:1" id="eyJ-Hx-38x"/>
-                                        </constraints>
-                                    </view>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fnu-Yu-Irm">
                                         <rect key="frame" x="23" y="484" width="329" height="31"/>
                                         <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="maximumTrackTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <color key="maximumTrackTintColor" systemColor="viewFlipsideBackgroundColor"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="handleCurrentTimeSliderChange:" destination="WRt-JP-Ujy" eventType="valueChanged" id="tLs-vr-yFB"/>
@@ -187,13 +180,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j21-z5-6TX">
                                                 <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                <color key="textColor" systemColor="viewFlipsideBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgz-WY-D5d">
                                                 <rect key="frame" x="162.66666666666663" y="0.0" width="162.33333333333337" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                <color key="textColor" systemColor="viewFlipsideBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -224,14 +217,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-kZ-DTv">
-                                        <rect key="frame" x="25.000000000000004" y="519" width="35.333333333333343" height="22"/>
+                                        <rect key="frame" x="25" y="519" width="35" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyu-3D-2TC" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                        <rect key="frame" x="25.000000000000004" y="519" width="35.333333333333343" height="22"/>
+                                        <rect key="frame" x="25" y="519" width="35" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="lineSpinFadeLoader"/>
@@ -259,13 +252,11 @@
                                     <constraint firstAttribute="trailing" secondItem="QSc-5r-zdX" secondAttribute="trailing" constant="25" id="Lt5-lP-ozB"/>
                                     <constraint firstItem="ORS-tl-qnv" firstAttribute="top" secondItem="fnu-Yu-Irm" secondAttribute="bottom" constant="5" id="MEn-Hj-qcl"/>
                                     <constraint firstItem="kSQ-kZ-DTv" firstAttribute="top" secondItem="ORS-tl-qnv" secondAttribute="top" id="PaL-1G-k7z"/>
-                                    <constraint firstItem="9Ik-wx-736" firstAttribute="width" secondItem="DdX-vz-geY" secondAttribute="width" multiplier="0.847458" id="PlM-dq-cnU"/>
                                     <constraint firstItem="kSQ-kZ-DTv" firstAttribute="top" secondItem="Xyu-3D-2TC" secondAttribute="top" id="RL8-2r-0P1"/>
                                     <constraint firstItem="kSQ-kZ-DTv" firstAttribute="bottom" secondItem="ORS-tl-qnv" secondAttribute="bottom" id="RPz-AY-zjZ"/>
                                     <constraint firstItem="DdX-vz-geY" firstAttribute="centerX" secondItem="lLP-kT-KiO" secondAttribute="centerX" id="S1I-GU-yaJ"/>
                                     <constraint firstItem="ORS-tl-qnv" firstAttribute="leading" secondItem="lLP-kT-KiO" secondAttribute="leading" constant="25" id="SCp-8n-xne"/>
                                     <constraint firstItem="yNG-Vd-h18" firstAttribute="leading" secondItem="a2c-jn-qbL" secondAttribute="trailing" id="Tl6-sv-upm"/>
-                                    <constraint firstItem="9Ik-wx-736" firstAttribute="centerX" secondItem="DdX-vz-geY" secondAttribute="centerX" id="Wb3-nk-5w5"/>
                                     <constraint firstItem="ESk-w7-XVN" firstAttribute="centerY" secondItem="zsS-om-bkr" secondAttribute="centerY" id="YvG-WT-eaP"/>
                                     <constraint firstItem="yNG-Vd-h18" firstAttribute="centerX" secondItem="lLP-kT-KiO" secondAttribute="centerX" id="ZqS-hx-1Yv"/>
                                     <constraint firstItem="DdX-vz-geY" firstAttribute="top" secondItem="yNG-Vd-h18" secondAttribute="bottom" constant="40" id="Zv3-oq-0kr"/>
@@ -275,11 +266,11 @@
                                     <constraint firstItem="kSQ-kZ-DTv" firstAttribute="trailing" secondItem="Xyu-3D-2TC" secondAttribute="trailing" id="iIZ-l2-OoF"/>
                                     <constraint firstItem="kSQ-kZ-DTv" firstAttribute="leading" secondItem="Xyu-3D-2TC" secondAttribute="leading" id="j84-hg-G1a"/>
                                     <constraint firstItem="kSQ-kZ-DTv" firstAttribute="leading" secondItem="ORS-tl-qnv" secondAttribute="leading" id="u7i-sk-dxN"/>
-                                    <constraint firstItem="9Ik-wx-736" firstAttribute="centerY" secondItem="DdX-vz-geY" secondAttribute="centerY" id="wlI-4g-iLq"/>
                                     <constraint firstItem="ESk-w7-XVN" firstAttribute="leading" secondItem="zsS-om-bkr" secondAttribute="trailing" constant="25" id="z53-TM-Yy1"/>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="KNI-kF-NNE"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="lLP-kT-KiO" secondAttribute="bottom" id="23G-i8-mj3"/>
@@ -291,11 +282,9 @@
                             <constraint firstItem="KNI-kF-NNE" firstAttribute="trailing" secondItem="X3y-gB-Ceg" secondAttribute="trailing" id="g7p-vG-HlE"/>
                             <constraint firstItem="lLP-kT-KiO" firstAttribute="leading" secondItem="KNI-kF-NNE" secondAttribute="leading" id="qtX-gh-EF0"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="KNI-kF-NNE"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Xyu-3D-2TC" id="WRJ-Kv-gzq"/>
-                        <outlet property="bannerView" destination="9Ik-wx-736" id="tXi-WQ-3se"/>
                         <outlet property="currentTimeLabel" destination="j21-z5-6TX" id="j9q-NQ-qlP"/>
                         <outlet property="durationLabel" destination="fgz-WY-D5d" id="mLr-py-Bjg"/>
                         <outlet property="forwardButton" destination="Lhz-UM-jPc" id="hiF-Jt-5co"/>
@@ -322,5 +311,14 @@
         <image name="placeholderPicture" width="200" height="200"/>
         <image name="playButton" width="100" height="100"/>
         <image name="replayTen" width="64" height="64"/>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

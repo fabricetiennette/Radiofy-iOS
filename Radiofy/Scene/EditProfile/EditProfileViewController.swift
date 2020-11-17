@@ -8,14 +8,12 @@
 
 import UIKit
 import NVActivityIndicatorView
-import GoogleMobileAds
 
 class EditProfileViewController: UIViewController {
 
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var userNameTextField: UITextField!
     @IBOutlet private weak var errorTextLabel: UILabel!
-    @IBOutlet private weak var bannerView: GADBannerView!
 
     private var isRemovingCurrentPhotoAvailable = false
     private var isSavingButtonAvailable = false
@@ -27,7 +25,6 @@ class EditProfileViewController: UIViewController {
         configureNavigationController()
         configureView()
         configureViewModel()
-        configureAdMob()
     }
 
     @objc private func tapView() {
@@ -123,16 +120,6 @@ private extension EditProfileViewController {
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .disabled)
 
         navigationItem.rightBarButtonItem?.isEnabled = false
-    }
-
-    func configureAdMob() {
-        bannerView.isHidden = true
-        if HomeViewController.isUserPremium == false {
-            bannerView.isHidden = false
-            bannerView.adUnitID = "ca-app-pub-2776074318440444/3415741188"
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
-        }
     }
 }
 

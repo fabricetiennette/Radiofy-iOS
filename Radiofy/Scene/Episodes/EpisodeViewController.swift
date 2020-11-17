@@ -8,7 +8,6 @@
 
 import UIKit
 import NVActivityIndicatorView
-import GoogleMobileAds
 
 class EpisodeViewController: UIViewController {
 
@@ -16,7 +15,6 @@ class EpisodeViewController: UIViewController {
 
     private lazy var episodeDataSource = EpisodeDataSource()
     var viewModel: EpisodeViewModel!
-    var interstitial = GADInterstitial(adUnitID: "ca-app-pub-2776074318440444/1196771955")
     private var episode: Episode!
 
     override func viewDidLoad() {
@@ -26,7 +24,6 @@ class EpisodeViewController: UIViewController {
         episodeTableView.dataSource = episodeDataSource
 
         configureNavbar()
-        configureAdMob()
 
         bind(to: viewModel)
         bindViewModel(to: episodeDataSource)
@@ -55,29 +52,8 @@ private extension EpisodeViewController {
     func bindViewModel(to dataSource: EpisodeDataSource) {
         dataSource.episodeTapHandler = { [weak self] episode in
             guard let me = self else { return }
-            let currentDate = Date()
-            let formatter = DateFormatter()
-            formatter.timeStyle = .medium
-            formatter.dateStyle = .long
-            let current = formatter.string(from: currentDate)
-            let date = UserDefaultConfig.blockingTime
-            if current > date || HomeViewController.isUserPremium == true {
-                if me.interstitial.isReady {
-                    me.episode = episode
-                    me.interstitial.present(fromRootViewController: me)
-                } else {
-                    me.viewModel.getAndPlayEpisode(with: episode)
-                }
-            } else {
-                me.showAlertAndGoPremium(
-                    title: L1s.limitReached,
-                    message: L1s.limitMessage,
-                    submitTitle: L1s.goPremium,
-                    cancelTitle: L1s.cancelButton
-                ) {
-                    me.viewModel.showPayWall()
-                }
-            }
+            me.episode = episode
+            me.viewModel.getAndPlayEpisode(with: episode)
         }
     }
 }
@@ -110,56 +86,6 @@ private extension EpisodeViewController {
             navigationItem.largeTitleDisplayMode = .never
             navigationItem.title = viewModel.selectedPodcast?.trackName
         }
-    }
-
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-     bannerView.translatesAutoresizingMaskIntoConstraints = false
-     view.addSubview(bannerView)
-     view.addConstraints(
-        [NSLayoutConstraint(item: bannerView,
-                           attribute: .bottom,
-                           relatedBy: .equal,
-                           toItem: view.safeAreaLayoutGuide,
-                           attribute: .bottom,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: bannerView,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0)
-       ])
-    }
-
-    func configureAdMob() {
-        if HomeViewController.isUserPremium == false {
-           let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-            addBannerViewToView(bannerView)
-            bannerView.adUnitID = "ca-app-pub-2776074318440444/9981149535"
-            interstitial = createAndLoadInterstitial()
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
-        }
-    }
-
-    func createAndLoadInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-2776074318440444/1196771955")
-        interstitial.delegate = self
-        interstitial.load(GADRequest())
-        return interstitial
-    }
-}
-
-extension EpisodeViewController: GADInterstitialDelegate {
-    /// Tells the delegate the interstitial is to be animated off the screen.
-    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
-        viewModel.getAndPlayEpisode(with: episode)
-    }
-
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-      interstitial = createAndLoadInterstitial()
     }
 }
 

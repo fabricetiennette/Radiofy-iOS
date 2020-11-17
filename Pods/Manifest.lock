@@ -285,9 +285,6 @@ PODS:
     - Firebase/Storage (~> 6.0)
     - SDWebImage (~> 5.6)
   - FRadioPlayer (0.1.20)
-  - Google-Mobile-Ads-SDK (7.66.0):
-    - GoogleAppMeasurement (~> 6.0)
-    - GoogleUserMessagingPlatform (~> 1.1)
   - GoogleAppMeasurement (6.8.3):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -296,7 +293,6 @@ PODS:
     - nanopb (~> 1.30906.0)
   - GoogleDataTransport (7.4.0):
     - nanopb (~> 1.30906.0)
-  - GoogleUserMessagingPlatform (1.2.0)
   - GoogleUtilities/AppDelegateSwizzler (6.7.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -353,9 +349,6 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
   - PromisesObjC (1.2.10)
-  - Purchases (3.7.2):
-    - PurchasesCoreSwift (= 3.7.2)
-  - PurchasesCoreSwift (3.7.2)
   - SDWebImage (5.9.2):
     - SDWebImage/Core (= 5.9.2)
   - SDWebImage/Core (5.9.2)
@@ -371,11 +364,9 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI/Storage
   - FRadioPlayer
-  - Google-Mobile-Ads-SDK
   - IQKeyboardManagerSwift
   - lottie-ios
   - NVActivityIndicatorView (~> 4.8.0)
-  - Purchases (~> 3.7.0)
   - SwiftLint
 
 SPEC REPOS:
@@ -394,10 +385,8 @@ SPEC REPOS:
     - FirebaseStorage
     - FirebaseUI
     - FRadioPlayer
-    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
-    - GoogleUserMessagingPlatform
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
@@ -408,8 +397,6 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - PromisesObjC
-    - Purchases
-    - PurchasesCoreSwift
     - SDWebImage
     - SwiftLint
 
@@ -428,10 +415,8 @@ SPEC CHECKSUMS:
   FirebaseStorage: 33b92875a9b556824886cc7a65120c7d2cb3a8d8
   FirebaseUI: 9df84336a56f1d755ae4c37d5885c237d3084b6b
   FRadioPlayer: 5c35ba963b69663a4f7d34405c09847d7aebbfcc
-  Google-Mobile-Ads-SDK: 7d7074359c040f5add4e0963bf860e14690060d0
   GoogleAppMeasurement: 966e88df9d19c15715137bb2ddaf52373f111436
   GoogleDataTransport: b7f406340a291370045a270c599e53c6fa6ec20f
-  GoogleUserMessagingPlatform: c85530d930ba509583aa5a6d50a10aca22cf8502
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
@@ -442,11 +427,9 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
-  Purchases: f4b90cb0493bc32b4c9a1037cf0953df7dd89834
-  PurchasesCoreSwift: 8b5b6ae27eba12fcd123165e486f8ac128e35d45
   SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: 9b705b465ae3121cea2b9b8161f6c64e1df9f205
+PODFILE CHECKSUM: 778b20646bbc50634c89a56d7c8976fa91cc77fb
 
 COCOAPODS: 1.9.1

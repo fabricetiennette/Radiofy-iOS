@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Purchases
 import NVActivityIndicatorView
 
 class SubscriptionViewController: UIViewController {
@@ -26,7 +25,6 @@ class SubscriptionViewController: UIViewController {
 
     @IBAction func subsribeButtonTapped(_ sender: Any) {
         startAnimation()
-        viewModel.purchase()
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
@@ -58,17 +56,11 @@ private extension SubscriptionViewController {
             guard let me = self else { return }
             me.present(viewController, animated: true)
         }
-        viewModel.packageHanlder = { [weak self] package in
-            guard let me = self else { return }
-            let price = package.localizedPriceString
-            me.priceLabel.text = "\(L1s.just) \(price) \(L1s.month)"
-        }
         viewModel.successHandler = { [weak self] in
             guard let me = self else { return }
             me.stopAnimating()
             me.dismiss(animated: true, completion: nil)
         }
-        viewModel.getPackagePrice()
     }
 
     func startAnimation() {

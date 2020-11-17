@@ -19,8 +19,6 @@ target 'Radiofy' do
   pod 'NVActivityIndicatorView', '~> 4.8.0'
   pod 'FeedKit', '~> 7.0.1'
   pod 'Alamofire', '~> 4.7'
-  pod 'Google-Mobile-Ads-SDK'
-  pod 'Purchases', '~> 3.7.0'
 
 end
 
