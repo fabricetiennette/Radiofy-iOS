@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 class HomeViewController: UIViewController {
 
@@ -15,7 +14,6 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var homeTableView: UITableView!
 
     private lazy var homeDataSource = HomeDataSource()
-    static var isUserPremium: Bool?
     var viewModel: HomeViewModel!
 
     override func viewDidLoad() {
@@ -45,18 +43,9 @@ extension HomeViewController: Storyboarded {}
 private extension HomeViewController {
 
     func bind(to viewModel: HomeViewModel) {
-        viewModel.isPremiumHandler = { [weak self] in
-            guard self != nil else { return }
-            HomeViewController.isUserPremium = true
-        }
         viewModel.errorHandler = { [weak self] title, message in
             guard let me = self else { return }
             me.showAlert(title: title, message: message)
-        }
-        viewModel.isNotPremiumHandler = { [weak self] in
-            guard let me = self else { return }
-            HomeViewController.isUserPremium = false
-            me.configureAdMob()
         }
         viewModel.headerRadioHandler = { [weak self] radioStations in
             guard let me = self else { return }
@@ -92,10 +81,7 @@ private extension HomeViewController {
                 me.homeTableView.reloadData()
             }
         }
-        viewModel.isPremium()
-        viewModel.getAllRadioStations()
-        viewModel.getPopularStationsDetails()
-        viewModel.getNationalStationsDetails()
+        viewModel.verifiedAndFetchRadioStations()
     }
 
     func bindViewModel(to dataSource: HomeDataSource) {
@@ -113,34 +99,5 @@ private extension HomeViewController {
 
     func configureViewModel() {
         viewModel.getRecentlyPlayedStationsDetails()
-    }
-
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-     bannerView.translatesAutoresizingMaskIntoConstraints = false
-     view.addSubview(bannerView)
-     view.addConstraints(
-        [NSLayoutConstraint(item: bannerView,
-                           attribute: .bottom,
-                           relatedBy: .equal,
-                           toItem: view.safeAreaLayoutGuide,
-                           attribute: .bottom,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: bannerView,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0)
-       ])
-    }
-
-    func configureAdMob() {
-        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        addBannerViewToView(bannerView)
-        bannerView.adUnitID = "ca-app-pub-2776074318440444/3415741188"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
     }
 }

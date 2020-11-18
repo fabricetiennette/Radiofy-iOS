@@ -13,7 +13,6 @@ import MediaPlayer
 import FRadioPlayer
 import AVKit
 import NVActivityIndicatorView
-import GoogleMobileAds
 
 class RadioPlayerViewController: UIViewController {
 
@@ -29,7 +28,6 @@ class RadioPlayerViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
-    @IBOutlet private weak var bannerView: GADBannerView!
 
     var viewModel: RadioPlayerViewModel!
 
@@ -38,7 +36,6 @@ class RadioPlayerViewController: UIViewController {
     private var playerItem: AVPlayerItem?
     private var isRadio: Bool?
     static var player: AVPlayer?
-    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +47,6 @@ class RadioPlayerViewController: UIViewController {
         configureViewModel()
         addObserver()
         setSliderThumbTintColor(.white)
-        bannerView.isHidden = true
-        configureAdMob()
     }
 }
 
@@ -107,7 +102,6 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
     func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
         switch player.playbackState {
         case .playing:
-            countdown()
             playButton.isSelected = true
             playerSlider.value = 0
             playerSlider.isEnabled = false
@@ -121,7 +115,6 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
             setRadioBackgroundColor()
             popupItem.subtitle = L1s.live
         case .stopped:
-            pauseCountdown()
             liveLabel.isHidden = false
             currentTimeLabel.isHidden = true
             durationLabel.isHidden = true
@@ -138,7 +131,6 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
         case .error:
             popupItem.subtitle = L1s.unavailableRadioPlay
         case .loading:
-            bannerView.isHidden = true
             popupItem.subtitle = L1s.loadingTitle
         case .loadingFinished:
             popupItem.subtitle = L1s.live
@@ -152,7 +144,6 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
         if object as AnyObject? === podPlayer {
             if keyPath == "timeControlStatus" {
                 if podPlayer.timeControlStatus == .playing {
-                    countdown()
                     stopAnimation()
                     playerSlider.isEnabled = true
                     playButton.isSelected = true
@@ -165,7 +156,6 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
                     setBackgroundColor()
                     popupItem.subtitle = "Podcast"
                 } else if podPlayer.timeControlStatus == .paused {
-                    pauseCountdown()
                     stopAnimation()
                     playButton.isSelected = false
                     popupItem.progress = 0.0
@@ -181,50 +171,7 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
 
 private extension RadioPlayerViewController {
 
-    func countdown() {
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-    }
-
-    func pauseCountdown() {
-        timer?.invalidate()
-    }
-
-    @objc private func calendarDayDidChange(_ notification: NSNotification) {
-        UserDefaultConfig.audioTimer = 0.0
-    }
-
-    @objc func update() {
-        if HomeViewController.isUserPremium == false {
-            var currentTime = UserDefaultConfig.audioTimer
-            if currentTime == 2400 {
-                podPlayer.pause()
-                radioPlayer.stop()
-                currentTime = 0.0
-                UserDefaultConfig.audioTimer = currentTime
-                let newDate = Date().adding(minutes: 720)
-                let formatter = DateFormatter()
-                formatter.timeStyle = .medium
-                formatter.dateStyle = .long
-                let current = formatter.string(from: newDate)
-                UserDefaultConfig.blockingTime = current
-            }
-            currentTime+=1
-            UserDefaultConfig.audioTimer = currentTime
-        }
-    }
-
-    func configureAdMob() {
-        if HomeViewController.isUserPremium == true {
-            bannerView.isHidden = true
-        } else {
-            bannerView.adUnitID = "ca-app-pub-2776074318440444/4461283446"
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
-        }
-    }
-
     func startAnimation() {
-        bannerView.isHidden = true
         durationLabel.isHidden = true
         currentTimeLabel.isHidden = true
         liveLabel.isHidden = true
@@ -245,9 +192,6 @@ private extension RadioPlayerViewController {
             // Fallback on earlier versions
             magicView.addBlurEffect(alpha: 1, style: .dark)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.bannerView.isHidden = false
-        }
     }
 
     func setBackgroundColor() {
@@ -259,9 +203,6 @@ private extension RadioPlayerViewController {
         } else {
             // Fallback on earlier versions
             magicView.addBlurEffect(alpha: 1, style: .dark)
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.bannerView.isHidden = false
         }
     }
 
@@ -392,7 +333,6 @@ private extension RadioPlayerViewController {
     }
 
     func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.calendarDayDidChange(_:)), name: NSNotification.Name.NSCalendarDayChanged, object: nil)
         podPlayer.addObserver(self, forKeyPath: "timeControlStatus", options: [.old, .new], context: nil)
         NotificationCenter.default.addObserver(
             self, selector: #selector(playStation(notification:)),

@@ -9,7 +9,6 @@
 import Foundation
 import FirebaseUI
 import FRadioPlayer
-import Purchases
 
 protocol AccountViewModelDelete: class {
     func showSubscriptionPage()
@@ -32,7 +31,6 @@ class AccountViewModel {
     private var authService: AuthService
     private let firestoreService: FirestoreService
     private let storageService: StorageService
-    private let purchases: Purchases
 
     // MARK: - Init
 
@@ -40,13 +38,11 @@ class AccountViewModel {
         authService: AuthService = .init(),
         firestoreService: FirestoreService = .init(),
         storageService: StorageService = .init(),
-        purchases: Purchases = .shared,
         delegate: AccountViewModelDelete?
     ) {
         self.authService = authService
         self.firestoreService = firestoreService
         self.storageService = storageService
-        self.purchases = purchases
         self.delegate = delegate
     }
 
@@ -87,32 +83,6 @@ class AccountViewModel {
                 me.deleteUserAccount()
             case .failure(let error):
                 me.errorHandler?(L1s.error, error.localizedDescription)
-            }
-        }
-    }
-
-    func restorePurchase() {
-        purchases.restoreTransactions { info, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    switch Purchases.ErrorCode(_nsError: error as NSError).code {
-                    case .missingReceiptFileError:
-                        self.errorHandler?(L1s.error, "Make sure you make a purchase before attempting the operation.")
-                    case .invalidReceiptError:
-                        self.errorHandler?(L1s.error, "Receipt validation failed.")
-                    default:
-                        break
-                    }
-                } else {
-                    if let purchaserInfo = info {
-                        if purchaserInfo.entitlements.active.isEmpty {
-                            self.errorHandler?(L1s.unsuccessful, L1s.noSubscription)
-                        } else {
-                            self.successHandler?()
-                            self.showStartViewIfSignOut()
-                        }
-                    }
-                }
             }
         }
     }

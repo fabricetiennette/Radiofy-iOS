@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 class PodcastViewController: UIViewController {
 
@@ -25,7 +24,6 @@ class PodcastViewController: UIViewController {
         bindViewModel(to: podcastDataSource)
 
         configureNavbar()
-        configureAdMob()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +41,7 @@ private extension PodcastViewController {
                 me.podcastTableView.reloadData()
             }
         }
-        viewModel.getPodcastStation()
+        viewModel.verifiedAndFetchPodcastStations()
     }
 
     func bindViewModel(to dataSource: PodcastDataSource) {
@@ -81,37 +79,6 @@ private extension PodcastViewController {
             navigationController.navigationBar.tintColor = .white
             navigationController.navigationBar.prefersLargeTitles = true
             navigationItem.title = "Podcast"
-        }
-    }
-
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-     bannerView.translatesAutoresizingMaskIntoConstraints = false
-     view.addSubview(bannerView)
-     view.addConstraints(
-        [NSLayoutConstraint(item: bannerView,
-                           attribute: .bottom,
-                           relatedBy: .equal,
-                           toItem: view.safeAreaLayoutGuide,
-                           attribute: .bottom,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: bannerView,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0)
-       ])
-    }
-
-    func configureAdMob() {
-        if HomeViewController.isUserPremium == false {
-            let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-            addBannerViewToView(bannerView)
-            bannerView.adUnitID = "ca-app-pub-2776074318440444/3415741188"
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
         }
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Purchases
 
 protocol HomeViewModelDelegate: class {
     func launchSettings()
@@ -21,32 +20,28 @@ class HomeViewModel {
 
     private weak var delegate: HomeViewModelDelegate?
     private let firestoreService: FirestoreService
-    private let purchase: Purchases
 
     var errorHandler: ((_ title: String, _ message: String) -> Void)?
     var recentlyPlayedRadioHandler: ((_ stations: [RadioStation]) -> Void)?
     var popularRadioHandler: ((_ stations: [RadioStation]) -> Void)?
     var nationalRadioHandler: ((_ stations: [RadioStation]) -> Void)?
     var headerRadioHandler: ((_ stations: [RadioStation]) -> Void)?
-    var isNotPremiumHandler: (() -> Void)?
-    var isPremiumHandler: (() -> Void)?
 
     static var allRadioStations: [RadioStation] = []
     private var headerRadio: [RadioStation] = []
     private var recentlyPlayedStations: [RadioStation] = []
     private var popularStations: [RadioStation] = []
     private var nationalStations: [RadioStation] = []
+    private var radioArray = ["stations", "popularStations", "nationalStations"]
 
     // MARK: - Init
 
     init(
         delegate: HomeViewModelDelegate?,
-        firestoreService: FirestoreService = .init(),
-        purchase: Purchases = .shared
+        firestoreService: FirestoreService = .init()
     ) {
         self.delegate = delegate
         self.firestoreService = firestoreService
-        self.purchase = purchase
     }
 
     // MARK: - Functions
@@ -76,7 +71,7 @@ class HomeViewModel {
     }
 
     func getAllRadioStations() {
-        firestoreService.getStationDetails(with: "stations") { [weak self] result in
+        firestoreService.getStationDetails(with: radioArray[0]) { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success(let radioStation):
@@ -91,7 +86,7 @@ class HomeViewModel {
     }
 
     func getPopularStationsDetails() {
-        firestoreService.getStationDetails(with: "popularStations") { [weak self] result in
+        firestoreService.getStationDetails(with: radioArray[1]) { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success(let radioStation):
@@ -104,7 +99,7 @@ class HomeViewModel {
     }
 
     func getNationalStationsDetails() {
-        firestoreService.getStationDetails(with: "nationalStations") { [weak self] result in
+        firestoreService.getStationDetails(with: radioArray[2]) { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success(let radioStation):
@@ -116,22 +111,19 @@ class HomeViewModel {
         }
     }
 
-    func isPremium() {
-        firestoreService.isPurchasesAuthorized { [weak self] result in
-            guard let me = self else { return }
+    func verifiedAndFetchRadioStations() {
+        firestoreService.isFullAppAccessAuthorized { result in
             switch result {
-            case .success(let purchaseAuthorized):
-                if purchaseAuthorized {
-                    me.purchase.purchaserInfo { purchaserInfo, _ in
-                        if purchaserInfo?.entitlements["Premium"]?.isActive == true {
-                            me.isPremiumHandler?()
-                        } else {
-                            me.isNotPremiumHandler?()
-                            me.delegate?.showPayWall()
-                        }
-                    }
+            case .success(let authorization):
+                if authorization == false {
+                    self.radioArray = ["allStations", "popularStations", "nationalStations"]
+                    self.getAllRadioStations()
+                    self.getPopularStationsDetails()
+                    self.getNationalStationsDetails()
                 } else {
-                    me.isPremiumHandler?()
+                    self.getAllRadioStations()
+                    self.getPopularStationsDetails()
+                    self.getNationalStationsDetails()
                 }
             case .failure: break
             }

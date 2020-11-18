@@ -21,6 +21,7 @@ class PodcastViewModel {
 
     private let firestoreService: FirestoreService
 
+    var podcastArray = ["podcast"]
     var podcastStation: [PodcastStation] = []
 
     init(
@@ -38,13 +39,28 @@ class PodcastViewModel {
 
     // Get podcaststation from database
     func getPodcastStation() {
-        firestoreService.getPodcastStationFromDatabase(with: "podcast") { result in
+        firestoreService.getPodcastStationFromDatabase(with: podcastArray[0]) { result in
             switch result {
             case .success(let podcastStations):
                 self.podcastStation = podcastStations
                 self.allPodcastStationsHandler?(self.podcastStation)
             case .failure(let error):
                 self.errorHandler?(L1s.error, error.localizedDescription)
+            }
+        }
+    }
+
+    func verifiedAndFetchPodcastStations() {
+        firestoreService.isFullAppAccessAuthorized { result in
+            switch result {
+            case .success(let authorization):
+                if authorization == false {
+                    self.podcastArray = ["podcastStations"]
+                    self.getPodcastStation()
+                } else {
+                    self.getPodcastStation()
+                }
+            case .failure: break
             }
         }
     }
