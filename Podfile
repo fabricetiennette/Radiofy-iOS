@@ -13,12 +13,6 @@ target 'Radiofy' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'FirebaseUI/Storage'
-  pod 'lottie-ios'
-  pod 'FRadioPlayer'
-  pod 'IQKeyboardManagerSwift'
-  pod 'NVActivityIndicatorView', '~> 4.8.0'
-  pod 'FeedKit', '~> 7.0.1'
-  pod 'Alamofire', '~> 4.7'
 
 end
 

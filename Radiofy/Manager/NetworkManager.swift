@@ -16,8 +16,7 @@ class NetworkManager {
     let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
 
     func startNetworkReachabilityObserver() {
-
-        reachabilityManager?.listener = { status in
+        reachabilityManager?.startListening(onQueue: .main, onUpdatePerforming: { status in
 
             switch status {
             case .notReachable:
@@ -26,11 +25,9 @@ class NetworkManager {
                 print("It is unknown whether the network is reachable")
             case .reachable(.ethernetOrWiFi):
                 print("The network is reachable over the WiFi connection")
-            case .reachable(.wwan):
+            case .reachable(.cellular):
                 print("The network is reachable over the WWAN connection")
             }
-        }
-        // start listening
-        reachabilityManager?.startListening()
+        })
     }
 }

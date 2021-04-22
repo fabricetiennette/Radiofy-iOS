@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorViewExtended
 import NVActivityIndicatorView
 
 class SubscriptionViewController: UIViewController {

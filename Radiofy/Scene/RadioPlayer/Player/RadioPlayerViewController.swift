@@ -12,6 +12,7 @@ import LNPopupController
 import MediaPlayer
 import FRadioPlayer
 import AVKit
+import NVActivityIndicatorViewExtended
 import NVActivityIndicatorView
 
 class RadioPlayerViewController: UIViewController {

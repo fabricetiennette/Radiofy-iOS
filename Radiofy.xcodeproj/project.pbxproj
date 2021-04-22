@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,10 +58,10 @@
 		2C498435245B793E00B6201C /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498434245B793E00B6201C /* EpisodeCell.swift */; };
 		2C4E4CD024400A9900F907EB /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CCF24400A9900F907EB /* MiniPlayerViewController.swift */; };
 		2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */; };
-		2C4E4CD6244025F000F907EB /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4E4CD5244025F000F907EB /* LNPopupController.framework */; };
 		2C533B4524426EB2005FC8EC /* NationStationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */; };
 		2C533B4724427DB6005FC8EC /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */; };
 		2C591A13243CBB8A004CF4F6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C591A12243CBB8A004CF4F6 /* UIImage+.swift */; };
+		2C5CAD5126309B610093F7E3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2C5CAD5026309B610093F7E3 /* Lottie */; };
 		2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C67230C24659DA700ABCD5B /* Subscription.storyboard */; };
 		2C6723102465BDEF00ABCD5B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67230F2465BDEF00ABCD5B /* NetworkManager.swift */; };
 		2C688964242E134600463F1B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688963242E134600463F1B /* Storyboarded.swift */; };
@@ -170,6 +170,12 @@
 		2CFD6BEA24290E1000F35EC1 /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BE824290E1000F35EC1 /* Library.storyboard */; };
 		2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BEB24290E1100F35EC1 /* Assets.xcassets */; };
 		2CFD6BEF24290E1100F35EC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */; };
+		2CFEFAC72631DBF600CB4515 /* LNPopupController-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */; };
+		2CFEFB2C2631E1C000CB4515 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB2B2631E1C000CB4515 /* Alamofire */; };
+		2CFEFB702631E60200CB4515 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */; };
+		2CFEFB942631E82E00CB4515 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */; };
+		2CFEFBD42631EB7D00CB4515 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFBD32631EB7D00CB4515 /* FeedKit */; };
+		2CFEFBF62631ED3900CB4515 /* FRadioPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFBF52631ED3900CB4515 /* FRadioPlayer */; };
 		3824443CCE38CD0C8BBBBA8D /* Pods_Radiofy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3069C6E09465EC348350F5F1 /* Pods_Radiofy.framework */; };
 /* End PBXBuildFile section */
 
@@ -389,11 +395,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFEFB942631E82E00CB4515 /* NVActivityIndicatorViewExtended in Frameworks */,
+				2CFEFBD42631EB7D00CB4515 /* FeedKit in Frameworks */,
 				2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */,
+				2CFEFB702631E60200CB4515 /* IQKeyboardManagerSwift in Frameworks */,
+				2CFEFBF62631ED3900CB4515 /* FRadioPlayer in Frameworks */,
+				2CFEFB2C2631E1C000CB4515 /* Alamofire in Frameworks */,
 				3824443CCE38CD0C8BBBBA8D /* Pods_Radiofy.framework in Frameworks */,
 				2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */,
+				2CFEFAC72631DBF600CB4515 /* LNPopupController-Static in Frameworks */,
 				2C99C37D24471D210097E106 /* HomeKit.framework in Frameworks */,
-				2C4E4CD6244025F000F907EB /* LNPopupController.framework in Frameworks */,
+				2C5CAD5126309B610093F7E3 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,13 +1125,21 @@
 				2CFD6BDD24290E1000F35EC1 /* Resources */,
 				2CFD6BF624290F6100F35EC1 /* SwiftLint */,
 				97DDBEEFE0CC5D2377683580 /* [CP] Embed Pods Frameworks */,
-				2C4E4CD92440263E00F907EB /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Radiofy;
+			packageProductDependencies = (
+				2C5CAD5026309B610093F7E3 /* Lottie */,
+				2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */,
+				2CFEFB2B2631E1C000CB4515 /* Alamofire */,
+				2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */,
+				2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */,
+				2CFEFBD32631EB7D00CB4515 /* FeedKit */,
+				2CFEFBF52631ED3900CB4515 /* FRadioPlayer */,
+			);
 			productName = Radiofy;
 			productReference = 2CFD6BDF24290E1000F35EC1 /* Radiofy.app */;
 			productType = "com.apple.product-type.application";
@@ -1179,6 +1199,15 @@
 				fr,
 			);
 			mainGroup = 2CFD6BD624290E1000F35EC1;
+			packageReferences = (
+				2C5CAD4F26309B610093F7E3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				2CFEFAC52631DBF600CB4515 /* XCRemoteSwiftPackageReference "LNPopupController" */,
+				2CFEFB2A2631E1C000CB4515 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				2CFEFB922631E82E00CB4515 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				2CFEFBD22631EB7D00CB4515 /* XCRemoteSwiftPackageReference "FeedKit" */,
+				2CFEFBF42631ED3900CB4515 /* XCRemoteSwiftPackageReference "FRadioPlayer" */,
+			);
 			productRefGroup = 2CFD6BE024290E1000F35EC1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1236,24 +1265,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C4E4CD92440263E00F907EB /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/LNPopupController.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		2CFD6BF624290F6100F35EC1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1761,10 +1772,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Radiofy/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1790,10 +1798,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Radiofy/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1891,6 +1896,103 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C5CAD4F26309B610093F7E3 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+		2CFEFAC52631DBF600CB4515 /* XCRemoteSwiftPackageReference "LNPopupController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LeoNatan/LNPopupController";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.35;
+			};
+		};
+		2CFEFB2A2631E1C000CB4515 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+		2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+		2CFEFB922631E82E00CB4515 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		2CFEFBD22631EB7D00CB4515 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
+		2CFEFBF42631ED3900CB4515 /* XCRemoteSwiftPackageReference "FRadioPlayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fethica/FRadioPlayer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.22;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C5CAD5026309B610093F7E3 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C5CAD4F26309B610093F7E3 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CFEFAC52631DBF600CB4515 /* XCRemoteSwiftPackageReference "LNPopupController" */;
+			productName = "LNPopupController-Static";
+		};
+		2CFEFB2B2631E1C000CB4515 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CFEFB2A2631E1C000CB4515 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CFEFB922631E82E00CB4515 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
+		2CFEFBD32631EB7D00CB4515 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CFEFBD22631EB7D00CB4515 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		2CFEFBF52631ED3900CB4515 /* FRadioPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CFEFBF42631ED3900CB4515 /* XCRemoteSwiftPackageReference "FRadioPlayer" */;
+			productName = FRadioPlayer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2CFD6BD724290E1000F35EC1 /* Project object */;
 }
