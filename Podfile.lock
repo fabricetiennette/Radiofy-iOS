@@ -300,7 +300,6 @@ PODS:
   - FirebaseUI/Storage (10.0.2):
     - Firebase/Storage
     - SDWebImage (~> 5.6)
-  - FRadioPlayer (0.1.22)
   - GoogleAppMeasurement/AdIdSupport (7.11.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
@@ -374,7 +373,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseUI/Storage
-  - FRadioPlayer
   - SwiftLint
 
 SPEC REPOS:
@@ -390,7 +388,6 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseStorage
     - FirebaseUI
-    - FRadioPlayer
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -415,7 +412,6 @@ SPEC CHECKSUMS:
   FirebaseInstallations: a58d4f72ec5861840b84df489f2668d970df558a
   FirebaseStorage: 8542711850ca181a3931c0ed483006a7b46039e7
   FirebaseUI: 59db3d833773f985550897d54ceb811ba37fb9a5
-  FRadioPlayer: 7c6173cc44a3be39a9419abd3a931d9223e175e4
   GoogleAppMeasurement: fd19169c3034975cb934e865e5667bfdce59df7f
   GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
@@ -428,6 +424,6 @@ SPEC CHECKSUMS:
   SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 5d41541fe6edc985308a65ba31b795da9e868982
+PODFILE CHECKSUM: 729a91b8c13bd0864950ef797817746188d876c2
 
 COCOAPODS: 1.10.1

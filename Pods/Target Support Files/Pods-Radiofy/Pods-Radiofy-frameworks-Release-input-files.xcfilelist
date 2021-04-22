@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Radiofy/Pods-Radiofy-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
-${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework
