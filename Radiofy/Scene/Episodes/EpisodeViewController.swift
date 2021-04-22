@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
+import NVActivityIndicatorViewExtended
 
 class EpisodeViewController: UIViewController {
 
