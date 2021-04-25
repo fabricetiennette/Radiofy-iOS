@@ -19,8 +19,6 @@ class HomeCoordinator: Coordinator<UINavigationController> {
 
     private let options: Options
 
-//    let navigationController: UINavigationController
-
     // MARK: - Initializer
 
     init(options: Options) {
@@ -36,7 +34,7 @@ class HomeCoordinator: Coordinator<UINavigationController> {
     // MARK: - Coordinator
 
     override func start() {
-       let viewController = HomeViewController.instantiate(from: "Home")
+        let viewController = HomeViewController.instantiate(from: "Home")
         let viewModel = HomeViewModel(delegate: self)
         viewController.viewModel = viewModel
 

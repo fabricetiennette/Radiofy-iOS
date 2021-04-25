@@ -8,26 +8,15 @@
 
 import UIKit
 
-class StartCoordinator {
-
-    // MARK: - Properties
-
-    let navigationController: UINavigationController
-
-    // MARK: - Initializer
-
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-
-        navigationController.navigationBar.barStyle = .black
-        navigationController.navigationBar.isTranslucent = false
-        navigationController.navigationBar.tintColor = .white
-        navigationController.navigationBar.shadowImage = UIImage()
-    }
+class StartCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Coordinator
 
-    func start() {
+    override func start() {
+        rootView.navigationBar.barStyle = .black
+        rootView.navigationBar.isTranslucent = false
+        rootView.navigationBar.tintColor = .white
+        rootView.navigationBar.shadowImage = UIImage()
         showStartingView()
     }
 
@@ -48,7 +37,7 @@ class StartCoordinator {
             target: nil,
             action: nil
         )
-        navigationController.viewControllers = [viewController]
+        rootView.viewControllers = [viewController]
     }
 
     private func makeSignUpView() {
@@ -56,7 +45,7 @@ class StartCoordinator {
         let viewModel = SignUpViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.navigationItem.title = L1s.creatAccount
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeLogInView() {
@@ -70,7 +59,7 @@ class StartCoordinator {
             target: nil,
             action: nil
         )
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makePasswordResetView() {
@@ -78,7 +67,7 @@ class StartCoordinator {
         let viewModel = PasswordResetViewModel()
         viewController.viewModel = viewModel
         viewController.navigationItem.title = L1s.resetPasswordTab
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func launchHomeView() {

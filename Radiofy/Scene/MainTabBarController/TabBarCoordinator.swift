@@ -15,6 +15,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
         let tabBarController = MainTabBarController()
         tabBarController.coordinator = self
 
+        // HomeController
         let homeNavController = UINavigationController()
         homeNavController.tabBarItem = UITabBarItem(
             title: L1s.homeTitle,
@@ -23,6 +24,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
         )
         let homeCoordinator = HomeCoordinator(options: .push(homeNavController))
 
+        // SearchController
         let searchNavController = UINavigationController()
         searchNavController.tabBarItem = UITabBarItem(
             title: L1s.searchTitleTab,
@@ -31,6 +33,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
         )
         let searchCoordinator = SearchCoordinator(options: .push(searchNavController))
 
+        // LibraryController
         let libraryNavController = UINavigationController()
         libraryNavController.tabBarItem = UITabBarItem(
             title: L1s.yourLibraryTitleTab,
@@ -39,6 +42,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
         )
         let libraryCoordinator = YourLibraryCoordinator(options: .push(libraryNavController))
 
+        // PodcastController
         let podcastNavController = UINavigationController()
         podcastNavController.tabBarItem = UITabBarItem(
             title: "Podcast",
@@ -48,6 +52,8 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
         let podcastCoordinator = PodcastCoordinator(options: .push(podcastNavController))
 
         tabBarController.viewControllers = [homeNavController, searchNavController, libraryNavController, podcastNavController]
+
+        self.rootView.setNavigationBarHidden(true, animated: true)
         self.rootView.pushViewController(tabBarController, animated: true)
 
         add(children: homeCoordinator)

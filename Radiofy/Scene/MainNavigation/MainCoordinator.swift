@@ -39,7 +39,7 @@ class MainCoordinator: Coordinator<UINavigationController> {
     }
 
     private func callRegistrationAndLoginPath() {
-        let startCoordinator = StartCoordinator(navigationController: rootView)
+        let startCoordinator = StartCoordinator(rootView: rootView)
         LaunchScreenManager.instance.animateAfterLaunch(
             rootView.view
         )
