@@ -8,41 +8,53 @@
 
 import UIKit
 
-class HomeCoordinator {
+class HomeCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Properties
 
-    let navigationController: UINavigationController
+    enum Options {
+        case present(UINavigationController, style: UIModalPresentationStyle)
+        case push(UINavigationController)
+    }
+
+    private let options: Options
+
+//    let navigationController: UINavigationController
 
     // MARK: - Initializer
 
-    init(navigationController: UINavigationController = .init()) {
-        self.navigationController = navigationController
+    init(options: Options) {
+        self.options = options
+        switch options {
+        case let .present(viewController, style: _):
+            super.init(rootView: viewController)
+        case let .push(navigationController):
+            super.init(rootView: navigationController)
+        }
     }
 
     // MARK: - Coordinator
 
-    func start() {
-        showHomeView()
-    }
-
-    private func showHomeView() {
+    override func start() {
        let viewController = HomeViewController.instantiate(from: "Home")
         let viewModel = HomeViewModel(delegate: self)
         viewController.viewModel = viewModel
-        viewController.tabBarItem = UITabBarItem(
-            title: L1s.homeTitle,
-            image: UIImage(named: "HomeIcon"),
-            selectedImage: UIImage(named: "HomeIconFill")
-        )
-        navigationController.viewControllers = [viewController]
+
+        switch self.options {
+        case let .present(vc, style):
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.modalPresentationStyle = style
+            vc.present(navigationController, animated: true)
+        case let .push(navigationController):
+            navigationController.pushViewController(viewController, animated: true)
+        }
     }
 
     private func makeSettingsPage() {
         let viewController = SettingsViewController.instantiate(from: "Home")
         let viewModel = SettingsViewModel(delegate: self)
         viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeEditProfilePage() {
@@ -51,28 +63,28 @@ class HomeCoordinator {
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .formSheet
         let editProfile = UINavigationController(rootViewController: viewController)
-        navigationController.present(editProfile, animated: true)
+        rootView.present(editProfile, animated: true)
     }
 
     private func makeRadioPage(with selectedRadio: RadioStation) {
         let viewController = RadioViewController.instantiate(from: "Radio")
         let viewModel = RadioViewModel(delegate: self, selectedRadio: selectedRadio)
         viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeAboutPage() {
         let viewController = AboutViewController.instantiate(from: "Home")
         let viewModel = AboutViewModel()
         viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeAccountPage() {
         let viewController = AccountViewController.instantiate(from: "Home")
         let viewModel = AccountViewModel(delegate: self)
         viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeSignUpView() {
@@ -80,7 +92,7 @@ class HomeCoordinator {
         let viewModel = SignUpViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.navigationItem.title = L1s.creatAccount
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makePayWallView() {
@@ -88,7 +100,7 @@ class HomeCoordinator {
         let viewModel = SubscriptionViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .fullScreen
-        navigationController.present(viewController, animated: true, completion: nil)
+        rootView.present(viewController, animated: true, completion: nil)
     }
 }
 

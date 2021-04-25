@@ -82,11 +82,12 @@ class StartCoordinator {
     }
 
     private func launchHomeView() {
-        let main = MainTabBarController()
-        let radioPlayer = RadioPlayerCoordinator(tabBarController: main)
-        navigationController.view.window?.rootViewController = main
-        navigationController.view.window?.makeKeyAndVisible()
-        radioPlayer.start()
+//        let rootView = UITabBarController()
+//        let main = MainTabBarController(rootView: rootView)
+//        let radioPlayer = RadioPlayerCoordinator(rootView: main)
+//        navigationController.view.window?.rootViewController = main
+//        navigationController.view.window?.makeKeyAndVisible()
+//        radioPlayer.start()
     }
 }
 

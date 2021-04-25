@@ -60,6 +60,8 @@
 		2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */; };
 		2C533B4524426EB2005FC8EC /* NationStationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */; };
 		2C533B4724427DB6005FC8EC /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */; };
+		2C55CF772635CB5900723042 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55CF762635CB5900723042 /* Coordinator.swift */; };
+		2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55CF7E2635D49600723042 /* TabBarCoordinator.swift */; };
 		2C591A13243CBB8A004CF4F6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C591A12243CBB8A004CF4F6 /* UIImage+.swift */; };
 		2C5CAD5126309B610093F7E3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2C5CAD5026309B610093F7E3 /* Lottie */; };
 		2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C67230C24659DA700ABCD5B /* Subscription.storyboard */; };
@@ -69,7 +71,7 @@
 		2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688967242E13A300463F1B /* SignUpViewModel.swift */; };
 		2C68896C242E149600463F1B /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68896B242E149600463F1B /* StartCoordinator.swift */; };
 		2C688970242E321500463F1B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68896F242E321500463F1B /* MainCoordinator.swift */; };
-		2C688972242E3C8100463F1B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688971242E3C8100463F1B /* AppCoordinator.swift */; };
+		2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688971242E3C8100463F1B /* RootCoordinator.swift */; };
 		2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */; };
 		2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6F10E824644B9D00C65001 /* StoreKit.framework */; };
 		2C73D552243D21D800896D24 /* loadingDot.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D551243D21D800896D24 /* loadingDot.json */; };
@@ -255,6 +257,8 @@
 		2C4E4CD5244025F000F907EB /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNPopupController.framework; path = Carthage/Build/iOS/LNPopupController.framework; sourceTree = "<group>"; };
 		2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationStationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
+		2C55CF762635CB5900723042 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2C55CF7E2635D49600723042 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		2C591A12243CBB8A004CF4F6 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		2C67230B24659DA700ABCD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Subscription.storyboard; sourceTree = "<group>"; };
 		2C67230E24659DAC00ABCD5B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Subscription.strings; sourceTree = "<group>"; };
@@ -264,7 +268,7 @@
 		2C688967242E13A300463F1B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		2C68896B242E149600463F1B /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
 		2C68896F242E321500463F1B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		2C688971242E3C8100463F1B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2C688971242E3C8100463F1B /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		2C6F10E824644B9D00C65001 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2C73D551243D21D800896D24 /* loadingDot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingDot.json; sourceTree = "<group>"; };
@@ -593,6 +597,23 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		2C55CF742635CAFF00723042 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2CFD6BE224290E1000F35EC1 /* AppDelegate.swift */,
+				2C688971242E3C8100463F1B /* RootCoordinator.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		2C55CF752635CB2800723042 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2C55CF762635CB5900723042 /* Coordinator.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		2C688973242E4B0200463F1B /* MainNavigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -867,6 +888,7 @@
 			isa = PBXGroup;
 			children = (
 				2CB30EDF2433FAD100820DE4 /* MainTabBarController.swift */,
+				2C55CF7E2635D49600723042 /* TabBarCoordinator.swift */,
 			);
 			path = MainTabBarController;
 			sourceTree = "<group>";
@@ -924,12 +946,14 @@
 		2CFD6BE124290E1000F35EC1 /* Radiofy */ = {
 			isa = PBXGroup;
 			children = (
+				2C55CF752635CB2800723042 /* Common */,
 				2C2117C5247C7CE100A65A0F /* Radiofy.entitlements */,
 				2CFD6BF72429100100F35EC1 /* Extensions */,
 				2CFD6C042429166D00F35EC1 /* Helpers */,
 				2CFD6C032429166300F35EC1 /* Protocols */,
 				2CFD6BFC2429105700F35EC1 /* Supporting Files */,
 				2CFD6BFB2429103900F35EC1 /* Resources */,
+				2C55CF742635CAFF00723042 /* Source */,
 				2CFD6BFA2429102800F35EC1 /* Manager */,
 				2CFD6BF92429101F00F35EC1 /* Scene */,
 				2CFD6BF82429101800F35EC1 /* Model */,
@@ -1024,8 +1048,6 @@
 				2CFD6C012429123A00F35EC1 /* Info.plist */,
 				2CF5ED7B242F87700018E8A4 /* GoogleService-Info.plist */,
 				2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */,
-				2CFD6BE224290E1000F35EC1 /* AppDelegate.swift */,
-				2C688971242E3C8100463F1B /* AppCoordinator.swift */,
 				2CD0AFAA2461551E00A258EB /* Localizable.strings */,
 				2C9E841F24649E540059D842 /* InfoPlist.strings */,
 			);
@@ -1356,7 +1378,7 @@
 				2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */,
 				2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */,
 				2C498428245B325400B6201C /* RSSFeed+.swift in Sources */,
-				2C688972242E3C8100463F1B /* AppCoordinator.swift in Sources */,
+				2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */,
 				2CDC5AB6243E9D5100498DE5 /* FirestoreManager.swift in Sources */,
 				2CD9741D2450F3AA00808E54 /* FireBaseError.swift in Sources */,
 				2CF85ABB242D86EB002FBFF6 /* SignUpViewController.swift in Sources */,
@@ -1364,6 +1386,7 @@
 				2CF7EF2B2441F702004A9B30 /* MiniPlayerViewModel.swift in Sources */,
 				2C498435245B793E00B6201C /* EpisodeCell.swift in Sources */,
 				2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */,
+				2C55CF772635CB5900723042 /* Coordinator.swift in Sources */,
 				2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */,
 				2C498431245B790A00B6201C /* EpisodeDataSource.swift in Sources */,
 				2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */,
@@ -1434,6 +1457,7 @@
 				2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */,
 				2CF7EF272440C86D004A9B30 /* RadioPlayerViewModel.swift in Sources */,
 				2CF5ED6E242E53E60018E8A4 /* SignMeUpButtonView.swift in Sources */,
+				2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */,
 				2C99C3812447D6360097E106 /* YourLibraryDataSource.swift in Sources */,
 				2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */,
 				2CF7EF342442502D004A9B30 /* RadioViewModel.swift in Sources */,
@@ -1779,7 +1803,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1805,7 +1829,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

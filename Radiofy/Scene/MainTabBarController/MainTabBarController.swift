@@ -10,25 +10,9 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    private let home = HomeCoordinator()
-    private let search = SearchCoordinator()
-    private let yourLibrary = YourLibraryCoordinator()
-    private let podcast = PodcastCoordinator()
+    var coordinator: TabBarCoordinator?
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        home.start()
-        search.start()
-        yourLibrary.start()
-        podcast.start()
-
-        viewControllers = [
-            home.navigationController,
-            search.navigationController,
-            yourLibrary.navigationController,
-            podcast.navigationController
-        ]
-
         self.tabBar.barTintColor = UIColor(cgColor: #colorLiteral(red: 0.156845212, green: 0.1568739116, blue: 0.1568388939, alpha: 1))
         self.tabBar.isTranslucent = false
         self.tabBar.tintColor = .white

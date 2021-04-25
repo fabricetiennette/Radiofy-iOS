@@ -9,43 +9,21 @@
 import UIKit
 import FirebaseAuth
 
-class MainCoordinator {
-
-    // MARK: - Properties
-
-    private let presenter: UIWindow
-
-    private let navigationController: UINavigationController
-
-    private var startCoordinator: StartCoordinator?
-
-    private var mainTabBarController: MainTabBarController?
-
-    private var radioPlayer: RadioPlayerCoordinator?
-
-    private let firebaseAuth: Auth
-
-    // MARK: - Properties
-
-    init(presenter: UIWindow, firebaseAuth: Auth = Auth.auth()) {
-        self.presenter = presenter
-        self.firebaseAuth = firebaseAuth
-
-        navigationController = UINavigationController()
-        addObserver()
-        setFirebaseEmailLanguage()
-    }
+class MainCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Start
+    private let auth = Auth.auth()
 
-    func start() {
+    override func start() {
+        addObserver()
+        setFirebaseEmailLanguage()
         isUserLoggedIn()
     }
 
     // MARK: - Private
 
     private func isUserLoggedIn() {
-        if firebaseAuth.currentUser != nil {
+        if auth.currentUser != nil {
             callMainTabBar()
         } else {
             callRegistrationAndLoginPath()
@@ -61,30 +39,24 @@ class MainCoordinator {
     }
 
     private func callRegistrationAndLoginPath() {
-        startCoordinator = StartCoordinator(navigationController: navigationController)
-        presenter.rootViewController = navigationController
+        let startCoordinator = StartCoordinator(navigationController: rootView)
         LaunchScreenManager.instance.animateAfterLaunch(
-           presenter.rootViewController?.view
+            rootView.view
         )
-        startCoordinator?.start()
+        startCoordinator.start()
     }
 
     private func callMainTabBar() {
-        mainTabBarController = MainTabBarController()
-        presenter.rootViewController = mainTabBarController
-        callRadioPlayer(mainTabBarController: mainTabBarController!)
+        let coordinator = TabBarCoordinator(rootView: rootView)
         LaunchScreenManager.instance.animateAfterLaunch(
-           presenter.rootViewController?.view
+            self.rootView.view
         )
-    }
-
-    private func callRadioPlayer(mainTabBarController: UITabBarController) {
-        radioPlayer = RadioPlayerCoordinator(tabBarController: mainTabBarController)
-        radioPlayer?.start()
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func setFirebaseEmailLanguage() {
         let language = Locale.preferredLanguages.first
-        firebaseAuth.languageCode = language
+        auth.languageCode = language
     }
 }
