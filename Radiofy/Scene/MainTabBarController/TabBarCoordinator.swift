@@ -22,7 +22,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
             image: UIImage(named: "HomeIcon"),
             selectedImage: UIImage(named: "HomeIconFill")
         )
-        let homeCoordinator = HomeCoordinator(options: .push(homeNavController))
+        let homeCoordinator = HomeCoordinator(rootView: homeNavController)
 
         // SearchController
         let searchNavController = UINavigationController()

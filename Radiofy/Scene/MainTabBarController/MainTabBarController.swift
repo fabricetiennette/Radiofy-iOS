@@ -27,13 +27,9 @@ class MainTabBarController: UITabBarController {
     }()
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard
-            let index = tabBar.items?.firstIndex(of: item),
-            tabBar.subviews.count > index + 1,
-            let imageView = tabBar.subviews[index + 1].subviews.first as? UIImageView
-            else {
-                return
-        }
+        guard let index = tabBar.items?.firstIndex(of: item),
+              tabBar.subviews.count > index + 1,
+              let imageView = tabBar.subviews[index + 1].subviews.first as? UIImageView else { return }
         imageView.layer.add(bounceAnimation, forKey: nil)
     }
 }

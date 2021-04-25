@@ -10,43 +10,16 @@ import UIKit
 
 class HomeCoordinator: Coordinator<UINavigationController> {
 
-    // MARK: - Properties
-
-    enum Options {
-        case present(UINavigationController, style: UIModalPresentationStyle)
-        case push(UINavigationController)
-    }
-
-    private let options: Options
-
-    // MARK: - Initializer
-
-    init(options: Options) {
-        self.options = options
-        switch options {
-        case let .present(viewController, style: _):
-            super.init(rootView: viewController)
-        case let .push(navigationController):
-            super.init(rootView: navigationController)
-        }
-    }
-
-    // MARK: - Coordinator
+    // MARK: - start
 
     override func start() {
         let viewController = HomeViewController.instantiate(from: "Home")
         let viewModel = HomeViewModel(delegate: self)
         viewController.viewModel = viewModel
-
-        switch self.options {
-        case let .present(vc, style):
-            let navigationController = UINavigationController(rootViewController: viewController)
-            navigationController.modalPresentationStyle = style
-            vc.present(navigationController, animated: true)
-        case let .push(navigationController):
-            navigationController.pushViewController(viewController, animated: true)
-        }
+        rootView.pushViewController(viewController, animated: true)
     }
+
+    // MARK: - Private
 
     private func makeSettingsPage() {
         let viewController = SettingsViewController.instantiate(from: "Home")
