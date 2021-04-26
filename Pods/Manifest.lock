@@ -364,7 +364,6 @@ PODS:
   - SDWebImage (5.11.0):
     - SDWebImage/Core (= 5.11.0)
   - SDWebImage/Core (5.11.0)
-  - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - Firebase
@@ -373,7 +372,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseUI/Storage
-  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -398,7 +396,6 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
-    - SwiftLint
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -422,8 +419,7 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
-  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 729a91b8c13bd0864950ef797817746188d876c2
+PODFILE CHECKSUM: 4f79892cd4785eb667ca8ac6102b7618886cd7fe
 
 COCOAPODS: 1.10.1

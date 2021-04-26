@@ -41,7 +41,7 @@ class SettingViewModelTests: XCTestCase {
         let expect = expectation(description: "Email error expected :D")
 
         // When:
-        settingViewModel.errorHandler = { title, message in
+        settingViewModel.errorHandler = { title, _ in
             XCTAssertEqual(title, "Error")
             expect.fulfill()
         }
@@ -72,7 +72,7 @@ class SettingViewModelTests: XCTestCase {
         let expect = expectation(description: "Email error expected :D")
 
         // When:
-        settingViewModel.errorHandler = { title, message in
+        settingViewModel.errorHandler = { title, _ in
             XCTAssertEqual(title, "Error")
             expect.fulfill()
         }

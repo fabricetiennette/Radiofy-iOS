@@ -10,7 +10,7 @@ import Foundation
 
 class L1s {
 
-    //StartCoordinator
+    // StartCoordinator
     static let creatAccount = NSLocalizedString("Create account", comment: "")
     static let logInTab = NSLocalizedString("Log in", comment: "")
     static let resetPasswordTab = NSLocalizedString("Reset password", comment: "")
@@ -27,10 +27,10 @@ class L1s {
     static let logIn = NSLocalizedString("LOG IN", comment: "")
     static let sendTo = NSLocalizedString("An email was sent to", comment: "")
 
-    //HomeCoordinator
+    // HomeCoordinator
     static let homeTitle = NSLocalizedString("Home", comment: "")
 
-    //Home
+    // Home
     static let error = NSLocalizedString("Error", comment: "")
     static let stationUnavailable = NSLocalizedString("Could not get radio station, try later", comment: "")
     static let goodMorning = NSLocalizedString("Good Morning", comment: "")
@@ -38,34 +38,34 @@ class L1s {
     static let goodEvening = NSLocalizedString("Good Evening", comment: "")
     static let goodNight = NSLocalizedString("Good Night", comment: "")
 
-    //RadioPlayer
+    // RadioPlayer
     static let liveTitle = NSLocalizedString("Live Radio", comment: "")
     static let loadingTitle = NSLocalizedString("Loading...", comment: "")
     static let live = NSLocalizedString("LIVE", comment: "")
     static let unavailableRadioPlay = NSLocalizedString("Station unavaible, try later", comment: "")
     static let ready = NSLocalizedString("Ready", comment: "")
 
-    //Search
+    // Search
     static let searchTitleTab = NSLocalizedString("Search", comment: "")
     static let searchTitle = NSLocalizedString("SearchTab", comment: "")
     static let searchRadio = NSLocalizedString("Search your radio", comment: "")
 
-    //Library
+    // Library
     static let yourLibraryTitleTab = NSLocalizedString("Your Library", comment: "")
     static let emptyLibraryMessage = NSLocalizedString("You can add your favorite radio stations here.", comment: "")
 
-    //PodcastList
+    // PodcastList
     static let episodes = NSLocalizedString("Episodes", comment: "")
 
-    //Episode
+    // Episode
     static let temporailyUnavailable = NSLocalizedString("is temporarily unavailable.", comment: "")
     static let errorUnavailable = NSLocalizedString("Error Unavailable", comment: "")
     static let duration = NSLocalizedString("Duration", comment: "")
 
-    //Setting
+    // Setting
     static let settings = NSLocalizedString("Settings", comment: "")
 
-    //EditProfil
+    // EditProfil
     static let editNickname = NSLocalizedString("This could be your first name or a nickname.", comment: "")
     static let editProfil = NSLocalizedString("Edit Profile", comment: "")
     static let cancel = NSLocalizedString("Cancel", comment: "")
@@ -77,15 +77,15 @@ class L1s {
     static let photoInvalid = NSLocalizedString("Photo invalid, try again.", comment: "")
     static let errorHappen = NSLocalizedString("An error had occurred. Try later.", comment: "")
 
-    //Account
+    // Account
     static let infoError = NSLocalizedString("Could not get info, try later.", comment: "")
     static let compte = NSLocalizedString("Account", comment: "")
 
-    //About
+    // About
     static let openDocError = NSLocalizedString("Could not open document, try later.", comment: "")
     static let about = NSLocalizedString("About", comment: "")
 
-    //Subscription
+    // Subscription
     static let unsuccessful = NSLocalizedString("Restore Unsuccessful", comment: "")
     static let noSubscription = NSLocalizedString("No prior purchases found for your account.", comment: "")
     static let just = NSLocalizedString("Just", comment: "")
@@ -93,7 +93,7 @@ class L1s {
     static let terms = NSLocalizedString("Terms of Service", comment: "")
     static let privacyPolicy = NSLocalizedString("Privacy Policy", comment: "")
 
-    //Alert
+    // Alert
     static let alertLogOut = NSLocalizedString("Log out", comment: "")
     static let alertLogOutMessage = NSLocalizedString("LogOutMessage", comment: "")
     static let cancelButton = NSLocalizedString("cancelButton", comment: "")

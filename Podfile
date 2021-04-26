@@ -6,7 +6,6 @@ target 'Radiofy' do
   use_frameworks!
 
   # Pods for Radiofy
-  pod 'SwiftLint'
   pod 'Firebase'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'

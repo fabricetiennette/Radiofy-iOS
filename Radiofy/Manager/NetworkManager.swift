@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkManager {
 
-    //shared instance
+    // shared instance
     static let shared = NetworkManager()
 
     let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
