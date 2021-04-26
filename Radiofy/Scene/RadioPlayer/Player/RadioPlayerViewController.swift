@@ -12,7 +12,6 @@ import LNPopupController
 import MediaPlayer
 import FRadioPlayer
 import AVKit
-import NVActivityIndicatorViewExtended
 import NVActivityIndicatorView
 
 class RadioPlayerViewController: UIViewController {
@@ -428,7 +427,7 @@ private extension RadioPlayerViewController {
     }
 }
 
-extension RadioPlayerViewController: Storyboarded, NVActivityIndicatorViewable {}
+extension RadioPlayerViewController: Storyboarded {}
 
 extension RadioPlayerViewController: MusicPlayerDelegate {
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import NVActivityIndicatorViewExtended
 
 class EditProfileViewController: UIViewController {
 
@@ -15,6 +14,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet private weak var userNameTextField: UITextField!
     @IBOutlet private weak var errorTextLabel: UILabel!
 
+    private let indicator = LoaderIndicator.shared
     private var isRemovingCurrentPhotoAvailable = false
     private var isSavingButtonAvailable = false
     private var imageUrl = ""
@@ -60,7 +60,7 @@ private extension EditProfileViewController {
     func configureViewModel() {
         viewModel.errorHandler = { [weak self] errorText in
             guard let me = self else { return }
-            me.stopAnimating()
+            me.indicator.hide()
             me.errorTextLabel.slideInFromBottom()
             me.errorTextLabel.textColor = .red
             me.errorTextLabel.text = errorText
@@ -69,7 +69,7 @@ private extension EditProfileViewController {
             guard let me = self else { return }
             me.errorTextLabel.textColor = .lightText
             me.errorTextLabel.text = L1s.editNickname
-            me.stopAnimating()
+            me.indicator.hide()
             me.dismiss(animated: true, completion: nil)
         }
         viewModel.userHandler = { [weak self] name, photoUrl in
@@ -98,8 +98,7 @@ private extension EditProfileViewController {
     func startAnimation() {
         errorTextLabel.textColor = .lightText
         errorTextLabel.text = L1s.editNickname
-        let size = CGSize(width: 50, height: 50)
-        startAnimating(size, type: .ballBeat, color: .white, fadeInAnimation: nil)
+        indicator.show(indicator: self.view)
     }
 
     func configureNavigationController() {
@@ -180,4 +179,4 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
-extension EditProfileViewController: Storyboarded, NVActivityIndicatorViewable {}
+extension EditProfileViewController: Storyboarded {}

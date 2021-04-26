@@ -20,6 +20,7 @@
 		2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */; };
 		2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2662A3243AACFD00A3964E /* UIImageView.swift */; };
 		2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */; };
+		2C302A82263749410085325C /* LoaderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302A81263749410085325C /* LoaderIndicator.swift */; };
 		2C3144362455A29E00AEC114 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3144352455A29E00AEC114 /* SearchViewModelTests.swift */; };
 		2C3144382455A55C00AEC114 /* YourLibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3144372455A55C00AEC114 /* YourLibraryViewModelTests.swift */; };
 		2C31F8D9245618F900987D8A /* SettingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31F8D8245618F900987D8A /* SettingViewModelTests.swift */; };
@@ -215,6 +216,7 @@
 		2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewModel.swift; sourceTree = "<group>"; };
 		2C2662A3243AACFD00A3964E /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRadioView.swift; sourceTree = "<group>"; };
+		2C302A81263749410085325C /* LoaderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderIndicator.swift; sourceTree = "<group>"; };
 		2C3144352455A29E00AEC114 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		2C3144372455A55C00AEC114 /* YourLibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewModelTests.swift; sourceTree = "<group>"; };
 		2C31F8D8245618F900987D8A /* SettingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModelTests.swift; sourceTree = "<group>"; };
@@ -456,6 +458,14 @@
 				2C99C3802447D6360097E106 /* YourLibraryDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		2C302A80263749140085325C /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				2C302A81263749410085325C /* LoaderIndicator.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		2C3387682434D9AE00141102 /* Settings */ = {
@@ -1065,6 +1075,7 @@
 		2CFD6C042429166D00F35EC1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2C302A80263749140085325C /* Loader */,
 				2CF85AB4242D7900002FBFF6 /* LogInButtonView.swift */,
 				2CF85AB6242D79DF002FBFF6 /* SignUpButtonView.swift */,
 				2CF5ED6D242E53E60018E8A4 /* SignMeUpButtonView.swift */,
@@ -1363,6 +1374,7 @@
 				2C533B4524426EB2005FC8EC /* NationStationsCollectionViewCell.swift in Sources */,
 				2CC430132435DE9F001009E2 /* ProfileTableViewCell.swift in Sources */,
 				2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */,
+				2C302A82263749410085325C /* LoaderIndicator.swift in Sources */,
 				2C73D55A243D3C8C00896D24 /* LaunchScreenManager.swift in Sources */,
 				2CE74A7724533DAF008E3D57 /* StorageService.swift in Sources */,
 				2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */,
