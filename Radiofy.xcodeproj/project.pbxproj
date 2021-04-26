@@ -20,7 +20,6 @@
 		2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */; };
 		2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2662A3243AACFD00A3964E /* UIImageView.swift */; };
 		2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */; };
-		2C3029C22636AD8B0085325C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2C3029C12636AD8B0085325C /* .swiftlint.yml */; };
 		2C3144362455A29E00AEC114 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3144352455A29E00AEC114 /* SearchViewModelTests.swift */; };
 		2C3144382455A55C00AEC114 /* YourLibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3144372455A55C00AEC114 /* YourLibraryViewModelTests.swift */; };
 		2C31F8D9245618F900987D8A /* SettingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31F8D8245618F900987D8A /* SettingViewModelTests.swift */; };
@@ -216,7 +215,6 @@
 		2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewModel.swift; sourceTree = "<group>"; };
 		2C2662A3243AACFD00A3964E /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRadioView.swift; sourceTree = "<group>"; };
-		2C3029C12636AD8B0085325C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		2C3144352455A29E00AEC114 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		2C3144372455A55C00AEC114 /* YourLibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewModelTests.swift; sourceTree = "<group>"; };
 		2C31F8D8245618F900987D8A /* SettingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModelTests.swift; sourceTree = "<group>"; };
@@ -1047,7 +1045,6 @@
 			isa = PBXGroup;
 			children = (
 				2C9281B224296E690052C714 /* Fonts */,
-				2C3029C12636AD8B0085325C /* .swiftlint.yml */,
 				2CFD6C012429123A00F35EC1 /* Info.plist */,
 				2CF5ED7B242F87700018E8A4 /* GoogleService-Info.plist */,
 				2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */,
@@ -1266,7 +1263,6 @@
 				2CD0AFC32461840900A258EB /* Radio.storyboard in Resources */,
 				2C41975224449E0F00FFB2FA /* musicLoader.json in Resources */,
 				2CFD6BEF24290E1100F35EC1 /* LaunchScreen.storyboard in Resources */,
-				2C3029C22636AD8B0085325C /* .swiftlint.yml in Resources */,
 				2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */,
 				2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */,
 				2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */,
@@ -1307,7 +1303,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint --config Radiofy/SupportingFiles/.swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		97DDBEEFE0CC5D2377683580 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
