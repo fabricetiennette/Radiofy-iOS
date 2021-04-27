@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
     private var rootCoordinator: CoordinatorType?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,7 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         rootCoordinator = RootCoordinator(rootView: window)
+        configure()
         rootCoordinator?.start()
         return true
+    }
+
+    private func configure() {
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+        FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
     }
 }
