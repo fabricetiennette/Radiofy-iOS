@@ -18,10 +18,10 @@ class RootCoordinator: Coordinator<UIWindow> {
         configureFirebase()
         let navigationController = UINavigationController()
         rootView.rootViewController = navigationController
-        let mainCoordinator = MainCoordinator(rootView: navigationController)
-        add(children: mainCoordinator)
+        let coordinator = LaunchCoordinator(rootView: navigationController)
+        add(children: coordinator)
         rootView.makeKeyAndVisible()
-        mainCoordinator.start()
+        coordinator.start()
     }
 }
 
