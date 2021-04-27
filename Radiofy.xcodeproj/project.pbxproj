@@ -80,8 +80,6 @@
 		2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */; };
 		2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6F10E824644B9D00C65001 /* StoreKit.framework */; };
 		2C73D552243D21D800896D24 /* loadingDot.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D551243D21D800896D24 /* loadingDot.json */; };
-		2C73D558243D3C8200896D24 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D557243D3C8200896D24 /* LaunchScreen.xib */; };
-		2C73D55A243D3C8C00896D24 /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C73D559243D3C8C00896D24 /* LaunchScreenManager.swift */; };
 		2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */; };
 		2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A7C243F5D27003E19E9 /* RadioStation.swift */; };
 		2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */; };
@@ -282,8 +280,6 @@
 		2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		2C6F10E824644B9D00C65001 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2C73D551243D21D800896D24 /* loadingDot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingDot.json; sourceTree = "<group>"; };
-		2C73D557243D3C8200896D24 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		2C73D559243D3C8C00896D24 /* LaunchScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
 		2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarReusableView.swift; sourceTree = "<group>"; };
 		2C844A7C243F5D27003E19E9 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
 		2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewController.swift; sourceTree = "<group>"; };
@@ -672,8 +668,6 @@
 				2C302AA526389C5D0085325C /* LaunchModule.swift */,
 				2C302A92263895970085325C /* LaunchViewController.swift */,
 				2C302A9A263895BA0085325C /* LaunchViewModel.swift */,
-				2C73D559243D3C8C00896D24 /* LaunchScreenManager.swift */,
-				2C73D557243D3C8200896D24 /* LaunchScreen.xib */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -1291,7 +1285,6 @@
 				2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */,
 				2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */,
 				2CD0AFB9246182FC00A258EB /* Search.storyboard in Resources */,
-				2C73D558243D3C8200896D24 /* LaunchScreen.xib in Resources */,
 				2CFD6BEA24290E1000F35EC1 /* Library.storyboard in Resources */,
 				2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */,
 				2CD0AFAC2461551F00A258EB /* Localizable.strings in Resources */,
@@ -1387,7 +1380,6 @@
 				2CC430132435DE9F001009E2 /* ProfileTableViewCell.swift in Sources */,
 				2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */,
 				2C302A82263749410085325C /* LoaderIndicator.swift in Sources */,
-				2C73D55A243D3C8C00896D24 /* LaunchScreenManager.swift in Sources */,
 				2CE74A7724533DAF008E3D57 /* StorageService.swift in Sources */,
 				2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */,
 				2CE6AD0724525D3C00D8A7B7 /* AuthService.swift in Sources */,

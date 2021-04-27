@@ -14,7 +14,8 @@ class LaunchCoordinator: Coordinator<UINavigationController> {
 
     override func start() {
         let launchViewController = LaunchModule(coordinatorDelegate: self).viewController
-        rootView.pushViewController(launchViewController, animated: true)
+        rootView.setNavigationBarHidden(true, animated: true)
+        rootView.pushViewController(launchViewController, animated: false)
     }
 }
 
@@ -22,18 +23,12 @@ extension LaunchCoordinator: LaunchModule.CoordinatorDelegate {
 
     func showOnboardingPath() {
         let startCoordinator = StartCoordinator(rootView: rootView)
-        LaunchScreenManager.instance.animateAfterLaunch(
-            rootView.view
-        )
         add(children: startCoordinator)
         startCoordinator.start()
     }
 
     func showHomeTabBar() {
         let coordinator = TabBarCoordinator(rootView: rootView)
-        LaunchScreenManager.instance.animateAfterLaunch(
-            self.rootView.view
-        )
         add(children: coordinator)
         coordinator.start()
     }

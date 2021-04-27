@@ -17,6 +17,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
 
         // HomeController
         let homeNavController = UINavigationController()
+        homeNavController.setNavigationBarHidden(true, animated: false)
         homeNavController.tabBarItem = UITabBarItem(
             title: L1s.homeTitle,
             image: UIImage(named: "HomeIcon"),
@@ -53,8 +54,8 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
 
         tabBarController.viewControllers = [homeNavController, searchNavController, libraryNavController, podcastNavController]
 
-        self.rootView.setNavigationBarHidden(true, animated: true)
-        self.rootView.pushViewController(tabBarController, animated: true)
+        self.rootView.setNavigationBarHidden(true, animated: false)
+        self.rootView.pushViewController(tabBarController, animated: false)
 
         add(children: homeCoordinator)
         add(children: searchCoordinator)
