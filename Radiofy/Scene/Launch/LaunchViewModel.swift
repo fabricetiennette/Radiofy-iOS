@@ -23,7 +23,7 @@ final class LaunchViewModel: LaunchModule.ViewModel {
         switch result {
         case true:
             delegate?.showHomeTabBar()
-        case false: break
+        case false:
             delegate?.showOnboardingPath()
         }
     }
