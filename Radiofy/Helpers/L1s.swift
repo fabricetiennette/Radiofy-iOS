@@ -10,7 +10,7 @@ import Foundation
 
 class L1s {
 
-    // StartCoordinator
+    // OnBoardingCoordinator
     static let creatAccount = NSLocalizedString("Create account", comment: "")
     static let logInTab = NSLocalizedString("Log in", comment: "")
     static let resetPasswordTab = NSLocalizedString("Reset password", comment: "")

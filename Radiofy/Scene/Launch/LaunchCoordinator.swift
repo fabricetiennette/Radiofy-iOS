@@ -22,7 +22,7 @@ class LaunchCoordinator: Coordinator<UINavigationController> {
 extension LaunchCoordinator: LaunchModule.CoordinatorDelegate {
 
     func showOnboardingPath() {
-        let startCoordinator = StartCoordinator(rootView: rootView)
+        let startCoordinator = OnBoardingCoordinator(rootView: rootView)
         add(children: startCoordinator)
         startCoordinator.start()
     }

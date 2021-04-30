@@ -1,5 +1,5 @@
 //
-//  StartCoordinator.swift
+//  OnBoardingCoordinator.swift
 //  Radiofy
 //
 //  Created by Fabrice Etiennette on 27/03/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartCoordinator: Coordinator<UINavigationController> {
+class OnBoardingCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Coordinator
 
@@ -23,8 +23,8 @@ class StartCoordinator: Coordinator<UINavigationController> {
     // MARK: - Private
 
     private func showStartingView() {
-        let viewController = StartViewController.instantiate(from: "Start")
-        let viewModel = StartViewModel(delegate: self)
+        let viewController = OnBoardingViewController.instantiate(from: "Start")
+        let viewModel = OnBoardingViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.navigationItem.backBarButtonItem?.setBackButtonBackgroundImage(
             UIImage(named: "BackIcon"),
@@ -82,7 +82,7 @@ class StartCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Extension
 
-extension StartCoordinator: StartViewModelDelegate {
+extension OnBoardingCoordinator: OnBoardingViewModelDelegate {
     func logIn() {
         makeLogInView()
     }
@@ -96,13 +96,13 @@ extension StartCoordinator: StartViewModelDelegate {
     }
 }
 
-extension StartCoordinator: SignUpViewModelDelegate {
+extension OnBoardingCoordinator: SignUpViewModelDelegate {
     func callhomeScreen() {
         launchHomeView()
     }
 }
 
-extension StartCoordinator: LogInViewModelDelegate {
+extension OnBoardingCoordinator: LogInViewModelDelegate {
     func launchPasswordReset() {
         makePasswordResetView()
     }

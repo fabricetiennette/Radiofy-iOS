@@ -1,5 +1,5 @@
 //
-//  StartViewController.swift
+//  OnBoardingViewController.swift
 //  Radiofy
 //
 //  Created by Fabrice Etiennette on 23/03/2020.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class StartViewController: UIViewController {
+class OnBoardingViewController: UIViewController {
 
-    var viewModel: StartViewModel!
+    var viewModel: OnBoardingViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class StartViewController: UIViewController {
     }
 }
 
-private extension StartViewController {
+private extension OnBoardingViewController {
     func configureViewModel() {
         viewModel.errorHandler = { [weak self] title, message in
             guard let me = self else { return }
@@ -44,4 +44,4 @@ private extension StartViewController {
     }
 }
 
-extension StartViewController: Storyboarded {}
+extension OnBoardingViewController: Storyboarded {}

@@ -1,5 +1,5 @@
 //
-//  StartViewModel.swift
+//  OnBoardingViewModel.swift
 //  Radiofy
 //
 //  Created by Fabrice Etiennette on 27/03/2020.
@@ -9,15 +9,15 @@
 import Foundation
 import FirebaseAuth
 
-protocol StartViewModelDelegate: class {
+protocol OnBoardingViewModelDelegate: class {
     func signUp()
     func logIn()
     func signIn()
 }
 
-class StartViewModel {
+class OnBoardingViewModel {
 
-    private weak var delegate: StartViewModelDelegate?
+    private weak var delegate: OnBoardingViewModelDelegate?
 
     // MARK: - Closure
 
@@ -28,7 +28,7 @@ class StartViewModel {
     private let authService: AuthService
 
     init(
-        delegate: StartViewModelDelegate?,
+        delegate: OnBoardingViewModelDelegate?,
         authService: AuthService = .init()
     ) {
         self.delegate = delegate
