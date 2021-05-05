@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseUI
 
-protocol ProfileTableViewCellDelegate: class {
+protocol ProfileTableViewCellDelegate: AnyObject {
     func editProfilePressed()
 }
 

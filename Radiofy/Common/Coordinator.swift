@@ -22,7 +22,7 @@ class Coordinator<RootView>: CoordinatorType {
     func start() {}
 }
 
-protocol CoordinatorDelegate: class {
+protocol CoordinatorDelegate: AnyObject {
     func finish(from coordinator: CoordinatorType)
 }
 

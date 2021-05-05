@@ -23,7 +23,7 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
     // MARK: - Private
 
     private func showStartingView() {
-        let viewController = OnBoardingViewController.instantiate(from: "Start")
+        let viewController = OnBoardingViewController()
         let viewModel = OnBoardingViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.navigationItem.backBarButtonItem?.setBackButtonBackgroundImage(

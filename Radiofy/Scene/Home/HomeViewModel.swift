@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol HomeViewModelDelegate: class {
+protocol HomeViewModelDelegate: AnyObject {
     func launchSettings()
     func showSelectedRadio(_ selectedRadio: RadioStation)
     func showPayWall()

@@ -963,8 +963,8 @@
 		2CFD6BE124290E1000F35EC1 /* Radiofy */ = {
 			isa = PBXGroup;
 			children = (
-				2C55CF752635CB2800723042 /* Common */,
 				2C2117C5247C7CE100A65A0F /* Radiofy.entitlements */,
+				2C55CF752635CB2800723042 /* Common */,
 				2CFD6BF72429100100F35EC1 /* Extensions */,
 				2CFD6C042429166D00F35EC1 /* Helpers */,
 				2CFD6BFC2429105700F35EC1 /* SupportingFiles */,

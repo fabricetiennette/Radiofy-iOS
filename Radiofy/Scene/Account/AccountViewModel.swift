@@ -10,7 +10,7 @@ import Foundation
 import FirebaseUI
 import FRadioPlayer
 
-protocol AccountViewModelDelete: class {
+protocol AccountViewModelDelete: AnyObject {
     func showSubscriptionPage()
 }
 

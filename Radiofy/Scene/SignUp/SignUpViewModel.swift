@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseAuth
 
-protocol SignUpViewModelDelegate: class {
+protocol SignUpViewModelDelegate: AnyObject {
     func callhomeScreen()
 }
 
