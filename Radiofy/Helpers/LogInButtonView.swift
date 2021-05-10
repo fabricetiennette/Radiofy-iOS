@@ -7,6 +7,7 @@
 //
 import UIKit
 
+#warning("TODO: Check and Remove")
 @IBDesignable
 class LogInButtonView: UIButton {
     override func layoutSubviews() {

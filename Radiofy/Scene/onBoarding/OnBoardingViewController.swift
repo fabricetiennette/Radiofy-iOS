@@ -66,7 +66,11 @@ final class OnBoardingViewController: UIViewController {
 
     private lazy var loginButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .yellow
+        button.layer.cornerRadius = 24
+        button.layer.borderWidth = 1
+        button.setTitle("LOG IN", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        button.layer.borderColor = UIColor.lightText.cgColor
         button.heightAnchor.constraint(equalToConstant: 48).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -74,7 +78,10 @@ final class OnBoardingViewController: UIViewController {
 
     private lazy var signUpButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .red
+        button.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.7254901961, blue: 0.3294117647, alpha: 1)
+        button.setTitle("SIGN UP", for: .normal)
+        button.layer.cornerRadius = 24
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.heightAnchor.constraint(equalToConstant: 48).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -82,7 +89,10 @@ final class OnBoardingViewController: UIViewController {
 
     private lazy var skipButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .blue
+        button.setTitle("SKIP FOR NOW", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        button.backgroundColor = .clear
+        button.setTitleColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1), for: .normal)
         button.heightAnchor.constraint(equalToConstant: 15).isActive = true
         button.widthAnchor.constraint(greaterThanOrEqualToConstant: 100).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -104,30 +114,40 @@ final class OnBoardingViewController: UIViewController {
         configureViewModel()
         setupBindings()
     }
+}
 
-    private func setupBindings() {
+private extension OnBoardingViewController {
+
+    func setupBindings() {
         signUpButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.openSignUpView()
-            }.store(in: &disposeBag)
+            }
+            .store(in: &disposeBag)
 
         loginButton.publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.openLogInView()
-            }.store(in: &disposeBag)
+            }
+            .store(in: &disposeBag)
 
         skipButton.publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.signInAnonymously()
-            }.store(in: &disposeBag)
+            }
+            .store(in: &disposeBag)
     }
-}
 
-private extension OnBoardingViewController {
+    func configureViewModel() {
+        viewModel.errorHandler = { [weak self] title, message in
+            guard let me = self else { return }
+            me.showAlert(title: title, message: message)
+        }
+    }
 
     func configureView() {
         view.addSubview(textContainer)
@@ -158,13 +178,6 @@ private extension OnBoardingViewController {
             loginButton.leftAnchor.constraint(equalTo: buttonContainer.leftAnchor, constant: 40),
             loginButton.rightAnchor.constraint(equalTo: buttonContainer.rightAnchor, constant: -40)
         ])
-    }
-
-    func configureViewModel() {
-        viewModel.errorHandler = { [weak self] title, message in
-            guard let me = self else { return }
-            me.showAlert(title: title, message: message)
-        }
     }
 }
 

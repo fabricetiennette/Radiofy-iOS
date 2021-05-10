@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SearchViewModelDelegate: class {
+protocol SearchViewModelDelegate: AnyObject {
     func selectRadio(_ selectedradio: RadioStation)
 }
 

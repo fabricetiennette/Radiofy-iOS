@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol YourLibraryViewModelDelegate: class {
+protocol YourLibraryViewModelDelegate: AnyObject {
     func selectRadio(_ selectedradio: RadioStation)
 }
 

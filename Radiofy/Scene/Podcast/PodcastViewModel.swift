@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PodcastViewModelDelegate: class {
+protocol PodcastViewModelDelegate: AnyObject {
     func selectPocastStation(_ selectedPodcast: PodcastStation)
 }
 
