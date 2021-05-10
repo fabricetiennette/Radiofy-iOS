@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseAuth
 
-protocol OnBoardingViewModelDelegate: class {
+protocol OnBoardingViewModelDelegate: AnyObject {
     func signUp()
     func logIn()
     func signIn()

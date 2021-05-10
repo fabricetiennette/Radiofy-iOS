@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol EpisodeViewModelDelegate: class {
+protocol EpisodeViewModelDelegate: AnyObject {
     func payWallView()
 }
 

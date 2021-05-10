@@ -10,7 +10,7 @@ import Foundation
 import SafariServices
 import FirebaseAuth
 
-protocol SubscriptionViewModelDelegate: class {
+protocol SubscriptionViewModelDelegate: AnyObject {
     func signUpFirst()
 }
 

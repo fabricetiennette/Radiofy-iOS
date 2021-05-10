@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RadioViewModelDelegate: class {
+protocol RadioViewModelDelegate: AnyObject {
     func openPayWallView()
 }
 

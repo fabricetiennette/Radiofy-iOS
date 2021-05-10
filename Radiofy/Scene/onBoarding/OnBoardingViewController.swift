@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Combine
 
-class OnBoardingViewController: UIViewController {
+final class OnBoardingViewController: UIViewController {
 
-    var viewModel: OnBoardingViewModel!
+    private var viewModel: OnBoardingViewModel
+    private var disposeBag = Set<AnyCancellable>()
 
     private lazy var textContainer: UIStackView = {
         let stackView = UIStackView()
@@ -87,28 +89,42 @@ class OnBoardingViewController: UIViewController {
         return button
     }()
 
+    init(viewModel: OnBoardingViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         configureViewModel()
+        setupBindings()
     }
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.loadViewIfNeeded()
-//    }
+    private func setupBindings() {
+        signUpButton
+            .publisher(for: .touchUpInside)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.openSignUpView()
+            }.store(in: &disposeBag)
 
-//    @IBAction private func signUpButtonTapped(_ sender: Any) {
-//        viewModel.openSignUpView()
-//    }
-//
-//    @IBAction private func logInButtonTapped(_ sender: Any) {
-//        viewModel.openLogInView()
-//    }
-//
-//    @IBAction func skipRegistration(_ sender: Any) {
-//        viewModel.signInAnonymously()
-//    }
+        loginButton.publisher(for: .touchUpInside)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.openLogInView()
+            }.store(in: &disposeBag)
+
+        skipButton.publisher(for: .touchUpInside)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.signInAnonymously()
+            }.store(in: &disposeBag)
+    }
 }
 
 private extension OnBoardingViewController {

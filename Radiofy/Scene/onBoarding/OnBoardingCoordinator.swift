@@ -17,15 +17,14 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
         rootView.navigationBar.isTranslucent = false
         rootView.navigationBar.tintColor = .white
         rootView.navigationBar.shadowImage = UIImage()
-        showStartingView()
+        startOnboardingView()
     }
 
     // MARK: - Private
 
-    private func showStartingView() {
-        let viewController = OnBoardingViewController()
+    private func startOnboardingView() {
         let viewModel = OnBoardingViewModel(delegate: self)
-        viewController.viewModel = viewModel
+        let viewController = OnBoardingViewController(viewModel: viewModel)
         viewController.navigationItem.backBarButtonItem?.setBackButtonBackgroundImage(
             UIImage(named: "BackIcon"),
             for: .normal,

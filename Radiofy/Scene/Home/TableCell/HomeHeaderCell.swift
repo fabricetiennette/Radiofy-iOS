@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol HomeHeaderCellDelegate: class {
+protocol HomeHeaderCellDelegate: AnyObject {
     func radioViewTapped(index: Int)
 }
 

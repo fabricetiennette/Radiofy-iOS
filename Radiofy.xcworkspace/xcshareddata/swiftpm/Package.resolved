@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/LeoNatan/LNPopupController",
         "state": {
           "branch": null,
-          "revision": "3e9d11042881c3e20651a110c2a4579f5c244596",
-          "version": "2.10.35"
+          "revision": "f5987c5eb48a5bf71b7322719c0e56f14df2d01c",
+          "version": "2.10.36"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/airbnb/lottie-ios",
         "state": {
           "branch": null,
-          "revision": "b3c60ba1716baab6faeeb217d8ce1da336f92718",
-          "version": "3.2.1"
+          "revision": "e428f89675588f2fe58891eac5f7c971098cf1a0",
+          "version": "3.2.2"
         }
       },
       {

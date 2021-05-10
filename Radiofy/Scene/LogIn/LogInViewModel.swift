@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseAuth
 
-protocol LogInViewModelDelegate: class {
+protocol LogInViewModelDelegate: AnyObject {
     func launchHomeScreen()
     func launchPasswordReset()
 }

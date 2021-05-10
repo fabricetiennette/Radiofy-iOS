@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FRadioPlayer
 
-protocol SettingsViewModelDelegate: class {
+protocol SettingsViewModelDelegate: AnyObject {
     func callEditProfile()
     func callAccountPage()
     func callAboutPage()
