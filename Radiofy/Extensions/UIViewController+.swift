@@ -8,6 +8,18 @@
 
 import UIKit
 
+ // MARK: - Navigation
+
+extension UIViewController {
+    func setNavigationBackButton(image: UIImage?, state: UIControl.State) {
+        self.navigationItem.backBarButtonItem?.setBackButtonBackgroundImage(image, for: state, barMetrics: .default)
+    }
+
+    func setUIBarButtonItem(title: String? = nil, style: UIBarButtonItem.Style, target: Any? = nil, action: Selector? = nil) {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: title, style: style, target: target, action: action)
+    }
+}
+
 extension UIViewController {
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

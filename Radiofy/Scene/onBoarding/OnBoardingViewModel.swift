@@ -7,32 +7,18 @@
 //
 
 import Foundation
-import FirebaseAuth
+import Combine
 
-protocol OnBoardingViewModelDelegate: AnyObject {
-    func signUp()
-    func logIn()
-    func signIn()
-}
+final class OnBoardingViewModel: OnBoardingModule.ViewModel {
 
-class OnBoardingViewModel {
+    var errorHandler: ((String, String) -> Void) = { _, _  in }
 
-    private weak var delegate: OnBoardingViewModelDelegate?
+    weak var delegate: OnBoardingModule.CoordinatorDelegate?
 
-    // MARK: - Closure
+    private let service: OnBoardingModule.Service
 
-    var errorHandler: ((_ title: String, _ message: String) -> Void)?
-
-    // MARK: - Injection
-
-    private let authService: AuthService
-
-    init(
-        delegate: OnBoardingViewModelDelegate?,
-        authService: AuthService = .init()
-    ) {
-        self.delegate = delegate
-        self.authService = authService
+    init(service: OnBoardingModule.Service) {
+        self.service = service
     }
 
     func openSignUpView() {
@@ -44,13 +30,13 @@ class OnBoardingViewModel {
     }
 
     func signInAnonymously() {
-        authService.signInAnonymously { [weak self] result in
-            guard let me = self else { return }
+        service.signInAnonymously { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success:
-                me.delegate?.signIn()
+                self.delegate?.signIn()
             case .failure(let error):
-                me.errorHandler?(L1s.error, error.localizedDescription)
+                self.errorHandler(L1s.error, error.localizedDescription)
             }
         }
     }

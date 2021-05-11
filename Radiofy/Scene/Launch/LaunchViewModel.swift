@@ -14,8 +14,11 @@ final class LaunchViewModel: LaunchModule.ViewModel {
 
     private let service: LaunchModule.Service
 
-    init(service: LaunchModule.Service) {
+    var isOn: Bool
+
+    init(service: LaunchModule.Service, needAnimation: Bool) {
         self.service = service
+        self.isOn = needAnimation
     }
 
     func isUserLoggedIn() {

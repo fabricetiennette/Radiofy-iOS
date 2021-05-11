@@ -16,14 +16,16 @@ struct LaunchModule {
 
     // swiftlint:disable:next weak_delegate
     private let coordinatorDelegate: CoordinatorDelegate
+    private let needAnimation: Bool
 
-    init(coordinatorDelegate: CoordinatorDelegate) {
+    init(coordinatorDelegate: CoordinatorDelegate, needAnimation: Bool) {
         self.coordinatorDelegate = coordinatorDelegate
+        self.needAnimation = needAnimation
     }
 
     var viewController: UIViewController {
         let service = LaunchService()
-        let viewModel = LaunchViewModel(service: service)
+        let viewModel = LaunchViewModel(service: service, needAnimation: needAnimation)
         let launchViewController = LaunchViewController(viewModel: viewModel)
         viewModel.delegate = coordinatorDelegate
         return launchViewController
@@ -33,6 +35,7 @@ struct LaunchModule {
 protocol LaunchOutputBinding {
     func isUserLoggedIn()
     func setupEmailLanguage()
+    var isOn: Bool { get }
 }
 
 protocol LaunchServiceProtocol {

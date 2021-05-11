@@ -105,6 +105,8 @@
 		2CB77E5C2649A5D90069BC52 /* UIControlSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E5B2649A5D90069BC52 /* UIControlSubscription.swift */; };
 		2CB77E5E2649A6290069BC52 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E5D2649A6290069BC52 /* Publisher.swift */; };
 		2CB77E612649AF470069BC52 /* UIControl+CombineCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */; };
+		2CB77E632649C0F40069BC52 /* OnBoardingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E622649C0F40069BC52 /* OnBoardingModule.swift */; };
+		2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E642649C3B90069BC52 /* OnBoardingService.swift */; };
 		2CC4300F2435C81A001009E2 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4300E2435C81A001009E2 /* UIViewController+.swift */; };
 		2CC430132435DE9F001009E2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC430122435DE9F001009E2 /* ProfileTableViewCell.swift */; };
 		2CC4301E24362D25001009E2 /* EditProfileButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4301D24362D25001009E2 /* EditProfileButtonView.swift */; };
@@ -308,6 +310,8 @@
 		2CB77E5B2649A5D90069BC52 /* UIControlSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlSubscription.swift; sourceTree = "<group>"; };
 		2CB77E5D2649A6290069BC52 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+CombineCompatible.swift"; sourceTree = "<group>"; };
+		2CB77E622649C0F40069BC52 /* OnBoardingModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModule.swift; sourceTree = "<group>"; };
+		2CB77E642649C3B90069BC52 /* OnBoardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingService.swift; sourceTree = "<group>"; };
 		2CC4300E2435C81A001009E2 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		2CC430122435DE9F001009E2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		2CC4301D24362D25001009E2 /* EditProfileButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileButtonView.swift; sourceTree = "<group>"; };
@@ -743,6 +747,15 @@
 			path = UIControl;
 			sourceTree = "<group>";
 		};
+		2CB77E662649C9B30069BC52 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2CB77E642649C3B90069BC52 /* OnBoardingService.swift */,
+				2C302AC72638A12D0085325C /* LaunchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		2CBF7087244F494C00A363C0 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -793,10 +806,10 @@
 		2CE6AD012452586A00D8A7B7 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				2CB77E662649C9B30069BC52 /* Services */,
 				2CE6AD04245258AC00D8A7B7 /* AuthProtocol.swift */,
 				2C8A4E012450461D00E8E6A3 /* AuthManager.swift */,
 				2CE6AD0624525D3C00D8A7B7 /* AuthService.swift */,
-				2C302AC72638A12D0085325C /* LaunchService.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -939,6 +952,7 @@
 			isa = PBXGroup;
 			children = (
 				2C68896B242E149600463F1B /* OnBoardingCoordinator.swift */,
+				2CB77E622649C0F40069BC52 /* OnBoardingModule.swift */,
 				2CFD6BE624290E1000F35EC1 /* OnBoardingViewController.swift */,
 				2C688965242E139200463F1B /* OnBoardingViewModel.swift */,
 			);
@@ -1429,6 +1443,7 @@
 				2CE6AD05245258AC00D8A7B7 /* AuthProtocol.swift in Sources */,
 				2CDDB443244A15D100DC31F5 /* SearchDataSource.swift in Sources */,
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
+				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
 				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
 				2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */,
 				2C3387672434D53600141102 /* SettingButtonView.swift in Sources */,
@@ -1442,6 +1457,7 @@
 				2C302A9B263895BA0085325C /* LaunchViewModel.swift in Sources */,
 				2CB77E612649AF470069BC52 /* UIControl+CombineCompatible.swift in Sources */,
 				2C49841C245B0CBD00B6201C /* PodcastListViewModel.swift in Sources */,
+				2CB77E632649C0F40069BC52 /* OnBoardingModule.swift in Sources */,
 				2CE74A6C24532929008E3D57 /* FirestoreService.swift in Sources */,
 				2C49841F245B0FB100B6201C /* ListPodcastCell.swift in Sources */,
 				2C00428A244E1241006ABABF /* AboutViewController.swift in Sources */,

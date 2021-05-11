@@ -23,19 +23,9 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
     // MARK: - Private
 
     private func startOnboardingView() {
-        let viewModel = OnBoardingViewModel(delegate: self)
-        let viewController = OnBoardingViewController(viewModel: viewModel)
-        viewController.navigationItem.backBarButtonItem?.setBackButtonBackgroundImage(
-            UIImage(named: "BackIcon"),
-            for: .normal,
-            barMetrics: .default
-        )
-        viewController.navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: nil,
-            style: .plain,
-            target: nil,
-            action: nil
-        )
+        let viewController = OnBoardingModule(coordinatorDelegate: self).viewController
+        viewController.setNavigationBackButton(image: UIImage(named: "BackIcon"), state: .normal)
+        viewController.setUIBarButtonItem(style: .plain)
         rootView.viewControllers = [viewController]
     }
 
@@ -70,18 +60,31 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
     }
 
     private func launchHomeView() {
-//        let rootView = UITabBarController()
-//        let main = MainTabBarController(rootView: rootView)
-//        let radioPlayer = RadioPlayerCoordinator(rootView: main)
-//        navigationController.view.window?.rootViewController = main
-//        navigationController.view.window?.makeKeyAndVisible()
-//        radioPlayer.start()
+        let launchViewController = LaunchModule(coordinatorDelegate: self, needAnimation: false).viewController
+        rootView.setNavigationBarHidden(true, animated: true)
+        rootView.pushViewController(launchViewController, animated: false)
     }
 }
 
     // MARK: - Extension
 
-extension OnBoardingCoordinator: OnBoardingViewModelDelegate {
+extension OnBoardingCoordinator: LaunchModule.CoordinatorDelegate {
+
+    func showOnboardingPath() {
+        let coordinator = OnBoardingCoordinator(rootView: rootView)
+        add(children: coordinator)
+        coordinator.start()
+    }
+
+    func showHomeTabBar() {
+        let coordinator = TabBarCoordinator(rootView: rootView)
+        add(children: coordinator)
+        coordinator.start()
+    }
+}
+
+extension OnBoardingCoordinator: OnBoardingModule.CoordinatorDelegate {
+
     func logIn() {
         makeLogInView()
     }

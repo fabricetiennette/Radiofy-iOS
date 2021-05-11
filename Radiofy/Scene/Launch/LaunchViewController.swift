@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 final class LaunchViewController: UIViewController {
 
@@ -49,11 +50,20 @@ private extension LaunchViewController {
     func onViewDidLoad() {
         addObserver()
         viewModel.setupEmailLanguage()
-        slideInLogoFromTop()
+        startAnimation()
+    }
+
+    func startAnimation() {
+        switch viewModel.isOn {
+        case true:
+            slideInLogoFromTop()
+        case false:
+            viewModel.isUserLoggedIn()
+        }
     }
 
     func addObserver() {
-       NotificationCenter.default.addObserver(self, selector: #selector(showStartAfterSignOut(notification:)), name: SettingsViewModel.NotificationDone, object: nil)
+//       NotificationCenter.default.addObserver(self, selector: #selector(showStartAfterSignOut(notification:)), name: SettingsViewModel.NotificationDone, object: nil)
    }
 
     func slideInLogoFromTop() {
@@ -80,5 +90,15 @@ private extension LaunchViewController {
 extension LaunchViewController: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         viewModel.isUserLoggedIn()
+    }
+}
+
+class CombineMessageReceiver {
+    private var cancelSet: Set<AnyCancellable> = []
+
+    init(_ publisher: AnyPublisher<Void?, Never>) {
+        publisher
+            .sink { _ in }
+            .store(in: &cancelSet)
     }
 }

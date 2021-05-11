@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FRadioPlayer
+import Combine
 
 protocol SettingsViewModelDelegate: AnyObject {
     func callEditProfile()
@@ -18,6 +19,9 @@ protocol SettingsViewModelDelegate: AnyObject {
 }
 
 class SettingsViewModel {
+
+    @Published var signOut: Void?
+    private var cancelSet: Set<AnyCancellable> = []
 
     static let NotificationDone = NSNotification.Name(rawValue: "Done")
 
@@ -58,8 +62,9 @@ class SettingsViewModel {
     }
 
     private func showStartViewIfSignOut() {
-        NotificationCenter.default.post(
-            name: SettingsViewModel.NotificationDone, object: nil)
+//        NotificationCenter.default.post(
+//            name: SettingsViewModel.NotificationDone, object: nil)
+        self.$signOut.sink { _ in }.store(in: &cancelSet)
     }
 
     func removeListener() {

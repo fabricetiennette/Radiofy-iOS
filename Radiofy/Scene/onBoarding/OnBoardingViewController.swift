@@ -11,7 +11,7 @@ import Combine
 
 final class OnBoardingViewController: UIViewController {
 
-    private var viewModel: OnBoardingViewModel
+    private var viewModel: OnBoardingModule.ViewModel
     private var disposeBag = Set<AnyCancellable>()
 
     private lazy var textContainer: UIStackView = {
@@ -99,7 +99,7 @@ final class OnBoardingViewController: UIViewController {
         return button
     }()
 
-    init(viewModel: OnBoardingViewModel) {
+    init(viewModel: OnBoardingModule.ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
