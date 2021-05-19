@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 typealias CallbackAuthResult = ((AuthResult) -> Void)
 typealias CallbackResult = ((Result<Void, Error>) -> Void)
@@ -36,12 +37,12 @@ struct SignUpModule {
 
 protocol SignUpInputBinding {
     func signUpOneUser(_ nameTextField: String?, _ emailTextField: String?, _ passwordTextField: String?)
+    func tapBack()
 }
 
 protocol SignUpOutputBinding {
-    var errorHandler: ((_ message: String) -> Void) { get set }
-    var spinnerHandler: (() -> Void) { get set }
-    func tapBack()
+    var errorPublisher: PassthroughSubject<String, Never> { get set }
+    var spinnerPubliser: PassthroughSubject<Void, Never> { get set }
 }
 
 protocol SignUpServiceProtocol {

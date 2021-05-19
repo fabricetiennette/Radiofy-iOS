@@ -11,7 +11,7 @@ import Combine
 
 struct OnBoardingModule {
 
-    typealias ViewModel = OnBoardingOutputBinding
+    typealias ViewModel = OnBoardingOutputBinding & OnBoardingInputBinding
     typealias Service = OnBoardingServiceProtocol
     typealias CoordinatorDelegate = OnBoardingViewModelDelegate
 
@@ -32,12 +32,14 @@ struct OnBoardingModule {
 }
 
 protocol OnBoardingOutputBinding {
-    func openSignUpView()
-    func openLogInView()
-    func signInAnonymously()
-    var errorPublisher: PassthroughSubject<(String,String),Never> { get set }
+    var errorPublisher: PassthroughSubject<(String, String), Never> { get set }
 }
 
+protocol OnBoardingInputBinding {
+    func didTapSignUp()
+    func didTapLogIn()
+    func didTapSignInAnonymously()
+}
 protocol OnBoardingServiceProtocol {
     func signInAnonymously(callback: @escaping (AuthResult) -> Void)
 }

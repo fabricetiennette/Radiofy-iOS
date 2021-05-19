@@ -21,15 +21,15 @@ final class OnBoardingViewModel: OnBoardingModule.ViewModel {
         self.service = service
     }
 
-    func openSignUpView() {
+    func didTapSignUp() {
         delegate?.goToSignUp()
     }
 
-    func openLogInView() {
+    func didTapLogIn() {
         delegate?.goToLogIn()
     }
 
-    func signInAnonymously() {
+    func didTapSignInAnonymously() {
         service.signInAnonymously { [weak self] result in
             guard let self = self else { return }
             switch result {

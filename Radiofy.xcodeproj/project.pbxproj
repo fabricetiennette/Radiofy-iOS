@@ -103,8 +103,6 @@
 		2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */; };
 		2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE72433FEE900820DE4 /* SearchViewController.swift */; };
 		2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */; };
-		2CB77E5C2649A5D90069BC52 /* UIControlSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E5B2649A5D90069BC52 /* UIControlSubscription.swift */; };
-		2CB77E5E2649A6290069BC52 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E5D2649A6290069BC52 /* Publisher.swift */; };
 		2CB77E612649AF470069BC52 /* UIControl+CombineCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */; };
 		2CB77E632649C0F40069BC52 /* OnBoardingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E622649C0F40069BC52 /* OnBoardingModule.swift */; };
 		2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E642649C3B90069BC52 /* OnBoardingService.swift */; };
@@ -314,8 +312,6 @@
 		2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryCoordinator.swift; sourceTree = "<group>"; };
 		2CB30EE72433FEE900820DE4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewController.swift; sourceTree = "<group>"; };
-		2CB77E5B2649A5D90069BC52 /* UIControlSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlSubscription.swift; sourceTree = "<group>"; };
-		2CB77E5D2649A6290069BC52 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+CombineCompatible.swift"; sourceTree = "<group>"; };
 		2CB77E622649C0F40069BC52 /* OnBoardingModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModule.swift; sourceTree = "<group>"; };
 		2CB77E642649C3B90069BC52 /* OnBoardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingService.swift; sourceTree = "<group>"; };
@@ -752,8 +748,6 @@
 		2CB77E5F2649AF1C0069BC52 /* UIControl */ = {
 			isa = PBXGroup;
 			children = (
-				2CB77E5D2649A6290069BC52 /* Publisher.swift */,
-				2CB77E5B2649A5D90069BC52 /* UIControlSubscription.swift */,
 				2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */,
 			);
 			path = UIControl;
@@ -1498,7 +1492,6 @@
 				2CF7EF36244256AB004A9B30 /* PopularStationsCollectionViewCell.swift in Sources */,
 				2C368DDA243763AF00979816 /* UIView+.swift in Sources */,
 				2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */,
-				2CB77E5C2649A5D90069BC52 /* UIControlSubscription.swift in Sources */,
 				2C498412245AFB2A00B6201C /* PodcastCell.swift in Sources */,
 				2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */,
 				2C498421245B14DD00B6201C /* PodcastStation.swift in Sources */,
@@ -1510,7 +1503,6 @@
 				2CF5ED88242FFE970018E8A4 /* LogInViewModel.swift in Sources */,
 				2CF0487C243E10A200E12429 /* MorningHomeCellView.swift in Sources */,
 				2C302AC82638A12D0085325C /* LaunchService.swift in Sources */,
-				2CB77E5E2649A6290069BC52 /* Publisher.swift in Sources */,
 				2C6B047126543268007247A4 /* UIApplication+.swift in Sources */,
 				2C99C3832447D7410097E106 /* FavoriteRadioCell.swift in Sources */,
 				2C3387702434ED4300141102 /* SettingsDataSource.swift in Sources */,

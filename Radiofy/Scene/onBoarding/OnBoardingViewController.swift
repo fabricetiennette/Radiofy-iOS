@@ -126,7 +126,7 @@ private extension OnBoardingViewController {
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
-                self.viewModel.openSignUpView()
+                self.viewModel.didTapSignUp()
             }
             .store(in: &disposeBag)
 
@@ -135,7 +135,7 @@ private extension OnBoardingViewController {
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
-                self.viewModel.openLogInView()
+                self.viewModel.didTapLogIn()
             }
             .store(in: &disposeBag)
 
@@ -144,7 +144,7 @@ private extension OnBoardingViewController {
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
-                self.viewModel.signInAnonymously()
+                self.viewModel.didTapSignInAnonymously()
             }
             .store(in: &disposeBag)
 

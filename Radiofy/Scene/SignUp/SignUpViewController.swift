@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         configureViewModel()
+        setupBindings()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -59,17 +60,6 @@ class SignUpViewController: UIViewController {
         signUpButton.isEnabled = true
     }
 
-    @IBAction private func signUpButtonTapped(_ sender: Any) {
-        guard let viewModel = viewModel else { return }
-        viewEndEditing()
-
-        let name = nameTextField.text
-        let email = emailTextField.text
-        let password = passwordTextField.text
-
-        viewModel.signUpOneUser(name, email, password)
-    }
-
     @IBAction private func textFieldTapped(_ sender: UITextField) {
         sender.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.4382694662, green: 0.443403244, blue: 0.4388435185, alpha: 1))
         switch sender.tag {
@@ -89,40 +79,60 @@ class SignUpViewController: UIViewController {
 
 private extension SignUpViewController {
 
-    func configureViewModel() {
+    func setupBindings() {
 
+        // SignUpButton Tapped
+        signUpButton
+            .publisher(for: .touchUpInside)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.viewEndEditing()
+
+                let name = self.nameTextField.text
+                let email = self.emailTextField.text
+                let password = self.passwordTextField.text
+
+                self.viewModel?.signUpOneUser(name, email, password)
+            }
+            .store(in: &disposeBag)
+
+        // BackButton Tapped
         let backButton = UIBarButtonItem(title: L1s.back,
                                          style: .plain,
                                          cancellables: &disposeBag,
-                                         action: {
-                                            self.viewModel?.tapBack()
-                                         })
+                                         action: { self.viewModel?.tapBack() })
         navigationItem.leftBarButtonItem = backButton
-    
-        viewModel?.errorHandler = { [weak self] message in
-            guard let me = self else { return }
-            if me.errorTextLabel.text != message {
-                me.errorTextLabel.slideInFromBottom()
-            }
-            me.errorTextLabel.text = message
-            me.errorTextLabel.alpha = 1
-            me.signUpButton.animateWhileAwaitingResponse(
-                showLoading: false,
-                originalConstraints: me.buttonContraint,
-                identifier: "signUpButtonWidth",
-                title: L1s.signUp
-            )
-        }
+    }
 
-        viewModel?.spinnerHandler = { [weak self] in
-            guard let me = self else { return }
-            me.signUpButton.animateWhileAwaitingResponse(
-                showLoading: true,
-                originalConstraints: me.signUpButton.constraints,
-                identifier: "signUpButtonWidth",
-                title: L1s.signUp
-            )
-        }
+    func configureViewModel() {
+        guard let viewModel = self.viewModel else { return }
+
+        viewModel.errorPublisher
+            .sink(receiveValue: { [weak self] message in
+                guard let self = self else { return }
+                if self.errorTextLabel.text != message {
+                    self.errorTextLabel.slideInFromBottom()
+                }
+                self.errorTextLabel.text = message
+                self.errorTextLabel.alpha = 1
+                self.signUpButton.animateWhileAwaitingResponse(
+                    showLoading: false,
+                    originalConstraints: self.buttonContraint,
+                    identifier: "signUpButtonWidth",
+                    title: L1s.signUp
+                )
+            }).store(in: &disposeBag)
+
+        viewModel.spinnerPubliser
+            .sink(receiveValue: { [weak self] in
+                guard let self = self else { return }
+                self.signUpButton.animateWhileAwaitingResponse(
+                    showLoading: true,
+                    originalConstraints: self.signUpButton.constraints,
+                    identifier: "signUpButtonWidth",
+                    title: L1s.signUp
+                )
+            }).store(in: &disposeBag)
     }
 
     func configureView() {

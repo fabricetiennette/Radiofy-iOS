@@ -7,14 +7,14 @@
 //
 
 import Foundation
-import FirebaseAuth
+import Combine
 
 class SignUpViewModel: SignUpModule.ViewModel {
 
     weak var delegate: SignUpModule.CoordinatorDelegate?
 
-    var errorHandler: ((_ message: String) -> Void) = { _ in }
-    var spinnerHandler: (() -> Void) = {}
+    var errorPublisher = PassthroughSubject<String, Never>()
+    var spinnerPubliser = PassthroughSubject<Void, Never>()
 
     private let service: SignUpModule.Service
 
@@ -26,7 +26,7 @@ class SignUpViewModel: SignUpModule.ViewModel {
     func signUpOneUser(_ nameTextField: String?,
                        _ emailTextField: String?,
                        _ passwordTextField: String?) {
-        spinnerHandler()
+        spinnerPubliser.send()
         if validateTextFields(nameTextField, emailTextField, passwordTextField) == nil {
 
             let name = nameTextField.clearedText()
@@ -58,7 +58,7 @@ private extension SignUpViewModel {
                 self.sendEmailVerificationToUser()
                 self.showHomeScreen()
             case .failure(let error):
-                self.errorHandler(error.localizedDescription)
+                self.errorPublisher.send(error.localizedDescription)
             }
         }
     }
@@ -72,7 +72,7 @@ private extension SignUpViewModel {
                 self.sendEmailVerificationToUser()
                 self.showHomeScreen()
             case .failure(let error):
-                self.errorHandler(error.localizedDescription)
+                self.errorPublisher.send(error.localizedDescription)
             }
         }
     }
@@ -84,7 +84,7 @@ private extension SignUpViewModel {
             switch result {
             case .success: break
             case .failure:
-                self.errorHandler(L1s.dataSavingError)
+                self.errorPublisher.send(L1s.dataSavingError)
             }
         }
     }
@@ -95,7 +95,7 @@ private extension SignUpViewModel {
             switch result {
             case .success: break
             case .failure(let error):
-                self.errorHandler(error.localizedDescription)
+                self.errorPublisher.send(error.localizedDescription)
             }
         }
     }
@@ -117,19 +117,19 @@ private extension SignUpViewModel {
         // validate name is as expected
         let name = nameTextField.clearedText()
         if name.isNameValid() == false {
-            return errorHandler(L1s.nameInvalid)
+            return errorPublisher.send(L1s.nameInvalid)
         }
 
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorHandler(L1s.emailInvalid)
+            return errorPublisher.send(L1s.emailInvalid)
         }
 
         // validate password is as expected
         let password = passwordTextField.clearedText()
         if password.isValidPassword() == false {
-            return errorHandler(L1s.passwordInvalid)
+            return errorPublisher.send(L1s.passwordInvalid)
         }
 
         return nil
