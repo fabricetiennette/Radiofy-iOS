@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class SignUpViewController: UIViewController {
 
@@ -18,7 +19,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var signUpButtonWidth: NSLayoutConstraint!
 
     private var buttonContraint = [NSLayoutConstraint]()
-    var viewModel: SignUpViewModel!
+    private var disposeBag: Set<AnyCancellable> = []
+    var viewModel: SignUpModule.ViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,7 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction private func signUpButtonTapped(_ sender: Any) {
+        guard let viewModel = viewModel else { return }
         viewEndEditing()
 
         let name = nameTextField.text
@@ -87,7 +90,16 @@ class SignUpViewController: UIViewController {
 private extension SignUpViewController {
 
     func configureViewModel() {
-        viewModel.errorHandler = { [weak self] message in
+
+        let backButton = UIBarButtonItem(title: L1s.back,
+                                         style: .plain,
+                                         cancellables: &disposeBag,
+                                         action: {
+                                            self.viewModel?.tapBack()
+                                         })
+        navigationItem.leftBarButtonItem = backButton
+    
+        viewModel?.errorHandler = { [weak self] message in
             guard let me = self else { return }
             if me.errorTextLabel.text != message {
                 me.errorTextLabel.slideInFromBottom()
@@ -102,7 +114,7 @@ private extension SignUpViewController {
             )
         }
 
-        viewModel.spinnerHandler = { [weak self] in
+        viewModel?.spinnerHandler = { [weak self] in
             guard let me = self else { return }
             me.signUpButton.animateWhileAwaitingResponse(
                 showLoading: true,

@@ -12,8 +12,15 @@ class LaunchCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Start
 
+    private var needAnimation: Bool
+    init(rootView: UINavigationController, needAnimation: Bool) {
+        self.needAnimation = needAnimation
+        super.init(rootView: rootView)
+    }
+
     override func start() {
-        let viewController = LaunchModule(coordinatorDelegate: self, needAnimation: true).viewController
+        let module = LaunchModule(coordinatorDelegate: self, needAnimation: needAnimation)
+        let viewController = module.viewController
         rootView.setNavigationBarHidden(true, animated: true)
         rootView.pushViewController(viewController, animated: false)
     }

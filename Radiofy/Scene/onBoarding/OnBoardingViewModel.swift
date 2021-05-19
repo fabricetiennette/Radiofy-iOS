@@ -11,7 +11,7 @@ import Combine
 
 final class OnBoardingViewModel: OnBoardingModule.ViewModel {
 
-    var errorHandler: ((String, String) -> Void) = { _, _  in }
+    var errorPublisher = PassthroughSubject<(String, String), Never>()
 
     weak var delegate: OnBoardingModule.CoordinatorDelegate?
 
@@ -22,11 +22,11 @@ final class OnBoardingViewModel: OnBoardingModule.ViewModel {
     }
 
     func openSignUpView() {
-        delegate?.signUp()
+        delegate?.goToSignUp()
     }
 
     func openLogInView() {
-        delegate?.logIn()
+        delegate?.goToLogIn()
     }
 
     func signInAnonymously() {
@@ -34,9 +34,9 @@ final class OnBoardingViewModel: OnBoardingModule.ViewModel {
             guard let self = self else { return }
             switch result {
             case .success:
-                self.delegate?.signIn()
+                self.delegate?.goToSignIn()
             case .failure(let error):
-                self.errorHandler(L1s.error, error.localizedDescription)
+                self.errorPublisher.send((L1s.error, error.localizedDescription))
             }
         }
     }

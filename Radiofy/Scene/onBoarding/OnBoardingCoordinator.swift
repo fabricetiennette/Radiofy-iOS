@@ -17,28 +17,29 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
         rootView.navigationBar.isTranslucent = false
         rootView.navigationBar.tintColor = .white
         rootView.navigationBar.shadowImage = UIImage()
-        startOnboardingView()
+        launchOnboarding()
     }
 
     // MARK: - Private
 
-    private func startOnboardingView() {
-        let viewController = OnBoardingModule(coordinatorDelegate: self).viewController
+    private func launchOnboarding() {
+        let module = OnBoardingModule(coordinatorDelegate: self)
+        let viewController = module.viewController
         viewController.setNavigationBackButton(image: UIImage(named: "BackIcon"), state: .normal)
         viewController.setUIBarButtonItem(style: .plain)
         rootView.viewControllers = [viewController]
     }
 
-    private func makeSignUpView() {
-        let viewController = SignUpViewController.instantiate(from: "Start")
-        let viewModel = SignUpViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.navigationItem.title = L1s.creatAccount
-        rootView.pushViewController(viewController, animated: true)
+    private func goToSignUpView() {
+        let coordinator = SignUpCoordinator(options: .push(rootView))
+        rootView.setNavigationBarHidden(false, animated: false)
+        coordinator.delegate = self
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makeLogInView() {
-        let viewController = LogInViewController.instantiate(from: "Start")
+        let viewController = LogInViewController.instantiate(from: .start)
         let viewModel = LogInViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.navigationItem.title = L1s.logInTab
@@ -52,17 +53,17 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
     }
 
     private func makePasswordResetView() {
-        let viewController = PasswordResetViewController.instantiate(from: "Start")
+        let viewController = PasswordResetViewController.instantiate(from: .start)
         let viewModel = PasswordResetViewModel()
         viewController.viewModel = viewModel
         viewController.navigationItem.title = L1s.resetPasswordTab
         rootView.pushViewController(viewController, animated: true)
     }
 
-    private func launchHomeView() {
-        let launchViewController = LaunchModule(coordinatorDelegate: self, needAnimation: false).viewController
-        rootView.setNavigationBarHidden(true, animated: true)
-        rootView.pushViewController(launchViewController, animated: false)
+    private func launchHome() {
+        let coordinator = LaunchCoordinator(rootView: rootView, needAnimation: false)
+        add(children: coordinator)
+        coordinator.start()
     }
 }
 
@@ -85,22 +86,22 @@ extension OnBoardingCoordinator: LaunchModule.CoordinatorDelegate {
 
 extension OnBoardingCoordinator: OnBoardingModule.CoordinatorDelegate {
 
-    func logIn() {
+    func goToLogIn() {
         makeLogInView()
     }
 
-    func signUp() {
-        makeSignUpView()
+    func goToSignUp() {
+        goToSignUpView()
     }
 
-    func signIn() {
-        launchHomeView()
+    func goToSignIn() {
+        launchHome()
     }
 }
 
-extension OnBoardingCoordinator: SignUpViewModelDelegate {
-    func callhomeScreen() {
-        launchHomeView()
+extension OnBoardingCoordinator: SignUpCoordinatorDelegate {
+    func goHomeFromSignUp() {
+        launchHome()
     }
 }
 
@@ -110,6 +111,6 @@ extension OnBoardingCoordinator: LogInViewModelDelegate {
     }
 
     func launchHomeScreen() {
-        launchHomeView()
+        launchHome()
     }
 }

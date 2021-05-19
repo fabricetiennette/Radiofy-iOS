@@ -15,7 +15,7 @@ class RootCoordinator: Coordinator<UIWindow> {
     override func start() {
         let navigationController = UINavigationController()
         rootView.rootViewController = navigationController
-        let coordinator = LaunchCoordinator(rootView: navigationController)
+        let coordinator = LaunchCoordinator(rootView: navigationController, needAnimation: true)
         add(children: coordinator)
         rootView.makeKeyAndVisible()
         coordinator.start()

@@ -32,7 +32,7 @@ class YourLibraryCoordinator: Coordinator<UINavigationController> {
     // MARK: - Coordinator
 
     override func start() {
-        let viewController = YourLibraryViewController.instantiate(from: "Library")
+        let viewController = YourLibraryViewController.instantiate(from: .library)
         let viewModel = YourLibraryViewModel(delegate: self)
         viewController.viewModel = viewModel
 
@@ -48,14 +48,14 @@ class YourLibraryCoordinator: Coordinator<UINavigationController> {
 
     // Make radio profile page
     private func makeRadioPage(with selectedRadio: RadioStation) {
-        let viewController = RadioViewController.instantiate(from: "Radio")
+        let viewController = RadioViewController.instantiate(from: .radio)
         let viewModel = RadioViewModel(delegate: self, selectedRadio: selectedRadio)
         viewController.viewModel = viewModel
         rootView.pushViewController(viewController, animated: true)
     }
 
     private func makePayWallView() {
-        let viewController = SubscriptionViewController.instantiate(from: "Subscription")
+        let viewController = SubscriptionViewController.instantiate(from: .subscription)
         let viewModel = SubscriptionViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .fullScreen
@@ -63,11 +63,11 @@ class YourLibraryCoordinator: Coordinator<UINavigationController> {
     }
 
     private func makeSignUpView() {
-        let viewController = SignUpViewController.instantiate(from: "Start")
-        let viewModel = SignUpViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.navigationItem.title = L1s.creatAccount
-        rootView.pushViewController(viewController, animated: true)
+//        let viewController = SignUpViewController.instantiate(from: "Start")
+//        let viewModel = SignUpViewModel(delegate: self)
+//        viewController.viewModel = viewModel
+//        viewController.navigationItem.title = L1s.creatAccount
+//        rootView.pushViewController(viewController, animated: true)
     }
 
     private func launchHomeView() {
@@ -100,7 +100,11 @@ extension YourLibraryCoordinator: SubscriptionViewModelDelegate {
 }
 
 extension YourLibraryCoordinator: SignUpViewModelDelegate {
-    func callhomeScreen() {
+    func didTapOnBack() {
+
+    }
+
+    func goToHomeView() {
         launchHomeView()
     }
 }

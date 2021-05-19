@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 struct OnBoardingModule {
 
@@ -34,14 +35,14 @@ protocol OnBoardingOutputBinding {
     func openSignUpView()
     func openLogInView()
     func signInAnonymously()
-    var errorHandler: ((_ title: String, _ message: String) -> Void) { get set }
+    var errorPublisher: PassthroughSubject<(String,String),Never> { get set }
 }
 
 protocol OnBoardingServiceProtocol {
     func signInAnonymously(callback: @escaping (AuthResult) -> Void)
 }
 protocol OnBoardingViewModelDelegate: AnyObject {
-    func signUp()
-    func logIn()
-    func signIn()
+    func goToSignUp()
+    func goToLogIn()
+    func goToSignIn()
 }

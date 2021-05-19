@@ -18,7 +18,7 @@ class RadioPlayerCoordinator: Coordinator<UITabBarController> {
 //    }
 
     override func start() {
-        let viewController = MiniPlayerViewController.instantiate(from: "Player")
+        let viewController = MiniPlayerViewController.instantiate(from: .player)
         let radioPlayerVC = makeRadioPlayerViewController()
         let viewModel = MiniPlayerViewModel(view: radioPlayerVC)
         viewController.viewModel = viewModel
@@ -33,7 +33,7 @@ class RadioPlayerCoordinator: Coordinator<UITabBarController> {
     }
 
     private func makeRadioPlayerViewController() -> RadioPlayerViewController {
-        let viewController = RadioPlayerViewController.instantiate(from: "Player")
+        let viewController = RadioPlayerViewController.instantiate(from: .player)
         let viewModel = RadioPlayerViewModel(delegate: self)
         viewController.viewModel = viewModel
         return viewController

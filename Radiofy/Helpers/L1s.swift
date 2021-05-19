@@ -21,6 +21,7 @@ class L1s {
     static let emailInvalid = NSLocalizedString("Email entered is not valid.", comment: "")
     static let passwordInvalid = NSLocalizedString("Please make sure your password contain a least 8 characters, 1 special character and 1 number.", comment: "")
     static let signUp = NSLocalizedString("SIGN UP", comment: "")
+    static let back = NSLocalizedString("Back", comment: "")
 
     // LogIn
     static let verifiedEmailFirst = NSLocalizedString("Please verify your email first", comment: "")

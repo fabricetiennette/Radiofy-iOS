@@ -111,14 +111,17 @@ final class OnBoardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        configureViewModel()
         setupBindings()
     }
 }
 
+    // MARK: - Private Extension
+
 private extension OnBoardingViewController {
 
     func setupBindings() {
+
+        // Sign up Button
         signUpButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
@@ -127,26 +130,31 @@ private extension OnBoardingViewController {
             }
             .store(in: &disposeBag)
 
-        loginButton.publisher(for: .touchUpInside)
+        // Login Button
+        loginButton
+            .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.openLogInView()
             }
             .store(in: &disposeBag)
 
-        skipButton.publisher(for: .touchUpInside)
+        // Skip Button
+        skipButton
+            .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.signInAnonymously()
             }
             .store(in: &disposeBag)
-    }
 
-    func configureViewModel() {
-        viewModel.errorHandler = { [weak self] title, message in
-            guard let me = self else { return }
-            me.showAlert(title: title, message: message)
-        }
+        // Send Error if needed
+        viewModel.errorPublisher
+            .sink { [weak self] title, message in
+                guard let me = self else { return }
+                me.showAlert(title: title, message: message)
+            }
+            .store(in: &disposeBag)
     }
 
     func configureView() {

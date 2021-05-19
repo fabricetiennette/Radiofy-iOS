@@ -32,7 +32,7 @@ class PodcastCoordinator: Coordinator<UINavigationController> {
     // MARK: - Coordinator
 
     override func start() {
-        let viewController = PodcastViewController.instantiate(from: "Podcast")
+        let viewController = PodcastViewController.instantiate(from: .podcast)
         let viewModel = PodcastViewModel(delegate: self)
         viewController.viewModel = viewModel
 
@@ -47,7 +47,7 @@ class PodcastCoordinator: Coordinator<UINavigationController> {
     }
 
     func makePodcasListView(_ selectedPodcast: PodcastStation) {
-        let viewController = PodcastListViewController.instantiate(from: "Podcast")
+        let viewController = PodcastListViewController.instantiate(from: .podcast)
         let viewModel = PodcastListViewModel(
             delegate: self,
             selectedPodcastStation: selectedPodcast
@@ -57,14 +57,14 @@ class PodcastCoordinator: Coordinator<UINavigationController> {
     }
 
     func makeEpisodeView(with podcastEpisode: Podcast) {
-        let viewController = EpisodeViewController.instantiate(from: "Podcast")
+        let viewController = EpisodeViewController.instantiate(from: .podcast)
         let viewModel = EpisodeViewModel(delegate: self, selectedPodcast: podcastEpisode)
         viewController.viewModel = viewModel
         rootView.pushViewController(viewController, animated: true)
     }
 
     private func makePayWallView() {
-        let viewController = SubscriptionViewController.instantiate(from: "Subscription")
+        let viewController = SubscriptionViewController.instantiate(from: .subscription)
         let viewModel = SubscriptionViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .fullScreen
@@ -72,11 +72,11 @@ class PodcastCoordinator: Coordinator<UINavigationController> {
     }
 
     private func makeSignUpView() {
-        let viewController = SignUpViewController.instantiate(from: "Start")
-        let viewModel = SignUpViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.navigationItem.title = L1s.creatAccount
-        rootView.pushViewController(viewController, animated: true)
+//        let viewController = SignUpViewController.instantiate(from: "Start")
+//        let viewModel = SignUpViewModel(delegate: self)
+//        viewController.viewModel = viewModel
+//        viewController.navigationItem.title = L1s.creatAccount
+//        rootView.pushViewController(viewController, animated: true)
     }
 
     private func launchHomeView() {
@@ -114,7 +114,11 @@ extension PodcastCoordinator: SubscriptionViewModelDelegate {
 }
 
 extension PodcastCoordinator: SignUpViewModelDelegate {
-    func callhomeScreen() {
+    func didTapOnBack() {
+
+    }
+
+    func goToHomeView() {
         launchHomeView()
     }
 }

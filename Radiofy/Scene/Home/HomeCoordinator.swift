@@ -13,7 +13,7 @@ class HomeCoordinator: Coordinator<UINavigationController> {
     // MARK: - start
 
     override func start() {
-        let viewController = HomeViewController.instantiate(from: "Home")
+        let viewController = HomeViewController.instantiate(from: .home)
         let viewModel = HomeViewModel(delegate: self)
         viewController.viewModel = viewModel
         rootView.pushViewController(viewController, animated: true)
@@ -22,14 +22,14 @@ class HomeCoordinator: Coordinator<UINavigationController> {
     // MARK: - Private
 
     private func makeSettingsPage() {
-        let viewController = SettingsViewController.instantiate(from: "Home")
+        let viewController = SettingsViewController.instantiate(from: .home)
         let viewModel = SettingsViewModel(delegate: self)
         viewController.viewModel = viewModel
         rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeEditProfilePage() {
-        let viewController = EditProfileViewController.instantiate(from: "Home")
+        let viewController = EditProfileViewController.instantiate(from: .home)
         let viewModel = EditProfileViewModel()
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .formSheet
@@ -38,36 +38,36 @@ class HomeCoordinator: Coordinator<UINavigationController> {
     }
 
     private func makeRadioPage(with selectedRadio: RadioStation) {
-        let viewController = RadioViewController.instantiate(from: "Radio")
+        let viewController = RadioViewController.instantiate(from: .radio)
         let viewModel = RadioViewModel(delegate: self, selectedRadio: selectedRadio)
         viewController.viewModel = viewModel
         rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeAboutPage() {
-        let viewController = AboutViewController.instantiate(from: "Home")
+        let viewController = AboutViewController.instantiate(from: .home)
         let viewModel = AboutViewModel()
         viewController.viewModel = viewModel
         rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeAccountPage() {
-        let viewController = AccountViewController.instantiate(from: "Home")
+        let viewController = AccountViewController.instantiate(from: .home)
         let viewModel = AccountViewModel(delegate: self)
         viewController.viewModel = viewModel
         rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeSignUpView() {
-        let viewController = SignUpViewController.instantiate(from: "Start")
-        let viewModel = SignUpViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.navigationItem.title = L1s.creatAccount
-        rootView.pushViewController(viewController, animated: true)
+//        let viewController = SignUpViewController.instantiate(from: "Start")
+//        let viewModel = SignUpViewModel(delegate: self)
+//        viewController.viewModel = viewModel
+//        viewController.navigationItem.title = L1s.creatAccount
+//        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makePayWallView() {
-        let viewController = SubscriptionViewController.instantiate(from: "Subscription")
+        let viewController = SubscriptionViewController.instantiate(from: .subscription)
         let viewModel = SubscriptionViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .fullScreen
@@ -114,7 +114,10 @@ extension HomeCoordinator: AccountViewModelDelete {
 }
 
 extension HomeCoordinator: SignUpViewModelDelegate {
-    func callhomeScreen() {
+    func didTapOnBack() {
+    }
+
+    func goToHomeView() {
         start()
     }
 }
