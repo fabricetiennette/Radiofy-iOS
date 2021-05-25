@@ -9,8 +9,9 @@
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import Combine
 
-final class SignUpServices: SignUpModule.Service {
+struct SignUpServices: SignUpModule.Service {
 
     private let firebaseAuth = Auth.auth()
     private let database = Firestore.firestore()
@@ -46,51 +47,70 @@ final class SignUpServices: SignUpModule.Service {
         imageReference.putData(data, metadata: nil) { _, _ in }
     }
 
-    func createUser(name: String, password: String, email: String, callback: @escaping CallbackAuthResult) {
-        firebaseAuth.createUser(withEmail: email, password: password) { auth, error in
-            if let error = error {
-                callback(.failure(error))
-                return
-            }
-            if let user = auth?.user {
-                callback(.success(user))
-                return
-            }
-        }
-    }
+    func createUser(name: String, password: String, email: String) -> AnyPublisher<UserProtocol, Error> {
+        Deferred {
 
-    func linkUserToAnonymous(email: String, password: String, callback: @escaping CallbackAuthResult) {
-        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-        firebaseAuth.currentUser?.link(with: credential, completion: { auth, error in
-            if let error = error {
-                callback(.failure(error))
-                return
-            }
-            if let user = auth?.user {
-                callback(.success(user))
-                return
-            }
-        })
-    }
-
-    func saveUserToDatabase(email: String, name: String, callback: @escaping CallbackResult) {
-        guard let uid = currentUser?.uid else { return }
-        database.collection("users").document(email)
-            .setData(["name": name, "uid": uid, "photoURL": ""]
-            ) { error in
-                if let error = error {
-                    callback(.failure(error))
+            Future { promise in
+                firebaseAuth.createUser(withEmail: email, password: password) { auth, error in
+                    if let error = error {
+                        promise(.failure(error))
+                    } else {
+                        guard let user = auth?.user else { return }
+                        promise(.success(user))
+                    }
                 }
-                callback(.success(()))
             }
+        }.eraseToAnyPublisher()
     }
 
-    func sendEmailVerificationToUser(callback: @escaping (Result<Any, Error>) -> Void) {
-        currentUser?.sendEmailVerification(completion: { (error) in
-            if let error = error {
-                callback(.failure(error))
+    func linkUserToAnonymous(email: String, password: String) -> AnyPublisher<UserProtocol, Error> {
+        Deferred {
+
+            Future { promise in
+                let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+                firebaseAuth.currentUser?.link(with: credential, completion: { auth, error in
+                    if let error = error {
+                        promise(.failure(error))
+                    } else {
+                        guard let user = auth?.user else { return }
+                        promise(.success(user))
+                    }
+                })
             }
-            callback(.success("success"))
-        })
+        }.eraseToAnyPublisher()
+    }
+
+    func saveUserToDatabase(email: String, name: String) -> AnyPublisher<Void, Error> {
+        Deferred {
+
+            Future { promise in
+                guard let uid = currentUser?.uid else { return }
+                database
+                    .collection("users")
+                    .document(email)
+                    .setData(["name": name, "uid": uid, "photoURL": ""]) { error in
+                        if let error = error {
+                            promise(.failure(error))
+                        } else {
+                            promise(.success(()))
+                        }
+                    }
+            }
+        }.eraseToAnyPublisher()
+    }
+
+    func sendEmailVerificationToUser() -> AnyPublisher<Any, Error> {
+        Deferred {
+
+            Future { promise in
+                currentUser?.sendEmailVerification(completion: { (error) in
+                    if let error = error {
+                        promise(.failure(error))
+                    } else {
+                        promise(.success("success"))
+                    }
+                })
+            }
+        }.eraseToAnyPublisher()
     }
 }

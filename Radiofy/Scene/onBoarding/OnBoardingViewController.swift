@@ -151,8 +151,8 @@ private extension OnBoardingViewController {
         // Send Error if needed
         viewModel.errorPublisher
             .sink { [weak self] title, message in
-                guard let me = self else { return }
-                me.showAlert(title: title, message: message)
+                guard let self = self else { return }
+                self.showAlert(title: title, message: message)
             }
             .store(in: &disposeBag)
     }

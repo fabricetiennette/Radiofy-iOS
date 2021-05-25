@@ -41,7 +41,7 @@ protocol OnBoardingInputBinding {
     func didTapSignInAnonymously()
 }
 protocol OnBoardingServiceProtocol {
-    func signInAnonymously(callback: @escaping (AuthResult) -> Void)
+    func signInAnonymously() -> AnyPublisher<UserProtocol, Error>
 }
 protocol OnBoardingViewModelDelegate: AnyObject {
     func goToSignUp()

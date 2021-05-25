@@ -49,10 +49,10 @@ protocol SignUpServiceProtocol {
     var isAnonymous: Bool { get }
     func deleteCurrentUser()
     func saveImageDetails(with email: String)
-    func createUser(name: String, password: String, email: String, callback: @escaping CallbackAuthResult)
-    func linkUserToAnonymous(email: String, password: String, callback: @escaping CallbackAuthResult)
-    func saveUserToDatabase(email: String, name: String, callback: @escaping CallbackResult)
-    func sendEmailVerificationToUser(callback: @escaping (Result<Any, Error>) -> Void)
+    func createUser(name: String, password: String, email: String) -> AnyPublisher<UserProtocol, Error>
+    func linkUserToAnonymous(email: String, password: String) -> AnyPublisher<UserProtocol, Error>
+    func saveUserToDatabase(email: String, name: String) -> AnyPublisher<Void, Error>
+    func sendEmailVerificationToUser() -> AnyPublisher<Any, Error>
 }
 
 protocol SignUpViewModelDelegate: AnyObject {

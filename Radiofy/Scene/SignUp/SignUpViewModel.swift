@@ -16,6 +16,7 @@ class SignUpViewModel: SignUpModule.ViewModel {
     var errorPublisher = PassthroughSubject<String, Never>()
     var spinnerPubliser = PassthroughSubject<Void, Never>()
 
+    private var disposeBag = Set<AnyCancellable>()
     private let service: SignUpModule.Service
 
     init(service: SignUpModule.Service) {
@@ -50,54 +51,75 @@ private extension SignUpViewModel {
 
     // create and save user in firebase
     func createUser(with name: String, _ password: String, _ email: String) {
-        service.createUser(name: name, password: password, email: email) { result in
-            switch result {
-            case .success:
+        service
+            .createUser(name: name, password: password, email: email)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.errorPublisher.send(error.localizedDescription)
+                case .finished: break
+                }
+            } receiveValue: { [weak self] _ in
+                guard let self = self else { return }
                 self.service.saveImageDetails(with: email)
                 self.saveUserToDatabase(email: email, name: name)
                 self.sendEmailVerificationToUser()
                 self.showHomeScreen()
-            case .failure(let error):
-                self.errorPublisher.send(error.localizedDescription)
             }
-        }
+            .store(in: &disposeBag)
     }
 
     func linkAnonymousToUser(_ name: String, _ password: String, _ email: String) {
-        service.linkUserToAnonymous(email: email, password: password) { result in
-            switch result {
-            case .success:
+        service
+            .linkUserToAnonymous(email: email, password: password)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.errorPublisher.send(error.localizedDescription)
+                case .finished: break
+                }
+            } receiveValue: { [weak self] _ in
+                guard let self = self else { return }
                 self.service.saveImageDetails(with: email)
                 self.saveUserToDatabase(email: email, name: name)
                 self.sendEmailVerificationToUser()
                 self.showHomeScreen()
-            case .failure(let error):
-                self.errorPublisher.send(error.localizedDescription)
             }
-        }
+            .store(in: &disposeBag)
     }
 
     // save user to database
     func saveUserToDatabase(email: String, name: String) {
-        service.saveUserToDatabase(
-        email: email, name: name) { result in
-            switch result {
-            case .success: break
-            case .failure:
-                self.errorPublisher.send(L1s.dataSavingError)
-            }
-        }
+        service
+            .saveUserToDatabase(email: email, name: name)
+            .sink(receiveCompletion: { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorPublisher.send(L1s.dataSavingError)
+                case .finished: break
+                }
+            }, receiveValue: { _ in })
+            .store(in: &disposeBag)
     }
 
     // send a verification email to the user
     func sendEmailVerificationToUser() {
-        service.sendEmailVerificationToUser { result in
-            switch result {
-            case .success: break
-            case .failure(let error):
-                self.errorPublisher.send(error.localizedDescription)
-            }
-        }
+        service
+            .sendEmailVerificationToUser()
+            .sink(receiveCompletion: { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.errorPublisher.send(error.localizedDescription)
+                case .finished: break
+                }
+            }, receiveValue: { _ in })
+            .store(in: &disposeBag)
     }
 
     func ifAnonymousDeleteUser() {

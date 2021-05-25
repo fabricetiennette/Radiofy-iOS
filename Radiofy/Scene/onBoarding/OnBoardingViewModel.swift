@@ -15,6 +15,7 @@ final class OnBoardingViewModel: OnBoardingModule.ViewModel {
 
     weak var delegate: OnBoardingModule.CoordinatorDelegate?
 
+    private var disposeBag = Set<AnyCancellable>()
     private let service: OnBoardingModule.Service
 
     init(service: OnBoardingModule.Service) {
@@ -30,14 +31,19 @@ final class OnBoardingViewModel: OnBoardingModule.ViewModel {
     }
 
     func didTapSignInAnonymously() {
-        service.signInAnonymously { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success:
+        service
+            .signInAnonymously()
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.errorPublisher.send((L1s.error, error.localizedDescription))
+                case .finished: break
+                }
+            } receiveValue: { [weak self] _ in
+                guard let self = self else { return }
                 self.delegate?.goToSignIn()
-            case .failure(let error):
-                self.errorPublisher.send((L1s.error, error.localizedDescription))
             }
-        }
+            .store(in: &disposeBag)
     }
 }
