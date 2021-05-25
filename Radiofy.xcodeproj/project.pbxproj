@@ -140,6 +140,9 @@
 		2CDDB443244A15D100DC31F5 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDB442244A15D100DC31F5 /* SearchDataSource.swift */; };
 		2CDDB446244A16F900DC31F5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDB445244A16F900DC31F5 /* SearchCell.swift */; };
 		2CDDB448244A6B5500DC31F5 /* SearchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */; };
+		2CDF26FA265D8E06008C3B71 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */; };
+		2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */; };
+		2CDF26FE265D93C4008C3B71 /* LogInServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FD265D93C4008C3B71 /* LogInServices.swift */; };
 		2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */; };
 		2CE6ACFE2452348D00D8A7B7 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */; };
 		2CE6AD002452563400D8A7B7 /* FakeAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */; };
@@ -359,6 +362,9 @@
 		2CDDB442244A15D100DC31F5 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		2CDDB445244A16F900DC31F5 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageView.swift; sourceTree = "<group>"; };
+		2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
+		2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModule.swift; sourceTree = "<group>"; };
+		2CDF26FD265D93C4008C3B71 /* LogInServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInServices.swift; sourceTree = "<group>"; };
 		2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthResponse.swift; sourceTree = "<group>"; };
@@ -762,6 +768,7 @@
 				2C302AC72638A12D0085325C /* LaunchService.swift */,
 				2CB77E642649C3B90069BC52 /* OnBoardingService.swift */,
 				2CC9E90F265269AE001877B0 /* SignUpServices.swift */,
+				2CDF26FD265D93C4008C3B71 /* LogInServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -912,6 +919,8 @@
 		2CF5ED6F242E57E00018E8A4 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
+				2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */,
+				2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */,
 				2CF5ED70242E58000018E8A4 /* LogInViewController.swift */,
 				2CF5ED87242FFE970018E8A4 /* LogInViewModel.swift */,
 			);
@@ -1447,6 +1456,7 @@
 				2C498431245B790A00B6201C /* EpisodeDataSource.swift in Sources */,
 				2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */,
 				2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */,
+				2CDF26FE265D93C4008C3B71 /* LogInServices.swift in Sources */,
 				2C004291244E4288006ABABF /* AccountViewModel.swift in Sources */,
 				2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */,
 				2CFD6BE324290E1000F35EC1 /* AppDelegate.swift in Sources */,
@@ -1500,6 +1510,7 @@
 				2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */,
 				2C498421245B14DD00B6201C /* PodcastStation.swift in Sources */,
 				2CE74A6A245327D6008E3D57 /* FirestoreProtocol.swift in Sources */,
+				2CDF26FA265D8E06008C3B71 /* LogInCoordinator.swift in Sources */,
 				2CDDB446244A16F900DC31F5 /* SearchCell.swift in Sources */,
 				2C33876A2434D9DA00141102 /* SettingsViewController.swift in Sources */,
 				2C3387752435387300141102 /* SignOutButtonView.swift in Sources */,
@@ -1527,6 +1538,7 @@
 				2C99C3812447D6360097E106 /* YourLibraryDataSource.swift in Sources */,
 				2CBEAD7126530AD100F5E965 /* Stack.swift in Sources */,
 				2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */,
+				2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */,
 				2CF7EF342442502D004A9B30 /* RadioViewModel.swift in Sources */,
 				2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */,
 				2C3BF170244B31E900BA895B /* SearchViewModel.swift in Sources */,

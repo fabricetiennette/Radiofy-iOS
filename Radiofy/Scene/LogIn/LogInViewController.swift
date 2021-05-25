@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class LogInViewController: UIViewController, Storyboarded {
 
@@ -17,12 +18,13 @@ class LogInViewController: UIViewController, Storyboarded {
     @IBOutlet private weak var logInButtonWidth: NSLayoutConstraint!
 
     private var buttonContraint = [NSLayoutConstraint]()
-    var viewModel: LogInViewModel!
+    private var disposeBag: Set<AnyCancellable> = []
+    var viewModel: LogInModule.ViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        configureViewModel()
+        setupBindings()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +67,8 @@ class LogInViewController: UIViewController, Storyboarded {
     @IBAction private func logInButtonTapped(_ sender: Any) {
         viewEndEditing()
 
+        guard let viewModel = self.viewModel else { return }
+
         let email = emailTextField.text
         let password = passwordTextField.text
 
@@ -73,8 +77,8 @@ class LogInViewController: UIViewController, Storyboarded {
 
     @IBAction private func forgettenPasswordButtonTapped(_ sender: Any) {
         viewEndEditing()
-
-        viewModel.launchingPasswordReset()
+        guard let viewModel = self.viewModel else { return }
+        viewModel.didTapPasswordReset()
     }
 
     @IBAction private func textFieldTapped(_ sender: UITextField) {
@@ -92,31 +96,46 @@ class LogInViewController: UIViewController, Storyboarded {
 
 private extension LogInViewController {
 
-    func configureViewModel() {
-        viewModel.errorHandler = { [weak self] message in
-            guard let me = self else { return }
-            if me.errorTextLabel.text != message {
-                me.errorTextLabel.slideInFromBottom()
-            }
-            me.errorTextLabel.text = message
-            me.errorTextLabel.alpha = 1
-            me.logInButton.animateWhileAwaitingResponse(
-                showLoading: false,
-                originalConstraints: me.buttonContraint,
-                identifier: "logInButtonWidth",
-                title: L1s.logIn
-            )
-        }
+    func setupBindings() {
+        guard let viewModel = self.viewModel else { return }
 
-        viewModel.spinnerHandler = { [weak self] in
-            guard let me = self else { return }
-            me.logInButton.animateWhileAwaitingResponse(
-                showLoading: true,
-                originalConstraints: me.logInButton.constraints,
-                identifier: "logInButtonWidth",
-                title: L1s.logIn
-            )
-        }
+        viewModel
+            .errorPublisher
+            .sink(receiveValue: { [weak self] message in
+                guard let self = self else { return }
+                if self.errorTextLabel.text != message {
+                    self.errorTextLabel.slideInFromBottom()
+                }
+                self.errorTextLabel.text = message
+                self.errorTextLabel.alpha = 1
+                self.logInButton.animateWhileAwaitingResponse(
+                    showLoading: false,
+                    originalConstraints: self.buttonContraint,
+                    identifier: "logInButtonWidth",
+                    title: L1s.logIn
+                )
+            })
+            .store(in: &disposeBag)
+
+        viewModel
+            .spinnerPublisher
+            .sink(receiveValue: { [weak self] in
+                guard let self = self else { return }
+                self.logInButton.animateWhileAwaitingResponse(
+                    showLoading: true,
+                    originalConstraints: self.logInButton.constraints,
+                    identifier: "logInButtonWidth",
+                    title: L1s.logIn
+                )
+            })
+            .store(in: &disposeBag)
+
+        // BackButton Tapped
+        let backButton = UIBarButtonItem(title: L1s.back,
+                                         style: .plain,
+                                         cancellables: &disposeBag,
+                                         action: { self.viewModel?.tapBack() })
+        navigationItem.leftBarButtonItem = backButton
     }
 
     func configureView() {

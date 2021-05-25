@@ -14,7 +14,7 @@ class SignUpViewModel: SignUpModule.ViewModel {
     weak var delegate: SignUpModule.CoordinatorDelegate?
 
     var errorPublisher = PassthroughSubject<String, Never>()
-    var spinnerPubliser = PassthroughSubject<Void, Never>()
+    var spinnerPublisher = PassthroughSubject<Void, Never>()
 
     private var disposeBag = Set<AnyCancellable>()
     private let service: SignUpModule.Service
@@ -27,7 +27,7 @@ class SignUpViewModel: SignUpModule.ViewModel {
     func signUpOneUser(_ nameTextField: String?,
                        _ emailTextField: String?,
                        _ passwordTextField: String?) {
-        spinnerPubliser.send()
+        spinnerPublisher.send()
         if validateTextFields(nameTextField, emailTextField, passwordTextField) == nil {
 
             let name = nameTextField.clearedText()

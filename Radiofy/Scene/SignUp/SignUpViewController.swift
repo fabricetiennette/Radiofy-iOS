@@ -107,7 +107,8 @@ private extension SignUpViewController {
     func configureViewModel() {
         guard let viewModel = self.viewModel else { return }
 
-        viewModel.errorPublisher
+        viewModel
+            .errorPublisher
             .sink(receiveValue: { [weak self] message in
                 guard let self = self else { return }
                 if self.errorTextLabel.text != message {
@@ -123,7 +124,8 @@ private extension SignUpViewController {
                 )
             }).store(in: &disposeBag)
 
-        viewModel.spinnerPubliser
+        viewModel
+            .spinnerPublisher
             .sink(receiveValue: { [weak self] in
                 guard let self = self else { return }
                 self.signUpButton.animateWhileAwaitingResponse(

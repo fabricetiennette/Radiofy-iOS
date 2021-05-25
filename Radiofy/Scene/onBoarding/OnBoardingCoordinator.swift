@@ -38,18 +38,18 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
         coordinator.start()
     }
 
-    private func makeLogInView() {
-        let viewController = LogInViewController.instantiate(from: .start)
-        let viewModel = LogInViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.navigationItem.title = L1s.logInTab
-        viewController.navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: nil,
-            style: .plain,
-            target: nil,
-            action: nil
-        )
-        rootView.pushViewController(viewController, animated: true)
+    private func goToLogInView() {
+        let coordinator = LogInCoordinator(options: .push(rootView))
+        rootView.setNavigationBarHidden(false, animated: false)
+        coordinator.delegate = self
+        add(children: coordinator)
+        coordinator.start()
+//        viewController.navigationItem.backBarButtonItem = UIBarButtonItem(
+//            title: nil,
+//            style: .plain,
+//            target: nil,
+//            action: nil
+//        )
     }
 
     private func makePasswordResetView() {
@@ -87,7 +87,7 @@ extension OnBoardingCoordinator: LaunchModule.CoordinatorDelegate {
 extension OnBoardingCoordinator: OnBoardingModule.CoordinatorDelegate {
 
     func goToLogIn() {
-        makeLogInView()
+        goToLogInView()
     }
 
     func goToSignUp() {
@@ -105,12 +105,12 @@ extension OnBoardingCoordinator: SignUpCoordinatorDelegate {
     }
 }
 
-extension OnBoardingCoordinator: LogInViewModelDelegate {
-    func launchPasswordReset() {
-        makePasswordResetView()
+extension OnBoardingCoordinator: LogInCoordinatorDelegate {
+    func goHomeFromLogIn() {
+        launchHome()
     }
 
-    func launchHomeScreen() {
-        launchHome()
+    func launchPasswordReset() {
+        makePasswordResetView()
     }
 }

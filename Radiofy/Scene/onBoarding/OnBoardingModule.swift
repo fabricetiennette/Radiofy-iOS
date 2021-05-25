@@ -40,9 +40,11 @@ protocol OnBoardingInputBinding {
     func didTapLogIn()
     func didTapSignInAnonymously()
 }
+
 protocol OnBoardingServiceProtocol {
     func signInAnonymously() -> AnyPublisher<UserProtocol, Error>
 }
+
 protocol OnBoardingViewModelDelegate: AnyObject {
     func goToSignUp()
     func goToLogIn()
