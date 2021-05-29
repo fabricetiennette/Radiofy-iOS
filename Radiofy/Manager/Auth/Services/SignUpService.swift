@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import Combine
 
-struct SignUpServices: SignUpModule.Service {
+struct SignUpService: SignUpModule.Service {
 
     private let firebaseAuth = Auth.auth()
     private let database = Firestore.firestore()

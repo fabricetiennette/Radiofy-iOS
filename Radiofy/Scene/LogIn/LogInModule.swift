@@ -24,7 +24,7 @@ struct LogInModule {
     }
 
     var viewController: UIViewController {
-        let service = LogInServices()
+        let service = LogInService()
         let viewModel = LogInViewModel(service: service)
         let loginViewController = LogInViewController.instantiate(from: .start)
         viewModel.delegate = coordinatorDelegate

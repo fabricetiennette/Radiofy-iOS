@@ -10,7 +10,7 @@ import Foundation
 import FirebaseAuth
 import Combine
 
-struct LogInServices: LogInModule.Service {
+struct LogInService: LogInModule.Service {
 
     private let firebaseAuth = Auth.auth()
 

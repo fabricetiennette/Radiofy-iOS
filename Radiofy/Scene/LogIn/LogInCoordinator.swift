@@ -11,6 +11,7 @@ import UIKit
 
 protocol LogInCoordinatorDelegate: CoordinatorDelegate {
     func goHomeFromLogIn()
+    func goPasswordReset()
 }
 
 class LogInCoordinator: Coordinator<UIViewController> {
@@ -72,6 +73,6 @@ extension LogInCoordinator: LogInModule.CoordinatorDelegate {
     }
 
     func launchPasswordReset() {
-
+        delegate?.goPasswordReset()
     }
 }

@@ -413,37 +413,46 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6e-iJ-vAg" customClass="FinalLogInButtonView" customModule="Radiofy" customModuleProvider="target">
-                                <rect key="frame" x="57" y="204" width="300" height="48"/>
-                                <color key="backgroundColor" red="0.30193492770000002" green="0.30203139779999999" blue="0.29803889989999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <accessibility key="accessibilityConfiguration" identifier="ResetPasswordBUTTON"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="OOP-p2-18c">
+                                <rect key="frame" x="0.0" y="116" width="414" height="136"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7J-UA-TVg">
+                                        <rect key="frame" x="15" y="0.0" width="384" height="48"/>
+                                        <color key="backgroundColor" red="0.4392189085" green="0.44320440290000002" blue="0.43921548129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="emailResetFields"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="wwN-dU-rw6"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                        <connections>
+                                            <action selector="emailTextFieldTapped:" destination="ll2-WW-duI" eventType="touchDown" id="NG6-WF-cN1"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6e-iJ-vAg" customClass="FinalLogInButtonView" customModule="Radiofy" customModuleProvider="target">
+                                        <rect key="frame" x="57" y="88" width="300" height="48"/>
+                                        <color key="backgroundColor" red="0.30193492770000002" green="0.30203139779999999" blue="0.29803889989999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ResetPasswordBUTTON"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="XI7-pM-GYA"/>
+                                            <constraint firstAttribute="height" constant="48" id="d3m-Cw-rus"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <state key="normal" title="RESET PASSWORD">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetEmailButtonTapped:" destination="ll2-WW-duI" eventType="touchUpInside" id="XMA-bi-izB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="XI7-pM-GYA"/>
-                                    <constraint firstAttribute="height" constant="48" id="d3m-Cw-rus"/>
+                                    <constraint firstItem="z7J-UA-TVg" firstAttribute="leading" secondItem="OOP-p2-18c" secondAttribute="leading" constant="15" id="6rs-Sq-aw3"/>
+                                    <constraint firstAttribute="trailing" secondItem="z7J-UA-TVg" secondAttribute="trailing" constant="15" id="CCh-b2-k3S"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="RESET PASSWORD">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetEmailButtonTapped:" destination="ll2-WW-duI" eventType="touchUpInside" id="XMA-bi-izB"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7J-UA-TVg">
-                                <rect key="frame" x="15" y="116" width="384" height="48"/>
-                                <color key="backgroundColor" red="0.4392189085" green="0.44320440290000002" blue="0.43921548129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="emailResetFields"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="wwN-dU-rw6"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
-                                <connections>
-                                    <action selector="emailTextFieldTapped:" destination="ll2-WW-duI" eventType="touchDown" id="NG6-WF-cN1"/>
-                                </connections>
-                            </textField>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-KS-CLA">
                                 <rect key="frame" x="15" y="262" width="384" height="17"/>
                                 <accessibility key="accessibilityConfiguration" identifier="errorResetPassWordLabel"/>
@@ -455,15 +464,12 @@
                         <viewLayoutGuide key="safeArea" id="BWK-uz-bgh"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DQA-KS-CLA" firstAttribute="top" secondItem="Y6e-iJ-vAg" secondAttribute="bottom" constant="10" id="6CZ-jQ-fh7"/>
-                            <constraint firstItem="z7J-UA-TVg" firstAttribute="top" secondItem="PL7-t3-JdH" secondAttribute="bottom" constant="2" id="AR5-si-bI1"/>
-                            <constraint firstItem="z7J-UA-TVg" firstAttribute="leading" secondItem="BWK-uz-bgh" secondAttribute="leading" constant="15" id="AiR-y9-PVP"/>
+                            <constraint firstItem="BWK-uz-bgh" firstAttribute="trailing" secondItem="OOP-p2-18c" secondAttribute="trailing" id="1N0-vY-D3p"/>
+                            <constraint firstItem="OOP-p2-18c" firstAttribute="leading" secondItem="DYc-ff-tys" secondAttribute="leading" id="6W3-pT-Tnp"/>
+                            <constraint firstItem="DQA-KS-CLA" firstAttribute="top" secondItem="OOP-p2-18c" secondAttribute="bottom" constant="10" id="CI0-hP-Vnc"/>
                             <constraint firstItem="BWK-uz-bgh" firstAttribute="trailing" secondItem="DQA-KS-CLA" secondAttribute="trailing" constant="15" id="FOm-S4-nB6"/>
-                            <constraint firstItem="BWK-uz-bgh" firstAttribute="trailing" secondItem="z7J-UA-TVg" secondAttribute="trailing" constant="15" id="Re7-cB-NRd"/>
-                            <constraint firstItem="Y6e-iJ-vAg" firstAttribute="centerX" secondItem="DYc-ff-tys" secondAttribute="centerX" id="Tnk-G4-hvp"/>
-                            <constraint firstItem="Y6e-iJ-vAg" firstAttribute="top" secondItem="z7J-UA-TVg" secondAttribute="bottom" constant="40" id="VoD-jB-00N"/>
+                            <constraint firstItem="OOP-p2-18c" firstAttribute="top" secondItem="PL7-t3-JdH" secondAttribute="bottom" constant="2" id="l5Y-mb-bcN"/>
                             <constraint firstItem="PL7-t3-JdH" firstAttribute="leading" secondItem="BWK-uz-bgh" secondAttribute="leading" constant="15" id="lIY-Xl-Xll"/>
-                            <constraint firstItem="z7J-UA-TVg" firstAttribute="top" secondItem="PL7-t3-JdH" secondAttribute="bottom" constant="2" id="n1R-jE-4Ge"/>
                             <constraint firstItem="DQA-KS-CLA" firstAttribute="leading" secondItem="BWK-uz-bgh" secondAttribute="leading" constant="15" id="oUH-DQ-oP4"/>
                             <constraint firstItem="BWK-uz-bgh" firstAttribute="trailing" secondItem="PL7-t3-JdH" secondAttribute="trailing" constant="15" id="pIP-1I-rPd"/>
                             <constraint firstItem="PL7-t3-JdH" firstAttribute="top" secondItem="BWK-uz-bgh" secondAttribute="top" constant="40" id="ykq-60-ZbS"/>

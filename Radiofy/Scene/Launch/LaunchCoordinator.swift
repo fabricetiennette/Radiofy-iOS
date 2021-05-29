@@ -13,6 +13,7 @@ class LaunchCoordinator: Coordinator<UINavigationController> {
     // MARK: - Start
 
     private var needAnimation: Bool
+
     init(rootView: UINavigationController, needAnimation: Bool) {
         self.needAnimation = needAnimation
         super.init(rootView: rootView)

@@ -81,6 +81,9 @@
 		2C6B047126543268007247A4 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B047026543268007247A4 /* UIApplication+.swift */; };
 		2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */; };
 		2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6F10E824644B9D00C65001 /* StoreKit.framework */; };
+		2C716AAC2662A5E200660042 /* PasswordResetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAB2662A5E200660042 /* PasswordResetCoordinator.swift */; };
+		2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAD2662A5F500660042 /* PasswordResetModule.swift */; };
+		2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAF2662A98B00660042 /* PasswordResetService.swift */; };
 		2C73D552243D21D800896D24 /* loadingDot.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D551243D21D800896D24 /* loadingDot.json */; };
 		2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */; };
 		2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A7C243F5D27003E19E9 /* RadioStation.swift */; };
@@ -119,7 +122,7 @@
 		2CC803922462F0D600F345C9 /* SubcribePremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC803912462F0D600F345C9 /* SubcribePremiumView.swift */; };
 		2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90B26526631001877B0 /* SignUpModule.swift */; };
 		2CC9E90E26526668001877B0 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */; };
-		2CC9E910265269AE001877B0 /* SignUpServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90F265269AE001877B0 /* SignUpServices.swift */; };
+		2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90F265269AE001877B0 /* SignUpService.swift */; };
 		2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE0429245ED53B00685ABA /* RadioPodcast.swift */; };
 		2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFC4712446144D00AE9B23 /* Sequence+.swift */; };
 		2CD0AFAC2461551F00A258EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFAA2461551E00A258EB /* Localizable.strings */; };
@@ -142,7 +145,7 @@
 		2CDDB448244A6B5500DC31F5 /* SearchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */; };
 		2CDF26FA265D8E06008C3B71 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */; };
 		2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */; };
-		2CDF26FE265D93C4008C3B71 /* LogInServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FD265D93C4008C3B71 /* LogInServices.swift */; };
+		2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FD265D93C4008C3B71 /* LogInService.swift */; };
 		2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */; };
 		2CE6ACFE2452348D00D8A7B7 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */; };
 		2CE6AD002452563400D8A7B7 /* FakeAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */; };
@@ -294,6 +297,9 @@
 		2C6B047026543268007247A4 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		2C6F10E824644B9D00C65001 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2C716AAB2662A5E200660042 /* PasswordResetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetCoordinator.swift; sourceTree = "<group>"; };
+		2C716AAD2662A5F500660042 /* PasswordResetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetModule.swift; sourceTree = "<group>"; };
+		2C716AAF2662A98B00660042 /* PasswordResetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetService.swift; sourceTree = "<group>"; };
 		2C73D551243D21D800896D24 /* loadingDot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingDot.json; sourceTree = "<group>"; };
 		2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarReusableView.swift; sourceTree = "<group>"; };
 		2C844A7C243F5D27003E19E9 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
@@ -332,7 +338,7 @@
 		2CC803912462F0D600F345C9 /* SubcribePremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcribePremiumView.swift; sourceTree = "<group>"; };
 		2CC9E90B26526631001877B0 /* SignUpModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModule.swift; sourceTree = "<group>"; };
 		2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
-		2CC9E90F265269AE001877B0 /* SignUpServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpServices.swift; sourceTree = "<group>"; };
+		2CC9E90F265269AE001877B0 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		2CCE0429245ED53B00685ABA /* RadioPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPodcast.swift; sourceTree = "<group>"; };
 		2CCFC4712446144D00AE9B23 /* Sequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
 		2CD0AFA6246153C300A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -364,7 +370,7 @@
 		2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageView.swift; sourceTree = "<group>"; };
 		2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModule.swift; sourceTree = "<group>"; };
-		2CDF26FD265D93C4008C3B71 /* LogInServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInServices.swift; sourceTree = "<group>"; };
+		2CDF26FD265D93C4008C3B71 /* LogInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInService.swift; sourceTree = "<group>"; };
 		2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthResponse.swift; sourceTree = "<group>"; };
@@ -767,8 +773,9 @@
 				2C545A03265596F10024F671 /* ServicesProtocol.swift */,
 				2C302AC72638A12D0085325C /* LaunchService.swift */,
 				2CB77E642649C3B90069BC52 /* OnBoardingService.swift */,
-				2CC9E90F265269AE001877B0 /* SignUpServices.swift */,
-				2CDF26FD265D93C4008C3B71 /* LogInServices.swift */,
+				2CC9E90F265269AE001877B0 /* SignUpService.swift */,
+				2CDF26FD265D93C4008C3B71 /* LogInService.swift */,
+				2C716AAF2662A98B00660042 /* PasswordResetService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -943,6 +950,8 @@
 		2CF5ED89243010C40018E8A4 /* PasswordReset */ = {
 			isa = PBXGroup;
 			children = (
+				2C716AAB2662A5E200660042 /* PasswordResetCoordinator.swift */,
+				2C716AAD2662A5F500660042 /* PasswordResetModule.swift */,
 				2CF5ED8A2430110B0018E8A4 /* PasswordResetViewController.swift */,
 				2CF5ED8C2430112E0018E8A4 /* PasswordResetViewModel.swift */,
 			);
@@ -1441,6 +1450,7 @@
 				2C688970242E321500463F1B /* LaunchCoordinator.swift in Sources */,
 				2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */,
 				2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */,
+				2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */,
 				2C498428245B325400B6201C /* RSSFeed+.swift in Sources */,
 				2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */,
 				2C302A93263895970085325C /* LaunchViewController.swift in Sources */,
@@ -1456,7 +1466,7 @@
 				2C498431245B790A00B6201C /* EpisodeDataSource.swift in Sources */,
 				2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */,
 				2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */,
-				2CDF26FE265D93C4008C3B71 /* LogInServices.swift in Sources */,
+				2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */,
 				2C004291244E4288006ABABF /* AccountViewModel.swift in Sources */,
 				2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */,
 				2CFD6BE324290E1000F35EC1 /* AppDelegate.swift in Sources */,
@@ -1507,6 +1517,7 @@
 				2C545A04265596F10024F671 /* ServicesProtocol.swift in Sources */,
 				2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */,
 				2C498412245AFB2A00B6201C /* PodcastCell.swift in Sources */,
+				2C716AAC2662A5E200660042 /* PasswordResetCoordinator.swift in Sources */,
 				2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */,
 				2C498421245B14DD00B6201C /* PodcastStation.swift in Sources */,
 				2CE74A6A245327D6008E3D57 /* FirestoreProtocol.swift in Sources */,
@@ -1516,6 +1527,7 @@
 				2C3387752435387300141102 /* SignOutButtonView.swift in Sources */,
 				2C498417245B0C3800B6201C /* PodcastListViewController.swift in Sources */,
 				2CF5ED88242FFE970018E8A4 /* LogInViewModel.swift in Sources */,
+				2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */,
 				2CF0487C243E10A200E12429 /* MorningHomeCellView.swift in Sources */,
 				2C302AC82638A12D0085325C /* LaunchService.swift in Sources */,
 				2C6B047126543268007247A4 /* UIApplication+.swift in Sources */,
@@ -1534,7 +1546,7 @@
 				2CF7EF272440C86D004A9B30 /* RadioPlayerViewModel.swift in Sources */,
 				2CF5ED6E242E53E60018E8A4 /* SignMeUpButtonView.swift in Sources */,
 				2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */,
-				2CC9E910265269AE001877B0 /* SignUpServices.swift in Sources */,
+				2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */,
 				2C99C3812447D6360097E106 /* YourLibraryDataSource.swift in Sources */,
 				2CBEAD7126530AD100F5E965 /* Stack.swift in Sources */,
 				2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */,

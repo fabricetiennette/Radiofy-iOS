@@ -71,6 +71,7 @@ final class OnBoardingViewController: UIViewController {
         button.setTitle("LOG IN", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.layer.borderColor = UIColor.lightText.cgColor
+        button.backgroundColor = .black
         button.heightAnchor.constraint(equalToConstant: 48).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

@@ -26,7 +26,7 @@ struct SignUpModule {
     }
 
     var viewController: UIViewController {
-        let service = SignUpServices()
+        let service = SignUpService()
         let viewModel = SignUpViewModel(service: service)
         let signUpViewController = SignUpViewController.instantiate(from: .start)
         viewModel.delegate = coordinatorDelegate

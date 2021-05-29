@@ -52,12 +52,11 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
 //        )
     }
 
-    private func makePasswordResetView() {
-        let viewController = PasswordResetViewController.instantiate(from: .start)
-        let viewModel = PasswordResetViewModel()
-        viewController.viewModel = viewModel
-        viewController.navigationItem.title = L1s.resetPasswordTab
-        rootView.pushViewController(viewController, animated: true)
+    private func goToPasswordResetView() {
+        let coordinator = PasswordResetCoordinator(options: .push(rootView))
+        rootView.setNavigationBarHidden(false, animated: false)
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func launchHome() {
@@ -100,17 +99,19 @@ extension OnBoardingCoordinator: OnBoardingModule.CoordinatorDelegate {
 }
 
 extension OnBoardingCoordinator: SignUpCoordinatorDelegate {
+
     func goHomeFromSignUp() {
         launchHome()
     }
 }
 
 extension OnBoardingCoordinator: LogInCoordinatorDelegate {
+
     func goHomeFromLogIn() {
         launchHome()
     }
 
-    func launchPasswordReset() {
-        makePasswordResetView()
+    func goPasswordReset() {
+        goToPasswordResetView()
     }
 }
