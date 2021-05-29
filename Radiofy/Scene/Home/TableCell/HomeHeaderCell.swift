@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol HomeHeaderCellDelegate: AnyObject {
     func radioViewTapped(index: Int)

@@ -163,6 +163,12 @@
 		2CE74A7E24537BE0008E3D57 /* LogInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A7D24537BE0008E3D57 /* LogInViewModelTests.swift */; };
 		2CE74A8024539D68008E3D57 /* PasswordResetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A7F24539D68008E3D57 /* PasswordResetViewModelTests.swift */; };
 		2CE74A822453A123008E3D57 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A812453A123008E3D57 /* HomeViewModelTests.swift */; };
+		2CEBC5052662F35500479DBC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5042662F35500479DBC /* SDWebImage */; };
+		2CEBC5172662FF2100479DBC /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5162662FF2100479DBC /* FirebaseAnalytics */; };
+		2CEBC5192662FF2100479DBC /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5182662FF2100479DBC /* FirebaseCrashlytics */; };
+		2CEBC51B2662FF2100479DBC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC51A2662FF2100479DBC /* FirebaseStorage */; };
+		2CEBC51D2662FF2100479DBC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC51C2662FF2100479DBC /* FirebaseAuth */; };
+		2CEBC51F2662FF2100479DBC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC51E2662FF2100479DBC /* FirebaseFirestore */; };
 		2CF0487A243E028800E12429 /* PopularStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF04879243E028800E12429 /* PopularStationsCell.swift */; };
 		2CF0487C243E10A200E12429 /* MorningHomeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0487B243E10A200E12429 /* MorningHomeCellView.swift */; };
 		2CF0487E243E1F9200E12429 /* RecentlyPlayedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0487D243E1F9200E12429 /* RecentlyPlayedCell.swift */; };
@@ -197,7 +203,6 @@
 		2CFEFB942631E82E00CB4515 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */; };
 		2CFEFBD42631EB7D00CB4515 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFBD32631EB7D00CB4515 /* FeedKit */; };
 		2CFEFBF62631ED3900CB4515 /* FRadioPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFBF52631ED3900CB4515 /* FRadioPlayer */; };
-		3824443CCE38CD0C8BBBBA8D /* Pods_Radiofy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3069C6E09465EC348350F5F1 /* Pods_Radiofy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -420,9 +425,6 @@
 		2CFD6C012429123A00F35EC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CFD6C0924291DAA00F35EC1 /* RadiofyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadiofyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFD6C0D24291DAA00F35EC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3069C6E09465EC348350F5F1 /* Pods_Radiofy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Radiofy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E7D65FF300CC9F41ED81682 /* Pods-Radiofy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radiofy.release.xcconfig"; path = "Target Support Files/Pods-Radiofy/Pods-Radiofy.release.xcconfig"; sourceTree = "<group>"; };
-		EDF068C5EE93438EC126F477 /* Pods-Radiofy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radiofy.debug.xcconfig"; path = "Target Support Files/Pods-Radiofy/Pods-Radiofy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,14 +440,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CFEFB942631E82E00CB4515 /* NVActivityIndicatorViewExtended in Frameworks */,
+				2CEBC51D2662FF2100479DBC /* FirebaseAuth in Frameworks */,
 				2CFEFBD42631EB7D00CB4515 /* FeedKit in Frameworks */,
+				2CEBC5172662FF2100479DBC /* FirebaseAnalytics in Frameworks */,
 				2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */,
+				2CEBC51F2662FF2100479DBC /* FirebaseFirestore in Frameworks */,
 				2CFEFB702631E60200CB4515 /* IQKeyboardManagerSwift in Frameworks */,
 				2CFEFBF62631ED3900CB4515 /* FRadioPlayer in Frameworks */,
 				2CFEFB2C2631E1C000CB4515 /* Alamofire in Frameworks */,
-				3824443CCE38CD0C8BBBBA8D /* Pods_Radiofy.framework in Frameworks */,
 				2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */,
+				2CEBC5052662F35500479DBC /* SDWebImage in Frameworks */,
+				2CEBC5192662FF2100479DBC /* FirebaseCrashlytics in Frameworks */,
 				2CFEFAC72631DBF600CB4515 /* LNPopupController-Static in Frameworks */,
+				2CEBC51B2662FF2100479DBC /* FirebaseStorage in Frameworks */,
 				2C99C37D24471D210097E106 /* HomeKit.framework in Frameworks */,
 				2C5CAD5126309B610093F7E3 /* Lottie in Frameworks */,
 			);
@@ -1005,7 +1012,6 @@
 				2CFD6C0A24291DAA00F35EC1 /* RadiofyTests */,
 				2C004279244DD374006ABABF /* RadiofyUITests */,
 				2CFD6BE024290E1000F35EC1 /* Products */,
-				E97616EBB524A3A59524EF89 /* Pods */,
 				75D06B83CBA9F4737250B560 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -1175,18 +1181,8 @@
 				2C99C37C24471D210097E106 /* HomeKit.framework */,
 				2C4E4CD5244025F000F907EB /* LNPopupController.framework */,
 				2C368DE12437F9FD00979816 /* ExternalAccessory.framework */,
-				3069C6E09465EC348350F5F1 /* Pods_Radiofy.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E97616EBB524A3A59524EF89 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EDF068C5EE93438EC126F477 /* Pods-Radiofy.debug.xcconfig */,
-				9E7D65FF300CC9F41ED81682 /* Pods-Radiofy.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1214,12 +1210,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CFD6BF324290E1100F35EC1 /* Build configuration list for PBXNativeTarget "Radiofy" */;
 			buildPhases = (
-				E184C279EB8A98B73579B3E8 /* [CP] Check Pods Manifest.lock */,
 				2CFD6BDB24290E1000F35EC1 /* Sources */,
 				2CFD6BDC24290E1000F35EC1 /* Frameworks */,
 				2CFD6BDD24290E1000F35EC1 /* Resources */,
 				2CFD6BF624290F6100F35EC1 /* SwiftLint */,
-				97DDBEEFE0CC5D2377683580 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1234,6 +1228,12 @@
 				2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */,
 				2CFEFBD32631EB7D00CB4515 /* FeedKit */,
 				2CFEFBF52631ED3900CB4515 /* FRadioPlayer */,
+				2CEBC5042662F35500479DBC /* SDWebImage */,
+				2CEBC5162662FF2100479DBC /* FirebaseAnalytics */,
+				2CEBC5182662FF2100479DBC /* FirebaseCrashlytics */,
+				2CEBC51A2662FF2100479DBC /* FirebaseStorage */,
+				2CEBC51C2662FF2100479DBC /* FirebaseAuth */,
+				2CEBC51E2662FF2100479DBC /* FirebaseFirestore */,
 			);
 			productName = Radiofy;
 			productReference = 2CFD6BDF24290E1000F35EC1 /* Radiofy.app */;
@@ -1302,6 +1302,8 @@
 				2CFEFB922631E82E00CB4515 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				2CFEFBD22631EB7D00CB4515 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				2CFEFBF42631ED3900CB4515 /* XCRemoteSwiftPackageReference "FRadioPlayer" */,
+				2CEBC5032662F35500479DBC /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				2CEBC5152662FF2100479DBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2CFD6BE024290E1000F35EC1 /* Products */;
 			projectDirPath = "";
@@ -1376,45 +1378,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		97DDBEEFE0CC5D2377683580 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Radiofy/Pods-Radiofy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Radiofy/Pods-Radiofy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Radiofy/Pods-Radiofy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E184C279EB8A98B73579B3E8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Radiofy-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1880,7 +1843,6 @@
 		};
 		2CFD6BF424290E1100F35EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDF068C5EE93438EC126F477 /* Pods-Radiofy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Radiofy/Radiofy.entitlements;
@@ -1897,6 +1859,7 @@
 					/usr/lib/swift,
 				);
 				MARKETING_VERSION = 2.5;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1907,7 +1870,6 @@
 		};
 		2CFD6BF524290E1100F35EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E7D65FF300CC9F41ED81682 /* Pods-Radiofy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Radiofy/Radiofy.entitlements;
@@ -1924,6 +1886,7 @@
 					/usr/lib/swift,
 				);
 				MARKETING_VERSION = 2.5;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2024,6 +1987,22 @@
 				minimumVersion = 3.2.1;
 			};
 		};
+		2CEBC5032662F35500479DBC /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.1;
+			};
+		};
+		2CEBC5152662FF2100479DBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		2CFEFAC52631DBF600CB4515 /* XCRemoteSwiftPackageReference "LNPopupController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LeoNatan/LNPopupController";
@@ -2079,6 +2058,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C5CAD4F26309B610093F7E3 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		2CEBC5042662F35500479DBC /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEBC5032662F35500479DBC /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		2CEBC5162662FF2100479DBC /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEBC5152662FF2100479DBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		2CEBC5182662FF2100479DBC /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEBC5152662FF2100479DBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		2CEBC51A2662FF2100479DBC /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEBC5152662FF2100479DBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		2CEBC51C2662FF2100479DBC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEBC5152662FF2100479DBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2CEBC51E2662FF2100479DBC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEBC5152662FF2100479DBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */ = {
 			isa = XCSwiftPackageProductDependency;
