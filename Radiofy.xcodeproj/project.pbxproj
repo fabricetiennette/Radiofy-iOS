@@ -14,6 +14,7 @@
 		2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00428E244E4258006ABABF /* AccountViewController.swift */; };
 		2C004291244E4288006ABABF /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C004290244E4288006ABABF /* AccountViewModel.swift */; };
 		2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C004292244E460F006ABABF /* DeleteAccountView.swift */; };
+		2C02A03E2665971F00A7F1D9 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02A03D2665971F00A7F1D9 /* HomeModule.swift */; };
 		2C02AF222454E126004E9D52 /* RadioPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AF212454E126004E9D52 /* RadioPlayerViewModelTests.swift */; };
 		2C02AF242454F2F0004E9D52 /* RadioViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AF232454F2F0004E9D52 /* RadioViewModelTests.swift */; };
 		2C22F1522448A30700CE1919 /* urlLoarder.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C22F1512448A30700CE1919 /* urlLoarder.json */; };
@@ -85,6 +86,7 @@
 		2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAD2662A5F500660042 /* PasswordResetModule.swift */; };
 		2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAF2662A98B00660042 /* PasswordResetService.swift */; };
 		2C73D552243D21D800896D24 /* loadingDot.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D551243D21D800896D24 /* loadingDot.json */; };
+		2C7AC79826B1C9BD00721FEA /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC79726B1C9BD00721FEA /* HomeService.swift */; };
 		2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */; };
 		2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A7C243F5D27003E19E9 /* RadioStation.swift */; };
 		2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */; };
@@ -232,6 +234,7 @@
 		2C00428E244E4258006ABABF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		2C004290244E4288006ABABF /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		2C004292244E460F006ABABF /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		2C02A03D2665971F00A7F1D9 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
 		2C02AF212454E126004E9D52 /* RadioPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewModelTests.swift; sourceTree = "<group>"; };
 		2C02AF232454F2F0004E9D52 /* RadioViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewModelTests.swift; sourceTree = "<group>"; };
 		2C2117C5247C7CE100A65A0F /* Radiofy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Radiofy.entitlements; sourceTree = "<group>"; };
@@ -306,6 +309,7 @@
 		2C716AAD2662A5F500660042 /* PasswordResetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetModule.swift; sourceTree = "<group>"; };
 		2C716AAF2662A98B00660042 /* PasswordResetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetService.swift; sourceTree = "<group>"; };
 		2C73D551243D21D800896D24 /* loadingDot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingDot.json; sourceTree = "<group>"; };
+		2C7AC79726B1C9BD00721FEA /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarReusableView.swift; sourceTree = "<group>"; };
 		2C844A7C243F5D27003E19E9 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
 		2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewController.swift; sourceTree = "<group>"; };
@@ -683,6 +687,14 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		2C7AC79626B1C7E500721FEA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C7AC79726B1C9BD00721FEA /* HomeService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		2C844A7E243FE810003E19E9 /* RadioPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -848,6 +860,7 @@
 		2CE6AD022452587600D8A7B7 /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
+				2C7AC79626B1C7E500721FEA /* Services */,
 				2CE74A69245327D6008E3D57 /* FirestoreProtocol.swift */,
 				2CDC5AB5243E9D5100498DE5 /* FirestoreManager.swift */,
 				2CE74A6B24532929008E3D57 /* FirestoreService.swift */,
@@ -945,6 +958,7 @@
 			isa = PBXGroup;
 			children = (
 				2CF5ED84242FB27E0018E8A4 /* HomeCoordinator.swift */,
+				2C02A03D2665971F00A7F1D9 /* HomeModule.swift */,
 				2C338778243586C800141102 /* HomeViewController.swift */,
 				2CF5ED80242F90210018E8A4 /* HomeViewModel.swift */,
 				2CF04881243E2F9200E12429 /* DataSource */,
@@ -1396,6 +1410,7 @@
 			files = (
 				2C3387732434EFBD00141102 /* SignOutTableViewCell.swift in Sources */,
 				2C533B4524426EB2005FC8EC /* NationStationsCollectionViewCell.swift in Sources */,
+				2C7AC79826B1C9BD00721FEA /* HomeService.swift in Sources */,
 				2CC430132435DE9F001009E2 /* ProfileTableViewCell.swift in Sources */,
 				2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */,
 				2C302A82263749410085325C /* LoaderIndicator.swift in Sources */,
@@ -1493,6 +1508,7 @@
 				2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */,
 				2CF0487C243E10A200E12429 /* MorningHomeCellView.swift in Sources */,
 				2C302AC82638A12D0085325C /* LaunchService.swift in Sources */,
+				2C02A03E2665971F00A7F1D9 /* HomeModule.swift in Sources */,
 				2C6B047126543268007247A4 /* UIApplication+.swift in Sources */,
 				2C99C3832447D7410097E106 /* FavoriteRadioCell.swift in Sources */,
 				2C3387702434ED4300141102 /* SettingsDataSource.swift in Sources */,

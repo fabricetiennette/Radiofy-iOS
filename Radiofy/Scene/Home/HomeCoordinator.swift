@@ -10,13 +10,30 @@ import UIKit
 
 class HomeCoordinator: Coordinator<UINavigationController> {
 
+    enum Options {
+        case push(UINavigationController)
+    }
+
+    private let options: Options
+
+    init(options: Options) {
+        self.options = options
+        switch options {
+        case let .push(navigationController):
+            super.init(rootView: navigationController)
+        }
+    }
+
     // MARK: - start
 
     override func start() {
-        let viewController = HomeViewController.instantiate(from: .home)
-        let viewModel = HomeViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        rootView.pushViewController(viewController, animated: true)
+        let module = HomeModule(coordinatorDelegate: self)
+        let homeViewController = module.viewController
+        
+        switch options {
+        case let .push(navigationController):
+            navigationController.pushViewController(homeViewController, animated: true)
+        }
     }
 
     // MARK: - Private

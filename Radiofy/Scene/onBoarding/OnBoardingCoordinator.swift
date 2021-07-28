@@ -44,12 +44,6 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
         coordinator.delegate = self
         add(children: coordinator)
         coordinator.start()
-//        viewController.navigationItem.backBarButtonItem = UIBarButtonItem(
-//            title: nil,
-//            style: .plain,
-//            target: nil,
-//            action: nil
-//        )
     }
 
     private func goToPasswordResetView() {

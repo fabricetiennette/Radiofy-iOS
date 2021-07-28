@@ -30,9 +30,7 @@ class HomeViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
         configureViewModel()
     }
-}
 
-extension HomeViewController {
     @IBAction private func settingsButtonTapped(_ sender: Any) {
         viewModel.launchSettingsPage()
     }
