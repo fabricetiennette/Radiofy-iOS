@@ -17,11 +17,11 @@ class HomeViewModel: HomeModule.ViewModel {
 
     // MARK: - Properties
 
-    var errorHandler: ((_ title: String, _ message: String) -> Void)?
-    var recentlyPlayedRadioHandler: ((_ stations: [RadioStation]) -> Void)?
-    var popularRadioHandler: ((_ stations: [RadioStation]) -> Void)?
-    var nationalRadioHandler: ((_ stations: [RadioStation]) -> Void)?
-    var headerRadioHandler: ((_ stations: [RadioStation]) -> Void)?
+    var errorPublisher = PassthroughSubject<(String, String), Never>()
+    var recentlyPlayedPublisher = PassthroughSubject<[RadioStation], Never>()
+    var popularPublisher = PassthroughSubject<[RadioStation], Never>()
+    var nationalPublisher = PassthroughSubject<[RadioStation], Never>()
+    var headerPublisher = PassthroughSubject<[RadioStation], Never>()
 
     static var allRadioStations: [RadioStation] = []
     private var headerRadio: [RadioStation] = []
@@ -52,9 +52,13 @@ class HomeViewModel: HomeModule.ViewModel {
             }
             return radioStation.first
         }
-        recentlyPlayedRadioHandler?(recentlyPlayedStations)
+        recentlyPlayedPublisher.send(recentlyPlayedStations)
+        
         guard let radios = recentlyPlayedStations.first else { return }
-        service.saveDocumentToDatabase(imageUrl: radios.imageURL, mainColor: radios.unformattedColor, name: radios.name, streamUrl: radios.streamURL)
+        service.saveDocumentToDatabase(imageUrl: radios.imageURL,
+                                       mainColor: radios.unformattedColor,
+                                       name: radios.name,
+                                       streamUrl: radios.streamURL)
     }
 
     func launchSettingsPage() {
@@ -73,14 +77,14 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorHandler?(L1s.error, L1s.stationUnavailable)
+                    self.errorPublisher.send((L1s.error, L1s.stationUnavailable))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in
                 guard let self = self else { return }
                 HomeViewModel.allRadioStations = radioStation
                 self.headerRadio = HomeViewModel.allRadioStations.pick(6)
-                self.headerRadioHandler?(self.headerRadio)
+                self.headerPublisher.send(self.headerRadio)
                 self.getRecentlyPlayedStationsDetails()
             }
             .store(in: &disposeBag)
@@ -94,13 +98,13 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorHandler?(L1s.error, L1s.stationUnavailable)
+                    self.errorPublisher.send((L1s.error, L1s.stationUnavailable))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in
                 guard let self = self else { return }
                 self.popularStations = radioStation
-                self.popularRadioHandler?(self.popularStations)
+                self.popularPublisher.send(self.popularStations)
             }
             .store(in: &disposeBag)
     }
@@ -113,13 +117,13 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorHandler?(L1s.error, L1s.stationUnavailable)
+                    self.errorPublisher.send((L1s.error, L1s.stationUnavailable))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in
                 guard let self = self else { return }
                 self.nationalStations = radioStation
-                self.nationalRadioHandler?(self.nationalStations)
+                self.nationalPublisher.send(self.nationalStations)
             }
             .store(in: &disposeBag)
     }

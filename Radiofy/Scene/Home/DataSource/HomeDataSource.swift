@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Combine
 
 class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
@@ -16,8 +17,8 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var popularStations: [RadioStation] = []
     private var nationalStations: [RadioStation] = []
 
-    var radioTappedHandler: ((RadioStation) -> Void)?
-    var settingButtonHandler: ((_ alpha: CGFloat) -> Void)?
+    var radioTappedPublisher = PassthroughSubject<RadioStation, Never>()
+    var settingButtonPublisher = PassthroughSubject<CGFloat, Never>()
 
     func updateHeaderCell(headerStations: [RadioStation]) {
         self.headerStations = headerStations
@@ -101,8 +102,8 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.configureCell(recentlyPlayedStations)
             cell.recentlyPlayedCollectionView.reloadData()
             cell.selectedRadioHandler = { [weak self] radioSelected in
-                guard let me = self else { return }
-                me.radioTappedHandler?(radioSelected)
+                guard let self = self else { return }
+                self.radioTappedPublisher.send(radioSelected)
             }
             return cell
         case 2:
@@ -110,8 +111,8 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.configureCell(popularStations)
             cell.popularSCollectionView.reloadData()
             cell.selectedRadioHandler = { [weak self] radioSelected in
-                guard let me = self else { return }
-                me.radioTappedHandler?(radioSelected)
+                guard let self = self else { return }
+                self.radioTappedPublisher.send(radioSelected)
             }
             return cell
         case 3:
@@ -119,8 +120,8 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.configureCell(nationalStations)
             cell.nationalStationsCollectionView.reloadData()
             cell.selectedRadioHandler = { [weak self] radioSelected in
-                guard let me = self else { return }
-                me.radioTappedHandler?(radioSelected)
+                guard let self = self else { return }
+                self.radioTappedPublisher.send(radioSelected)
             }
             return cell
         default: return UITableViewCell()
@@ -130,9 +131,9 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     // fade setting button when scroll
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 1 {
-            settingButtonHandler?(0)
+            settingButtonPublisher.send(0)
         } else {
-            settingButtonHandler?(1)
+            settingButtonPublisher.send(1)
         }
     }
 }
@@ -140,6 +141,6 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 extension HomeDataSource: HomeHeaderCellDelegate {
     func radioViewTapped(index: Int) {
         guard index < headerStations.count else { return }
-        radioTappedHandler?(headerStations[index])
+        radioTappedPublisher.send(headerStations[index])
     }
 }

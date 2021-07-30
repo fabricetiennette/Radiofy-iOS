@@ -29,7 +29,7 @@ class HomeCoordinator: Coordinator<UINavigationController> {
     override func start() {
         let module = HomeModule(coordinatorDelegate: self)
         let homeViewController = module.viewController
-        
+
         switch options {
         case let .push(navigationController):
             navigationController.pushViewController(homeViewController, animated: true)
@@ -92,7 +92,7 @@ class HomeCoordinator: Coordinator<UINavigationController> {
     }
 }
 
-extension HomeCoordinator: HomeViewModelDelegate {
+extension HomeCoordinator: HomeModule.CoordinatorDelegate {
     func showPayWall() {
         makePayWallView()
     }

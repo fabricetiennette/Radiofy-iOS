@@ -32,11 +32,18 @@ final class HomeModule {
 }
 
 protocol HomeInputBinding {
-
+    func launchSettingsPage()
+    func showSelectedRadioPage(with selectedRadio: RadioStation)
 }
 
 protocol HomeOutputBinding {
-
+    func verifiedAndFetchRadioStations()
+    func getRecentlyPlayedStationsDetails()
+    var errorPublisher: PassthroughSubject<(String, String), Never> { get set }
+    var recentlyPlayedPublisher: PassthroughSubject<[RadioStation], Never> { get set }
+    var popularPublisher: PassthroughSubject<[RadioStation], Never> { get set }
+    var nationalPublisher: PassthroughSubject<[RadioStation], Never> { get set }
+    var headerPublisher: PassthroughSubject<[RadioStation], Never> { get set }
 }
 
 protocol HomeServiceProtocol {
