@@ -7,14 +7,15 @@
 //
 
 import Combine
+import Foundation
 
 class HomeViewModel: HomeModule.ViewModel {
 
-    // MARK: - Properties
+    // MARK: - Delegate
 
     weak var delegate: HomeModule.CoordinatorDelegate?
-    
-//    private let firestoreService: FirestoreService
+
+    // MARK: - Properties
 
     var errorHandler: ((_ title: String, _ message: String) -> Void)?
     var recentlyPlayedRadioHandler: ((_ stations: [RadioStation]) -> Void)?
@@ -28,7 +29,7 @@ class HomeViewModel: HomeModule.ViewModel {
     private var popularStations: [RadioStation] = []
     private var nationalStations: [RadioStation] = []
     private var radioArray = ["stations", "popularStations", "nationalStations"]
-    
+
     private var disposeBag = Set<AnyCancellable>()
     private let service: HomeModule.Service
 
@@ -65,50 +66,76 @@ class HomeViewModel: HomeModule.ViewModel {
     }
 
     func getAllRadioStations() {
-        service.getStationDetails(with: radioArray[0]) { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success(let radioStation):
+        service
+            .getStationDetails(with: radioArray[0])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorHandler?(L1s.error, L1s.stationUnavailable)
+                case .finished: break
+                }
+            } receiveValue: { [weak self] radioStation in
+                guard let self = self else { return }
                 HomeViewModel.allRadioStations = radioStation
-                me.headerRadio = HomeViewModel.allRadioStations.pick(6)
-                me.headerRadioHandler?(me.headerRadio)
-                me.getRecentlyPlayedStationsDetails()
-            case .failure:
-                me.errorHandler?(L1s.error, L1s.stationUnavailable)
+                self.headerRadio = HomeViewModel.allRadioStations.pick(6)
+                self.headerRadioHandler?(self.headerRadio)
+                self.getRecentlyPlayedStationsDetails()
             }
-        }
+            .store(in: &disposeBag)
     }
 
     func getPopularStationsDetails() {
-        service.getStationDetails(with: radioArray[1]) { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success(let radioStation):
-                me.popularStations = radioStation
-                me.popularRadioHandler?(me.popularStations)
-            case .failure:
-                me.errorHandler?(L1s.error, L1s.stationUnavailable)
+        service
+            .getStationDetails(with: radioArray[1])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorHandler?(L1s.error, L1s.stationUnavailable)
+                case .finished: break
+                }
+            } receiveValue: { [weak self] radioStation in
+                guard let self = self else { return }
+                self.popularStations = radioStation
+                self.popularRadioHandler?(self.popularStations)
             }
-        }
+            .store(in: &disposeBag)
     }
 
     func getNationalStationsDetails() {
-        service.getStationDetails(with: radioArray[2]) { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success(let radioStation):
-                me.nationalStations = radioStation
-                me.nationalRadioHandler?(me.nationalStations)
-            case .failure:
-                me.errorHandler?(L1s.error, L1s.stationUnavailable)
+        service
+            .getStationDetails(with: radioArray[2])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorHandler?(L1s.error, L1s.stationUnavailable)
+                case .finished: break
+                }
+            } receiveValue: { [weak self] radioStation in
+                guard let self = self else { return }
+                self.nationalStations = radioStation
+                self.nationalRadioHandler?(self.nationalStations)
             }
-        }
+            .store(in: &disposeBag)
     }
 
     func verifiedAndFetchRadioStations() {
-        service.isFullAppAccessAuthorized { result in
-            switch result {
-            case .success(let authorization):
+        service
+            .isFullAppAccessAuthorized()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard self != nil else { return }
+                switch result {
+                case .finished: break
+                case .failure: break
+                }
+            } receiveValue: { [weak self] authorization in
+                guard let self = self else { return }
                 if authorization == false {
                     self.radioArray = ["allStations", "popularStations", "nationalStations"]
                     self.getAllRadioStations()
@@ -119,8 +146,7 @@ class HomeViewModel: HomeModule.ViewModel {
                     self.getPopularStationsDetails()
                     self.getNationalStationsDetails()
                 }
-            case .failure: break
             }
-        }
+            .store(in: &disposeBag)
     }
 }

@@ -16,10 +16,9 @@ struct LogInModule {
     typealias Service = LogInServiceProtocol
     typealias CoordinatorDelegate = LogInViewModelDelegate
 
-    // swiftlint:disable:next weak_delegate
-    private let coordinatorDelegate: CoordinatorDelegate
+    private weak var coordinatorDelegate: CoordinatorDelegate?
 
-    init(coordinatorDelegate: CoordinatorDelegate) {
+    init(coordinatorDelegate: CoordinatorDelegate?) {
         self.coordinatorDelegate = coordinatorDelegate
     }
 

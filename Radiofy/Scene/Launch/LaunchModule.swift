@@ -14,11 +14,10 @@ struct LaunchModule {
     typealias Service = LaunchServiceProtocol
     typealias CoordinatorDelegate = LaunchViewModelDelegate
 
-    // swiftlint:disable:next weak_delegate
-    private let coordinatorDelegate: CoordinatorDelegate
+    private weak var coordinatorDelegate: CoordinatorDelegate?
     private let needAnimation: Bool
 
-    init(coordinatorDelegate: CoordinatorDelegate, needAnimation: Bool) {
+    init(coordinatorDelegate: CoordinatorDelegate?, needAnimation: Bool) {
         self.coordinatorDelegate = coordinatorDelegate
         self.needAnimation = needAnimation
     }

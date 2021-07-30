@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeModule {
 
@@ -35,13 +36,13 @@ protocol HomeInputBinding {
 }
 
 protocol HomeOutputBinding {
-    
+
 }
 
 protocol HomeServiceProtocol {
     func saveDocumentToDatabase(imageUrl: String, mainColor: String, name: String, streamUrl: String)
-    func getStationDetails(with collectionName: String, callback: @escaping (Result<[RadioStation], Error>) -> Void)
-    func isFullAppAccessAuthorized(callback: @escaping (Result<Bool, Error>) -> Void)
+    func getStationDetails(with collectionName: String) -> AnyPublisher<[RadioStation], Error>
+    func isFullAppAccessAuthorized() -> AnyPublisher<Bool, Error>
 }
 
 protocol HomeViewModelDelegate: AnyObject {

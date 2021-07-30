@@ -15,10 +15,9 @@ struct OnBoardingModule {
     typealias Service = OnBoardingServiceProtocol
     typealias CoordinatorDelegate = OnBoardingViewModelDelegate
 
-    // swiftlint:disable:next weak_delegate
-    private let coordinatorDelegate: CoordinatorDelegate
+    private weak var coordinatorDelegate: CoordinatorDelegate?
 
-    init(coordinatorDelegate: CoordinatorDelegate) {
+    init(coordinatorDelegate: CoordinatorDelegate?) {
         self.coordinatorDelegate = coordinatorDelegate
     }
 
