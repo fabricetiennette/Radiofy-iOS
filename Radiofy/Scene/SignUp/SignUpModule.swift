@@ -40,8 +40,8 @@ protocol SignUpInputBinding {
 }
 
 protocol SignUpOutputBinding {
-    var errorPublisher: PassthroughSubject<String, Never> { get set }
-    var spinnerPublisher: PassthroughSubject<Void, Never> { get set }
+    var errorSubject: PassthroughSubject<String, Never> { get set }
+    var spinnerSubject: PassthroughSubject<Void, Never> { get set }
 }
 
 protocol SignUpServiceProtocol {

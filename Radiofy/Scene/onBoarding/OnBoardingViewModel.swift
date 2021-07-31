@@ -11,7 +11,7 @@ import Combine
 
 final class OnBoardingViewModel: OnBoardingModule.ViewModel {
 
-    var errorPublisher = PassthroughSubject<(String, String), Never>()
+    var errorSubject = PassthroughSubject<(String, String), Never>()
 
     weak var delegate: OnBoardingModule.CoordinatorDelegate?
 
@@ -37,7 +37,7 @@ final class OnBoardingViewModel: OnBoardingModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure(let error):
-                    self.errorPublisher.send((L1s.error, error.localizedDescription))
+                    self.errorSubject.send((L1s.error, error.localizedDescription))
                 case .finished: break
                 }
             } receiveValue: { [weak self] _ in

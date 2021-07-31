@@ -31,7 +31,7 @@ struct OnBoardingModule {
 }
 
 protocol OnBoardingOutputBinding {
-    var errorPublisher: PassthroughSubject<(String, String), Never> { get set }
+    var errorSubject: PassthroughSubject<(String, String), Never> { get set }
 }
 
 protocol OnBoardingInputBinding {

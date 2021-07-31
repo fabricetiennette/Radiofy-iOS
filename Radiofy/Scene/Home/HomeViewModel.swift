@@ -17,11 +17,11 @@ class HomeViewModel: HomeModule.ViewModel {
 
     // MARK: - Properties
 
-    var errorPublisher = PassthroughSubject<(String, String), Never>()
-    var recentlyPlayedPublisher = PassthroughSubject<[RadioStation], Never>()
-    var popularPublisher = PassthroughSubject<[RadioStation], Never>()
-    var nationalPublisher = PassthroughSubject<[RadioStation], Never>()
-    var headerPublisher = PassthroughSubject<[RadioStation], Never>()
+    var errorSubject = PassthroughSubject<(String, String), Never>()
+    var recentlyPlayedSubject = PassthroughSubject<[RadioStation], Never>()
+    var popularSubject = PassthroughSubject<[RadioStation], Never>()
+    var nationalSubject = PassthroughSubject<[RadioStation], Never>()
+    var headerSubject = PassthroughSubject<[RadioStation], Never>()
 
     static var allRadioStations: [RadioStation] = []
     private var headerRadio: [RadioStation] = []
@@ -52,7 +52,7 @@ class HomeViewModel: HomeModule.ViewModel {
             }
             return radioStation.first
         }
-        recentlyPlayedPublisher.send(recentlyPlayedStations)
+        recentlyPlayedSubject.send(recentlyPlayedStations)
         
         guard let radios = recentlyPlayedStations.first else { return }
         service.saveDocumentToDatabase(imageUrl: radios.imageURL,
@@ -77,14 +77,14 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorPublisher.send((L1s.error, L1s.stationUnavailable))
+                    self.errorSubject.send((L1s.error, L1s.stationUnavailable))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in
                 guard let self = self else { return }
                 HomeViewModel.allRadioStations = radioStation
                 self.headerRadio = HomeViewModel.allRadioStations.pick(6)
-                self.headerPublisher.send(self.headerRadio)
+                self.headerSubject.send(self.headerRadio)
                 self.getRecentlyPlayedStationsDetails()
             }
             .store(in: &disposeBag)
@@ -98,13 +98,13 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorPublisher.send((L1s.error, L1s.stationUnavailable))
+                    self.errorSubject.send((L1s.error, L1s.stationUnavailable))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in
                 guard let self = self else { return }
                 self.popularStations = radioStation
-                self.popularPublisher.send(self.popularStations)
+                self.popularSubject.send(self.popularStations)
             }
             .store(in: &disposeBag)
     }
@@ -117,13 +117,13 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorPublisher.send((L1s.error, L1s.stationUnavailable))
+                    self.errorSubject.send((L1s.error, L1s.stationUnavailable))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in
                 guard let self = self else { return }
                 self.nationalStations = radioStation
-                self.nationalPublisher.send(self.nationalStations)
+                self.nationalSubject.send(self.nationalStations)
             }
             .store(in: &disposeBag)
     }

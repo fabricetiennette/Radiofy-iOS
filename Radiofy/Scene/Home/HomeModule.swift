@@ -39,11 +39,11 @@ protocol HomeInputBinding {
 protocol HomeOutputBinding {
     func verifiedAndFetchRadioStations()
     func getRecentlyPlayedStationsDetails()
-    var errorPublisher: PassthroughSubject<(String, String), Never> { get set }
-    var recentlyPlayedPublisher: PassthroughSubject<[RadioStation], Never> { get set }
-    var popularPublisher: PassthroughSubject<[RadioStation], Never> { get set }
-    var nationalPublisher: PassthroughSubject<[RadioStation], Never> { get set }
-    var headerPublisher: PassthroughSubject<[RadioStation], Never> { get set }
+    var errorSubject: PassthroughSubject<(String, String), Never> { get set }
+    var recentlyPlayedSubject: PassthroughSubject<[RadioStation], Never> { get set }
+    var popularSubject: PassthroughSubject<[RadioStation], Never> { get set }
+    var nationalSubject: PassthroughSubject<[RadioStation], Never> { get set }
+    var headerSubject: PassthroughSubject<[RadioStation], Never> { get set }
 }
 
 protocol HomeServiceProtocol {

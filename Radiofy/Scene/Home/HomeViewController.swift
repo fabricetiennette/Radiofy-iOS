@@ -45,7 +45,7 @@ private extension HomeViewController {
         guard let viewModel = self.viewModel else { return }
 
         viewModel
-            .errorPublisher
+            .errorSubject
             .sink { [weak self] title, message in
                 guard let self = self else { return }
                 self.showAlert(title: title, message: message)
@@ -53,7 +53,7 @@ private extension HomeViewController {
             .store(in: &disposeBag)
 
         viewModel
-            .headerPublisher
+            .headerSubject
             .receive(on: DispatchQueue.main)
             .sink { [weak self] radioStations in
                 guard let self = self else { return }
@@ -63,7 +63,7 @@ private extension HomeViewController {
             .store(in: &disposeBag)
 
         viewModel
-            .recentlyPlayedPublisher
+            .recentlyPlayedSubject
             .receive(on: DispatchQueue.main)
             .sink { [weak self] radioStations in
                 guard let self = self else { return }
@@ -73,7 +73,7 @@ private extension HomeViewController {
             .store(in: &disposeBag)
 
         viewModel
-            .popularPublisher
+            .popularSubject
             .receive(on: DispatchQueue.main)
             .sink { [weak self] radioStations in
                 guard let self = self else { return }
@@ -83,7 +83,7 @@ private extension HomeViewController {
             .store(in: &disposeBag)
 
         viewModel
-            .nationalPublisher
+            .nationalSubject
             .receive(on: DispatchQueue.main)
             .sink { [weak self] radioStations in
                 guard let self = self else { return }

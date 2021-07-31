@@ -38,11 +38,12 @@ class HomeCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Private
 
-    private func makeSettingsPage() {
-        let viewController = SettingsViewController.instantiate(from: .home)
-        let viewModel = SettingsViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        rootView.pushViewController(viewController, animated: true)
+    private func goToSettings() {
+        let coordinator = SettingsCoordinator(options: .push(rootView))
+        rootView.setNavigationBarHidden(false, animated: false)
+        coordinator.delegate = self
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makeEditProfilePage() {
@@ -102,24 +103,24 @@ extension HomeCoordinator: HomeModule.CoordinatorDelegate {
     }
 
     func launchSettings() {
-        makeSettingsPage()
+        goToSettings()
     }
 }
 
-extension HomeCoordinator: SettingsViewModelDelegate {
-    func createAccount() {
+extension HomeCoordinator: SettingsCoordinatorDelegate {
+    func goToCreateAccount() {
         makeSignUpView()
     }
 
-    func callAccountPage() {
+    func goToAccountPage() {
         makeAccountPage()
     }
 
-    func callAboutPage() {
+    func goToAboutPage() {
         makeAboutPage()
     }
 
-    func callEditProfile() {
+    func goToEditProfile() {
         makeEditProfilePage()
     }
 }

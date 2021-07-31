@@ -13,8 +13,8 @@ final class PasswordResetViewModel: PasswordResetModule.ViewModel {
 
     private let service: PasswordResetModule.Service
 
-    var errorPublisher = PassthroughSubject<String, Never>()
-    var emailSuccessPublisher = PassthroughSubject<String, Never>()
+    var errorSubject = PassthroughSubject<String, Never>()
+    var emailSuccessSubject = PassthroughSubject<String, Never>()
     private var disposeBag = Set<AnyCancellable>()
 
     init(service: PasswordResetModule.Service) {
@@ -37,12 +37,12 @@ final class PasswordResetViewModel: PasswordResetModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure(let error):
-                    self.errorPublisher.send(error.localizedDescription)
+                    self.errorSubject.send(error.localizedDescription)
                 case .finished: break
                 }
             } receiveValue: { [weak self] _ in
                 guard let self = self else { return }
-                self.emailSuccessPublisher.send("\(L1s.sendTo) \(email).")
+                self.emailSuccessSubject.send("\(L1s.sendTo) \(email).")
             }
             .store(in: &disposeBag)
     }
@@ -53,7 +53,7 @@ final class PasswordResetViewModel: PasswordResetModule.ViewModel {
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorPublisher.send(L1s.emailInvalid)
+            return errorSubject.send(L1s.emailInvalid)
         }
 
         return nil

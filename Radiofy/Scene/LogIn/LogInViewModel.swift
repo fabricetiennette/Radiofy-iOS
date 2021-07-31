@@ -13,8 +13,8 @@ class LogInViewModel: LogInModule.ViewModel {
 
     weak var delegate: LogInModule.CoordinatorDelegate?
 
-    var errorPublisher = PassthroughSubject<String, Never>()
-    var spinnerPublisher = PassthroughSubject<Void, Never>()
+    var errorSubject = PassthroughSubject<String, Never>()
+    var spinnerSubject = PassthroughSubject<Void, Never>()
 
     private var disposeBag = Set<AnyCancellable>()
     private let service: LogInModule.Service
@@ -30,7 +30,7 @@ class LogInViewModel: LogInModule.ViewModel {
 
     // Log in user
     func logInUser(with emailText: String?, _ passwordText: String?) {
-        spinnerPublisher.send()
+        spinnerSubject.send()
         if validateTextFields(emailText, passwordText) == nil {
 
             let email = emailText.clearedText()
@@ -53,7 +53,7 @@ class LogInViewModel: LogInModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure(let error):
-                    self.errorPublisher.send(error.localizedDescription)
+                    self.errorSubject.send(error.localizedDescription)
                 case .finished: break
                 }
             } receiveValue: { [weak self] _ in
@@ -81,12 +81,12 @@ class LogInViewModel: LogInModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorPublisher.send(L1s.verifiedEmailFirst)
+                    self.errorSubject.send(L1s.verifiedEmailFirst)
                 case .finished: break
                 }
             }, receiveValue: { [weak self] _ in
                 guard let self = self else { return }
-                self.errorPublisher.send(L1s.verifiedEmailFirst)
+                self.errorSubject.send(L1s.verifiedEmailFirst)
             })
             .store(in: &disposeBag)
     }
@@ -105,13 +105,13 @@ class LogInViewModel: LogInModule.ViewModel {
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorPublisher.send(L1s.emailInvalid)
+            return errorSubject.send(L1s.emailInvalid)
         }
 
         // validate password is as expected
         let password = passwordTextField.clearedText()
         if password.isValidPassword() == false {
-            return errorPublisher.send(L1s.passwordInvalid)
+            return errorSubject.send(L1s.passwordInvalid)
         }
 
         return nil

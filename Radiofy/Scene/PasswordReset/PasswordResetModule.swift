@@ -28,8 +28,8 @@ protocol PasswordResetInputBinding {
 }
 
 protocol PasswordResetOutputBinding {
-    var errorPublisher: PassthroughSubject<String, Never> { get set }
-    var emailSuccessPublisher: PassthroughSubject<String, Never> { get set }
+    var errorSubject: PassthroughSubject<String, Never> { get set }
+    var emailSuccessSubject: PassthroughSubject<String, Never> { get set }
 }
 
 protocol PasswordResetServiceProtocol {

@@ -65,7 +65,7 @@ private extension PasswordResetViewController {
         guard let viewModel = self.viewModel else { return }
 
         viewModel
-            .errorPublisher
+            .errorSubject
             .sink(receiveValue: { [weak self] message in
                 guard let me = self else { return }
                 if me.errorTextLabel.text != message {
@@ -77,7 +77,7 @@ private extension PasswordResetViewController {
             .store(in: &disposeBag)
 
         viewModel
-            .emailSuccessPublisher
+            .emailSuccessSubject
             .sink(receiveValue: { [weak self] message in
                 guard let me = self else { return }
                 me.errorTextLabel.text = message

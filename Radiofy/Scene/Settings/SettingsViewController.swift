@@ -7,38 +7,40 @@
 //
 
 import UIKit
+import Combine
 
 class SettingsViewController: UIViewController, Storyboarded {
 
     @IBOutlet private weak var settingsTableView: UITableView!
     @IBOutlet private weak var magicBackgrounView: UIView!
 
-    var viewModel: SettingsViewModel!
+    var viewModel: SettingsModule.ViewModel?
 
     private lazy var settingsDataSource = SettingsDataSource()
+    private var disposedBag = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         settingsTableView.delegate = settingsDataSource
         settingsTableView.dataSource = settingsDataSource
 
-        bind(to: viewModel)
+        setupBindings()
         bindViewModel(to: settingsDataSource)
-        viewModel.getUserProfilePhotoReference()
+        viewModel?.getUserProfilePhotoReference()
         configureView()
-        viewModel.getUserName()
+        viewModel?.getUserName()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
         configureView()
-        viewModel.isUserLoggedIn()
+        viewModel?.isUserLoggedIn()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        viewModel.removeListener()
+        viewModel?.removeListener()
     }
 }
 
@@ -48,20 +50,20 @@ private extension SettingsViewController {
         dataSource.signOutHandler = { [weak self] in
             guard let me = self else { return }
             me.showAlertAndConfirmLogOut {
-                me.viewModel.signOutUser()
+                me.viewModel?.signOutUser()
             }
         }
         dataSource.editProfileHandler = { [weak self] in
             guard let me = self else { return }
-            me.viewModel.showOrCreateProfileView()
+            me.viewModel?.showOrCreateProfileView()
         }
         dataSource.accountTappedHandler = { [weak self] in
             guard let me = self else { return }
-            me.viewModel.showAccountView()
+            me.viewModel?.showAccountView()
         }
         dataSource.aboutTappedHandler = { [weak self] in
             guard let me = self else { return }
-            me.viewModel.showAboutView()
+            me.viewModel?.showAboutView()
         }
         dataSource.mainColorHandler = { [weak self] mainColor in
             guard let me = self else { return }
@@ -73,25 +75,36 @@ private extension SettingsViewController {
         }
     }
 
-    func bind(to viewModel: SettingsViewModel) {
-        viewModel.errorHandler = { [weak self] title, message in
-            guard let me = self else { return }
-            me.showAlert(title: title, message: message)
-        }
-        viewModel.refHandler = { [weak self] reference in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.settingsDataSource.updateCellPhoto(reference)
-                me.settingsTableView.reloadData()
+    func setupBindings() {
+        guard let viewModel = self.viewModel else { return }
+
+        viewModel
+            .errorSubject
+            .sink { [weak self] title, message in
+                guard let self = self else { return }
+                self.showAlert(title: title, message: message)
             }
-        }
-        viewModel.userNameHandler = { [weak self] name in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.settingsDataSource.updateCellUserName(name)
-                me.settingsTableView.reloadData()
+            .store(in: &disposedBag)
+
+        viewModel
+            .refSubject
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] reference in
+                guard let self = self else { return }
+                self.settingsDataSource.updateCellPhoto(reference)
+                self.settingsTableView.reloadData()
             }
-        }
+            .store(in: &disposedBag)
+
+        viewModel
+            .userNameSubject
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] name in
+                guard let self = self else { return }
+                self.settingsDataSource.updateCellUserName(name)
+                self.settingsTableView.reloadData()
+            }
+            .store(in: &disposedBag)
     }
 
     func configureView() {

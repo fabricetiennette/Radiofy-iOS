@@ -13,8 +13,8 @@ class SignUpViewModel: SignUpModule.ViewModel {
 
     weak var delegate: SignUpModule.CoordinatorDelegate?
 
-    var errorPublisher = PassthroughSubject<String, Never>()
-    var spinnerPublisher = PassthroughSubject<Void, Never>()
+    var errorSubject = PassthroughSubject<String, Never>()
+    var spinnerSubject = PassthroughSubject<Void, Never>()
 
     private var disposeBag = Set<AnyCancellable>()
     private let service: SignUpModule.Service
@@ -27,7 +27,7 @@ class SignUpViewModel: SignUpModule.ViewModel {
     func signUpOneUser(_ nameTextField: String?,
                        _ emailTextField: String?,
                        _ passwordTextField: String?) {
-        spinnerPublisher.send()
+        spinnerSubject.send()
         if validateTextFields(nameTextField, emailTextField, passwordTextField) == nil {
 
             let name = nameTextField.clearedText()
@@ -58,7 +58,7 @@ private extension SignUpViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure(let error):
-                    self.errorPublisher.send(error.localizedDescription)
+                    self.errorSubject.send(error.localizedDescription)
                 case .finished: break
                 }
             } receiveValue: { [weak self] _ in
@@ -79,7 +79,7 @@ private extension SignUpViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure(let error):
-                    self.errorPublisher.send(error.localizedDescription)
+                    self.errorSubject.send(error.localizedDescription)
                 case .finished: break
                 }
             } receiveValue: { [weak self] _ in
@@ -100,7 +100,7 @@ private extension SignUpViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorPublisher.send(L1s.dataSavingError)
+                    self.errorSubject.send(L1s.dataSavingError)
                 case .finished: break
                 }
             }, receiveValue: { _ in })
@@ -115,7 +115,7 @@ private extension SignUpViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure(let error):
-                    self.errorPublisher.send(error.localizedDescription)
+                    self.errorSubject.send(error.localizedDescription)
                 case .finished: break
                 }
             }, receiveValue: { _ in })
@@ -139,19 +139,19 @@ private extension SignUpViewModel {
         // validate name is as expected
         let name = nameTextField.clearedText()
         if name.isNameValid() == false {
-            return errorPublisher.send(L1s.nameInvalid)
+            return errorSubject.send(L1s.nameInvalid)
         }
 
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorPublisher.send(L1s.emailInvalid)
+            return errorSubject.send(L1s.emailInvalid)
         }
 
         // validate password is as expected
         let password = passwordTextField.clearedText()
         if password.isValidPassword() == false {
-            return errorPublisher.send(L1s.passwordInvalid)
+            return errorSubject.send(L1s.passwordInvalid)
         }
 
         return nil

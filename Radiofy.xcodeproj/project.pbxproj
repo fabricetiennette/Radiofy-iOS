@@ -14,6 +14,9 @@
 		2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00428E244E4258006ABABF /* AccountViewController.swift */; };
 		2C004291244E4288006ABABF /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C004290244E4288006ABABF /* AccountViewModel.swift */; };
 		2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C004292244E460F006ABABF /* DeleteAccountView.swift */; };
+		2C02588C26B5875F00985748 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02588B26B5875F00985748 /* SettingsCoordinator.swift */; };
+		2C02588E26B5876F00985748 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02588D26B5876F00985748 /* SettingsModule.swift */; };
+		2C02589026B588D600985748 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02588F26B588D600985748 /* SettingsService.swift */; };
 		2C02A03E2665971F00A7F1D9 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02A03D2665971F00A7F1D9 /* HomeModule.swift */; };
 		2C02AF222454E126004E9D52 /* RadioPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AF212454E126004E9D52 /* RadioPlayerViewModelTests.swift */; };
 		2C02AF242454F2F0004E9D52 /* RadioViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AF232454F2F0004E9D52 /* RadioViewModelTests.swift */; };
@@ -234,6 +237,9 @@
 		2C00428E244E4258006ABABF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		2C004290244E4288006ABABF /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		2C004292244E460F006ABABF /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		2C02588B26B5875F00985748 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		2C02588D26B5876F00985748 /* SettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
+		2C02588F26B588D600985748 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		2C02A03D2665971F00A7F1D9 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
 		2C02AF212454E126004E9D52 /* RadioPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewModelTests.swift; sourceTree = "<group>"; };
 		2C02AF232454F2F0004E9D52 /* RadioViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewModelTests.swift; sourceTree = "<group>"; };
@@ -518,6 +524,8 @@
 		2C3387682434D9AE00141102 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2C02588B26B5875F00985748 /* SettingsCoordinator.swift */,
+				2C02588D26B5876F00985748 /* SettingsModule.swift */,
 				2C3387692434D9DA00141102 /* SettingsViewController.swift */,
 				2C33876B2434DA0000141102 /* SettingsViewModel.swift */,
 				2CBF7087244F494C00A363C0 /* DataSource */,
@@ -687,14 +695,6 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		2C7AC79626B1C7E500721FEA /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				2C7AC79726B1C9BD00721FEA /* HomeService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		2C844A7E243FE810003E19E9 /* RadioPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,6 +795,8 @@
 				2CC9E90F265269AE001877B0 /* SignUpService.swift */,
 				2CDF26FD265D93C4008C3B71 /* LogInService.swift */,
 				2C716AAF2662A98B00660042 /* PasswordResetService.swift */,
+				2C7AC79726B1C9BD00721FEA /* HomeService.swift */,
+				2C02588F26B588D600985748 /* SettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -860,7 +862,6 @@
 		2CE6AD022452587600D8A7B7 /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
-				2C7AC79626B1C7E500721FEA /* Services */,
 				2CE74A69245327D6008E3D57 /* FirestoreProtocol.swift */,
 				2CDC5AB5243E9D5100498DE5 /* FirestoreManager.swift */,
 				2CE74A6B24532929008E3D57 /* FirestoreService.swift */,
@@ -1449,6 +1450,7 @@
 				2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */,
 				2CFD6BE324290E1000F35EC1 /* AppDelegate.swift in Sources */,
 				2C8A4E022450461D00E8E6A3 /* AuthManager.swift in Sources */,
+				2C02588C26B5875F00985748 /* SettingsCoordinator.swift in Sources */,
 				2C498414245B056800B6201C /* Podcast.swift in Sources */,
 				2CF85AB7242D79DF002FBFF6 /* SignUpButtonView.swift in Sources */,
 				2C49842B245B6B2100B6201C /* EpisodeViewController.swift in Sources */,
@@ -1461,6 +1463,7 @@
 				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
 				2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */,
 				2C3387672434D53600141102 /* SettingButtonView.swift in Sources */,
+				2C02588E26B5876F00985748 /* SettingsModule.swift in Sources */,
 				2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */,
 				2C688966242E139200463F1B /* OnBoardingViewModel.swift in Sources */,
 				2C00428C244E1289006ABABF /* AboutViewModel.swift in Sources */,
@@ -1486,6 +1489,7 @@
 				2C498406245ADFD000B6201C /* PodcastCoordinator.swift in Sources */,
 				2CC803922462F0D600F345C9 /* SubcribePremiumView.swift in Sources */,
 				2CB30EE42433FCC000820DE4 /* SearchCoordinator.swift in Sources */,
+				2C02589026B588D600985748 /* SettingsService.swift in Sources */,
 				2CC8038E2462E22A00F345C9 /* SubscriptionViewController.swift in Sources */,
 				2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */,
 				2C302AA626389C5E0085325C /* LaunchModule.swift in Sources */,

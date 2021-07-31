@@ -19,6 +19,7 @@ struct HomeService: HomeModule.Service {
     // get radio from database with collection name
     func getStationDetails(with collectionName: String) -> AnyPublisher<[RadioStation], Error> {
         Deferred {
+
             Future { handler in
                 var stations: [RadioStation] = []
                 database.collection(collectionName).getDocuments { (querySnapshot, error) in
