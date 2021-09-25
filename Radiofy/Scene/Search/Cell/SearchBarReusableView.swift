@@ -16,17 +16,10 @@ class SearchBarReusableView: UICollectionReusableView {
 
         searchBar.placeholder = L1s.searchRadio
         searchBar.tintColor = UIColor(cgColor: #colorLiteral(red: 0.1137254902, green: 0.7254901961, blue: 0.3294117647, alpha: 1))
-        if #available(iOS 13.0, *) {
             searchBar.searchTextField.accessibilityIdentifier = "RadioSearchTextField"
             searchBar.searchTextField.backgroundColor = .white
             searchBar.searchTextField.textColor = .black
             searchBar.searchTextField.leftView?.tintColor = .black
-        } else {
-            // Fallback on earlier versions
-            searchBar.text4Field?.textColor = .white
-            searchBar.text4Field?.backgroundColor = .white
-            searchBar.text4Field?.leftView?.tintColor = .black
-        }
     }
 }
 

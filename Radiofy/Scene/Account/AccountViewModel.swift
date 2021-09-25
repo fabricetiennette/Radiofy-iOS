@@ -148,7 +148,6 @@ class AccountViewModel {
     }
 
     private func showStartViewIfSignOut() {
-        NotificationCenter.default.post(
-            name: SettingsViewModel.NotificationDone, object: nil)
+//        NotificationCenter.default.post( name: SettingsViewModel.NotificationDone, object: nil)
     }
 }

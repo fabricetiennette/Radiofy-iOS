@@ -53,7 +53,6 @@ private extension PodcastListViewController {
 private extension PodcastListViewController {
     func configureNavbar() {
         guard let navigationController = navigationController else { return }
-        if #available(iOS 13.0, *) {
             navigationController.navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.white]
             navigationController.navigationBar.largeTitleTextAttributes = [
@@ -66,18 +65,6 @@ private extension PodcastListViewController {
             navigationController.navigationBar.tintColor = .white
             navigationController.navigationBar.prefersLargeTitles = true
             navigationItem.title = viewModel.title
-        } else {
-            navigationController.navigationBar.titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            navigationController.navigationBar.shadowImage = UIImage()
-            navigationController.navigationBar.isTranslucent = true
-            navigationController.navigationBar.tintColor = .white
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationItem.title = viewModel.title
-        }
     }
 }
 extension PodcastListViewController: Storyboarded {}

@@ -10,6 +10,7 @@
 import UIKit
 import FirebaseStorage
 
+#warning("move to viewcontroller")
 class SettingsDataSource: NSObject, UITableViewDataSource {
 
     // MARK: - Properties

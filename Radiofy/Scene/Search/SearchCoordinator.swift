@@ -32,17 +32,16 @@ class SearchCoordinator: Coordinator<UINavigationController> {
         // MARK: - Coordinator
 
     override func start() {
-        let viewController = SearchViewController.instantiate(from: .search)
-        let viewModel = SearchViewModel(delegate: self)
-        viewController.viewModel = viewModel
+        let module = SearchModule(coordinatorDelegate: self)
+        let searchViewController = module.viewController
 
         switch self.options {
         case let .present(vc, style):
-            let navigationController = UINavigationController(rootViewController: viewController)
+            let navigationController = UINavigationController(rootViewController: searchViewController)
             navigationController.modalPresentationStyle = style
             vc.present(navigationController, animated: true)
         case let .push(navigationController):
-            navigationController.pushViewController(viewController, animated: true)
+            navigationController.pushViewController(searchViewController, animated: true)
         }
     }
 

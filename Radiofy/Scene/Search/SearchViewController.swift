@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Combine
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, Storyboarded {
 
     @IBOutlet private weak var searchCollectionView: UICollectionView!
 
+    private var disposeBag = Set<AnyCancellable>()
     private lazy var searchDataSource = SearchDataSource()
     var viewModel: SearchViewModel!
 
@@ -49,13 +51,17 @@ extension SearchViewController: UISearchBarDelegate {
 private extension SearchViewController {
 
     func bind(to viewModel: SearchViewModel) {
-        viewModel.updateAllStationsHandler = { [weak self] allStations in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.searchDataSource.updateCell(stations: allStations)
-                me.searchCollectionView.reloadData()
+
+        viewModel
+            .updateAllStationsSubject
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] allStations in
+                guard let self = self else { return }
+                self.searchDataSource.updateCell(stations: allStations)
+                self.searchCollectionView.reloadData()
             }
-        }
+            .store(in: &disposeBag)
+
         viewModel.getAllRadioStations()
     }
 
@@ -76,7 +82,6 @@ private extension SearchViewController {
 
     func configureNavbar() {
         guard let navigationController = navigationController else { return }
-        if #available(iOS 13.0, *) {
             navigationController.navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.white]
             navigationController.navigationBar.largeTitleTextAttributes = [
@@ -89,19 +94,5 @@ private extension SearchViewController {
             navigationController.navigationBar.tintColor = .white
             navigationController.navigationBar.prefersLargeTitles = true
             navigationItem.title = L1s.searchTitle
-        } else {
-            navigationController.navigationBar.titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            navigationController.navigationBar.shadowImage = UIImage()
-            navigationController.navigationBar.isTranslucent = true
-            navigationController.navigationBar.tintColor = .white
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationItem.title = L1s.searchTitle
-        }
     }
 }
-
-extension SearchViewController: Storyboarded {}

@@ -183,27 +183,17 @@ private extension RadioPlayerViewController {
     }
 
     func setRadioBackgroundColor() {
-         magicView.viewWithTag(1212)?.removeFromSuperview()
+        magicView.viewWithTag(1212)?.removeFromSuperview()
         guard let mainColor = viewModel.audio.first?.mainColor else { return }
         magicView.backgroundColor = mainColor
-        if #available(iOS 13.0, *) {
-            magicView.addBlurEffect(alpha: 1, style: .systemThinMaterialDark)
-        } else {
-            // Fallback on earlier versions
-            magicView.addBlurEffect(alpha: 1, style: .dark)
-        }
+        magicView.addBlurEffect(alpha: 1, style: .systemThinMaterialDark)
     }
 
     func setBackgroundColor() {
         magicView.viewWithTag(1212)?.removeFromSuperview()
         guard let color = radioImageView.image?.averageColor else { return }
         magicView.backgroundColor = color
-        if #available(iOS 13.0, *) {
-            magicView.addBlurEffect(alpha: 1, style: .systemThinMaterialDark)
-        } else {
-            // Fallback on earlier versions
-            magicView.addBlurEffect(alpha: 1, style: .dark)
-        }
+        magicView.addBlurEffect(alpha: 1, style: .systemThinMaterialDark)
     }
 
     func setSliderThumbTintColor(_ color: UIColor) {

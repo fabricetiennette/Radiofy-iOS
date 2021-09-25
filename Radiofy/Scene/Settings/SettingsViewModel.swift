@@ -19,7 +19,7 @@ class SettingsViewModel: SettingsModule.ViewModel {
 
     @Published var signOut: Void?
 
-    static let NotificationDone = NSNotification.Name(rawValue: "Done")
+//    static let NotificationDone = NSNotification.Name(rawValue: "Done")
 
     private let player = FRadioPlayer.shared
     private var disposedBag = Set<AnyCancellable>()
