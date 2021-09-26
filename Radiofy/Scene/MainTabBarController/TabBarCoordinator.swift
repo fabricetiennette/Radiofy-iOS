@@ -19,7 +19,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
         let homeNavController = UINavigationController()
         homeNavController.setNavigationBarHidden(true, animated: false)
         homeNavController.tabBarItem = UITabBarItem(
-            title: L1s.homeTitle,
+            title: L10n.home,
             image: UIImage(named: "HomeIcon"),
             selectedImage: UIImage(named: "HomeIconFill")
         )
@@ -28,7 +28,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
         // SearchController
         let searchNavController = UINavigationController()
         searchNavController.tabBarItem = UITabBarItem(
-            title: L1s.searchTitleTab,
+            title: L10n.search,
             image: UIImage(named: "SearchIcon"),
             selectedImage: UIImage(named: "SearchIconFill")
         )
@@ -37,7 +37,7 @@ class TabBarCoordinator: Coordinator<UINavigationController> {
         // LibraryController
         let libraryNavController = UINavigationController()
         libraryNavController.tabBarItem = UITabBarItem(
-            title: L1s.yourLibraryTitleTab,
+            title: L10n.yourLibrary,
             image: UIImage(named: "YourLibraryIcon"),
             selectedImage: UIImage(named: "YourLibraryIconFill")
         )

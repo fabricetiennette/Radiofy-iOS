@@ -42,7 +42,7 @@ final class PasswordResetViewModel: PasswordResetModule.ViewModel {
                 }
             } receiveValue: { [weak self] _ in
                 guard let self = self else { return }
-                self.emailSuccessSubject.send("\(L1s.sendTo) \(email).")
+                self.emailSuccessSubject.send("\(L10n.anEmailWasSentTo) \(email).")
             }
             .store(in: &disposeBag)
     }
@@ -53,7 +53,7 @@ final class PasswordResetViewModel: PasswordResetModule.ViewModel {
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorSubject.send(L1s.emailInvalid)
+            return errorSubject.send(L10n.emailInvalid)
         }
 
         return nil

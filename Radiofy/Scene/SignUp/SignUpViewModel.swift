@@ -100,7 +100,7 @@ private extension SignUpViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorSubject.send(L1s.dataSavingError)
+                    self.errorSubject.send(L10n.errorSavingUserData)
                 case .finished: break
                 }
             }, receiveValue: { _ in })
@@ -139,19 +139,19 @@ private extension SignUpViewModel {
         // validate name is as expected
         let name = nameTextField.clearedText()
         if name.isNameValid() == false {
-            return errorSubject.send(L1s.nameInvalid)
+            return errorSubject.send(L10n.nameInvalid)
         }
 
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorSubject.send(L1s.emailInvalid)
+            return errorSubject.send(L10n.emailInvalid)
         }
 
         // validate password is as expected
         let password = passwordTextField.clearedText()
         if password.isValidPassword() == false {
-            return errorSubject.send(L1s.passwordInvalid)
+            return errorSubject.send(L10n.passwordInvalid)
         }
 
         return nil

@@ -28,6 +28,6 @@ class EpisodeCell: UITableViewCell {
 
         let formattedString = formatter.string(from: duration) ?? "n/a"
 
-        durationLabel.text = "\(L1s.duration): \(formattedString)"
+        durationLabel.text = "\(L10n.duration): \(formattedString)"
     }
 }

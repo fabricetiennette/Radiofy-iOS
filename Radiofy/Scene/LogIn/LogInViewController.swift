@@ -112,7 +112,7 @@ private extension LogInViewController {
                     showLoading: false,
                     originalConstraints: self.buttonContraint,
                     identifier: "logInButtonWidth",
-                    title: L1s.logIn
+                    title: L10n.logIn
                 )
             })
             .store(in: &disposeBag)
@@ -125,13 +125,13 @@ private extension LogInViewController {
                     showLoading: true,
                     originalConstraints: self.logInButton.constraints,
                     identifier: "logInButtonWidth",
-                    title: L1s.logIn
+                    title: L10n.logIn
                 )
             })
             .store(in: &disposeBag)
 
         // BackButton Tapped
-        let backButton = UIBarButtonItem(title: L1s.back,
+        let backButton = UIBarButtonItem(title: L10n.back,
                                          style: .plain,
                                          cancellables: &disposeBag,
                                          action: { self.viewModel?.tapBack() })

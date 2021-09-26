@@ -42,7 +42,7 @@ class MiniPlayerViewController: LNPopupCustomBarViewController {
         barImageView.image = containingPopupBar?.popupItem?.image
         barConnectionLabel.text = containingPopupBar?.popupItem?.subtitle
 
-        if containingPopupBar?.popupItem?.subtitle == L1s.loadingTitle {
+        if containingPopupBar?.popupItem?.subtitle == L10n.loading {
             preferredContentSize = CGSize(width: -1, height: 52)
         }
 

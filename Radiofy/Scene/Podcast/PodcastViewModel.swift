@@ -45,7 +45,7 @@ class PodcastViewModel {
                 self.podcastStation = podcastStations
                 self.allPodcastStationsHandler?(self.podcastStation)
             case .failure(let error):
-                self.errorHandler?(L1s.error, error.localizedDescription)
+                self.errorHandler?(L10n.error, error.localizedDescription)
             }
         }
     }

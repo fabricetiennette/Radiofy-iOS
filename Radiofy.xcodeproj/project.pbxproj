@@ -132,19 +132,20 @@
 		2CC8038E2462E22A00F345C9 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8038D2462E22A00F345C9 /* SubscriptionViewController.swift */; };
 		2CC803902462EFFA00F345C9 /* SubscribeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8038F2462EFFA00F345C9 /* SubscribeButtonView.swift */; };
 		2CC803922462F0D600F345C9 /* SubcribePremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC803912462F0D600F345C9 /* SubcribePremiumView.swift */; };
+		2CC824F82701217F00A31476 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC824F72701217F00A31476 /* Localizable.swift */; };
+		2CC825062701244C00A31476 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC825032701244C00A31476 /* Localizable.strings */; };
+		2CC82508270125A600A31476 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC82507270125A600A31476 /* Assets.swift */; };
 		2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90B26526631001877B0 /* SignUpModule.swift */; };
 		2CC9E90E26526668001877B0 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */; };
 		2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90F265269AE001877B0 /* SignUpService.swift */; };
 		2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE0429245ED53B00685ABA /* RadioPodcast.swift */; };
 		2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFC4712446144D00AE9B23 /* Sequence+.swift */; };
-		2CD0AFAC2461551F00A258EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFAA2461551E00A258EB /* Localizable.strings */; };
 		2CD0AFAE24615A5F00A258EB /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFB024615A5F00A258EB /* Start.storyboard */; };
 		2CD0AFB42461604400A258EB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFB62461604400A258EB /* Home.storyboard */; };
 		2CD0AFB9246182FC00A258EB /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFBB246182FC00A258EB /* Search.storyboard */; };
 		2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC02461831800A258EB /* Player.storyboard */; };
 		2CD0AFC32461840900A258EB /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC52461840900A258EB /* Radio.storyboard */; };
 		2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFCA2461842700A258EB /* Podcast.storyboard */; };
-		2CD0AFD024618DAA00A258EB /* L1s.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0AFCF24618DAA00A258EB /* L1s.swift */; };
 		2CD974172450708A00808E54 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974162450708A00808E54 /* UserDefault+.swift */; };
 		2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974182450713200808E54 /* UserDefaultConfig.swift */; };
 		2CD9741B24508B6800808E54 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9741A24508B6800808E54 /* StorageManager.swift */; };
@@ -365,6 +366,10 @@
 		2CC8038D2462E22A00F345C9 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		2CC8038F2462EFFA00F345C9 /* SubscribeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeButtonView.swift; sourceTree = "<group>"; };
 		2CC803912462F0D600F345C9 /* SubcribePremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcribePremiumView.swift; sourceTree = "<group>"; };
+		2CC824F72701217F00A31476 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		2CC825042701244C00A31476 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CC825052701244C00A31476 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CC82507270125A600A31476 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		2CC9E90B26526631001877B0 /* SignUpModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModule.swift; sourceTree = "<group>"; };
 		2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		2CC9E90F265269AE001877B0 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
@@ -372,7 +377,6 @@
 		2CCFC4712446144D00AE9B23 /* Sequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
 		2CD0AFA6246153C300A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2CD0AFA7246153C300A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Library.strings; sourceTree = "<group>"; };
-		2CD0AFAB2461551F00A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CD0AFAF24615A5F00A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Start.storyboard; sourceTree = "<group>"; };
 		2CD0AFB224615A6400A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Start.strings; sourceTree = "<group>"; };
 		2CD0AFB52461604400A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
@@ -385,8 +389,6 @@
 		2CD0AFC72461840F00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Radio.strings; sourceTree = "<group>"; };
 		2CD0AFC92461842700A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Podcast.storyboard; sourceTree = "<group>"; };
 		2CD0AFCC2461847E00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Podcast.strings; sourceTree = "<group>"; };
-		2CD0AFCE246189AC00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2CD0AFCF24618DAA00A258EB /* L1s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L1s.swift; sourceTree = "<group>"; };
 		2CD974162450708A00808E54 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
 		2CD974182450713200808E54 /* UserDefaultConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConfig.swift; sourceTree = "<group>"; };
 		2CD9741A24508B6800808E54 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -839,6 +841,23 @@
 			path = Subscription;
 			sourceTree = "<group>";
 		};
+		2CC824F527011E6C00A31476 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				2CC82507270125A600A31476 /* Assets.swift */,
+				2CC824F72701217F00A31476 /* Localizable.swift */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		2CC825022701244C00A31476 /* Translations */ = {
+			isa = PBXGroup;
+			children = (
+				2CC825032701244C00A31476 /* Localizable.strings */,
+			);
+			path = Translations;
+			sourceTree = "<group>";
+		};
 		2CDC5AB2243E7DF100498DE5 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1156,6 +1175,9 @@
 		2CFD6BFB2429103900F35EC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C9281B224296E690052C714 /* Fonts */,
+				2CC824F527011E6C00A31476 /* SwiftGen */,
+				2CC825022701244C00A31476 /* Translations */,
 				2CB30ED42432A19F00820DE4 /* LottieAnimation */,
 				2CFD6BEB24290E1100F35EC1 /* Assets.xcassets */,
 			);
@@ -1165,11 +1187,9 @@
 		2CFD6BFC2429105700F35EC1 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2C9281B224296E690052C714 /* Fonts */,
 				2CFD6C012429123A00F35EC1 /* Info.plist */,
 				2CF5ED7B242F87700018E8A4 /* GoogleService-Info.plist */,
 				2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */,
-				2CD0AFAA2461551E00A258EB /* Localizable.strings */,
 				2C9E841F24649E540059D842 /* InfoPlist.strings */,
 			);
 			path = SupportingFiles;
@@ -1193,7 +1213,6 @@
 				2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */,
 				2C004292244E460F006ABABF /* DeleteAccountView.swift */,
 				2CD974182450713200808E54 /* UserDefaultConfig.swift */,
-				2CD0AFCF24618DAA00A258EB /* L1s.swift */,
 				2CC8038F2462EFFA00F345C9 /* SubscribeButtonView.swift */,
 				2CC803912462F0D600F345C9 /* SubcribePremiumView.swift */,
 			);
@@ -1246,10 +1265,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CFD6BF324290E1100F35EC1 /* Build configuration list for PBXNativeTarget "Radiofy" */;
 			buildPhases = (
+				2CFD6BF624290F6100F35EC1 /* SwiftLint */,
+				2CC824F427011ADA00A31476 /* SwiftGen */,
 				2CFD6BDB24290E1000F35EC1 /* Sources */,
 				2CFD6BDC24290E1000F35EC1 /* Frameworks */,
 				2CFD6BDD24290E1000F35EC1 /* Resources */,
-				2CFD6BF624290F6100F35EC1 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1369,6 +1389,7 @@
 				2CB30EDC2433F4EE00820DE4 /* loader-1212.json in Resources */,
 				2C22F1522448A30700CE1919 /* urlLoarder.json in Resources */,
 				2C41976A2444DD2200FFB2FA /* progressBar.json in Resources */,
+				2CC825062701244C00A31476 /* Localizable.strings in Resources */,
 				2CD0AFAE24615A5F00A258EB /* Start.storyboard in Resources */,
 				2C73D552243D21D800896D24 /* loadingDot.json in Resources */,
 				2CD0AFC32461840900A258EB /* Radio.storyboard in Resources */,
@@ -1381,7 +1402,6 @@
 				2CD0AFB9246182FC00A258EB /* Search.storyboard in Resources */,
 				2CFD6BEA24290E1000F35EC1 /* Library.storyboard in Resources */,
 				2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */,
-				2CD0AFAC2461551F00A258EB /* Localizable.strings in Resources */,
 				2CF5ED7C242F87700018E8A4 /* GoogleService-Info.plist in Resources */,
 				2CB30EDE2433F9B800820DE4 /* loader1010.json in Resources */,
 			);
@@ -1397,6 +1417,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2CC824F427011ADA00A31476 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
 		2CFD6BF624290F6100F35EC1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1492,7 +1530,6 @@
 				2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */,
 				2C688966242E139200463F1B /* OnBoardingViewModel.swift in Sources */,
 				2C00428C244E1289006ABABF /* AboutViewModel.swift in Sources */,
-				2CD0AFD024618DAA00A258EB /* L1s.swift in Sources */,
 				2CF5ED71242E58000018E8A4 /* LogInViewController.swift in Sources */,
 				2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */,
 				2C68896C242E149600463F1B /* OnBoardingCoordinator.swift in Sources */,
@@ -1508,6 +1545,7 @@
 				2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */,
 				2CF85AB5242D7900002FBFF6 /* LogInButtonView.swift in Sources */,
 				2C498433245B792C00B6201C /* EpisodeHeaderCell.swift in Sources */,
+				2CC82508270125A600A31476 /* Assets.swift in Sources */,
 				2C591A13243CBB8A004CF4F6 /* UIImage+.swift in Sources */,
 				2C95C13B245CE27C005D8503 /* CMTime.swift in Sources */,
 				2CDC5AB1243E72AB00498DE5 /* NationalStationsCell.swift in Sources */,
@@ -1554,6 +1592,7 @@
 				2C49840F245AFA3F00B6201C /* PodcastDataSource.swift in Sources */,
 				2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */,
 				2CF7EF272440C86D004A9B30 /* RadioPlayerViewModel.swift in Sources */,
+				2CC824F82701217F00A31476 /* Localizable.swift in Sources */,
 				2CF5ED6E242E53E60018E8A4 /* SignMeUpButtonView.swift in Sources */,
 				2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */,
 				2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */,
@@ -1645,11 +1684,11 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		2CD0AFAA2461551E00A258EB /* Localizable.strings */ = {
+		2CC825032701244C00A31476 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2CD0AFAB2461551F00A258EB /* Base */,
-				2CD0AFCE246189AC00A258EB /* fr */,
+				2CC825042701244C00A31476 /* en */,
+				2CC825052701244C00A31476 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

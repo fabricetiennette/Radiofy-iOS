@@ -113,7 +113,7 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
             liveLabel.textColor = UIColor(cgColor: #colorLiteral(red: 0.1137254902, green: 0.7254901961, blue: 0.3294117647, alpha: 1))
             popupItem.progress = 1.0
             setRadioBackgroundColor()
-            popupItem.subtitle = L1s.live
+            popupItem.subtitle = L10n.live
         case .stopped:
             liveLabel.isHidden = false
             currentTimeLabel.isHidden = true
@@ -129,13 +129,13 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
     func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
         switch player.state {
         case .error:
-            popupItem.subtitle = L1s.unavailableRadioPlay
+            popupItem.subtitle = L10n.radioTryLater
         case .loading:
-            popupItem.subtitle = L1s.loadingTitle
+            popupItem.subtitle = L10n.loading
         case .loadingFinished:
-            popupItem.subtitle = L1s.live
+            popupItem.subtitle = L10n.live
         case .readyToPlay:
-            popupItem.subtitle = L1s.ready
+            popupItem.subtitle = L10n.ready
         default: break
         }
     }
@@ -162,7 +162,7 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
                     popupItem.subtitle = "..."
                 } else if podPlayer.timeControlStatus == .waitingToPlayAtSpecifiedRate {
                     startAnimation()
-                    popupItem.subtitle = L1s.loadingTitle
+                    popupItem.subtitle = L10n.loading
                 }
             }
         }
@@ -406,7 +406,7 @@ private extension RadioPlayerViewController {
             })
         }
         if isRadio == true {
-            nowPlayingInfo[MPMediaItemPropertyArtist] = L1s.liveTitle
+            nowPlayingInfo[MPMediaItemPropertyArtist] = L10n.live
             nowPlayingInfo[MPMediaItemPropertyTitle] = audio?.name
             nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = true
         } else {

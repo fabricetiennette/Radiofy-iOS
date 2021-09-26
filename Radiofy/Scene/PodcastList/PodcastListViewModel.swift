@@ -50,7 +50,7 @@ class PodcastListViewModel {
             self.podcasts =  podcasts
             self.podcastServiceHandler?(self.podcasts)
             case .failure(let error):
-                self.errorHandler?(L1s.error, error.localizedDescription)
+                self.errorHandler?(L10n.error, error.localizedDescription)
             }
         }
     }
@@ -61,7 +61,7 @@ class PodcastListViewModel {
             case .success(let allMissingPodcast):
                 self.allRadioPodcasts = allMissingPodcast
             case .failure(let error):
-                self.errorHandler?(L1s.error, error.localizedDescription)
+                self.errorHandler?(L10n.error, error.localizedDescription)
             }
         }
     }

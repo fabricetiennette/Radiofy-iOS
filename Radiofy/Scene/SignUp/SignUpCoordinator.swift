@@ -37,7 +37,7 @@ class SignUpCoordinator: Coordinator<UIViewController> {
     override func start() {
         let module = SignUpModule(coordinatorDelegate: self)
         let signUpViewController = module.viewController
-        signUpViewController.navigationItem.title = L1s.creatAccount
+        signUpViewController.navigationItem.title = L10n.createAccount
 
         switch options {
         case let .present(viewController, style: style):

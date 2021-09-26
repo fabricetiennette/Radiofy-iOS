@@ -41,7 +41,7 @@ private extension AboutViewController {
     }
 
     func configureView() {
-        navigationItem.title = L1s.about
+        navigationItem.title = L10n.about
     }
 }
 
