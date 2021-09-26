@@ -1,0 +1,8 @@
+input_dir: Radiofy/Resources/
+output_dir: Radiofy/Resources/SwiftGen/
+
+strings:
+  inputs: Translations/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Localizable.swift
