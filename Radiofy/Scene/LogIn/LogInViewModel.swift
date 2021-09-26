@@ -81,12 +81,12 @@ class LogInViewModel: LogInModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorSubject.send(L1s.verifiedEmailFirst)
+                    self.errorSubject.send(L10n.verifiedEmailFirst)
                 case .finished: break
                 }
             }, receiveValue: { [weak self] _ in
                 guard let self = self else { return }
-                self.errorSubject.send(L1s.verifiedEmailFirst)
+                self.errorSubject.send(L10n.verifiedEmailFirst)
             })
             .store(in: &disposeBag)
     }
@@ -105,13 +105,13 @@ class LogInViewModel: LogInModule.ViewModel {
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorSubject.send(L1s.emailInvalid)
+            return errorSubject.send(L10n.emailInvalid)
         }
 
         // validate password is as expected
         let password = passwordTextField.clearedText()
         if password.isValidPassword() == false {
-            return errorSubject.send(L1s.passwordInvalid)
+            return errorSubject.send(L10n.passwordInvalid)
         }
 
         return nil

@@ -51,13 +51,13 @@ private extension HomeHeaderCell {
         let hour = Calendar.current.component(.hour, from: Date())
         switch hour {
         case 6..<12:
-            greetingLabel.text = L1s.goodMorning
+            greetingLabel.text = L10n.goodMorning
         case 12..<17:
-            greetingLabel.text = L1s.goodAfternoon
+            greetingLabel.text = L10n.goodAfternoon
         case 17..<22:
-            greetingLabel.text = L1s.goodEvening
+            greetingLabel.text = L10n.goodEvening
         default:
-            greetingLabel.text = L1s.goodNight
+            greetingLabel.text = L10n.goodNight
         }
     }
 }

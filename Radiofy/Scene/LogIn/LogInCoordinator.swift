@@ -38,7 +38,7 @@ class LogInCoordinator: Coordinator<UIViewController> {
     override func start() {
         let module = LogInModule(coordinatorDelegate: self)
         let logInViewController = module.viewController
-        logInViewController.navigationItem.title = L1s.logInTab
+        logInViewController.navigationItem.title = L10n.logIn
 
         switch options {
         case let .present(viewController, style: style):

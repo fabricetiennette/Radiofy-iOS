@@ -37,7 +37,7 @@ final class OnBoardingViewModel: OnBoardingModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure(let error):
-                    self.errorSubject.send((L1s.error, error.localizedDescription))
+                    self.errorSubject.send((L10n.error, error.localizedDescription))
                 case .finished: break
                 }
             } receiveValue: { [weak self] _ in

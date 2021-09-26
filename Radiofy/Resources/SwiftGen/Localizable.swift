@@ -30,8 +30,6 @@ internal enum L10n {
   internal static let chooseFromLibrary = L10n.tr("Localizable", "Choose from library")
   /// Could not get info, try later.
   internal static let couldNotGetInfoTryLater = L10n.tr("Localizable", "Could not get info, try later.")
-  /// Could not get radio station, try later
-  internal static let couldNotGetRadioStationTryLater = L10n.tr("Localizable", "Could not get radio station, try later")
   /// Could not open document, try later.
   internal static let couldNotOpenDocumentTryLater = L10n.tr("Localizable", "Could not open document, try later.")
   /// Create account
@@ -42,8 +40,12 @@ internal enum L10n {
   internal static let duration = L10n.tr("Localizable", "Duration")
   /// Edit Profile
   internal static let editProfile = L10n.tr("Localizable", "Edit Profile")
+  /// This could be your first name or a nickname.
+  internal static let editNickname = L10n.tr("Localizable", "edit_Nickname")
   /// Email entered is not valid.
-  internal static let emailEnteredIsNotValid = L10n.tr("Localizable", "Email entered is not valid.")
+  internal static let emailInvalid = L10n.tr("Localizable", "email_invalid")
+  /// You can add your favorite radio stations here.
+  internal static let emptyLibraryMessage = L10n.tr("Localizable", "empty_Library_Message")
   /// Episodes
   internal static let episodes = L10n.tr("Localizable", "Episodes")
   /// Error
@@ -86,16 +88,18 @@ internal enum L10n {
   internal static let logOutMessage = L10n.tr("Localizable", "LogOutMessage")
   /// /month.
   internal static let month = L10n.tr("Localizable", "month.")
+  /// Name entered is not valid. 2 characters minimum & 15 Maximum.
+  internal static let nameInvalid = L10n.tr("Localizable", "name_invalid")
   /// No prior purchases found for your account.
   internal static let noPriorPurchasesFoundForYourAccount = L10n.tr("Localizable", "No prior purchases found for your account.")
+  /// Please make sure your password contain a least 8 characters, 1 special character and 1 number.
+  internal static let passwordInvalid = L10n.tr("Localizable", "password_invalid")
   /// Photo invalid, try again.
   internal static let photoInvalidTryAgain = L10n.tr("Localizable", "Photo invalid, try again.")
-  /// Please make sure your password contain a least 8 characters, 1 special character and 1 number.
-  internal static let pleaseMakeSureYourPasswordContainALeast8Characters1SpecialCharacterAnd1Number = L10n.tr("Localizable", "Please make sure your password contain a least 8 characters, 1 special character and 1 number.")
-  /// Please verify your email first
-  internal static let pleaseVerifyYourEmailFirst = L10n.tr("Localizable", "Please verify your email first")
   /// Privacy Policy
   internal static let privacyPolicy = L10n.tr("Localizable", "Privacy Policy")
+  /// Could not get radio station, try later
+  internal static let radioTryLater = L10n.tr("Localizable", "radio_try_later")
   /// Ready
   internal static let ready = L10n.tr("Localizable", "Ready")
   /// Remove current photo
@@ -122,21 +126,14 @@ internal enum L10n {
   internal static let takePhoto = L10n.tr("Localizable", "Take photo")
   /// Terms of Service
   internal static let termsOfService = L10n.tr("Localizable", "Terms of Service")
-  /// This could be your first name or a nickname.
-  internal static let thisCouldBeYourFirstNameOrANickname = L10n.tr("Localizable", "This could be your first name or a nickname.")
-  /// You can add your favorite radio stations here.
-  internal static let youCanAddYourFavoriteRadioStationsHere = L10n.tr("Localizable", "You can add your favorite radio stations here.")
+  /// Please verify your email first
+  internal static let verifiedEmailFirst = L10n.tr("Localizable", "verified_Email_First")
   /// Your Library
   internal static let yourLibrary = L10n.tr("Localizable", "Your Library")
 
   internal enum AnErrorHadOccurred {
     /// An error had occurred. Try later.
     internal static let tryLater = L10n.tr("Localizable", "An error had occurred. Try later.")
-  }
-
-  internal enum NameEnteredIsNotValid {
-    /// Name entered is not valid. 2 characters minimum & 15 Maximum.
-    internal static let _2CharactersMinimum15Maximum = L10n.tr("Localizable", "Name entered is not valid. 2 characters minimum & 15 Maximum.")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

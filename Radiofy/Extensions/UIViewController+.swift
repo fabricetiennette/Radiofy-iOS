@@ -30,15 +30,15 @@ extension UIViewController {
 
     func showAlertAndConfirmLogOut(callback: @escaping () -> Void) {
         let ac = UIAlertController(
-            title: L1s.alertLogOut,
-            message: L1s.alertLogOutMessage,
+            title: L10n.logOut,
+            message: L10n.logOutMessage,
             preferredStyle: .alert
         )
         let submitAction = UIAlertAction(title: "OK", style: .destructive) { _ in
             callback()
         }
         ac.addAction(
-            UIAlertAction(title: L1s.cancel, style: .cancel, handler: nil)
+            UIAlertAction(title: L10n.cancel, style: .cancel, handler: nil)
         )
         ac.addAction(submitAction)
         present(ac, animated: true)
@@ -61,15 +61,15 @@ extension UIViewController {
     }
 
     func showAlertConfirmWithPassword(callback: @escaping ((_ password: String?) -> Void)) {
-        let ac = UIAlertController(title: L1s.deleteAccount, message: L1s.askPassword, preferredStyle: .alert)
+        let ac = UIAlertController(title: L10n.deleteAccount, message: L10n.askPassword, preferredStyle: .alert)
         ac.addTextField()
         ac.textFields![0].isSecureTextEntry = true
 
-        let submitAction = UIAlertAction(title: L1s.deleteAccount, style: .destructive) { [unowned ac] _ in
+        let submitAction = UIAlertAction(title: L10n.deleteAccount, style: .destructive) { [unowned ac] _ in
             let answer = ac.textFields![0]
             callback(answer.text)
         }
-        ac.addAction(UIAlertAction(title: L1s.cancelButton, style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: L10n.cancelButton, style: .cancel, handler: nil))
 
         ac.addAction(submitAction)
         present(ac, animated: true)

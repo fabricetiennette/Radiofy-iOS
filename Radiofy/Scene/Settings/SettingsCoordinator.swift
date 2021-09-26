@@ -32,7 +32,7 @@ class SettingsCoordinator: Coordinator<UIViewController> {
     override func start() {
         let module = SettingsModule(coordinatorDelegate: self)
         let settingsViewController = module.viewController
-        settingsViewController.navigationItem.title = L1s.creatAccount
+        settingsViewController.navigationItem.title = L10n.createAccount
 
         switch options {
         case let .present(viewController, style: style):

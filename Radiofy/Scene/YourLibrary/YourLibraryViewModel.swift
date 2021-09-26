@@ -22,7 +22,7 @@ class YourLibraryViewModel {
     private let defaults = UserDefaults.standard
     var favorite: [RadioStation] = [] {
         didSet {
-            messageHandler(L1s.emptyLibraryMessage)
+            messageHandler(L10n.emptyLibraryMessage)
         }
     }
 

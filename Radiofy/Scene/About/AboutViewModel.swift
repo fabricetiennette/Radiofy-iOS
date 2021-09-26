@@ -38,7 +38,7 @@ class AboutViewModel {
             case .success(let url):
                 self.openThirdPartySoftwareWebPage(with: url)
             case .failure:
-                self.errorHandler?(L1s.error, L1s.openDocError)
+                self.errorHandler?(L10n.error, L10n.couldNotOpenDocumentTryLater)
             }
         }
     }

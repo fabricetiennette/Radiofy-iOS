@@ -30,7 +30,7 @@ final class PasswordResetCoordinator: Coordinator<UIViewController> {
     override func start() {
         let module = PasswordResetModule()
         let passwordResetViewController = module.viewController
-        passwordResetViewController.navigationItem.title = L1s.resetPasswordTab
+        passwordResetViewController.navigationItem.title = L10n.resetPassword
 
         switch options {
         case let .present(viewController, style: style):

@@ -113,7 +113,7 @@ private extension SettingsViewController {
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationItem.title = L1s.settings
+        self.navigationItem.title = L10n.settings
         self.navigationItem.backBarButtonItem = UIBarButtonItem(
             image: .none,
             style: .plain,

@@ -41,12 +41,12 @@ class EditProfileViewModel {
     func saveUserInfo(_ imageData: Data?, _ userName: String) {
         guard let email = authService.userEmail else { return }
         guard let data = imageData else {
-            errorHandler?(L1s.photoInvalid)
+            errorHandler?(L10n.photoInvalidTryAgain)
             return
         }
 
         guard userName != "" && userName.count > 1 && userName.count <= 15 else {
-            errorHandler?(L1s.nameInvalid)
+            errorHandler?(L10n.nameInvalid)
             return
         }
 
@@ -69,7 +69,7 @@ class EditProfileViewModel {
             case .success((let name, let photoURL)):
                 self.userHandler?(name, photoURL)
             case .failure:
-                self.errorHandler?(L1s.errorHappen)
+                self.errorHandler?(L10n.AnErrorHadOccurred.tryLater)
             }
         }
     }

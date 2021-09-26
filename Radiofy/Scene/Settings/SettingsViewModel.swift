@@ -79,7 +79,7 @@ class SettingsViewModel: SettingsModule.ViewModel {
                 switch result {
                 case .finished: break
                 case .failure(let error):
-                    self.errorSubject.send((L1s.error, error.localizedDescription))
+                    self.errorSubject.send((L10n.error, error.localizedDescription))
                 }
             } receiveValue: { _ in }
             .store(in: &disposedBag)
@@ -111,7 +111,7 @@ class SettingsViewModel: SettingsModule.ViewModel {
                 switch result {
                 case .finished: break
                 case .failure(let error):
-                    self.errorSubject.send((L1s.error, error.localizedDescription))
+                    self.errorSubject.send((L10n.error, error.localizedDescription))
                 }
             } receiveValue: { [weak self] name in
                 guard let self = self else { return }

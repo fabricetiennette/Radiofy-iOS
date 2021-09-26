@@ -97,7 +97,7 @@ private extension SignUpViewController {
             .store(in: &disposeBag)
 
         // BackButton Tapped
-        let backButton = UIBarButtonItem(title: L1s.back,
+        let backButton = UIBarButtonItem(title: L10n.back,
                                          style: .plain,
                                          cancellables: &disposeBag,
                                          action: { self.viewModel?.tapBack() })
@@ -120,7 +120,7 @@ private extension SignUpViewController {
                     showLoading: false,
                     originalConstraints: self.buttonContraint,
                     identifier: "signUpButtonWidth",
-                    title: L1s.signUp
+                    title: L10n.signUp
                 )
             }).store(in: &disposeBag)
 
@@ -132,7 +132,7 @@ private extension SignUpViewController {
                     showLoading: true,
                     originalConstraints: self.signUpButton.constraints,
                     identifier: "signUpButtonWidth",
-                    title: L1s.signUp
+                    title: L10n.signUp
                 )
             }).store(in: &disposeBag)
     }

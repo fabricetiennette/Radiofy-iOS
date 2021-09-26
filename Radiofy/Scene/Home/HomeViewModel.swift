@@ -77,7 +77,7 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorSubject.send((L1s.error, L1s.stationUnavailable))
+                    self.errorSubject.send((L10n.error, L10n.radioTryLater))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in
@@ -98,7 +98,7 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorSubject.send((L1s.error, L1s.stationUnavailable))
+                    self.errorSubject.send((L10n.error, L10n.radioTryLater))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in
@@ -117,7 +117,7 @@ class HomeViewModel: HomeModule.ViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .failure:
-                    self.errorSubject.send((L1s.error, L1s.stationUnavailable))
+                    self.errorSubject.send((L10n.error, L10n.radioTryLater))
                 case .finished: break
                 }
             } receiveValue: { [weak self] radioStation in

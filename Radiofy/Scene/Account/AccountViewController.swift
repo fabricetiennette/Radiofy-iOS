@@ -59,7 +59,7 @@ private extension AccountViewController {
     }
 
     func configureView() {
-        navigationItem.title = L1s.compte
+        navigationItem.title = L10n.account
     }
 }
 

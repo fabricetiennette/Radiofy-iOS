@@ -38,7 +38,7 @@ class EpisodeViewModel {
 
     func getEpisode() {
         guard let feedUrl = selectedPodcast?.feedUrl else {
-            errorHandler?(L1s.errorUnavailable, "\(selectedPodcast?.trackName ?? "Podcast") \(L1s.temporailyUnavailable)")
+            errorHandler?(L10n.errorUnavailable, "\(selectedPodcast?.trackName ?? "Podcast") \(L10n.isTemporarilyUnavailable)")
             return
         }
         podcastService.fetchEpisodes(feedUrl: feedUrl) { result in
@@ -47,7 +47,7 @@ class EpisodeViewModel {
                 self.allEpisodes = allEpisodes
                 self.episodeHandler?(self.allEpisodes)
             case .failure(let error):
-                self.errorHandler?(L1s.error, error.localizedDescription)
+                self.errorHandler?(L10n.error, error.localizedDescription)
             }
         }
     }

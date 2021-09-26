@@ -77,9 +77,9 @@ private extension SubscriptionViewController {
         .underlineStyle: NSUnderlineStyle.single.rawValue]
 
         let termsString = NSMutableAttributedString(
-            string: L1s.terms, attributes: attributes)
+            string: L10n.termsOfService, attributes: attributes)
         let  privacyString = NSMutableAttributedString(
-            string: L1s.privacyPolicy, attributes: attributes)
+            string: L10n.privacyPolicy, attributes: attributes)
         termsButton.setAttributedTitle(termsString, for: .normal)
         privacyButton.setAttributedTitle(privacyString, for: .normal)
     }

@@ -68,7 +68,7 @@ private extension EditProfileViewController {
         viewModel.successHandler = { [weak self] in
             guard let me = self else { return }
             me.errorTextLabel.textColor = .lightText
-            me.errorTextLabel.text = L1s.editNickname
+            me.errorTextLabel.text = L10n.editNickname
             me.indicator.hide()
             me.dismiss(animated: true, completion: nil)
         }
@@ -97,7 +97,7 @@ private extension EditProfileViewController {
 
     func startAnimation() {
         errorTextLabel.textColor = .lightText
-        errorTextLabel.text = L1s.editNickname
+        errorTextLabel.text = L10n.editNickname
         indicator.show(indicator: self.view)
     }
 
@@ -105,11 +105,11 @@ private extension EditProfileViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = UIColor(cgColor: #colorLiteral(red: 0.09802495688, green: 0.09804918617, blue: 0.09802179784, alpha: 1))
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationItem.title = L1s.editProfil
+        self.navigationItem.title = L10n.editProfile
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: L1s.cancel, style: .plain, target: self, action: #selector(cancelTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: L10n.cancel, style: .plain, target: self, action: #selector(cancelTapped))
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: L1s.save, style: .done, target: self, action: #selector(saveTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: L10n.save, style: .done, target: self, action: #selector(saveTapped))
 
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .normal)
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .highlighted)
@@ -127,27 +127,27 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     private func showImagePickerControllerActionSheet() {
 
         let photoLibraryAction =
-            UIAlertAction(title: L1s.chooseFromLibrary, style: .default) { _ in
+            UIAlertAction(title: L10n.chooseFromLibrary, style: .default) { _ in
             self.changeUserPhoto(sourceType: .photoLibrary)
         }
 
         let cameraAction =
-            UIAlertAction(title: L1s.takePhoto, style: .default) { _ in
+            UIAlertAction(title: L10n.takePhoto, style: .default) { _ in
             self.changeUserPhoto(sourceType: .camera)
         }
 
-        let removeAction = UIAlertAction(title: L1s.deleteLastPhoto, style: .default) { _ in
+        let removeAction = UIAlertAction(title: L10n.removeCurrentPhoto, style: .default) { _ in
             self.isRemovingCurrentPhotoAvailable = false
             self.userImageView.getImage(from: self.imageUrl)
         }
         removeAction.isEnabled = isRemovingCurrentPhotoAvailable
 
         let cancelAction =
-            UIAlertAction(title: L1s.cancel, style: .cancel, handler: nil)
+            UIAlertAction(title: L10n.cancel, style: .cancel, handler: nil)
 
         self.showAlertWithAction(
             style: .actionSheet,
-            title: L1s.changeProfilAlert,
+            title: L10n.changeProfilePhoto,
             message: nil,
             actions: [photoLibraryAction, cameraAction, removeAction, cancelAction],
             completion: nil

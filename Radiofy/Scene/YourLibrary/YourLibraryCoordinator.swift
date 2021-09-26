@@ -66,7 +66,7 @@ class YourLibraryCoordinator: Coordinator<UINavigationController> {
 //        let viewController = SignUpViewController.instantiate(from: "Start")
 //        let viewModel = SignUpViewModel(delegate: self)
 //        viewController.viewModel = viewModel
-//        viewController.navigationItem.title = L1s.creatAccount
+//        viewController.navigationItem.title = L10n.createAccount
 //        rootView.pushViewController(viewController, animated: true)
     }
 

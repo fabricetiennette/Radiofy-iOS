@@ -134,6 +134,7 @@
 		2CC803922462F0D600F345C9 /* SubcribePremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC803912462F0D600F345C9 /* SubcribePremiumView.swift */; };
 		2CC824F82701217F00A31476 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC824F72701217F00A31476 /* Localizable.swift */; };
 		2CC825062701244C00A31476 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC825032701244C00A31476 /* Localizable.strings */; };
+		2CC82508270125A600A31476 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC82507270125A600A31476 /* Assets.swift */; };
 		2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90B26526631001877B0 /* SignUpModule.swift */; };
 		2CC9E90E26526668001877B0 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */; };
 		2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90F265269AE001877B0 /* SignUpService.swift */; };
@@ -145,7 +146,6 @@
 		2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC02461831800A258EB /* Player.storyboard */; };
 		2CD0AFC32461840900A258EB /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC52461840900A258EB /* Radio.storyboard */; };
 		2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFCA2461842700A258EB /* Podcast.storyboard */; };
-		2CD0AFD024618DAA00A258EB /* L1s.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0AFCF24618DAA00A258EB /* L1s.swift */; };
 		2CD974172450708A00808E54 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974162450708A00808E54 /* UserDefault+.swift */; };
 		2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974182450713200808E54 /* UserDefaultConfig.swift */; };
 		2CD9741B24508B6800808E54 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9741A24508B6800808E54 /* StorageManager.swift */; };
@@ -369,6 +369,7 @@
 		2CC824F72701217F00A31476 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		2CC825042701244C00A31476 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CC825052701244C00A31476 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CC82507270125A600A31476 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		2CC9E90B26526631001877B0 /* SignUpModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModule.swift; sourceTree = "<group>"; };
 		2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		2CC9E90F265269AE001877B0 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
@@ -388,7 +389,6 @@
 		2CD0AFC72461840F00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Radio.strings; sourceTree = "<group>"; };
 		2CD0AFC92461842700A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Podcast.storyboard; sourceTree = "<group>"; };
 		2CD0AFCC2461847E00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Podcast.strings; sourceTree = "<group>"; };
-		2CD0AFCF24618DAA00A258EB /* L1s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L1s.swift; sourceTree = "<group>"; };
 		2CD974162450708A00808E54 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
 		2CD974182450713200808E54 /* UserDefaultConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConfig.swift; sourceTree = "<group>"; };
 		2CD9741A24508B6800808E54 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -844,6 +844,7 @@
 		2CC824F527011E6C00A31476 /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
+				2CC82507270125A600A31476 /* Assets.swift */,
 				2CC824F72701217F00A31476 /* Localizable.swift */,
 			);
 			path = SwiftGen;
@@ -1174,6 +1175,7 @@
 		2CFD6BFB2429103900F35EC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C9281B224296E690052C714 /* Fonts */,
 				2CC824F527011E6C00A31476 /* SwiftGen */,
 				2CC825022701244C00A31476 /* Translations */,
 				2CB30ED42432A19F00820DE4 /* LottieAnimation */,
@@ -1185,7 +1187,6 @@
 		2CFD6BFC2429105700F35EC1 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2C9281B224296E690052C714 /* Fonts */,
 				2CFD6C012429123A00F35EC1 /* Info.plist */,
 				2CF5ED7B242F87700018E8A4 /* GoogleService-Info.plist */,
 				2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */,
@@ -1212,7 +1213,6 @@
 				2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */,
 				2C004292244E460F006ABABF /* DeleteAccountView.swift */,
 				2CD974182450713200808E54 /* UserDefaultConfig.swift */,
-				2CD0AFCF24618DAA00A258EB /* L1s.swift */,
 				2CC8038F2462EFFA00F345C9 /* SubscribeButtonView.swift */,
 				2CC803912462F0D600F345C9 /* SubcribePremiumView.swift */,
 			);
@@ -1530,7 +1530,6 @@
 				2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */,
 				2C688966242E139200463F1B /* OnBoardingViewModel.swift in Sources */,
 				2C00428C244E1289006ABABF /* AboutViewModel.swift in Sources */,
-				2CD0AFD024618DAA00A258EB /* L1s.swift in Sources */,
 				2CF5ED71242E58000018E8A4 /* LogInViewController.swift in Sources */,
 				2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */,
 				2C68896C242E149600463F1B /* OnBoardingCoordinator.swift in Sources */,
@@ -1546,6 +1545,7 @@
 				2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */,
 				2CF85AB5242D7900002FBFF6 /* LogInButtonView.swift in Sources */,
 				2C498433245B792C00B6201C /* EpisodeHeaderCell.swift in Sources */,
+				2CC82508270125A600A31476 /* Assets.swift in Sources */,
 				2C591A13243CBB8A004CF4F6 /* UIImage+.swift in Sources */,
 				2C95C13B245CE27C005D8503 /* CMTime.swift in Sources */,
 				2CDC5AB1243E72AB00498DE5 /* NationalStationsCell.swift in Sources */,
