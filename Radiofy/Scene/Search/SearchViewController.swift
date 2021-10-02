@@ -21,20 +21,8 @@ final class SearchViewController: UIViewController, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchCollectionView.dataSource = self
-        searchCollectionView.delegate = self
-        searchCollectionView.keyboardDismissMode = .onDrag
-
-        searchCollectionView.register(cellType: SearchCell.self)
-        searchCollectionView.register(supplementaryViewType: SearchBarReusableView.self,
-                                      ofKind: UICollectionView.elementKindSectionHeader)
-
-        if let flowLayout = searchCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-          flowLayout.headerReferenceSize = CGSize(width: searchCollectionView.bounds.size.width, height: 60)
-        }
-
+        configureCollectionView()
         bind(to: viewModel)
-
         configureNavbar()
     }
 
@@ -59,6 +47,21 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 private extension SearchViewController {
+
+    func configureCollectionView() {
+        searchCollectionView.dataSource = self
+        searchCollectionView.delegate = self
+        searchCollectionView.keyboardDismissMode = .onDrag
+
+        searchCollectionView.register(cellType: SearchCell.self)
+        searchCollectionView.register(supplementaryViewType: SearchBarReusableView.self,
+                                      ofKind: UICollectionView.elementKindSectionHeader)
+
+        if let flowLayout = searchCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+          flowLayout.headerReferenceSize = CGSize(width: searchCollectionView.bounds.size.width,
+                                                  height: 60)
+        }
+    }
 
     func bind(to viewModel: SearchViewModel) {
 
