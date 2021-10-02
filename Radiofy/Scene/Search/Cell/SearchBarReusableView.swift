@@ -7,19 +7,19 @@
 //
 
 import UIKit
+import Reusable
 
-class SearchBarReusableView: UICollectionReusableView {
+final class SearchBarReusableView: UICollectionReusableView, NibReusable {
 
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!
 
     func configureSearchBar() {
-
         searchBar.placeholder = L10n.searchYourRadio
-        searchBar.tintColor = UIColor(cgColor: #colorLiteral(red: 0.1137254902, green: 0.7254901961, blue: 0.3294117647, alpha: 1))
-            searchBar.searchTextField.accessibilityIdentifier = "RadioSearchTextField"
-            searchBar.searchTextField.backgroundColor = .white
-            searchBar.searchTextField.textColor = .black
-            searchBar.searchTextField.leftView?.tintColor = .black
+        searchBar.tintColor = ColorName.greenMain.color
+        searchBar.searchTextField.accessibilityIdentifier = "RadioSearchTextField"
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.searchTextField.textColor = .black
+        searchBar.searchTextField.leftView?.tintColor = .black
     }
 }
 

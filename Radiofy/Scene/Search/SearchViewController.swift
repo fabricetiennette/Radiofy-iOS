@@ -8,23 +8,21 @@
 
 import UIKit
 import Combine
+import Reusable
 
-class SearchViewController: UIViewController, Storyboarded {
+final class SearchViewController: UIViewController, Storyboarded {
 
     @IBOutlet private weak var searchCollectionView: UICollectionView!
 
+    private var stations: [RadioStation] = []
+    private var searchStations: [RadioStation] = []
     private var disposeBag = Set<AnyCancellable>()
-    private lazy var searchDataSource = SearchDataSource()
     var viewModel: SearchViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchCollectionView.dataSource = searchDataSource
-        searchCollectionView.delegate = searchDataSource
-
+        configureCollectionView()
         bind(to: viewModel)
-        bindViewModel(to: searchDataSource)
-
         configureNavbar()
     }
 
@@ -37,18 +35,33 @@ class SearchViewController: UIViewController, Storyboarded {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
-        searchDataSource.updateSearch(searchText: searchText)
+        updateSearch(searchText: searchText)
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let searchText = searchBar.text else { return }
         if searchText.isEmpty {
-            searchDataSource.updateSearch(searchText: searchText)
+            updateSearch(searchText: searchText)
         }
     }
 }
 
 private extension SearchViewController {
+
+    func configureCollectionView() {
+        searchCollectionView.dataSource = self
+        searchCollectionView.delegate = self
+        searchCollectionView.keyboardDismissMode = .onDrag
+
+        searchCollectionView.register(cellType: SearchCell.self)
+        searchCollectionView.register(supplementaryViewType: SearchBarReusableView.self,
+                                      ofKind: UICollectionView.elementKindSectionHeader)
+
+        if let flowLayout = searchCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+          flowLayout.headerReferenceSize = CGSize(width: searchCollectionView.bounds.size.width,
+                                                  height: 60)
+        }
+    }
 
     func bind(to viewModel: SearchViewModel) {
 
@@ -57,7 +70,8 @@ private extension SearchViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] allStations in
                 guard let self = self else { return }
-                self.searchDataSource.updateCell(stations: allStations)
+                self.stations = allStations
+                self.searchStations = allStations
                 self.searchCollectionView.reloadData()
             }
             .store(in: &disposeBag)
@@ -65,29 +79,81 @@ private extension SearchViewController {
         viewModel.getAllRadioStations()
     }
 
-    func bindViewModel(to dataSource: SearchDataSource) {
-        dataSource.radioSelectedHandler = { [weak self] radioSelected in
-            guard let me = self else { return }
-            me.viewModel.showSelectedRadioPage(with: radioSelected)
+    func updateSearch(searchText: String) {
+        stations.removeAll()
+
+        for item in searchStations {
+            if item.name.lowercased().contains(searchText.lowercased()) {
+                stations.append(item)
+            }
         }
-        dataSource.reloadHandler = { [weak self] in
-            guard let me = self else { return }
-            me.searchCollectionView.reloadData()
+
+        if searchText.isEmpty {
+            stations = searchStations
         }
-        searchCollectionView.keyboardDismissMode = .onDrag
+        searchCollectionView.reloadData()
+    }
+}
+
+    // MARK: - UICollectionViewDataSource
+
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return stations.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let station = stations[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as SearchCell
+        cell.configureCell(station: station, indexPath: indexPath)
+        return cell
+    }
+
+   func collectionView(_ collectionView: UICollectionView,
+                       viewForSupplementaryElementOfKind kind: String,
+                       at indexPath: IndexPath) -> UICollectionReusableView {
+       let searchView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as SearchBarReusableView
+       searchView.searchBar.delegate = self
+       searchView.configureSearchBar()
+       return searchView
+   }
+}
+
+    // MARK: - UICollectionViewDelegateFlowLayout
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        let oneItem = width - 30
+        if stations.count == 1 {
+            return CGSize(width: oneItem, height: 100)
+        } else {
+            let twoItem = width - 45
+            return CGSize(width: twoItem / 2, height: 100)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.item < stations.count else { return }
+        viewModel.showSelectedRadioPage(with: stations[indexPath.item])
     }
 }
 
 private extension SearchViewController {
-
     func configureNavbar() {
         guard let navigationController = navigationController else { return }
         navigationController.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationItem.standardAppearance?.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.09807916731, green: 0.09796635062, blue: 0.1023270264, alpha: 1))
-        navigationItem.scrollEdgeAppearance?.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.09807916731, green: 0.09796635062, blue: 0.1023270264, alpha: 1))
+        navigationItem.standardAppearance?.backgroundColor = ColorName.navBar.color
+        navigationItem.scrollEdgeAppearance?.backgroundColor = ColorName.navBar.color
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.isTranslucent = true
@@ -96,3 +162,10 @@ private extension SearchViewController {
         navigationItem.title = L10n.search
     }
 }
+
+// Swift < 4.2 support
+#if !(swift(>=4.2))
+private extension UICollectionView {
+  static let elementKindSectionHeader = UICollectionElementKindSectionHeader
+}
+#endif

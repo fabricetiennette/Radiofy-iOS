@@ -79,7 +79,7 @@ final class OnBoardingViewController: UIViewController {
 
     private lazy var signUpButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.7254901961, blue: 0.3294117647, alpha: 1)
+        button.backgroundColor = ColorName.greenMain.color
         button.setTitle("SIGN UP", for: .normal)
         button.layer.cornerRadius = 24
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)

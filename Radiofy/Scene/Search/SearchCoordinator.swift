@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SearchCoordinator: Coordinator<UINavigationController> {
+protocol SearchCoordinatorDelegate: CoordinatorDelegate {
+    func didSelectRadio(_ selectedradio: RadioStation)
+}
+
+final class SearchCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Properties
 
@@ -28,6 +32,8 @@ class SearchCoordinator: Coordinator<UINavigationController> {
             super.init(rootView: navigationController)
         }
     }
+
+    weak var delegate: SearchCoordinatorDelegate?
 
         // MARK: - Coordinator
 
@@ -52,57 +58,14 @@ class SearchCoordinator: Coordinator<UINavigationController> {
         viewController.viewModel = viewModel
         rootView.pushViewController(viewController, animated: true)
     }
-
-    private func makePayWallView() {
-        let viewController = SubscriptionViewController.instantiate(from: .subscription)
-        let viewModel = SubscriptionViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.modalPresentationStyle = .fullScreen
-        rootView.present(viewController, animated: true, completion: nil)
-    }
-
-    private func makeSignUpView() {
-//        let viewController = SignUpViewController.instantiate(from: "Start")
-//        let viewModel = SignUpViewModel(delegate: self)
-//        viewController.viewModel = viewModel
-//        viewController.navigationItem.title = L10n.createAccount
-//        rootView.pushViewController(viewController, animated: true)
-    }
-
-    private func launchHomeView() {
-//        let rootView = UITabBarController()
-//        let main = MainTabBarController(rootView: rootView)
-//        let radioPlayer = RadioPlayerCoordinator(rootView: main)
-//        navigationController.view.window?.rootViewController = main
-//        navigationController.view.window?.makeKeyAndVisible()
-//        radioPlayer.start()
-    }
 }
 
 extension SearchCoordinator: SearchViewModelDelegate {
     func selectRadio(_ selectedradio: RadioStation) {
-        makeRadioPage(with: selectedradio)
+        delegate?.didSelectRadio(selectedradio)
     }
 }
 
 extension SearchCoordinator: RadioViewModelDelegate {
-    func openPayWallView() {
-        makePayWallView()
-    }
-}
-
-extension SearchCoordinator: SubscriptionViewModelDelegate {
-    func signUpFirst() {
-        makeSignUpView()
-    }
-}
-
-extension SearchCoordinator: SignUpViewModelDelegate {
-    func didTapOnBack() {
-
-    }
-
-    func goToHomeView() {
-        launchHomeView()
-    }
+    func openPayWallView() {}
 }

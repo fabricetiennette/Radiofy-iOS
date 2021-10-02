@@ -39,7 +39,6 @@ protocol SearchOutputBinding {
 //    var spinnerSubject: PassthroughSubject<Void, Never> { get set }
 }
 
-
 protocol SearchViewModelDelegate: AnyObject {
     func selectRadio(_ selectedradio: RadioStation)
 }

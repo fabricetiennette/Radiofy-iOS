@@ -53,7 +53,7 @@ class HomeViewModel: HomeModule.ViewModel {
             return radioStation.first
         }
         recentlyPlayedSubject.send(recentlyPlayedStations)
-        
+
         guard let radios = recentlyPlayedStations.first else { return }
         service.saveDocumentToDatabase(imageUrl: radios.imageURL,
                                        mainColor: radios.unformattedColor,

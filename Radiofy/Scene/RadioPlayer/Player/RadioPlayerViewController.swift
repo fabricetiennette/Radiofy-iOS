@@ -110,7 +110,7 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
             durationLabel.isHidden = true
             replayButton.isEnabled = false
             forwardButton.isEnabled = false
-            liveLabel.textColor = UIColor(cgColor: #colorLiteral(red: 0.1137254902, green: 0.7254901961, blue: 0.3294117647, alpha: 1))
+            liveLabel.textColor = ColorName.greenMain.color
             popupItem.progress = 1.0
             setRadioBackgroundColor()
             popupItem.subtitle = L10n.live

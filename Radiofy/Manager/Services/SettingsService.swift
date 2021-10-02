@@ -10,12 +10,12 @@ import Firebase
 import Combine
 
 final class SettingsService: SettingsModule.Service {
-    
+
     private let database = Firestore.firestore()
     private let firebaseAuth = Auth.auth()
     private let storage = Storage.storage()
     var handle: AuthStateDidChangeListenerHandle = Auth.auth()
-    
+
     var currentUser: User? {
         return firebaseAuth.currentUser
     }
@@ -45,11 +45,11 @@ final class SettingsService: SettingsModule.Service {
             }
         }.eraseToAnyPublisher()
     }
-    
+
     func removeListener() {
         firebaseAuth.removeStateDidChangeListener(handle)
     }
-    
+
     // Sign Out user
     func signOutUser() -> AnyPublisher<Void, Error> {
         Deferred {
@@ -72,7 +72,7 @@ final class SettingsService: SettingsModule.Service {
                 guard let self = self else { return }
                 let db = self.database.collection("users").document(email)
                 db.addSnapshotListener { documentSnapshot, error in
-                    
+
                     if let error = error {
                         handle(.failure(error))
                         return

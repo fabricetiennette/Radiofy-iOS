@@ -8,8 +8,9 @@
 
 import UIKit
 import SDWebImage
+import Reusable
 
-class SearchCell: UICollectionViewCell {
+final class SearchCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet private weak var magicalView: UIView!
     @IBOutlet private weak var radioNameLabel: UILabel!
