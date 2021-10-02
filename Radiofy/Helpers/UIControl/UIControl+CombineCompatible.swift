@@ -38,7 +38,7 @@ public extension UIControl {
 
         public typealias Output = Output
         public typealias Failure = Never
-    
+
         let output: Output
         let event: UIControl.Event
 
