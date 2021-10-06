@@ -20,7 +20,7 @@ final class SearchViewModel: SearchModule.ViewModel {
     }
 
     // Show user selected Radio Profile Page
-    func showSelectedRadioPage(with selectedRadio: RadioStation) {
-        delegate?.selectRadio(selectedRadio)
+    func showSelectedRadioPage(with radio: RadioStation) {
+        delegate?.selectRadio(radio)
     }
 }

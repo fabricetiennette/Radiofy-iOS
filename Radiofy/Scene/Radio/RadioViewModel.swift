@@ -7,60 +7,54 @@
 //
 
 import Foundation
+import Combine
 
-protocol RadioViewModelDelegate: AnyObject {
-    func openPayWallView()
-}
+final class RadioViewModel: RadioModule.ViewModel {
 
-class RadioViewModel {
+    weak var delegate: RadioModule.CoordinatorDelegate?
 
-    private weak var delegate: RadioViewModelDelegate?
-
-    var radioDetailsHandler: ((_ selectedRadio: RadioStation) -> Void)?
-
-    static let NotificationPlayPressed = NSNotification.Name(rawValue: "Play")
-    static var radioStation: RadioStation?
-    private var selectedRadio: RadioStation?
-
-    init(delegate: RadioViewModelDelegate?, selectedRadio: RadioStation?) {
-        self.delegate = delegate
-        self.selectedRadio = selectedRadio
-
-        showRadioDetails()
-    }
+    var radioDetailsSubject = PassthroughSubject<RadioStation, Never>()
 
     // Check if selected radio is a favorite
-    func isRadioFavorite() -> Bool {
+    var isRadioFavorite: Bool {
         let favoriteStations = UserDefaultConfig.favoriteStations
-        if favoriteStations.contains(where: {$0 == selectedRadio?.name}) {
+        if favoriteStations.contains(where: {$0 == radio.name}) {
             return true
         }
         return false
     }
 
+    static let NotificationPlayPressed = NSNotification.Name(rawValue: "Play")
+    static var radioStation: RadioStation?
+    private var radio: RadioStation {
+        didSet {
+            showRadioDetails()
+        }
+    }
+
+    init(radio: RadioStation) {
+        self.radio = radio
+    }
+
     // Save a new Radio to favorite
     func saveToUserDefaults() {
         var favoriteStations = UserDefaultConfig.favoriteStations
-        if let newFavorite = selectedRadio?.name {
-            favoriteStations.insert(newFavorite, at: 0)
-            let radioName = favoriteStations.unique()
-            UserDefaultConfig.favoriteStations = radioName
-        }
+        favoriteStations.insert(radio.name, at: 0)
+        let radioName = favoriteStations.unique()
+        UserDefaultConfig.favoriteStations = radioName
     }
 
     // Delete one radio from favorite list
     func deleteFromUserDefaults() {
         var favoriteStations = UserDefaultConfig.favoriteStations
-        guard let name = selectedRadio?.name else { return }
-        if let index = favoriteStations.firstIndex(of: name) {
+        if let index = favoriteStations.firstIndex(of: radio.name) {
             favoriteStations.remove(at: index)
             UserDefaultConfig.favoriteStations = favoriteStations
         }
     }
 
     func showRadioDetails() {
-        guard let selectedRadio = self.selectedRadio else { return }
-        radioDetailsHandler?(selectedRadio)
+        radioDetailsSubject.send(radio)
     }
 
     private func notificationSendToPlayer() {
@@ -68,8 +62,7 @@ class RadioViewModel {
     }
 
     func playRadio() {
-        guard let selectedRadio = self.selectedRadio else { return }
-        RadioViewModel.radioStation = selectedRadio
+        RadioViewModel.radioStation = radio
         notificationSendToPlayer()
     }
 

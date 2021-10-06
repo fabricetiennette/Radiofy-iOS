@@ -8,16 +8,18 @@
 
 import UIKit
 import SDWebImage
+import Combine
 
-class RadioViewController: UIViewController {
+final class RadioViewController: UIViewController {
 
     @IBOutlet private weak var radioImageView: UIImageView!
     @IBOutlet private weak var radioLabel: UILabel!
     @IBOutlet private weak var radioMagicView: UIView!
 
-    var viewModel: RadioViewModel!
-
     private let favoriteBtn = UIButton(type: .custom)
+    private var disposeBag: Set<AnyCancellable> = []
+
+    var viewModel: RadioModule.ViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +38,15 @@ extension RadioViewController {
 
     @objc func favoriteButtonTapped(_ sender: UIButton) {
         if sender.isSelected {
-            viewModel.deleteFromUserDefaults()
+            viewModel?.deleteFromUserDefaults()
         } else {
-            viewModel.saveToUserDefaults()
+            viewModel?.saveToUserDefaults()
         }
         sender.isSelected = (sender.isSelected == true) ? false : true
     }
 
     @IBAction func playButtonTapped(_ sender: Any) {
-        viewModel.playRadio()
+        viewModel?.playRadio()
     }
 }
 
@@ -53,19 +55,24 @@ extension RadioViewController: Storyboarded {}
 private extension RadioViewController {
 
     func configureViewModel() {
-        viewModel.radioDetailsHandler = { [weak self] radioSelected in
-            guard let me = self,
-                let url = URL(string: radioSelected.imageURL) else { return }
-            me.radioImageView.sd_setImage(with: url, completed: nil)
-            me.radioMagicView.setBackgourndColorWithGradient(
-                colorHead: radioSelected.color,
-                colorCenter: #colorLiteral(red: 0.07057782263, green: 0.07059488446, blue: 0.07057409734, alpha: 1),
-                colorBottom: #colorLiteral(red: 0.07057782263, green: 0.07059488446, blue: 0.07057409734, alpha: 1)
-            )
-            me.radioLabel.text = radioSelected.name
-            me.navigationItem.title = radioSelected.name
-        }
-        if viewModel.isRadioFavorite() {
+        guard let viewModel = viewModel else { return }
+        viewModel
+            .radioDetailsSubject
+            .sink(receiveValue: { [weak self] radioSelected in
+                guard let me = self,
+                      let url = URL(string: radioSelected.imageURL) else { return }
+                me.radioImageView.sd_setImage(with: url, completed: nil)
+                me.radioMagicView.setBackgourndColorWithGradient(
+                    colorHead: radioSelected.color,
+                    colorCenter: #colorLiteral(red: 0.07057782263, green: 0.07059488446, blue: 0.07057409734, alpha: 1),
+                    colorBottom: #colorLiteral(red: 0.07057782263, green: 0.07059488446, blue: 0.07057409734, alpha: 1)
+                )
+                me.radioLabel.text = radioSelected.name
+                me.navigationItem.title = radioSelected.name
+            })
+            .store(in: &disposeBag)
+
+        if viewModel.isRadioFavorite {
             favoriteBtn.isSelected = true
         }
         viewModel.showRadioDetails()
