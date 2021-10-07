@@ -93,14 +93,12 @@ extension OnBoardingCoordinator: OnBoardingModule.CoordinatorDelegate {
 }
 
 extension OnBoardingCoordinator: SignUpCoordinatorDelegate {
-
     func goHomeFromSignUp() {
         launchHome()
     }
 }
 
 extension OnBoardingCoordinator: LogInCoordinatorDelegate {
-
     func goHomeFromLogIn() {
         launchHome()
     }

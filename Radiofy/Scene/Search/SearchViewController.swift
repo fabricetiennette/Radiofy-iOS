@@ -10,19 +10,35 @@ import UIKit
 import Combine
 import Reusable
 
-final class SearchViewController: UIViewController, Storyboarded {
+final class SearchViewController: RadiofyViewController<SearchModule.ViewModel> {
 
-    @IBOutlet private weak var searchCollectionView: UICollectionView!
+    private lazy var searchCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        layout.minimumLineSpacing = 16
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.keyboardDismissMode = .onDrag
+        collectionView.register(cellType: SearchCell.self)
+        collectionView.register(supplementaryViewType: SearchBarReusableView.self,
+                                ofKind: UICollectionView.elementKindSectionHeader)
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
 
     private var stations: [RadioStation] = []
     private var searchStations: [RadioStation] = []
     private var disposeBag = Set<AnyCancellable>()
-    var viewModel: SearchViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupInterface()
+        setupConstraints()
         configureCollectionView()
-        bind(to: viewModel)
+        setupViewModel()
         configureNavbar()
     }
 
@@ -47,24 +63,13 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 private extension SearchViewController {
-
     func configureCollectionView() {
-        searchCollectionView.dataSource = self
-        searchCollectionView.delegate = self
-        searchCollectionView.keyboardDismissMode = .onDrag
-
-        searchCollectionView.register(cellType: SearchCell.self)
-        searchCollectionView.register(supplementaryViewType: SearchBarReusableView.self,
-                                      ofKind: UICollectionView.elementKindSectionHeader)
-
         if let flowLayout = searchCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-          flowLayout.headerReferenceSize = CGSize(width: searchCollectionView.bounds.size.width,
-                                                  height: 60)
+          flowLayout.headerReferenceSize = CGSize(width: searchCollectionView.bounds.size.width, height: 60)
         }
     }
 
-    func bind(to viewModel: SearchViewModel) {
-
+    func setupViewModel() {
         viewModel
             .updateAllStationsSubject
             .receive(on: DispatchQueue.main)
@@ -160,6 +165,20 @@ private extension SearchViewController {
         navigationController.navigationBar.tintColor = .white
         navigationController.navigationBar.prefersLargeTitles = true
         navigationItem.title = L10n.search
+    }
+
+    func setupInterface() {
+        view.backgroundColor = ColorName.backgroundColor.color
+        view.addSubview(searchCollectionView)
+    }
+
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            searchCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
 

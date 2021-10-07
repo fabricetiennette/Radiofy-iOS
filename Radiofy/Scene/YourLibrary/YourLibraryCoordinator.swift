@@ -47,11 +47,10 @@ class YourLibraryCoordinator: Coordinator<UINavigationController> {
     }
 
     // Make radio profile page
-    private func makeRadioPage(with selectedRadio: RadioStation) {
-        let viewController = RadioViewController.instantiate(from: .radio)
-        let viewModel = RadioViewModel(delegate: self, selectedRadio: selectedRadio)
-        viewController.viewModel = viewModel
-        rootView.pushViewController(viewController, animated: true)
+    private func goToRadio(with radio: RadioStation) {
+        let coordinator = RadioCoordinator(options: .push(rootView), radio: radio)
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makePayWallView() {
@@ -82,14 +81,8 @@ class YourLibraryCoordinator: Coordinator<UINavigationController> {
 
 // Conform to protocol from YourLibraryViewModel
 extension YourLibraryCoordinator: YourLibraryViewModelDelegate {
-    func selectRadio(_ selectedradio: RadioStation) {
-        makeRadioPage(with: selectedradio)
-    }
-}
-
-extension YourLibraryCoordinator: RadioViewModelDelegate {
-    func openPayWallView() {
-        makePayWallView()
+    func selectRadio(_ radio: RadioStation) {
+        goToRadio(with: radio)
     }
 }
 

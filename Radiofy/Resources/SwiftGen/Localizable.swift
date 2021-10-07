@@ -96,6 +96,8 @@ internal enum L10n {
   internal static let passwordInvalid = L10n.tr("Localizable", "password_invalid")
   /// Photo invalid, try again.
   internal static let photoInvalidTryAgain = L10n.tr("Localizable", "Photo invalid, try again.")
+  /// Play
+  internal static let play = L10n.tr("Localizable", "play")
   /// Privacy Policy
   internal static let privacyPolicy = L10n.tr("Localizable", "Privacy Policy")
   /// Could not get radio station, try later

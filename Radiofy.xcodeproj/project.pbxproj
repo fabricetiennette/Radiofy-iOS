@@ -144,9 +144,7 @@
 		2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFC4712446144D00AE9B23 /* Sequence+.swift */; };
 		2CD0AFAE24615A5F00A258EB /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFB024615A5F00A258EB /* Start.storyboard */; };
 		2CD0AFB42461604400A258EB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFB62461604400A258EB /* Home.storyboard */; };
-		2CD0AFB9246182FC00A258EB /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFBB246182FC00A258EB /* Search.storyboard */; };
 		2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC02461831800A258EB /* Player.storyboard */; };
-		2CD0AFC32461840900A258EB /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC52461840900A258EB /* Radio.storyboard */; };
 		2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFCA2461842700A258EB /* Podcast.storyboard */; };
 		2CD974172450708A00808E54 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974162450708A00808E54 /* UserDefault+.swift */; };
 		2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974182450713200808E54 /* UserDefaultConfig.swift */; };
@@ -160,6 +158,7 @@
 		2CDF26FA265D8E06008C3B71 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */; };
 		2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */; };
 		2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FD265D93C4008C3B71 /* LogInService.swift */; };
+		2CE43C40270E356E00D24C6F /* RadiofyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */; };
 		2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */; };
 		2CE6ACFE2452348D00D8A7B7 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */; };
 		2CE6AD002452563400D8A7B7 /* FakeAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */; };
@@ -389,12 +388,8 @@
 		2CD0AFB224615A6400A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Start.strings; sourceTree = "<group>"; };
 		2CD0AFB52461604400A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		2CD0AFB82461604F00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Home.strings; sourceTree = "<group>"; };
-		2CD0AFBA246182FC00A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
-		2CD0AFBD246182FE00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Search.strings; sourceTree = "<group>"; };
 		2CD0AFBF2461831800A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Player.storyboard; sourceTree = "<group>"; };
 		2CD0AFC22461832200A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Player.strings; sourceTree = "<group>"; };
-		2CD0AFC42461840900A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Radio.storyboard; sourceTree = "<group>"; };
-		2CD0AFC72461840F00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Radio.strings; sourceTree = "<group>"; };
 		2CD0AFC92461842700A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Podcast.storyboard; sourceTree = "<group>"; };
 		2CD0AFCC2461847E00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Podcast.strings; sourceTree = "<group>"; };
 		2CD974162450708A00808E54 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
@@ -409,6 +404,7 @@
 		2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModule.swift; sourceTree = "<group>"; };
 		2CDF26FD265D93C4008C3B71 /* LogInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInService.swift; sourceTree = "<group>"; };
+		2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiofyViewController.swift; sourceTree = "<group>"; };
 		2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthResponse.swift; sourceTree = "<group>"; };
@@ -699,6 +695,7 @@
 			isa = PBXGroup;
 			children = (
 				2C55CF762635CB5900723042 /* Coordinator.swift */,
+				2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */,
 				2C688963242E134600463F1B /* Storyboarded.swift */,
 			);
 			path = Common;
@@ -709,10 +706,8 @@
 			children = (
 				2CD0AFB024615A5F00A258EB /* Start.storyboard */,
 				2CD0AFB62461604400A258EB /* Home.storyboard */,
-				2CD0AFBB246182FC00A258EB /* Search.storyboard */,
 				2CFD6BE824290E1000F35EC1 /* Library.storyboard */,
 				2CD0AFC02461831800A258EB /* Player.storyboard */,
-				2CD0AFC52461840900A258EB /* Radio.storyboard */,
 				2CD0AFCA2461842700A258EB /* Podcast.storyboard */,
 				2C67230C24659DA700ABCD5B /* Subscription.storyboard */,
 			);
@@ -1404,14 +1399,12 @@
 				2CC825062701244C00A31476 /* Localizable.strings in Resources */,
 				2CD0AFAE24615A5F00A258EB /* Start.storyboard in Resources */,
 				2C73D552243D21D800896D24 /* loadingDot.json in Resources */,
-				2CD0AFC32461840900A258EB /* Radio.storyboard in Resources */,
 				2C41975224449E0F00FFB2FA /* musicLoader.json in Resources */,
 				2CFD6BEF24290E1100F35EC1 /* LaunchScreen.storyboard in Resources */,
 				2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */,
 				2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */,
 				2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */,
 				2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */,
-				2CD0AFB9246182FC00A258EB /* Search.storyboard in Resources */,
 				2CFD6BEA24290E1000F35EC1 /* Library.storyboard in Resources */,
 				2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */,
 				2CF7290F2708FC4100C5846B /* SearchCell.xib in Resources */,
@@ -1518,6 +1511,7 @@
 				2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */,
 				2C55CF772635CB5900723042 /* Coordinator.swift in Sources */,
 				2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */,
+				2CE43C40270E356E00D24C6F /* RadiofyViewController.swift in Sources */,
 				2C498431245B790A00B6201C /* EpisodeDataSource.swift in Sources */,
 				2CF72918270905DE00C5846B /* Colors.swift in Sources */,
 				2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */,
@@ -1727,15 +1721,6 @@
 			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
-		2CD0AFBB246182FC00A258EB /* Search.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CD0AFBA246182FC00A258EB /* Base */,
-				2CD0AFBD246182FE00A258EB /* fr */,
-			);
-			name = Search.storyboard;
-			sourceTree = "<group>";
-		};
 		2CD0AFC02461831800A258EB /* Player.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1743,15 +1728,6 @@
 				2CD0AFC22461832200A258EB /* fr */,
 			);
 			name = Player.storyboard;
-			sourceTree = "<group>";
-		};
-		2CD0AFC52461840900A258EB /* Radio.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CD0AFC42461840900A258EB /* Base */,
-				2CD0AFC72461840F00A258EB /* fr */,
-			);
-			name = Radio.storyboard;
 			sourceTree = "<group>";
 		};
 		2CD0AFCA2461842700A258EB /* Podcast.storyboard */ = {

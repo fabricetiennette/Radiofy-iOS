@@ -109,7 +109,7 @@ extension UIView {
         gradientLayer.colors = [colorHead.cgColor, colorCenter.cgColor, colorBottom.cgColor]
         gradientLayer.locations = [0.0, 0.6, 1.0]
 
-        self.layer.addSublayer(gradientLayer)
+        self.layer.insertSublayer(gradientLayer, at: 0)
     }
 
     func addBlurEffect(alpha: CGFloat, style: UIBlurEffect.Style) {

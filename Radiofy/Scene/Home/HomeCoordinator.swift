@@ -55,11 +55,10 @@ class HomeCoordinator: Coordinator<UINavigationController> {
         rootView.present(editProfile, animated: true)
     }
 
-    private func makeRadioPage(with selectedRadio: RadioStation) {
-        let viewController = RadioViewController.instantiate(from: .radio)
-        let viewModel = RadioViewModel(delegate: self, selectedRadio: selectedRadio)
-        viewController.viewModel = viewModel
-        rootView.pushViewController(viewController, animated: true)
+    private func goToRadio(with radio: RadioStation) {
+        let coordinator = RadioCoordinator(options: .push(rootView), radio: radio)
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makeAboutPage() {
@@ -76,12 +75,12 @@ class HomeCoordinator: Coordinator<UINavigationController> {
         rootView.pushViewController(viewController, animated: true)
     }
 
-    private func makeSignUpView() {
-//        let viewController = SignUpViewController.instantiate(from: "Start")
-//        let viewModel = SignUpViewModel(delegate: self)
-//        viewController.viewModel = viewModel
-//        viewController.navigationItem.title = L10n.createAccount
-//        rootView.pushViewController(viewController, animated: true)
+    private func goToSignUpView() {
+        let coordinator = LogInCoordinator(options: .push(rootView))
+        rootView.setNavigationBarHidden(false, animated: false)
+        coordinator.delegate = self
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makePayWallView() {
@@ -98,8 +97,8 @@ extension HomeCoordinator: HomeModule.CoordinatorDelegate {
         makePayWallView()
     }
 
-    func showSelectedRadio(_ selectedRadio: RadioStation) {
-        makeRadioPage(with: selectedRadio)
+    func showSelectedRadio(_ radio: RadioStation) {
+        goToRadio(with: radio)
     }
 
     func launchSettings() {
@@ -109,7 +108,7 @@ extension HomeCoordinator: HomeModule.CoordinatorDelegate {
 
 extension HomeCoordinator: SettingsCoordinatorDelegate {
     func goToCreateAccount() {
-        makeSignUpView()
+        goToSignUpView()
     }
 
     func goToAccountPage() {
@@ -131,23 +130,18 @@ extension HomeCoordinator: AccountViewModelDelete {
     }
 }
 
-extension HomeCoordinator: SignUpViewModelDelegate {
-    func didTapOnBack() {
+extension HomeCoordinator: LogInCoordinatorDelegate {
+    func goHomeFromLogIn() {
+
     }
 
-    func goToHomeView() {
-        start()
+    func goPasswordReset() {
+
     }
 }
 
 extension HomeCoordinator: SubscriptionViewModelDelegate {
     func signUpFirst() {
-        makeSignUpView()
-    }
-}
-
-extension HomeCoordinator: RadioViewModelDelegate {
-    func openPayWallView() {
-        makePayWallView()
+        goToSignUpView()
     }
 }

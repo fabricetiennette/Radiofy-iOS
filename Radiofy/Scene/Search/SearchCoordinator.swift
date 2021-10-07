@@ -52,20 +52,15 @@ final class SearchCoordinator: Coordinator<UINavigationController> {
     }
 
     // Make radio profile page
-    private func makeRadioPage(with selectedRadio: RadioStation) {
-        let viewController = RadioViewController.instantiate(from: .radio)
-        let viewModel = RadioViewModel(delegate: self, selectedRadio: selectedRadio)
-        viewController.viewModel = viewModel
-        rootView.pushViewController(viewController, animated: true)
+    private func goToRadio(with radio: RadioStation) {
+        let coordinator = RadioCoordinator(options: .push(rootView), radio: radio)
+        add(children: coordinator)
+        coordinator.start()
     }
 }
 
-extension SearchCoordinator: SearchViewModelDelegate {
-    func selectRadio(_ selectedradio: RadioStation) {
-        delegate?.didSelectRadio(selectedradio)
+extension SearchCoordinator: SearchModule.CoordinatorDelegate {
+    func selectRadio(_ radio: RadioStation) {
+        goToRadio(with: radio)
     }
-}
-
-extension SearchCoordinator: RadioViewModelDelegate {
-    func openPayWallView() {}
 }

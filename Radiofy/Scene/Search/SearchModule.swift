@@ -22,23 +22,21 @@ struct SearchModule {
 
     var viewController: UIViewController {
         let viewModel = SearchViewModel()
-        let searchViewController = SearchViewController.instantiate(from: .search)
+        let searchViewController = SearchViewController(viewModel: viewModel)
         viewModel.delegate = coordinatorDelegate
-        searchViewController.viewModel = viewModel
         return searchViewController
     }
 }
 
 protocol SearchInputBinding {
-//    func signUpOneUser(_ nameTextField: String?, _ emailTextField: String?, _ passwordTextField: String?)
-//    func tapBack()
+    func getAllRadioStations()
 }
 
 protocol SearchOutputBinding {
-//    var errorSubject: PassthroughSubject<String, Never> { get set }
-//    var spinnerSubject: PassthroughSubject<Void, Never> { get set }
+    var updateAllStationsSubject: PassthroughSubject<[RadioStation], Never> { get set }
+    func showSelectedRadioPage(with radio: RadioStation)
 }
 
 protocol SearchViewModelDelegate: AnyObject {
-    func selectRadio(_ selectedradio: RadioStation)
+    func selectRadio(_ radio: RadioStation)
 }
