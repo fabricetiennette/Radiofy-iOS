@@ -24,8 +24,7 @@ struct RadioModule {
 
     var viewController: UIViewController {
         let viewModel = RadioViewModel(radio: radio)
-        let radioViewController = RadioViewController.instantiate(from: .radio)
-        radioViewController.viewModel = viewModel
+        let radioViewController = RadioViewController(viewModel: viewModel)
         viewModel.delegate = coordinatorDelegate
         return radioViewController
     }

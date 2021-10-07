@@ -27,6 +27,9 @@ internal struct ColorName {
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#000000"></span>
   /// Alpha: 4% <br/> (0x0000000c)
   internal static let navBar = ColorName(rgbaValue: 0x0000000c)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#1db954"></span>
+  /// Alpha: 100% <br/> (0x1db954ff)
+  internal static let radiofyGreen = ColorName(rgbaValue: 0x1db954ff)
 }
 // swiftlint:enable identifier_name line_length type_body_length
 

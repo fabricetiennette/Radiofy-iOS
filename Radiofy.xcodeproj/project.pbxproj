@@ -145,7 +145,6 @@
 		2CD0AFAE24615A5F00A258EB /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFB024615A5F00A258EB /* Start.storyboard */; };
 		2CD0AFB42461604400A258EB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFB62461604400A258EB /* Home.storyboard */; };
 		2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC02461831800A258EB /* Player.storyboard */; };
-		2CD0AFC32461840900A258EB /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC52461840900A258EB /* Radio.storyboard */; };
 		2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFCA2461842700A258EB /* Podcast.storyboard */; };
 		2CD974172450708A00808E54 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974162450708A00808E54 /* UserDefault+.swift */; };
 		2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974182450713200808E54 /* UserDefaultConfig.swift */; };
@@ -391,8 +390,6 @@
 		2CD0AFB82461604F00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Home.strings; sourceTree = "<group>"; };
 		2CD0AFBF2461831800A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Player.storyboard; sourceTree = "<group>"; };
 		2CD0AFC22461832200A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Player.strings; sourceTree = "<group>"; };
-		2CD0AFC42461840900A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Radio.storyboard; sourceTree = "<group>"; };
-		2CD0AFC72461840F00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Radio.strings; sourceTree = "<group>"; };
 		2CD0AFC92461842700A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Podcast.storyboard; sourceTree = "<group>"; };
 		2CD0AFCC2461847E00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Podcast.strings; sourceTree = "<group>"; };
 		2CD974162450708A00808E54 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
@@ -711,7 +708,6 @@
 				2CD0AFB62461604400A258EB /* Home.storyboard */,
 				2CFD6BE824290E1000F35EC1 /* Library.storyboard */,
 				2CD0AFC02461831800A258EB /* Player.storyboard */,
-				2CD0AFC52461840900A258EB /* Radio.storyboard */,
 				2CD0AFCA2461842700A258EB /* Podcast.storyboard */,
 				2C67230C24659DA700ABCD5B /* Subscription.storyboard */,
 			);
@@ -1403,7 +1399,6 @@
 				2CC825062701244C00A31476 /* Localizable.strings in Resources */,
 				2CD0AFAE24615A5F00A258EB /* Start.storyboard in Resources */,
 				2C73D552243D21D800896D24 /* loadingDot.json in Resources */,
-				2CD0AFC32461840900A258EB /* Radio.storyboard in Resources */,
 				2C41975224449E0F00FFB2FA /* musicLoader.json in Resources */,
 				2CFD6BEF24290E1100F35EC1 /* LaunchScreen.storyboard in Resources */,
 				2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */,
@@ -1733,15 +1728,6 @@
 				2CD0AFC22461832200A258EB /* fr */,
 			);
 			name = Player.storyboard;
-			sourceTree = "<group>";
-		};
-		2CD0AFC52461840900A258EB /* Radio.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CD0AFC42461840900A258EB /* Base */,
-				2CD0AFC72461840F00A258EB /* fr */,
-			);
-			name = Radio.storyboard;
 			sourceTree = "<group>";
 		};
 		2CD0AFCA2461842700A258EB /* Podcast.storyboard */ = {
