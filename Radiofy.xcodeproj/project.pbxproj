@@ -69,6 +69,7 @@
 		2C498435245B793E00B6201C /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498434245B793E00B6201C /* EpisodeCell.swift */; };
 		2C4E4CD024400A9900F907EB /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CCF24400A9900F907EB /* MiniPlayerViewController.swift */; };
 		2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */; };
+		2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */; };
 		2C533B4524426EB2005FC8EC /* NationStationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */; };
 		2C533B4724427DB6005FC8EC /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */; };
 		2C545A04265596F10024F671 /* ServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C545A03265596F10024F671 /* ServicesProtocol.swift */; };
@@ -308,6 +309,7 @@
 		2C4E4CCF24400A9900F907EB /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
 		2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerCoordinator.swift; sourceTree = "<group>"; };
 		2C4E4CD5244025F000F907EB /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNPopupController.framework; path = Carthage/Build/iOS/LNPopupController.framework; sourceTree = "<group>"; };
+		2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryModule.swift; sourceTree = "<group>"; };
 		2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationStationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		2C545A03265596F10024F671 /* ServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProtocol.swift; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 			isa = PBXGroup;
 			children = (
 				2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */,
+				2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */,
 				2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */,
 				2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */,
 				2C22F1552448FAF800CE1919 /* DataSource */,
@@ -1531,6 +1534,7 @@
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
 				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
 				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
+				2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */,
 				2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */,
 				2C3387672434D53600141102 /* SettingButtonView.swift in Sources */,
 				2C685BB426B5FCB3006FD017 /* AccountModule.swift in Sources */,

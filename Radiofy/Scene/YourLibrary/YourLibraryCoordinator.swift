@@ -32,17 +32,16 @@ class YourLibraryCoordinator: Coordinator<UINavigationController> {
     // MARK: - Coordinator
 
     override func start() {
-        let viewController = YourLibraryViewController.instantiate(from: .library)
-        let viewModel = YourLibraryViewModel(delegate: self)
-        viewController.viewModel = viewModel
+        let module = YourLibraryModule(coordinatorDelegate: self)
+        let yourLibraryViewController = module.viewController
 
         switch self.options {
         case let .present(vc, style):
-            let navigationController = UINavigationController(rootViewController: viewController)
+            let navigationController = UINavigationController(rootViewController: yourLibraryViewController)
             navigationController.modalPresentationStyle = style
             vc.present(navigationController, animated: true)
         case let .push(navigationController):
-            navigationController.pushViewController(viewController, animated: true)
+            navigationController.pushViewController(yourLibraryViewController, animated: true)
         }
     }
 
@@ -80,7 +79,7 @@ class YourLibraryCoordinator: Coordinator<UINavigationController> {
 }
 
 // Conform to protocol from YourLibraryViewModel
-extension YourLibraryCoordinator: YourLibraryViewModelDelegate {
+extension YourLibraryCoordinator: YourLibraryModule.CoordinatorDelegate {
     func selectRadio(_ radio: RadioStation) {
         goToRadio(with: radio)
     }

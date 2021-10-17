@@ -7,21 +7,21 @@
 //
 
 import UIKit
+import Combine
 
-class YourLibraryViewController: UIViewController {
+final class YourLibraryViewController: RadiofyViewController<YourLibraryModule.ViewModel> {
 
     @IBOutlet private weak var libraryTableView: UITableView!
 
     private lazy var yourLibraryDataSource = YourLibraryDataSource()
-
-    var viewModel: YourLibraryViewModel!
+    private var disposeBag: Set<AnyCancellable> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         libraryTableView.delegate = yourLibraryDataSource
         libraryTableView.dataSource = yourLibraryDataSource
 
-        bind(to: viewModel)
+        configureViewModel()
         bindViewModel(to: yourLibraryDataSource)
     }
 
@@ -39,17 +39,24 @@ class YourLibraryViewController: UIViewController {
 
 private extension YourLibraryViewController {
 
-    func bind(to viewModel: YourLibraryViewModel) {
-        viewModel.favoriteStationsHandler = { [weak self] favoriteRadioStations in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.yourLibraryDataSource.updateCell(with: favoriteRadioStations)
-                me.libraryTableView.reloadData()
-            }
-        }
-        viewModel.messageHandler = { text in
-            self.emtpyMessage(text)
-        }
+    func configureViewModel() {
+        viewModel
+            .favoriteStationsSubject
+            .sink(receiveValue: { [weak self] favoriteRadioStations in
+                guard let self = self else { return }
+                self.yourLibraryDataSource.updateCell(with: favoriteRadioStations)
+                self.libraryTableView.reloadData()
+            })
+            .store(in: &disposeBag)
+
+        viewModel
+            .messageSubject
+            .sink(receiveValue: { [weak self] text in
+                guard let self = self else { return }
+                self.emtpyMessage(text)
+            })
+            .store(in: &disposeBag)
+
         viewModel.getFavoritesRadioStations()
     }
 

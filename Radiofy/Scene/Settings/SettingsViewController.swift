@@ -69,8 +69,8 @@ private extension SettingsViewController {
             guard let me = self else { return }
             me.magicBackgrounView.setBackgourndColorWithGradient(
                 colorHead: mainColor,
-                colorCenter: #colorLiteral(red: 0.07057782263, green: 0.07059488446, blue: 0.07057409734, alpha: 1),
-                colorBottom: #colorLiteral(red: 0.07057782263, green: 0.07059488446, blue: 0.07057409734, alpha: 1)
+                colorCenter: ColorName.darkSlateColor.color,
+                colorBottom: ColorName.darkSlateColor.color
             )
         }
     }
