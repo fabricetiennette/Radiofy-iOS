@@ -13,7 +13,6 @@ final class YourLibraryViewModel: YourLibraryModule.ViewModel {
 
     weak var delegate: YourLibraryModule.CoordinatorDelegate?
 
-    var favoriteStationsSubject = PassthroughSubject<[RadioStation], Never>()
     var messageSubject = PassthroughSubject<String, Never>()
 
     var favorite: [RadioStation] = [] {
@@ -34,7 +33,6 @@ final class YourLibraryViewModel: YourLibraryModule.ViewModel {
             }
             return radioStation.first
         }
-        favoriteStationsSubject.send(favorite)
     }
 
     // Show user selected Radio Profile Page

@@ -30,7 +30,6 @@ struct YourLibraryModule {
 
 protocol YourLibraryModuleOutputBinding {
     var favorite: [RadioStation] { get }
-    var favoriteStationsSubject: PassthroughSubject<[RadioStation], Never> { get set }
     var messageSubject: PassthroughSubject<String, Never> { get set }
 
     func getFavoritesRadioStations()
