@@ -69,6 +69,7 @@
 		2C498435245B793E00B6201C /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498434245B793E00B6201C /* EpisodeCell.swift */; };
 		2C4E4CD024400A9900F907EB /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CCF24400A9900F907EB /* MiniPlayerViewController.swift */; };
 		2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */; };
+		2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */; };
 		2C533B4524426EB2005FC8EC /* NationStationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */; };
 		2C533B4724427DB6005FC8EC /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */; };
 		2C545A04265596F10024F671 /* ServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C545A03265596F10024F671 /* ServicesProtocol.swift */; };
@@ -107,9 +108,9 @@
 		2C95C13B245CE27C005D8503 /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95C13A245CE27C005D8503 /* CMTime.swift */; };
 		2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C368DE12437F9FD00979816 /* ExternalAccessory.framework */; };
 		2C99C37D24471D210097E106 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C99C37C24471D210097E106 /* HomeKit.framework */; };
-		2C99C3812447D6360097E106 /* YourLibraryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99C3802447D6360097E106 /* YourLibraryDataSource.swift */; };
 		2C99C3832447D7410097E106 /* FavoriteRadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99C3822447D7410097E106 /* FavoriteRadioCell.swift */; };
 		2C9E841D24649E540059D842 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C9E841F24649E540059D842 /* InfoPlist.strings */; };
+		2CA61E10272323EA00E12A48 /* FavoriteRadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */; };
 		2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7CC532438C49C0028DEBF /* EditProfileViewController.swift */; };
 		2CA7CC562438C4B00028DEBF /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7CC552438C4B00028DEBF /* EditProfileViewModel.swift */; };
 		2CB30ED12432473700820DE4 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30ED02432473700820DE4 /* UIButton+.swift */; };
@@ -212,7 +213,6 @@
 		2CF85ABB242D86EB002FBFF6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF85ABA242D86EB002FBFF6 /* SignUpViewController.swift */; };
 		2CFD6BE324290E1000F35EC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD6BE224290E1000F35EC1 /* AppDelegate.swift */; };
 		2CFD6BE724290E1000F35EC1 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD6BE624290E1000F35EC1 /* OnBoardingViewController.swift */; };
-		2CFD6BEA24290E1000F35EC1 /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BE824290E1000F35EC1 /* Library.storyboard */; };
 		2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BEB24290E1100F35EC1 /* Assets.xcassets */; };
 		2CFD6BEF24290E1100F35EC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */; };
 		2CFEFAC72631DBF600CB4515 /* LNPopupController-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */; };
@@ -308,6 +308,7 @@
 		2C4E4CCF24400A9900F907EB /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
 		2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerCoordinator.swift; sourceTree = "<group>"; };
 		2C4E4CD5244025F000F907EB /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNPopupController.framework; path = Carthage/Build/iOS/LNPopupController.framework; sourceTree = "<group>"; };
+		2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryModule.swift; sourceTree = "<group>"; };
 		2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationStationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		2C545A03265596F10024F671 /* ServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProtocol.swift; sourceTree = "<group>"; };
@@ -345,10 +346,10 @@
 		2C9281B324296EA00052C714 /* Argon-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Argon-Regular.otf"; sourceTree = "<group>"; };
 		2C95C13A245CE27C005D8503 /* CMTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		2C99C37C24471D210097E106 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
-		2C99C3802447D6360097E106 /* YourLibraryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryDataSource.swift; sourceTree = "<group>"; };
 		2C99C3822447D7410097E106 /* FavoriteRadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRadioCell.swift; sourceTree = "<group>"; };
 		2C9E841E24649E540059D842 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C9E842024649E5C0059D842 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteRadioCell.xib; sourceTree = "<group>"; };
 		2CA7CC532438C49C0028DEBF /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		2CA7CC552438C4B00028DEBF /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		2CB30ED02432473700820DE4 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
@@ -383,7 +384,6 @@
 		2CCE0429245ED53B00685ABA /* RadioPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPodcast.swift; sourceTree = "<group>"; };
 		2CCFC4712446144D00AE9B23 /* Sequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
 		2CD0AFA6246153C300A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		2CD0AFA7246153C300A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Library.strings; sourceTree = "<group>"; };
 		2CD0AFAF24615A5F00A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Start.storyboard; sourceTree = "<group>"; };
 		2CD0AFB224615A6400A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Start.strings; sourceTree = "<group>"; };
 		2CD0AFB52461604400A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
@@ -452,7 +452,6 @@
 		2CFD6BDF24290E1000F35EC1 /* Radiofy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radiofy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFD6BE224290E1000F35EC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CFD6BE624290E1000F35EC1 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
-		2CFD6BE924290E1000F35EC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Library.storyboard; sourceTree = "<group>"; };
 		2CFD6BEB24290E1100F35EC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CFD6BEE24290E1100F35EC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CFD6C012429123A00F35EC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -531,14 +530,6 @@
 				2C004290244E4288006ABABF /* AccountViewModel.swift */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		2C22F1552448FAF800CE1919 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				2C99C3802447D6360097E106 /* YourLibraryDataSource.swift */,
-			);
-			path = DataSource;
 			sourceTree = "<group>";
 		};
 		2C302A80263749140085325C /* Loader */ = {
@@ -706,7 +697,6 @@
 			children = (
 				2CD0AFB024615A5F00A258EB /* Start.storyboard */,
 				2CD0AFB62461604400A258EB /* Home.storyboard */,
-				2CFD6BE824290E1000F35EC1 /* Library.storyboard */,
 				2CD0AFC02461831800A258EB /* Player.storyboard */,
 				2CD0AFCA2461842700A258EB /* Podcast.storyboard */,
 				2C67230C24659DA700ABCD5B /* Subscription.storyboard */,
@@ -743,12 +733,13 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
-		2C99C3842447D8400097E106 /* Cell */ = {
+		2CA61E112723243E00E12A48 /* LibraryCell */ = {
 			isa = PBXGroup;
 			children = (
 				2C99C3822447D7410097E106 /* FavoriteRadioCell.swift */,
+				2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */,
 			);
-			path = Cell;
+			path = LibraryCell;
 			sourceTree = "<group>";
 		};
 		2CA7CC522438C4620028DEBF /* EditProfile */ = {
@@ -778,7 +769,7 @@
 		2CB30EE12433FC6C00820DE4 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				2CDDB444244A16DE00DC31F5 /* Cell */,
+				2CDDB444244A16DE00DC31F5 /* SearchCell */,
 				2CB30EE32433FCC000820DE4 /* SearchCoordinator.swift */,
 				2C5513D426FFDF140082BBB9 /* SearchModule.swift */,
 				2CB30EE72433FEE900820DE4 /* SearchViewController.swift */,
@@ -790,11 +781,11 @@
 		2CB30EE22433FC7700820DE4 /* YourLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				2CA61E112723243E00E12A48 /* LibraryCell */,
 				2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */,
+				2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */,
 				2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */,
 				2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */,
-				2C22F1552448FAF800CE1919 /* DataSource */,
-				2C99C3842447D8400097E106 /* Cell */,
 			);
 			path = YourLibrary;
 			sourceTree = "<group>";
@@ -867,7 +858,7 @@
 			path = CollectionCell;
 			sourceTree = "<group>";
 		};
-		2CDDB444244A16DE00DC31F5 /* Cell */ = {
+		2CDDB444244A16DE00DC31F5 /* SearchCell */ = {
 			isa = PBXGroup;
 			children = (
 				2CDDB445244A16F900DC31F5 /* SearchCell.swift */,
@@ -875,7 +866,7 @@
 				2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */,
 				2CF729112708FD9D00C5846B /* SearchBarReusableView.xib */,
 			);
-			path = Cell;
+			path = SearchCell;
 			sourceTree = "<group>";
 		};
 		2CE6ACFC2451F05700D8A7B7 /* TestsParameters */ = {
@@ -1405,8 +1396,8 @@
 				2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */,
 				2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */,
 				2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */,
-				2CFD6BEA24290E1000F35EC1 /* Library.storyboard in Resources */,
 				2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */,
+				2CA61E10272323EA00E12A48 /* FavoriteRadioCell.xib in Resources */,
 				2CF7290F2708FC4100C5846B /* SearchCell.xib in Resources */,
 				2CF729122708FD9D00C5846B /* SearchBarReusableView.xib in Resources */,
 				2CF5ED7C242F87700018E8A4 /* GoogleService-Info.plist in Resources */,
@@ -1531,6 +1522,7 @@
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
 				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
 				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
+				2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */,
 				2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */,
 				2C3387672434D53600141102 /* SettingButtonView.swift in Sources */,
 				2C685BB426B5FCB3006FD017 /* AccountModule.swift in Sources */,
@@ -1606,7 +1598,6 @@
 				2CF5ED6E242E53E60018E8A4 /* SignMeUpButtonView.swift in Sources */,
 				2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */,
 				2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */,
-				2C99C3812447D6360097E106 /* YourLibraryDataSource.swift in Sources */,
 				2CBEAD7126530AD100F5E965 /* Stack.swift in Sources */,
 				2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */,
 				2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */,
@@ -1737,15 +1728,6 @@
 				2CD0AFCC2461847E00A258EB /* fr */,
 			);
 			name = Podcast.storyboard;
-			sourceTree = "<group>";
-		};
-		2CFD6BE824290E1000F35EC1 /* Library.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CFD6BE924290E1000F35EC1 /* Base */,
-				2CD0AFA7246153C300A258EB /* fr */,
-			);
-			name = Library.storyboard;
 			sourceTree = "<group>";
 		};
 		2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */ = {

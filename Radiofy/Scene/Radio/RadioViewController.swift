@@ -97,8 +97,8 @@ private extension RadioViewController {
                 me.radioImageView.sd_setImage(with: url,
                                               placeholderImage: Asset.noPicture.image)
                 me.view.setBackgourndColorWithGradient(colorHead: radioSelected.color,
-                                                       colorCenter: #colorLiteral(red: 0.07057782263, green: 0.07059488446, blue: 0.07057409734, alpha: 1),
-                                                       colorBottom: #colorLiteral(red: 0.07057782263, green: 0.07059488446, blue: 0.07057409734, alpha: 1))
+                                                       colorCenter: ColorName.darkSlateColor.color,
+                                                       colorBottom: ColorName.darkSlateColor.color)
                 me.radioLabel.text = radioSelected.name
                 me.navigationItem.title = radioSelected.name
             })

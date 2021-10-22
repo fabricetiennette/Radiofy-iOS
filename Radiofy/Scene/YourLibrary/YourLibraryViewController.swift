@@ -7,28 +7,36 @@
 //
 
 import UIKit
+import Combine
+import Reusable
 
-class YourLibraryViewController: UIViewController {
+final class YourLibraryViewController: RadiofyViewController<YourLibraryModule.ViewModel> {
 
-    @IBOutlet private weak var libraryTableView: UITableView!
+    private lazy var libraryTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        tableView.register(cellType: FavoriteRadioCell.self)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
 
-    private lazy var yourLibraryDataSource = YourLibraryDataSource()
-
-    var viewModel: YourLibraryViewModel!
+    private var disposeBag: Set<AnyCancellable> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        libraryTableView.delegate = yourLibraryDataSource
-        libraryTableView.dataSource = yourLibraryDataSource
-
-        bind(to: viewModel)
-        bindViewModel(to: yourLibraryDataSource)
+        setupInterface()
+        setupConstraints()
+        configureViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavBar()
         viewModel.getFavoritesRadioStations()
+        libraryTableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -39,25 +47,16 @@ class YourLibraryViewController: UIViewController {
 
 private extension YourLibraryViewController {
 
-    func bind(to viewModel: YourLibraryViewModel) {
-        viewModel.favoriteStationsHandler = { [weak self] favoriteRadioStations in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.yourLibraryDataSource.updateCell(with: favoriteRadioStations)
-                me.libraryTableView.reloadData()
-            }
-        }
-        viewModel.messageHandler = { text in
-            self.emtpyMessage(text)
-        }
-        viewModel.getFavoritesRadioStations()
-    }
+    func configureViewModel() {
+        viewModel
+            .messageSubject
+            .sink(receiveValue: { [weak self] text in
+                guard let self = self else { return }
+                self.emtpyMessage(text)
+            })
+            .store(in: &disposeBag)
 
-    func bindViewModel(to dataSource: YourLibraryDataSource) {
-        dataSource.didTapFavoriteHandler = { [weak self] radioSelected in
-             guard let me = self else { return }
-            me.viewModel.showSelectedRadioPage(with: radioSelected)
-        }
+        viewModel.getFavoritesRadioStations()
     }
 
     func emtpyMessage(_ text: String) {
@@ -66,6 +65,45 @@ private extension YourLibraryViewController {
         } else {
             libraryTableView.restore()
         }
+    }
+}
+
+extension YourLibraryViewController: UITableViewDataSource, UITableViewDelegate {
+    // MARK: - DataSource
+
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        return viewModel.favorite.count
+    }
+
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+           viewModel.favorite[indexPath.row]
+        }
+    }
+
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.accessibilityIdentifier = "favListId"
+        let station = viewModel.favorite[indexPath.row]
+        let cell = tableView.dequeueReusableCell(for: indexPath) as FavoriteRadioCell
+        cell.accessibilityIdentifier = "favoriteRadioCell_\(indexPath.row)"
+        cell.configureCell(station: station, indexPath: indexPath)
+        return cell
+    }
+
+    // MARK: - Delegate
+
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < viewModel.favorite.count else { return }
+        viewModel.showSelectedRadioPage(with: viewModel.favorite[indexPath.row])
     }
 }
 
@@ -81,6 +119,18 @@ private extension YourLibraryViewController {
         navigationController.navigationBar.backItem?.title = " "
         navigationItem.title = "Radio"
     }
-}
 
-extension YourLibraryViewController: Storyboarded {}
+    func setupInterface() {
+        view.backgroundColor = ColorName.backgroundColor.color
+        view.addSubview(libraryTableView)
+    }
+
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            libraryTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            libraryTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            libraryTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            libraryTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+}
