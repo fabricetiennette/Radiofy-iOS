@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import Firebase
+import FirebaseStorage
 
 extension UIImageView {
 

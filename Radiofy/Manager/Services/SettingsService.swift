@@ -8,6 +8,7 @@
 
 import Firebase
 import Combine
+import FirebaseStorage
 
 final class SettingsService: SettingsModule.Service {
 

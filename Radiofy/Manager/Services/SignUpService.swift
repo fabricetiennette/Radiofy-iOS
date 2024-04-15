@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import Combine
 import SDWebImage
+import FirebaseStorage
 
 struct SignUpService: SignUpModule.Service {
 
