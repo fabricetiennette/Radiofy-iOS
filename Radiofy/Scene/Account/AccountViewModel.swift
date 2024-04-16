@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import FirebaseUI
+import SDWebImage
 import FRadioPlayer
 
-protocol AccountViewModelDelete: class {
+protocol AccountViewModelDelete: AnyObject {
     func showSubscriptionPage()
 }
 
@@ -70,7 +70,7 @@ class AccountViewModel {
             case .success(let name):
                 self.userHandler?(name, email)
             case .failure:
-                self.errorHandler?(L1s.error, L1s.infoError)
+                self.errorHandler?(L10n.error, L10n.couldNotGetInfoTryLater)
             }
         }
     }
@@ -82,7 +82,7 @@ class AccountViewModel {
             case .success:
                 me.deleteUserAccount()
             case .failure(let error):
-                me.errorHandler?(L1s.error, error.localizedDescription)
+                me.errorHandler?(L10n.error, error.localizedDescription)
             }
         }
     }
@@ -102,7 +102,7 @@ class AccountViewModel {
         storageService.deleteUserImage(with: email) { result in
             switch result {
             case .failure(let error):
-                self.errorHandler?(L1s.error, error.localizedDescription)
+                self.errorHandler?(L10n.error, error.localizedDescription)
             case .success:
                 self.deleteUserInDatabase(with: email)
             }
@@ -113,7 +113,7 @@ class AccountViewModel {
         firestoreService.deleteUserInDatabase(with: email) { result in
             switch result {
             case .failure(let error):
-                self.errorHandler?(L1s.error, error.localizedDescription)
+                self.errorHandler?(L10n.error, error.localizedDescription)
             case .success:
                 self.deleteUserAuthentication(with: email)
             }
@@ -127,7 +127,7 @@ class AccountViewModel {
                 self.resetDefaults()
                 self.clearCache()
             case .failure(let error):
-                self.errorHandler?(L1s.error, error.localizedDescription)
+                self.errorHandler?(L10n.error, error.localizedDescription)
             }
         }
     }
@@ -148,7 +148,6 @@ class AccountViewModel {
     }
 
     private func showStartViewIfSignOut() {
-        NotificationCenter.default.post(
-            name: SettingsViewModel.NotificationDone, object: nil)
+//        NotificationCenter.default.post( name: SettingsViewModel.NotificationDone, object: nil)
     }
 }

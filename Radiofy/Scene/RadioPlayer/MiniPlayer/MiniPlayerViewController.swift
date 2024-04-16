@@ -36,13 +36,13 @@ class MiniPlayerViewController: LNPopupCustomBarViewController {
     }
 
     override func popupItemDidUpdate() {
-        guard let progress = containingPopupBar.popupItem?.progress else { return }
+        guard let progress = containingPopupBar?.popupItem?.progress else { return }
 
-        barTitleLabel.text = containingPopupBar.popupItem?.title
-        barImageView.image = containingPopupBar.popupItem?.image
-        barConnectionLabel.text = containingPopupBar.popupItem?.subtitle
+        barTitleLabel.text = containingPopupBar?.popupItem?.title
+        barImageView.image = containingPopupBar?.popupItem?.image
+        barConnectionLabel.text = containingPopupBar?.popupItem?.subtitle
 
-        if containingPopupBar.popupItem?.subtitle == L1s.loadingTitle {
+        if containingPopupBar?.popupItem?.subtitle == L10n.loading {
             preferredContentSize = CGSize(width: -1, height: 52)
         }
 

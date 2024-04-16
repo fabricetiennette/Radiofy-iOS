@@ -6,33 +6,21 @@
 //  Copyright © 2020 Fabrice Etiennette. All rights reserved.
 //
 
-import Foundation
+import Combine
 
-protocol SearchViewModelDelegate: class {
-    func selectRadio(_ selectedradio: RadioStation)
-}
+final class SearchViewModel: SearchModule.ViewModel {
 
-class SearchViewModel {
+    weak var delegate: SearchModule.CoordinatorDelegate?
 
-    private weak var delegate: SearchViewModelDelegate?
-
-    var updateAllStationsHandler: ((_ stations: [RadioStation]) -> Void)?
-
-    private var allRadioStations: [RadioStation] = []
-
-    init(delegate: SearchViewModelDelegate?) {
-        self.delegate = delegate
-    }
+    var updateAllStationsSubject = PassthroughSubject<[RadioStation], Never>()
 
     // Get all Radio Stations available
     func getAllRadioStations() {
-        let allStations = HomeViewModel.allRadioStations
-        allRadioStations = allStations
-        updateAllStationsHandler?(allRadioStations)
+        updateAllStationsSubject.send(HomeViewModel.allRadioStations)
     }
 
     // Show user selected Radio Profile Page
-    func showSelectedRadioPage(with selectedRadio: RadioStation) {
-        delegate?.selectRadio(selectedRadio)
+    func showSelectedRadioPage(with radio: RadioStation) {
+        delegate?.selectRadio(radio)
     }
 }

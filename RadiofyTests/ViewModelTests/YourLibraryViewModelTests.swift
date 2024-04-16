@@ -22,7 +22,7 @@ class YourLibraryViewModelTests: XCTestCase {
 
     func testIfThereiSFavoriteWithSuccess() {
         // Given:
-        let radio = RadioStation(name: "Radio1", imageURL: "", streamURL: "")
+        let radio = RadioStation(name: "Radio1", imageURL: "", streamURL: "", unformattedColor: "")
         let yourLibraryViewModel = YourLibraryViewModel(
             delegate: self as? YourLibraryViewModelDelegate
         )
@@ -32,7 +32,7 @@ class YourLibraryViewModelTests: XCTestCase {
         // When:
         UserDefaultConfig.favoriteStations = ["Radio1"]
         HomeViewModel.allRadioStations = [radio]
-        yourLibraryViewModel.favoriteStationsHandler = { favoriteRadioStation in
+        yourLibraryViewModel.favoriteStationsHandler = { _ in
             XCTAssertEqual(yourLibraryViewModel.favorite.count, 1)
             XCTAssertEqual(yourLibraryViewModel.favorite.first?.name, "Radio1")
             expect.fulfill()
@@ -45,7 +45,7 @@ class YourLibraryViewModelTests: XCTestCase {
 
     func testIfThereiSFavoriteWithNil() {
         // Given:
-        let radio = RadioStation(name: "Radio2", imageURL: "", streamURL: "")
+        let radio = RadioStation(name: "Radio2", imageURL: "", streamURL: "", unformattedColor: "")
         let yourLibraryViewModel = YourLibraryViewModel(
             delegate: self as? YourLibraryViewModelDelegate
         )

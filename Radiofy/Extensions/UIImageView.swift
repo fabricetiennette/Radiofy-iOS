@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import FirebaseUI
+import SDWebImage
+import Firebase
+import FirebaseStorage
 
 extension UIImageView {
 
@@ -22,20 +24,21 @@ extension UIImageView {
     }
 
     func setImage(with reference: StorageReference, placeholder: UIImage? = nil, callback: @escaping (UIColor?) -> Void) {
-        sd_setImage(with: reference, placeholderImage: placeholder) { [weak self] image, _, _, _ in
+        let url = URL(string: reference.fullPath)
+        self.sd_setImage(with: url, placeholderImage: placeholder) { [weak self] image, _, _, _ in
             guard let me = self else { return }
             let color = image?.averageColor
             callback(color)
             reference.getMetadata { metadata, _ in
-                if let url = NSURL.sd_URL(with: reference)?.absoluteString,
-                    let cachePath = SDImageCache.shared.cachePath(forKey: url),
+                if
+                    let cachePath = SDImageCache.shared.cachePath(forKey: reference.fullPath),
                     let attributes = try? FileManager.default.attributesOfItem(atPath: cachePath),
                     let cacheDate = attributes[.creationDate] as? Date,
                     let serverDate = metadata?.timeCreated,
                     serverDate > cacheDate {
 
-                    SDImageCache.shared.removeImage(forKey: url) {
-                        me.sd_setImage(with: reference, placeholderImage: image) { (image, _, _, _) in
+                    SDImageCache.shared.removeImage(forKey: reference.fullPath) {
+                        me.sd_setImage(with: url, placeholderImage: image) { (image, _, _, _) in
                             let color = image?.averageColor
                             callback(color)
                         }

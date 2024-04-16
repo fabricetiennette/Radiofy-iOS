@@ -7,35 +7,30 @@
 //
 
 import Foundation
-import FirebaseAuth
+import Combine
 
-protocol LogInViewModelDelegate: class {
-    func launchHomeScreen()
-    func launchPasswordReset()
-}
+class LogInViewModel: LogInModule.ViewModel {
 
-class LogInViewModel {
+    weak var delegate: LogInModule.CoordinatorDelegate?
 
-    private weak var delegate: LogInViewModelDelegate?
+    var errorSubject = PassthroughSubject<String, Never>()
+    var spinnerSubject = PassthroughSubject<Void, Never>()
 
-    var errorHandler: ((_ message: String) -> Void)?
-    var spinnerHandler: (() -> Void)?
+    private var disposeBag = Set<AnyCancellable>()
+    private let service: LogInModule.Service
 
-    private let authService: AuthService
-
-    init(delegate: LogInViewModelDelegate?, authService: AuthService = .init()) {
-        self.delegate = delegate
-        self.authService = authService
+    init(service: LogInModule.Service) {
+        self.service = service
     }
 
     // launch password reset
-    func launchingPasswordReset() {
+    func didTapPasswordReset() {
         delegate?.launchPasswordReset()
     }
 
     // Log in user
     func logInUser(with emailText: String?, _ passwordText: String?) {
-        spinnerHandler?()
+        spinnerSubject.send()
         if validateTextFields(emailText, passwordText) == nil {
 
             let email = emailText.clearedText()
@@ -45,25 +40,33 @@ class LogInViewModel {
         }
     }
 
+    func tapBack() {
+        delegate?.didTapOnBack()
+    }
+
     // Sign In user from Firebase
     private func logIn(with email: String, _ password: String) {
-        authService.signIn(email: email, password: password) { [weak self] result in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
+        service
+            .signIn(email: email, password: password)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
                 switch result {
-                case .success:
-                    me.verifiedUserEmailandMakeHomeScreen()
                 case .failure(let error):
-                    me.errorHandler?(error.localizedDescription)
+                    self.errorSubject.send(error.localizedDescription)
+                case .finished: break
                 }
+            } receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                self.verifiedUserEmail()
             }
-        }
+            .store(in: &disposeBag)
     }
 
     // Verified user email if alright make home screen else send an error message
-    private func verifiedUserEmailandMakeHomeScreen() {
-        if authService.isUserEmailVerified() {
-            makeHomeScreen()
+    private func verifiedUserEmail() {
+        if service.isUserEmailVerified {
+            showHomeScreen()
         } else {
             signOutUser()
         }
@@ -71,20 +74,26 @@ class LogInViewModel {
 
     // Sign Out user
     private func signOutUser() {
-        authService.signOutUser { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success:
-                me.errorHandler?(L1s.verifiedEmailFirst)
-            case .failure:
-                me.errorHandler?(L1s.verifiedEmailFirst)
-            }
-        }
+        service
+            .signOutUser()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorSubject.send(L10n.verifiedEmailFirst)
+                case .finished: break
+                }
+            }, receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                self.errorSubject.send(L10n.verifiedEmailFirst)
+            })
+            .store(in: &disposeBag)
     }
 
     // make home screen visible
-    private func makeHomeScreen() {
-        delegate?.launchHomeScreen()
+    private func showHomeScreen() {
+        delegate?.goToHomeView()
     }
 
     // validate TextFieldstext are correct
@@ -96,13 +105,13 @@ class LogInViewModel {
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorHandler?(L1s.emailInvalid)
+            return errorSubject.send(L10n.emailInvalid)
         }
 
         // validate password is as expected
         let password = passwordTextField.clearedText()
         if password.isValidPassword() == false {
-            return errorHandler?(L1s.passwordInvalid)
+            return errorSubject.send(L10n.passwordInvalid)
         }
 
         return nil

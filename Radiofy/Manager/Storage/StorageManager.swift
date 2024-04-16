@@ -8,6 +8,8 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
+import UIKit
 
 class StorageManager: StorageProtocol {
 

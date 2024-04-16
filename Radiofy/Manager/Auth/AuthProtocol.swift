@@ -8,11 +8,6 @@
 
 import Foundation
 
-protocol UserProtocol {
-    var displayName: String? { get }
-    var email: String? { get }
-}
-
 typealias AuthResult = Result<UserProtocol, Error>
 
 protocol AuthProtocol {

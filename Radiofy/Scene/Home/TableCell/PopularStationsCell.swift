@@ -1,4 +1,4 @@
-//swiftlint:disable force_cast
+// swiftlint:disable force_cast
 //
 //  PopularStationsCell.swift
 //  Radiofy

@@ -1,0 +1,72 @@
+/* 
+  Localizable.strings
+  Radiofy
+
+  Created by Fabrice Etiennette on 05/05/2020.
+  Copyright © 2020 Fabrice Etiennette. All rights reserved.
+*/
+
+
+"Create account" = "Créer un compte";
+"Log in" = "S'inscrire";
+"Reset password" = "Réinitialiser le mot de passe";
+"Error saving user data" = "Une erreur s'est produite, réessayer plus tard";
+"name_invalid" = "Le nom saisi n’est pas valide. 2 caractères minimum et 15 caractères maximum.";
+"email_invalid" = "E-mail saisi n’est pas valide.";
+"password_invalid" = "Veuillez vous assurer que votre mot de passe contient au moins 8 caractères, 1 caractère spécial et 1 numéro.";
+"SIGN UP" = "S'INSCRIRE";
+"verified_Email_First" = "Veuillez d’abord vérifier votre email";
+"LOG IN" = "SE CONNECTER";
+"An email was sent to" = "Un e-mail a été envoyé à";
+"Home" = "Accueil";
+"Error" = "Erreur";
+"radio_try_later" = "Radio indisponible, réessayer plus tard";
+"Good Morning" = "Bonjour";
+"Good Afternoon" = "Bon après-midi";
+"Good Evening" = "Bonne soirée";
+"Good Night" = "Bonne nuit";
+"Live Radio" = "En direct";
+"Loading..." = "En chargement...";
+"LIVE" = "EN DIRECT";
+"Station unavaible, try later" = "Indisponible, réessayer plus tard";
+"Ready" = "Pret";
+"Search" = "Recherche";
+"SearchTab" = "Rechercher";
+"Search your radio" = "Rechercher votre radio";
+"Your Library" = "Bibliothèque";
+"empty_Library_Message" = "Vous pouvez ajouter vos stations de radio préférées ici.";
+"Episodes" = "Épisodes";
+"is temporarily unavailable." = "est temporairement indisponible.";
+"Error Unavailable" = "Erreur Indisponible";
+"Duration" = "Durée";
+"Settings" = "Paramètres";
+"edit_Nickname" = "Il peut d'agir de votre prénom ou d'un surnom.";
+"Edit Profile" = "Modifier le profil";
+"Cancel" = "Annuler";
+"Save" = "Sauvegarder";
+"Choose from library" = "Choisir dans la biblopthèque";
+"Take photo" = "Prendre une photo";
+"Remove current photo" = "Supprimer la photo actuelle";
+"Change profile photo" = "Modifier la photo de profil";
+"Photo invalid, try again." = "Photo selectionner invalide, réessayer.";
+"An error had occurred. Try later." = "Une erreur s’est produite. Essayez plus tard.";
+"Could not get info, try later." = "Impossible d’obtenir des informations, essayez plus tard.";
+"Could not open document, try later." = "Impossible d'ouvrire les documents, essayez plus tard.";
+"About" = "A propos";
+"Account" = "Compte";
+"Restore Unsuccessful" = "Opération Impossible";
+"No prior purchases found for your account." =  "Aucun achat antérieur trouvé pour votre compte.";
+"Just" = "Seulement";
+"month." = "par mois.";
+"Terms of Service" = "Conditions de Service";
+"Privacy Policy" = "Politique de Confidentialité";
+"Log out" = "Se déconnecter";
+"LogOutMessage" = "Vous voulez vraiment vous déconnecter ?";
+"cancelButton" = "Annuler";
+"DeleteAccount" = "Supprimer le compte";
+"askPassword" = "Cette action nécessite votre mot de passe.";
+"limitReached" = "Limite d’écoute atteinte";
+"limitMessage" =  "Attendez 12 heures avant de commencer à écouter à nouveau ou devenez premium!";
+"goPremium" = "Premium";
+"back" = "Retour";
+"play" = "Écouter";

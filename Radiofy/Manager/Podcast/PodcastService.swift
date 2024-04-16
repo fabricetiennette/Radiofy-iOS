@@ -23,18 +23,19 @@ struct PodcastService {
         DispatchQueue.global(qos: .background).async {
 
             let parser = FeedParser(URL: url)
-            parser?.parseAsync(result: { (result) in
 
-                if let err = result.error {
-                    callback(.failure(err))
-                    return
+            parser.parseAsync { result in
+
+                switch result {
+                case .success(let feed):
+                    guard let feed = feed.rssFeed else { return }
+
+                    let episodes = feed.toEpisodes()
+                    callback(.success(episodes))
+                case .failure(let error):
+                    callback(.failure(error))
                 }
-
-                guard let feed = result.rssFeed else { return }
-
-                let episodes = feed.toEpisodes()
-                callback(.success(episodes))
-            })
+            }
         }
     }
 
@@ -43,7 +44,7 @@ struct PodcastService {
         callback: @escaping (Swift.Result<[Podcast], Error>) -> Void
     ) {
         let parameters = ["term": searchText, "media": "podcast"]
-        Alamofire.request(
+        AF.request(
             EndPoints.iTunesSearchURL,
             method: .get,
             parameters: parameters,

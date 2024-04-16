@@ -7,27 +7,18 @@
 //
 
 import Foundation
+import Combine
 
-protocol YourLibraryViewModelDelegate: class {
-    func selectRadio(_ selectedradio: RadioStation)
-}
+final class YourLibraryViewModel: YourLibraryModule.ViewModel {
 
-class YourLibraryViewModel {
+    weak var delegate: YourLibraryModule.CoordinatorDelegate?
 
-    private weak var delegate: YourLibraryViewModelDelegate?
+    var messageSubject = PassthroughSubject<String, Never>()
 
-    var favoriteStationsHandler: ((_ stations: [RadioStation]) -> Void)?
-    var messageHandler: (_ text: String) -> Void = { _ in }
-
-    private let defaults = UserDefaults.standard
     var favorite: [RadioStation] = [] {
         didSet {
-            messageHandler(L1s.emptyLibraryMessage)
+            messageSubject.send(L10n.emptyLibraryMessage)
         }
-    }
-
-    init(delegate: YourLibraryViewModelDelegate?) {
-        self.delegate = delegate
     }
 
     // Get Favorite radio stations from all radio stations list
@@ -42,7 +33,6 @@ class YourLibraryViewModel {
             }
             return radioStation.first
         }
-        favoriteStationsHandler?(favorite)
     }
 
     // Show user selected Radio Profile Page

@@ -10,7 +10,7 @@ import Foundation
 import SafariServices
 import FirebaseAuth
 
-protocol SubscriptionViewModelDelegate: class {
+protocol SubscriptionViewModelDelegate: AnyObject {
     func signUpFirst()
 }
 
@@ -42,7 +42,7 @@ class SubscriptionViewModel {
             case .success(let url):
                 self.openThirdPartySoftwareWebPage(with: url)
             case .failure:
-                self.errorHandler?(L1s.error, L1s.openDocError)
+                self.errorHandler?(L10n.error, L10n.couldNotOpenDocumentTryLater)
             }
         }
     }

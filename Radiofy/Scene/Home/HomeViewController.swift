@@ -7,21 +7,24 @@
 //
 
 import UIKit
+import Combine
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Storyboarded {
 
+    #warning("to put on same level as the bonjour label, in same cell")
     @IBOutlet private weak var settingButton: SettingButtonView!
     @IBOutlet private weak var homeTableView: UITableView!
 
     private lazy var homeDataSource = HomeDataSource()
-    var viewModel: HomeViewModel!
+    private var disposeBag = Set<AnyCancellable>()
+    var viewModel: HomeModule.ViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         homeTableView.delegate = homeDataSource
         homeTableView.dataSource = homeDataSource
 
-        bind(to: viewModel)
+        setupBindings()
         bindViewModel(to: homeDataSource)
     }
 
@@ -30,74 +33,88 @@ class HomeViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
         configureViewModel()
     }
-}
 
-extension HomeViewController {
     @IBAction private func settingsButtonTapped(_ sender: Any) {
-        viewModel.launchSettingsPage()
+        viewModel?.launchSettingsPage()
     }
 }
 
-extension HomeViewController: Storyboarded {}
-
 private extension HomeViewController {
 
-    func bind(to viewModel: HomeViewModel) {
-        viewModel.errorHandler = { [weak self] title, message in
-            guard let me = self else { return }
-            me.showAlert(title: title, message: message)
-        }
-        viewModel.headerRadioHandler = { [weak self] radioStations in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.homeDataSource.updateHeaderCell(headerStations: radioStations)
-                me.homeTableView.reloadData()
+    func setupBindings() {
+        guard let viewModel = self.viewModel else { return }
+
+        viewModel
+            .errorSubject
+            .sink { [weak self] title, message in
+                guard let self = self else { return }
+                self.showAlert(title: title, message: message)
             }
-        }
-        viewModel.recentlyPlayedRadioHandler = { [weak self] radioStations in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.homeDataSource.updateRecentlyPlayedCell(
-                    recentlyPlayedStations: radioStations
-                )
-                me.homeTableView.reloadData()
+            .store(in: &disposeBag)
+
+        viewModel
+            .headerSubject
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] radioStations in
+                guard let self = self else { return }
+                self.homeDataSource.updateHeaderCell(headerStations: radioStations)
+                self.homeTableView.reloadData()
             }
-        }
-        viewModel.popularRadioHandler = { [weak self] radioStations in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.homeDataSource.updatePopularStationsCell(
-                    popularStations: radioStations
-                )
-                me.homeTableView.reloadData()
+            .store(in: &disposeBag)
+
+        viewModel
+            .recentlyPlayedSubject
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] radioStations in
+                guard let self = self else { return }
+                self.homeDataSource.updateRecentlyPlayedCell(recentlyPlayedStations: radioStations)
+                self.homeTableView.reloadData()
             }
-        }
-        viewModel.nationalRadioHandler = { [weak self] radioStations in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.homeDataSource.updateNationalStationsCell(
-                    nationalStations: radioStations
-                )
-                me.homeTableView.reloadData()
+            .store(in: &disposeBag)
+
+        viewModel
+            .popularSubject
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] radioStations in
+                guard let self = self else { return }
+                self.homeDataSource.updatePopularStationsCell(popularStations: radioStations)
+                self.homeTableView.reloadData()
             }
-        }
+            .store(in: &disposeBag)
+
+        viewModel
+            .nationalSubject
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] radioStations in
+                guard let self = self else { return }
+                self.homeDataSource.updateNationalStationsCell(nationalStations: radioStations)
+                self.homeTableView.reloadData()
+            }
+            .store(in: &disposeBag)
+
         viewModel.verifiedAndFetchRadioStations()
     }
 
     func bindViewModel(to dataSource: HomeDataSource) {
-        dataSource.settingButtonHandler = { [weak self] alpha in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.settingButton.alpha = alpha
+        dataSource
+            .settingButtonPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] alpha in
+                guard let self = self else { return }
+                self.settingButton.alpha = alpha
             }
-        }
-        dataSource.radioTappedHandler = { [weak self] radioSelected in
-            guard let me = self else { return }
-            me.viewModel.showSelectedRadioPage(with: radioSelected)
-        }
+            .store(in: &disposeBag)
+
+        dataSource
+            .radioTappedPublisher
+            .sink { [weak self] radioSelected in
+                guard let self = self else { return }
+                self.viewModel?.showSelectedRadioPage(with: radioSelected)
+            }
+            .store(in: &disposeBag)
     }
 
     func configureViewModel() {
-        viewModel.getRecentlyPlayedStationsDetails()
+        viewModel?.getRecentlyPlayedStationsDetails()
     }
 }

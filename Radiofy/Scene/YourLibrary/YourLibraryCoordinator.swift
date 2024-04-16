@@ -8,69 +8,80 @@
 
 import UIKit
 
-class YourLibraryCoordinator {
+class YourLibraryCoordinator: Coordinator<UINavigationController> {
 
     // MARK: - Properties
 
-        let navigationController = UINavigationController()
+    enum Options {
+        case present(UINavigationController, style: UIModalPresentationStyle)
+        case push(UINavigationController)
+    }
+
+    private let options: Options
+
+    init(options: Options) {
+        self.options = options
+        switch options {
+        case let .present(viewController, style: _):
+            super.init(rootView: viewController)
+        case let .push(navigationController):
+            super.init(rootView: navigationController)
+        }
+    }
 
     // MARK: - Coordinator
 
-    func start() {
-        let viewController = YourLibraryViewController.instantiate(from: "Library")
-        let viewModel = YourLibraryViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.tabBarItem = UITabBarItem(
-            title: L1s.yourLibraryTitleTab,
-            image: UIImage(named: "YourLibraryIcon"),
-            selectedImage: UIImage(named: "YourLibraryIconFill")
-        )
-        navigationController.viewControllers = [viewController]
+    override func start() {
+        let module = YourLibraryModule(coordinatorDelegate: self)
+        let yourLibraryViewController = module.viewController
+
+        switch self.options {
+        case let .present(vc, style):
+            let navigationController = UINavigationController(rootViewController: yourLibraryViewController)
+            navigationController.modalPresentationStyle = style
+            vc.present(navigationController, animated: true)
+        case let .push(navigationController):
+            navigationController.pushViewController(yourLibraryViewController, animated: true)
+        }
     }
 
     // Make radio profile page
-    private func makeRadioPage(with selectedRadio: RadioStation) {
-        let viewController = RadioViewController.instantiate(from: "Radio")
-        let viewModel = RadioViewModel(delegate: self, selectedRadio: selectedRadio)
-        viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+    private func goToRadio(with radio: RadioStation) {
+        let coordinator = RadioCoordinator(options: .push(rootView), radio: radio)
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makePayWallView() {
-        let viewController = SubscriptionViewController.instantiate(from: "Subscription")
+        let viewController = SubscriptionViewController.instantiate(from: .subscription)
         let viewModel = SubscriptionViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .fullScreen
-        navigationController.present(viewController, animated: true, completion: nil)
+        rootView.present(viewController, animated: true, completion: nil)
     }
 
     private func makeSignUpView() {
-        let viewController = SignUpViewController.instantiate(from: "Start")
-        let viewModel = SignUpViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.navigationItem.title = L1s.creatAccount
-        navigationController.pushViewController(viewController, animated: true)
+//        let viewController = SignUpViewController.instantiate(from: "Start")
+//        let viewModel = SignUpViewModel(delegate: self)
+//        viewController.viewModel = viewModel
+//        viewController.navigationItem.title = L10n.createAccount
+//        rootView.pushViewController(viewController, animated: true)
     }
 
     private func launchHomeView() {
-        let main = MainTabBarController()
-        let radioPlayer = RadioPlayerCoordinator(tabBarController: main)
-        navigationController.view.window?.rootViewController = main
-        navigationController.view.window?.makeKeyAndVisible()
-        radioPlayer.start()
+//        let rootView = UITabBarController()
+//        let main = MainTabBarController(rootView: rootView)
+//        let radioPlayer = RadioPlayerCoordinator(rootView: main)
+//        navigationController.view.window?.rootViewController = main
+//        navigationController.view.window?.makeKeyAndVisible()
+//        radioPlayer.start()
     }
 }
 
 // Conform to protocol from YourLibraryViewModel
-extension YourLibraryCoordinator: YourLibraryViewModelDelegate {
-    func selectRadio(_ selectedradio: RadioStation) {
-        makeRadioPage(with: selectedradio)
-    }
-}
-
-extension YourLibraryCoordinator: RadioViewModelDelegate {
-    func openPayWallView() {
-        makePayWallView()
+extension YourLibraryCoordinator: YourLibraryModule.CoordinatorDelegate {
+    func selectRadio(_ radio: RadioStation) {
+        goToRadio(with: radio)
     }
 }
 
@@ -81,7 +92,11 @@ extension YourLibraryCoordinator: SubscriptionViewModelDelegate {
 }
 
 extension YourLibraryCoordinator: SignUpViewModelDelegate {
-    func callhomeScreen() {
+    func didTapOnBack() {
+
+    }
+
+    func goToHomeView() {
         launchHomeView()
     }
 }

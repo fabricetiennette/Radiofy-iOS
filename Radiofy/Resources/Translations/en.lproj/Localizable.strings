@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  Radiofy
+
+  Created by Fabrice Etiennette on 05/05/2020.
+  Copyright © 2020 Fabrice Etiennette. All rights reserved.
+*/
+
+"Create account" = "Create account";
+"Log in" = "Log in";
+"Reset password" = "Reset password";
+"Home" = "Home";
+"Error saving user data" = "Error saving user data";
+"name_invalid" = "Name entered is not valid. 2 characters minimum & 15 Maximum.";
+"email_invalid" = "Email entered is not valid.";
+"password_invalid" = "Please make sure your password contain a least 8 characters, 1 special character and 1 number.";
+"SIGN UP" = "SIGN UP";
+"verified_Email_First" = "Please verify your email first";
+"An email was sent to" = "An email was sent to";
+"Error" = "Error";
+"radio_try_later" = "Could not get radio station, try later";
+"Good Morning" = "Good Morning";
+"Good Afternoon" = "Good Afternoon";
+"Good Evening" = "Good Evening";
+"Good Night" = "Good Night";
+"Live Radio" = "Live Radio";
+"Loading..." = "Loading...";
+"LIVE" = "LIVE";
+"Station unavaible, try later" = "Station unavaible, try later";
+"Ready" = "Ready";
+"Search" = "Search";
+"SearchTab" = "Search";
+"Search your radio" = "Search your radio";
+"Your Library" = "Your Library";
+"empty_Library_Message" = "You can add your favorite radio stations here.";
+"Episodes" = "Episodes";
+"is temporarily unavailable." = "is temporarily unavailable.";
+"Error Unavailable" = "Error Unavailable";
+"Duration" = "Duration";
+"Settings" = "Settings";
+"edit_Nickname" = "This could be your first name or a nickname.";
+"Edit Profile" = "Edit Profile";
+"Cancel" = "Cancel";
+"Save" = "Save";
+"Choose from library" = "Choose from library";
+"Take photo" = "Take photo";
+"Remove current photo" = "Remove current photo";
+"Change profile photo" = "Change profile photo";
+"Photo invalid, try again." = "Photo invalid, try again.";
+"An error had occurred. Try later." = "An error had occurred. Try later.";
+"Could not get info, try later." = "Could not get info, try later.";
+"Could not open document, try later." = "Could not open document, try later.";
+"About" = "About";
+"Account" = "Account";
+"Restore Unsuccessful" = "Restore Unsuccessful";
+"No prior purchases found for your account." = "No prior purchases found for your account.";
+"Just" = "Just";
+"month." = "/month.";
+"Terms of Service" = "Terms of Service";
+"Privacy Policy" = "Privacy Policy";
+"Log out" = "Log out";
+"LogOutMessage" = "Are you sure you want to log out?";
+"cancelButton" = "Cancel";
+"DeleteAccount" = "Delete Account";
+"askPassword" = "This action requires you to enter your password.";
+"limitReached" = "Listening Limit Reached";
+"limitMessage" = "Wait 12 hours before start listening again or go premium!";
+"goPremium" = "Go Premium";
+"back" = "Back";
+"play" = "Play";
