@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import Combine
 
-class PasswordResetViewModel {
+final class PasswordResetViewModel: PasswordResetModule.ViewModel {
 
-    private let authService: AuthService
+    private let service: PasswordResetModule.Service
 
-    var errorHandler: ((_ message: String) -> Void)?
-    var emailSuccessfullHandler: ((_ message: String) -> Void)?
+    var errorSubject = PassthroughSubject<String, Never>()
+    var emailSuccessSubject = PassthroughSubject<String, Never>()
+    private var disposeBag = Set<AnyCancellable>()
 
-    init(authService: AuthService = .init()) {
-        self.authService = authService
+    init(service: PasswordResetModule.Service) {
+        self.service = service
     }
 
     func resetPassword(with emailText: String?) {
@@ -29,14 +31,20 @@ class PasswordResetViewModel {
     }
 
     private func sendPasswordReset(with email: String) {
-        authService.sendPasswordReset(email: email) { result in
-            switch result {
-            case .success:
-                self.emailSuccessfullHandler?("\(L1s.sendTo) \(email).")
-            case .failure(let error):
-                self.errorHandler?(error.localizedDescription)
+        service.sendPasswordReset(email: email)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.errorSubject.send(error.localizedDescription)
+                case .finished: break
+                }
+            } receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                self.emailSuccessSubject.send("\(L10n.anEmailWasSentTo) \(email).")
             }
-        }
+            .store(in: &disposeBag)
     }
 
     // validate emailTextFields text is correct
@@ -45,7 +53,7 @@ class PasswordResetViewModel {
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorHandler?(L1s.emailInvalid)
+            return errorSubject.send(L10n.emailInvalid)
         }
 
         return nil

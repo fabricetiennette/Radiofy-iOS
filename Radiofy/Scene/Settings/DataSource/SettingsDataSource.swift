@@ -1,4 +1,4 @@
-//swiftlint:disable force_cast
+// swiftlint:disable force_cast
 //
 //  SettingsDataSource.swift
 //  Radiofy
@@ -10,6 +10,7 @@
 import UIKit
 import FirebaseStorage
 
+#warning("move to viewcontroller")
 class SettingsDataSource: NSObject, UITableViewDataSource {
 
     // MARK: - Properties

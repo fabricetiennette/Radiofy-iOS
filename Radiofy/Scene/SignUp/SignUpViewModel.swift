@@ -7,59 +7,34 @@
 //
 
 import Foundation
-import FirebaseAuth
+import Combine
 
-protocol SignUpViewModelDelegate: class {
-    func callhomeScreen()
-}
+class SignUpViewModel: SignUpModule.ViewModel {
 
-class SignUpViewModel {
+    weak var delegate: SignUpModule.CoordinatorDelegate?
 
-    // MARK: - Delegate
+    var errorSubject = PassthroughSubject<String, Never>()
+    var spinnerSubject = PassthroughSubject<Void, Never>()
 
-    private weak var delegate: SignUpViewModelDelegate?
+    private var disposeBag = Set<AnyCancellable>()
+    private let service: SignUpModule.Service
 
-    // MARK: - Closure
-
-    var errorHandler: ((_ message: String) -> Void)?
-    var spinnerHandler: (() -> Void)?
-
-    // MARK: - Injection
-
-    private let authService: AuthService
-    private let firestoreService: FirestoreService
-    private let storageService: StorageService
-
-    // MARK: - init
-
-    init(
-        delegate: SignUpViewModelDelegate?,
-        authService: AuthService = .init(),
-        firestoreService: FirestoreService = .init(),
-        storageService: StorageService = .init()
-    ) {
-        self.delegate = delegate
-        self.authService = authService
-        self.firestoreService = firestoreService
-        self.storageService = storageService
+    init(service: SignUpModule.Service) {
+        self.service = service
     }
 
-    // MARK: - ViewModel Method
-
     // Sign up user
-    func signUpOneUser(
-        _ nameTextField: String?,
-        _ emailTextField: String?,
-        _ passwordTextField: String?
-    ) {
-        spinnerHandler?()
+    func signUpOneUser(_ nameTextField: String?,
+                       _ emailTextField: String?,
+                       _ passwordTextField: String?) {
+        spinnerSubject.send()
         if validateTextFields(nameTextField, emailTextField, passwordTextField) == nil {
 
             let name = nameTextField.clearedText()
             let password = passwordTextField.clearedText()
             let email = emailTextField.clearedText()
 
-            if authService.isAnonymous {
+            if service.isAnonymous {
                 linkAnonymousToUser(name, password, email)
             } else {
                 createUser(with: name, password, email)
@@ -67,98 +42,116 @@ class SignUpViewModel {
         }
     }
 
-    // MARK: - Private
+    func tapBack() {
+        delegate?.didTapOnBack()
+    }
+}
+
+private extension SignUpViewModel {
 
     // create and save user in firebase
-    private func createUser(with name: String, _ password: String, _ email: String) {
-        authService.createUser(name: name, password: password, email: email) { result in
-            switch result {
-            case .success:
-                self.storageService.saveImageDetails(with: email)
+    func createUser(with name: String, _ password: String, _ email: String) {
+        service
+            .createUser(name: name, password: password, email: email)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.errorSubject.send(error.localizedDescription)
+                case .finished: break
+                }
+            } receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                self.service.saveImageDetails(with: email)
                 self.saveUserToDatabase(email: email, name: name)
                 self.sendEmailVerificationToUser()
                 self.showHomeScreen()
-            case .failure(let error):
-                self.errorHandler?(error.localizedDescription)
             }
-        }
+            .store(in: &disposeBag)
     }
 
-    private func linkAnonymousToUser(
-        _ name: String,
-        _ password: String,
-        _ email: String) {
-        authService.linkUserToAnonymous(email: email, password: password) { result in
-            switch result {
-            case .success:
-                self.storageService.saveImageDetails(with: email)
+    func linkAnonymousToUser(_ name: String, _ password: String, _ email: String) {
+        service
+            .linkUserToAnonymous(email: email, password: password)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.errorSubject.send(error.localizedDescription)
+                case .finished: break
+                }
+            } receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                self.service.saveImageDetails(with: email)
                 self.saveUserToDatabase(email: email, name: name)
                 self.sendEmailVerificationToUser()
                 self.showHomeScreen()
-            case .failure(let error):
-                self.errorHandler?(error.localizedDescription)
             }
-        }
+            .store(in: &disposeBag)
     }
 
     // save user to database
-    private func saveUserToDatabase(email: String, name: String) {
-        firestoreService.saveUserToDatabase(
-        email: email, name: name) { result in
-            switch result {
-            case .success: break
-            case .failure:
-                self.errorHandler?(L1s.dataSavingError)
-            }
-        }
+    func saveUserToDatabase(email: String, name: String) {
+        service
+            .saveUserToDatabase(email: email, name: name)
+            .sink(receiveCompletion: { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorSubject.send(L10n.errorSavingUserData)
+                case .finished: break
+                }
+            }, receiveValue: { _ in })
+            .store(in: &disposeBag)
     }
 
     // send a verification email to the user
-    private func sendEmailVerificationToUser() {
-        authService.sendEmailVerificationToUser { result in
-            switch result {
-            case .success: break
-            case .failure(let error):
-                self.errorHandler?(error.localizedDescription)
-            }
-        }
+    func sendEmailVerificationToUser() {
+        service
+            .sendEmailVerificationToUser()
+            .sink(receiveCompletion: { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.errorSubject.send(error.localizedDescription)
+                case .finished: break
+                }
+            }, receiveValue: { _ in })
+            .store(in: &disposeBag)
     }
 
-    private func ifAnonymousDeleteUser() {
-        guard let user = Auth.auth().currentUser else { return}
-        if authService.isAnonymous {
-            user.delete()
-        }
+    func ifAnonymousDeleteUser() {
+        service.deleteCurrentUser()
     }
 
     // launch HomeViewController
-    private func showHomeScreen() {
-        delegate?.callhomeScreen()
+    func showHomeScreen() {
+        delegate?.goToHomeView()
     }
 
     // validate TextFieldstext are correct
-    private func validateTextFields(
-        _ nameTextField: String?,
-        _ emailTextField: String?,
-        _ passwordTextField: String?
-    ) -> Void? {
+    func validateTextFields(_ nameTextField: String?,
+                            _ emailTextField: String?,
+                            _ passwordTextField: String?) -> Void? {
 
         // validate name is as expected
         let name = nameTextField.clearedText()
         if name.isNameValid() == false {
-            return errorHandler?(L1s.nameInvalid)
+            return errorSubject.send(L10n.nameInvalid)
         }
 
         // validate email is in a good format
         let email = emailTextField.clearedText()
         if email.isValidEmail() == false {
-            return errorHandler?(L1s.emailInvalid)
+            return errorSubject.send(L10n.emailInvalid)
         }
 
         // validate password is as expected
         let password = passwordTextField.clearedText()
         if password.isValidPassword() == false {
-            return errorHandler?(L1s.passwordInvalid)
+            return errorSubject.send(L10n.passwordInvalid)
         }
 
         return nil

@@ -1,4 +1,4 @@
-//swiftlint:disable block_based_kvo file_length
+// swiftlint:disable block_based_kvo file_length
 //
 //  RadioPlayerViewController.swift
 //  Radiofy
@@ -110,10 +110,10 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
             durationLabel.isHidden = true
             replayButton.isEnabled = false
             forwardButton.isEnabled = false
-            liveLabel.textColor = UIColor(cgColor: #colorLiteral(red: 0.1137254902, green: 0.7254901961, blue: 0.3294117647, alpha: 1))
+            liveLabel.textColor = ColorName.greenMain.color
             popupItem.progress = 1.0
             setRadioBackgroundColor()
-            popupItem.subtitle = L1s.live
+            popupItem.subtitle = L10n.live
         case .stopped:
             liveLabel.isHidden = false
             currentTimeLabel.isHidden = true
@@ -129,13 +129,13 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
     func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
         switch player.state {
         case .error:
-            popupItem.subtitle = L1s.unavailableRadioPlay
+            popupItem.subtitle = L10n.radioTryLater
         case .loading:
-            popupItem.subtitle = L1s.loadingTitle
+            popupItem.subtitle = L10n.loading
         case .loadingFinished:
-            popupItem.subtitle = L1s.live
+            popupItem.subtitle = L10n.live
         case .readyToPlay:
-            popupItem.subtitle = L1s.ready
+            popupItem.subtitle = L10n.ready
         default: break
         }
     }
@@ -162,7 +162,7 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
                     popupItem.subtitle = "..."
                 } else if podPlayer.timeControlStatus == .waitingToPlayAtSpecifiedRate {
                     startAnimation()
-                    popupItem.subtitle = L1s.loadingTitle
+                    popupItem.subtitle = L10n.loading
                 }
             }
         }
@@ -183,27 +183,17 @@ private extension RadioPlayerViewController {
     }
 
     func setRadioBackgroundColor() {
-         magicView.viewWithTag(1212)?.removeFromSuperview()
+        magicView.viewWithTag(1212)?.removeFromSuperview()
         guard let mainColor = viewModel.audio.first?.mainColor else { return }
         magicView.backgroundColor = mainColor
-        if #available(iOS 13.0, *) {
-            magicView.addBlurEffect(alpha: 1, style: .systemThinMaterialDark)
-        } else {
-            // Fallback on earlier versions
-            magicView.addBlurEffect(alpha: 1, style: .dark)
-        }
+        magicView.addBlurEffect(alpha: 1, style: .systemThinMaterialDark)
     }
 
     func setBackgroundColor() {
         magicView.viewWithTag(1212)?.removeFromSuperview()
         guard let color = radioImageView.image?.averageColor else { return }
         magicView.backgroundColor = color
-        if #available(iOS 13.0, *) {
-            magicView.addBlurEffect(alpha: 1, style: .systemThinMaterialDark)
-        } else {
-            // Fallback on earlier versions
-            magicView.addBlurEffect(alpha: 1, style: .dark)
-        }
+        magicView.addBlurEffect(alpha: 1, style: .systemThinMaterialDark)
     }
 
     func setSliderThumbTintColor(_ color: UIColor) {
@@ -416,7 +406,7 @@ private extension RadioPlayerViewController {
             })
         }
         if isRadio == true {
-            nowPlayingInfo[MPMediaItemPropertyArtist] = L1s.liveTitle
+            nowPlayingInfo[MPMediaItemPropertyArtist] = L10n.live
             nowPlayingInfo[MPMediaItemPropertyTitle] = audio?.name
             nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = true
         } else {
@@ -427,7 +417,7 @@ private extension RadioPlayerViewController {
     }
 }
 
-extension RadioPlayerViewController: Storyboarded, NVActivityIndicatorViewable {}
+extension RadioPlayerViewController: Storyboarded {}
 
 extension RadioPlayerViewController: MusicPlayerDelegate {
 

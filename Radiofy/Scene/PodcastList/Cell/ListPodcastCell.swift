@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseUI
+import SDWebImage
 
 class ListPodcastCell: UITableViewCell {
 
@@ -25,6 +25,6 @@ class ListPodcastCell: UITableViewCell {
         podcastImageView.sd_setImage(with: url, completed: nil)
         podcastNameLabel.text = podcast.trackName
         podcastRadioNameLabel.text = podcast.artistName
-        podcastEpisodeLabel.text = "\(epidsodeCount) \(L1s.episodes)"
+        podcastEpisodeLabel.text = "\(epidsodeCount) \(L10n.episodes)"
     }
 }

@@ -7,22 +7,38 @@
 //
 
 import UIKit
+import Combine
+import Reusable
 
-class SearchViewController: UIViewController {
+final class SearchViewController: RadiofyViewController<SearchModule.ViewModel> {
 
-    @IBOutlet private weak var searchCollectionView: UICollectionView!
+    private lazy var searchCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        layout.minimumLineSpacing = 16
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.keyboardDismissMode = .onDrag
+        collectionView.register(cellType: SearchCell.self)
+        collectionView.register(supplementaryViewType: SearchBarReusableView.self,
+                                ofKind: UICollectionView.elementKindSectionHeader)
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
 
-    private lazy var searchDataSource = SearchDataSource()
-    var viewModel: SearchViewModel!
+    private var stations: [RadioStation] = []
+    private var searchStations: [RadioStation] = []
+    private var disposeBag = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchCollectionView.dataSource = searchDataSource
-        searchCollectionView.delegate = searchDataSource
-
-        bind(to: viewModel)
-        bindViewModel(to: searchDataSource)
-
+        setupInterface()
+        setupConstraints()
+        configureCollectionView()
+        setupViewModel()
         configureNavbar()
     }
 
@@ -35,73 +51,140 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
-        searchDataSource.updateSearch(searchText: searchText)
+        updateSearch(searchText: searchText)
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let searchText = searchBar.text else { return }
         if searchText.isEmpty {
-            searchDataSource.updateSearch(searchText: searchText)
+            updateSearch(searchText: searchText)
         }
     }
 }
 
 private extension SearchViewController {
-
-    func bind(to viewModel: SearchViewModel) {
-        viewModel.updateAllStationsHandler = { [weak self] allStations in
-            guard let me = self else { return }
-            DispatchQueue.main.async {
-                me.searchDataSource.updateCell(stations: allStations)
-                me.searchCollectionView.reloadData()
-            }
+    func configureCollectionView() {
+        if let flowLayout = searchCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+          flowLayout.headerReferenceSize = CGSize(width: searchCollectionView.bounds.size.width, height: 60)
         }
+    }
+
+    func setupViewModel() {
+        viewModel
+            .updateAllStationsSubject
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] allStations in
+                guard let self = self else { return }
+                self.stations = allStations
+                self.searchStations = allStations
+                self.searchCollectionView.reloadData()
+            }
+            .store(in: &disposeBag)
+
         viewModel.getAllRadioStations()
     }
 
-    func bindViewModel(to dataSource: SearchDataSource) {
-        dataSource.radioSelectedHandler = { [weak self] radioSelected in
-            guard let me = self else { return }
-            me.viewModel.showSelectedRadioPage(with: radioSelected)
+    func updateSearch(searchText: String) {
+        stations.removeAll()
+
+        for item in searchStations {
+            if item.name.lowercased().contains(searchText.lowercased()) {
+                stations.append(item)
+            }
         }
-        dataSource.reloadHandler = { [weak self] in
-            guard let me = self else { return }
-            me.searchCollectionView.reloadData()
+
+        if searchText.isEmpty {
+            stations = searchStations
         }
-        searchCollectionView.keyboardDismissMode = .onDrag
+        searchCollectionView.reloadData()
+    }
+}
+
+    // MARK: - UICollectionViewDataSource
+
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return stations.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let station = stations[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as SearchCell
+        cell.configureCell(station: station, indexPath: indexPath)
+        return cell
+    }
+
+   func collectionView(_ collectionView: UICollectionView,
+                       viewForSupplementaryElementOfKind kind: String,
+                       at indexPath: IndexPath) -> UICollectionReusableView {
+       let searchView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as SearchBarReusableView
+       searchView.searchBar.delegate = self
+       searchView.configureSearchBar()
+       return searchView
+   }
+}
+
+    // MARK: - UICollectionViewDelegateFlowLayout
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        let oneItem = width - 30
+        if stations.count == 1 {
+            return CGSize(width: oneItem, height: 100)
+        } else {
+            let twoItem = width - 45
+            return CGSize(width: twoItem / 2, height: 100)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.item < stations.count else { return }
+        viewModel.showSelectedRadioPage(with: stations[indexPath.item])
     }
 }
 
 private extension SearchViewController {
-
     func configureNavbar() {
         guard let navigationController = navigationController else { return }
-        if #available(iOS 13.0, *) {
-            navigationController.navigationBar.titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationItem.standardAppearance?.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.09807916731, green: 0.09796635062, blue: 0.1023270264, alpha: 1))
-            navigationItem.scrollEdgeAppearance?.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.09807916731, green: 0.09796635062, blue: 0.1023270264, alpha: 1))
-            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            navigationController.navigationBar.shadowImage = UIImage()
-            navigationController.navigationBar.isTranslucent = true
-            navigationController.navigationBar.tintColor = .white
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationItem.title = L1s.searchTitle
-        } else {
-            navigationController.navigationBar.titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            navigationController.navigationBar.shadowImage = UIImage()
-            navigationController.navigationBar.isTranslucent = true
-            navigationController.navigationBar.tintColor = .white
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationItem.title = L1s.searchTitle
-        }
+        navigationController.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationItem.standardAppearance?.backgroundColor = ColorName.navBar.color
+        navigationItem.scrollEdgeAppearance?.backgroundColor = ColorName.navBar.color
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationItem.title = L10n.search
+    }
+
+    func setupInterface() {
+        view.backgroundColor = ColorName.backgroundColor.color
+        view.addSubview(searchCollectionView)
+    }
+
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            searchCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
 
-extension SearchViewController: Storyboarded {}
+// Swift < 4.2 support
+#if !(swift(>=4.2))
+private extension UICollectionView {
+  static let elementKindSectionHeader = UICollectionElementKindSectionHeader
+}
+#endif

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SignOutTableViewCellDelegate: class {
+protocol SignOutTableViewCellDelegate: AnyObject {
     func signOutButtonPressed()
 }
 

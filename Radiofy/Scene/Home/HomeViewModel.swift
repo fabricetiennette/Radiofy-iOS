@@ -6,26 +6,22 @@
 //  Copyright © 2020 Fabrice Etiennette. All rights reserved.
 //
 
+import Combine
 import Foundation
 
-protocol HomeViewModelDelegate: class {
-    func launchSettings()
-    func showSelectedRadio(_ selectedRadio: RadioStation)
-    func showPayWall()
-}
+class HomeViewModel: HomeModule.ViewModel {
 
-class HomeViewModel {
+    // MARK: - Delegate
+
+    weak var delegate: HomeModule.CoordinatorDelegate?
 
     // MARK: - Properties
 
-    private weak var delegate: HomeViewModelDelegate?
-    private let firestoreService: FirestoreService
-
-    var errorHandler: ((_ title: String, _ message: String) -> Void)?
-    var recentlyPlayedRadioHandler: ((_ stations: [RadioStation]) -> Void)?
-    var popularRadioHandler: ((_ stations: [RadioStation]) -> Void)?
-    var nationalRadioHandler: ((_ stations: [RadioStation]) -> Void)?
-    var headerRadioHandler: ((_ stations: [RadioStation]) -> Void)?
+    var errorSubject = PassthroughSubject<(String, String), Never>()
+    var recentlyPlayedSubject = PassthroughSubject<[RadioStation], Never>()
+    var popularSubject = PassthroughSubject<[RadioStation], Never>()
+    var nationalSubject = PassthroughSubject<[RadioStation], Never>()
+    var headerSubject = PassthroughSubject<[RadioStation], Never>()
 
     static var allRadioStations: [RadioStation] = []
     private var headerRadio: [RadioStation] = []
@@ -34,14 +30,13 @@ class HomeViewModel {
     private var nationalStations: [RadioStation] = []
     private var radioArray = ["stations", "popularStations", "nationalStations"]
 
+    private var disposeBag = Set<AnyCancellable>()
+    private let service: HomeModule.Service
+
     // MARK: - Init
 
-    init(
-        delegate: HomeViewModelDelegate?,
-        firestoreService: FirestoreService = .init()
-    ) {
-        self.delegate = delegate
-        self.firestoreService = firestoreService
+    init(service: HomeModule.Service) {
+        self.service = service
     }
 
     // MARK: - Functions
@@ -57,9 +52,13 @@ class HomeViewModel {
             }
             return radioStation.first
         }
-        recentlyPlayedRadioHandler?(recentlyPlayedStations)
+        recentlyPlayedSubject.send(recentlyPlayedStations)
+
         guard let radios = recentlyPlayedStations.first else { return }
-        firestoreService.saveDocumentToDatabase(imageUrl: radios.imageURL, mainColor: radios.unformattedColor, name: radios.name, streamUrl: radios.streamURL)
+        service.saveDocumentToDatabase(imageUrl: radios.imageURL,
+                                       mainColor: radios.unformattedColor,
+                                       name: radios.name,
+                                       streamUrl: radios.streamURL)
     }
 
     func launchSettingsPage() {
@@ -71,50 +70,76 @@ class HomeViewModel {
     }
 
     func getAllRadioStations() {
-        firestoreService.getStationDetails(with: radioArray[0]) { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success(let radioStation):
+        service
+            .getStationDetails(with: radioArray[0])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorSubject.send((L10n.error, L10n.radioTryLater))
+                case .finished: break
+                }
+            } receiveValue: { [weak self] radioStation in
+                guard let self = self else { return }
                 HomeViewModel.allRadioStations = radioStation
-                me.headerRadio = HomeViewModel.allRadioStations.pick(6)
-                me.headerRadioHandler?(me.headerRadio)
-                me.getRecentlyPlayedStationsDetails()
-            case .failure:
-                me.errorHandler?(L1s.error, L1s.stationUnavailable)
+                self.headerRadio = HomeViewModel.allRadioStations.pick(6)
+                self.headerSubject.send(self.headerRadio)
+                self.getRecentlyPlayedStationsDetails()
             }
-        }
+            .store(in: &disposeBag)
     }
 
     func getPopularStationsDetails() {
-        firestoreService.getStationDetails(with: radioArray[1]) { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success(let radioStation):
-                me.popularStations = radioStation
-                me.popularRadioHandler?(me.popularStations)
-            case .failure:
-                me.errorHandler?(L1s.error, L1s.stationUnavailable)
+        service
+            .getStationDetails(with: radioArray[1])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorSubject.send((L10n.error, L10n.radioTryLater))
+                case .finished: break
+                }
+            } receiveValue: { [weak self] radioStation in
+                guard let self = self else { return }
+                self.popularStations = radioStation
+                self.popularSubject.send(self.popularStations)
             }
-        }
+            .store(in: &disposeBag)
     }
 
     func getNationalStationsDetails() {
-        firestoreService.getStationDetails(with: radioArray[2]) { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success(let radioStation):
-                me.nationalStations = radioStation
-                me.nationalRadioHandler?(me.nationalStations)
-            case .failure:
-                me.errorHandler?(L1s.error, L1s.stationUnavailable)
+        service
+            .getStationDetails(with: radioArray[2])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure:
+                    self.errorSubject.send((L10n.error, L10n.radioTryLater))
+                case .finished: break
+                }
+            } receiveValue: { [weak self] radioStation in
+                guard let self = self else { return }
+                self.nationalStations = radioStation
+                self.nationalSubject.send(self.nationalStations)
             }
-        }
+            .store(in: &disposeBag)
     }
 
     func verifiedAndFetchRadioStations() {
-        firestoreService.isFullAppAccessAuthorized { result in
-            switch result {
-            case .success(let authorization):
+        service
+            .isFullAppAccessAuthorized()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard self != nil else { return }
+                switch result {
+                case .finished: break
+                case .failure: break
+                }
+            } receiveValue: { [weak self] authorization in
+                guard let self = self else { return }
                 if authorization == false {
                     self.radioArray = ["allStations", "popularStations", "nationalStations"]
                     self.getAllRadioStations()
@@ -125,8 +150,7 @@ class HomeViewModel {
                     self.getPopularStationsDetails()
                     self.getNationalStationsDetails()
                 }
-            case .failure: break
             }
-        }
+            .store(in: &disposeBag)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class PasswordResetViewController: UIViewController, Storyboarded {
 
@@ -14,12 +15,13 @@ class PasswordResetViewController: UIViewController, Storyboarded {
     @IBOutlet private weak var errorTextLabel: UILabel!
     @IBOutlet private weak var resetEmailButton: FinalLogInButtonView!
 
-    var viewModel: PasswordResetViewModel!
+    private var disposeBag: Set<AnyCancellable> = []
+    var viewModel: PasswordResetModule.ViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        configureViewModel()
+        setupBindings()
     }
 
     @objc private func tapView() {
@@ -46,6 +48,7 @@ class PasswordResetViewController: UIViewController, Storyboarded {
     @IBAction private func resetEmailButtonTapped(_ sender: Any) {
         viewEndEditing()
 
+        guard let viewModel = self.viewModel else { return }
         let email = emailTextField.text
 
         viewModel.resetPassword(with: email)
@@ -57,22 +60,31 @@ class PasswordResetViewController: UIViewController, Storyboarded {
 }
 
 private extension PasswordResetViewController {
-    func configureViewModel() {
-        viewModel.errorHandler = { [weak self] message in
-            guard let me = self else { return }
-            if me.errorTextLabel.text != message {
-                me.errorTextLabel.slideInFromBottom()
-            }
-            me.errorTextLabel.text = message
-            me.errorTextLabel.alpha = 1
-        }
 
-        viewModel.emailSuccessfullHandler = { [weak self] message in
-            guard let me = self else { return }
-            me.errorTextLabel.text = message
-            me.errorTextLabel.textColor = .green
-            me.errorTextLabel.alpha = 1
-        }
+    func setupBindings() {
+        guard let viewModel = self.viewModel else { return }
+
+        viewModel
+            .errorSubject
+            .sink(receiveValue: { [weak self] message in
+                guard let me = self else { return }
+                if me.errorTextLabel.text != message {
+                    me.errorTextLabel.slideInFromBottom()
+                }
+                me.errorTextLabel.text = message
+                me.errorTextLabel.alpha = 1
+            })
+            .store(in: &disposeBag)
+
+        viewModel
+            .emailSuccessSubject
+            .sink(receiveValue: { [weak self] message in
+                guard let me = self else { return }
+                me.errorTextLabel.text = message
+                me.errorTextLabel.textColor = .green
+                me.errorTextLabel.alpha = 1
+            })
+            .store(in: &disposeBag)
     }
 
     func configureView() {

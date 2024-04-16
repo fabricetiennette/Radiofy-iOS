@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import FirebaseUI
+import Firebase
+import FirebaseStorage
 
-protocol ProfileTableViewCellDelegate: class {
+protocol ProfileTableViewCellDelegate: AnyObject {
     func editProfilePressed()
 }
 
@@ -32,6 +33,7 @@ class ProfileTableViewCell: UITableViewCell {
     func configureCell(userName: String, imageRef: StorageReference?) {
         nameLabel.text = userName
 
+        #warning("TODO: not working need to be fixed")
         guard let ref = imageRef else { return }
         profileImageView.setImage(with: ref) { [weak self ] color in
             guard let me = self else { return }

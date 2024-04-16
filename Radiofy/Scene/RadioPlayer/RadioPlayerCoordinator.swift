@@ -9,23 +9,23 @@
 import UIKit
 import LNPopupController
 
-class RadioPlayerCoordinator {
+class RadioPlayerCoordinator: Coordinator<UITabBarController> {
 
-    private let tabBarController: UITabBarController
+//    private let tabBarController: UITabBarController
+//
+//    init(tabBarController: UITabBarController) {
+//        self.tabBarController = tabBarController
+//    }
 
-    init(tabBarController: UITabBarController) {
-        self.tabBarController = tabBarController
-    }
-
-    func start() {
-        let viewController = MiniPlayerViewController.instantiate(from: "Player")
+    override func start() {
+        let viewController = MiniPlayerViewController.instantiate(from: .player)
         let radioPlayerVC = makeRadioPlayerViewController()
         let viewModel = MiniPlayerViewModel(view: radioPlayerVC)
         viewController.viewModel = viewModel
-        tabBarController.popupBar.customBarViewController = viewController
-        tabBarController.popupContentView.popupCloseButtonStyle = .none
-        tabBarController.popupInteractionStyle = .drag
-        tabBarController.presentPopupBar(
+        rootView.popupBar.customBarViewController = viewController
+        rootView.popupContentView.popupCloseButtonStyle = .none
+        rootView.popupInteractionStyle = .drag
+        rootView.presentPopupBar(
             withContentViewController: radioPlayerVC,
             animated: false,
             completion: nil
@@ -33,14 +33,14 @@ class RadioPlayerCoordinator {
     }
 
     private func makeRadioPlayerViewController() -> RadioPlayerViewController {
-        let viewController = RadioPlayerViewController.instantiate(from: "Player")
+        let viewController = RadioPlayerViewController.instantiate(from: .player)
         let viewModel = RadioPlayerViewModel(delegate: self)
         viewController.viewModel = viewModel
         return viewController
     }
 
     private func closeMyRadioAudioPlayer() {
-        tabBarController.closePopup(animated: true, completion: nil)
+        rootView.closePopup(animated: true, completion: nil)
     }
 }
 

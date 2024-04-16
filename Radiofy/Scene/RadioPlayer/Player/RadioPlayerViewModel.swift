@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RadioPlayerViewModelDelegate: class {
+protocol RadioPlayerViewModelDelegate: AnyObject {
     func closeAudioPlayer()
 }
 

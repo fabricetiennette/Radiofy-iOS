@@ -9,119 +9,132 @@
 import Foundation
 import Firebase
 import FRadioPlayer
+import Combine
+import FirebaseStorage
 
-protocol SettingsViewModelDelegate: class {
-    func callEditProfile()
-    func callAccountPage()
-    func callAboutPage()
-    func createAccount()
-}
+class SettingsViewModel: SettingsModule.ViewModel {
 
-class SettingsViewModel {
+    // MARK: - Delegate
 
-    static let NotificationDone = NSNotification.Name(rawValue: "Done")
+    weak var delegate: SettingsModule.CoordinatorDelegate?
 
-    private weak var delegate: SettingsViewModelDelegate?
+    @Published var signOut: Void?
+
+//    static let NotificationDone = NSNotification.Name(rawValue: "Done")
+
     private let player = FRadioPlayer.shared
+    private var disposedBag = Set<AnyCancellable>()
 
-    var errorHandler: ((_ title: String, _ message: String) -> Void)?
-    var userNameHandler: ((_ userName: String) -> Void)?
-    var refHandler: ((_ ref: StorageReference) -> Void)?
-    var userIsNotAnonymous: (() -> Void)?
+    var errorSubject = PassthroughSubject<(String, String), Never>()
+    var userNameSubject = PassthroughSubject<String, Never>()
+    var refSubject = PassthroughSubject<StorageReference, Never>()
+    var userIsNotAnonymousSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Injection
 
-    private var authService: AuthService
-    private let firestoreService: FirestoreService
-    private let storageService: StorageService
+    private let service: SettingsModule.Service
 
     // MARK: - Init
 
-    init(
-        delegate: SettingsViewModelDelegate?,
-        authService: AuthService = .init(),
-        firestoreService: FirestoreService = .init(),
-        storageService: StorageService = .init()
-    ) {
-        self.delegate = delegate
-        self.authService = authService
-        self.firestoreService = firestoreService
-        self.storageService = storageService
+    init(service: SettingsModule.Service) {
+        self.service = service
     }
 
     func isUserLoggedIn() {
-        authService.stateDidChangeForAuth {
-            RadioPlayerViewController.player?.pause()
-            self.player.stop()
-            self.showStartViewIfSignOut()
-        }
+        service
+            .stateDidChangeForAuth()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                RadioPlayerViewController.player?.pause()
+                self.player.stop()
+                self.showStartViewIfSignOut()
+            }
+            .store(in: &disposedBag)
     }
 
     private func showStartViewIfSignOut() {
-        NotificationCenter.default.post(
-            name: SettingsViewModel.NotificationDone, object: nil)
+//        NotificationCenter.default.post(name: SettingsViewModel.NotificationDone, object: nil)
+        $signOut
+            .sink { _ in }
+            .store(in: &disposedBag)
     }
 
     func removeListener() {
-        authService.removeListener()
+        service.removeListener()
     }
 
     func isUserAnonymous() {
-        if authService.isAnonymous == false {
-            self.userIsNotAnonymous?()
+        if service.isAnonymous == false {
+            userIsNotAnonymousSubject.send()
         }
     }
 
     func signOutUser() {
         ifAnonymousDeleteUser()
-        authService.signOutUser { [weak self] result in
-            guard let me = self else { return }
-            switch result {
-            case .success: break
-            case .failure(let error):
-                me.errorHandler?(L1s.error, error.localizedDescription)
-            }
-        }
+        service
+            .signOutUser()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .finished: break
+                case .failure(let error):
+                    self.errorSubject.send((L10n.error, error.localizedDescription))
+                }
+            } receiveValue: { _ in }
+            .store(in: &disposedBag)
     }
 
     func showOrCreateProfileView() {
-        if authService.isAnonymous {
+        if service.isAnonymous {
             delegate?.createAccount()
         } else {
-            delegate?.callEditProfile()
+            delegate?.editProfile()
         }
     }
 
     func showAccountView() {
-        delegate?.callAccountPage()
+        delegate?.accountPage()
     }
 
     func showAboutView() {
-        delegate?.callAboutPage()
+        delegate?.aboutPage()
     }
 
     func getUserName() {
-        guard let email = authService.userEmail else { return }
-        firestoreService.getUserName(email: email) { result in
-            switch result {
-            case .success(let name):
-                self.userNameHandler?(name)
-            case .failure(let error):
-                self.errorHandler?(L1s.error, error.localizedDescription)
+        guard let email = service.userEmail else { return }
+        service
+            .getUserName(email: email)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .finished: break
+                case .failure(let error):
+                    self.errorSubject.send((L10n.error, error.localizedDescription))
+                }
+            } receiveValue: { [weak self] name in
+                guard let self = self else { return }
+                self.userNameSubject.send(name)
             }
-        }
+            .store(in: &disposedBag)
     }
 
     func getUserProfilePhotoReference() {
-        guard let email = authService.userEmail else { return }
-        let ref = storageService.userStorageReference(email: email)
-        refHandler?(ref)
+        guard let email = service.userEmail else { return }
+        service
+            .userStorageReference(email: email)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] reference in
+                guard let self = self else { return }
+                self.refSubject.send(reference)
+            }
+            .store(in: &disposedBag)
     }
 
     func ifAnonymousDeleteUser() {
-        guard let user = Auth.auth().currentUser else { return}
-        if authService.isAnonymous {
-            user.delete()
-        }
+        guard let user = service.currentUser else { return }
+        if service.isAnonymous { user.delete() }
     }
 }

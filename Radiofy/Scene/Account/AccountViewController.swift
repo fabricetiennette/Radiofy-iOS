@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 
 class AccountViewController: UIViewController {
 
@@ -16,6 +15,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var deleteButton: DeleteAccountView!
 
     var viewModel: AccountViewModel!
+    private let indicator = LoaderIndicator.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class AccountViewController: UIViewController {
 
     @IBAction func deleteAccountTapped(_ sender: Any) {
         showAlertConfirmWithPassword { password in
-            self.startAnimation()
+            self.indicator.show(indicator: self.view)
             self.viewModel.reauthenticateAndDelete(with: password)
         }
     }
@@ -36,7 +36,7 @@ private extension AccountViewController {
     func configureViewModel() {
         viewModel.errorHandler = { [weak self] title, message in
             guard let me = self else { return }
-            me.stopAnimating()
+            me.indicator.hide()
             me.showAlert(title: title, message: message)
         }
         viewModel.userHandler = { [weak self] username, email in
@@ -46,7 +46,7 @@ private extension AccountViewController {
         }
         viewModel.successHandler = { [weak self] in
             guard let me = self else { return }
-            me.stopAnimating()
+            me.indicator.hide()
             me.showAlert(title: "Successfully restored", message: "Enjoy Radiofy")
         }
         viewModel.userIsNotAnonymous = { [weak self] in
@@ -58,14 +58,9 @@ private extension AccountViewController {
         viewModel.isUserLoggedIn()
     }
 
-    func startAnimation() {
-        let size = CGSize(width: 50, height: 50)
-        startAnimating(size, type: .ballBeat, color: .white, fadeInAnimation: nil)
-    }
-
     func configureView() {
-        navigationItem.title = L1s.compte
+        navigationItem.title = L10n.account
     }
 }
 
-extension AccountViewController: Storyboarded, NVActivityIndicatorViewable {}
+extension AccountViewController: Storyboarded {}

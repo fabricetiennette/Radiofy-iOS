@@ -23,8 +23,15 @@ class SubscriptionViewController: UIViewController {
         configureCGU()
     }
 
+    private var activityIndicator: NVActivityIndicatorView {
+        let midY = self.view.frame.height / 2
+        let midX = self.view.frame.width / 2
+        let frame = CGRect(x: midX, y: midY, width: 50, height: 50)
+        return NVActivityIndicatorView(frame: frame, type: .ballBeat, color: .white, padding: nil)
+    }
+
     @IBAction func subsribeButtonTapped(_ sender: Any) {
-        startAnimation()
+        activityIndicator.startAnimating()
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
@@ -45,12 +52,12 @@ private extension SubscriptionViewController {
     func configureViewModel() {
         viewModel.errorHandler = { [weak self] title, message in
             guard let me = self else { return }
-            me.stopAnimating()
+            me.activityIndicator.stopAnimating()
             me.showAlert(title: title, message: message)
         }
         viewModel.loadingHandler = { [weak self] in
             guard let me = self else { return }
-            me.stopAnimating()
+            me.activityIndicator.stopAnimating()
         }
         viewModel.safariServicesHandler = { [weak self] viewController in
             guard let me = self else { return }
@@ -58,14 +65,9 @@ private extension SubscriptionViewController {
         }
         viewModel.successHandler = { [weak self] in
             guard let me = self else { return }
-            me.stopAnimating()
+            me.activityIndicator.stopAnimating()
             me.dismiss(animated: true, completion: nil)
         }
-    }
-
-    func startAnimation() {
-        let size = CGSize(width: 50, height: 50)
-        startAnimating(size, type: .ballBeat, color: .white, fadeInAnimation: nil)
     }
 
     func configureCGU() {
@@ -75,12 +77,12 @@ private extension SubscriptionViewController {
         .underlineStyle: NSUnderlineStyle.single.rawValue]
 
         let termsString = NSMutableAttributedString(
-            string: L1s.terms, attributes: attributes)
+            string: L10n.termsOfService, attributes: attributes)
         let  privacyString = NSMutableAttributedString(
-            string: L1s.privacyPolicy, attributes: attributes)
+            string: L10n.privacyPolicy, attributes: attributes)
         termsButton.setAttributedTitle(termsString, for: .normal)
         privacyButton.setAttributedTitle(privacyString, for: .normal)
     }
 }
 
-extension SubscriptionViewController: Storyboarded, NVActivityIndicatorViewable {}
+extension SubscriptionViewController: Storyboarded {}

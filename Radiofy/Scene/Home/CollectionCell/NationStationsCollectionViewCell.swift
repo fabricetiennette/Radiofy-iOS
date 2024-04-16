@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseUI
+import SDWebImage
 
 class NationalStationsCollectionViewCell: UICollectionViewCell {
 

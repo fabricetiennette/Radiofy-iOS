@@ -8,118 +8,118 @@
 
 import UIKit
 
-class HomeCoordinator {
+class HomeCoordinator: Coordinator<UINavigationController> {
 
-    // MARK: - Properties
-
-    let navigationController: UINavigationController
-
-    // MARK: - Initializer
-
-    init(navigationController: UINavigationController = .init()) {
-        self.navigationController = navigationController
+    enum Options {
+        case push(UINavigationController)
     }
 
-    // MARK: - Coordinator
+    private let options: Options
 
-    func start() {
-        showHomeView()
+    init(options: Options) {
+        self.options = options
+        switch options {
+        case let .push(navigationController):
+            super.init(rootView: navigationController)
+        }
     }
 
-    private func showHomeView() {
-       let viewController = HomeViewController.instantiate(from: "Home")
-        let viewModel = HomeViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.tabBarItem = UITabBarItem(
-            title: L1s.homeTitle,
-            image: UIImage(named: "HomeIcon"),
-            selectedImage: UIImage(named: "HomeIconFill")
-        )
-        navigationController.viewControllers = [viewController]
+    // MARK: - start
+
+    override func start() {
+        let module = HomeModule(coordinatorDelegate: self)
+        let homeViewController = module.viewController
+
+        switch options {
+        case let .push(navigationController):
+            navigationController.pushViewController(homeViewController, animated: true)
+        }
     }
 
-    private func makeSettingsPage() {
-        let viewController = SettingsViewController.instantiate(from: "Home")
-        let viewModel = SettingsViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+    // MARK: - Private
+
+    private func goToSettings() {
+        let coordinator = SettingsCoordinator(options: .push(rootView))
+        rootView.setNavigationBarHidden(false, animated: false)
+        coordinator.delegate = self
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makeEditProfilePage() {
-        let viewController = EditProfileViewController.instantiate(from: "Home")
+        let viewController = EditProfileViewController.instantiate(from: .home)
         let viewModel = EditProfileViewModel()
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .formSheet
         let editProfile = UINavigationController(rootViewController: viewController)
-        navigationController.present(editProfile, animated: true)
+        rootView.present(editProfile, animated: true)
     }
 
-    private func makeRadioPage(with selectedRadio: RadioStation) {
-        let viewController = RadioViewController.instantiate(from: "Radio")
-        let viewModel = RadioViewModel(delegate: self, selectedRadio: selectedRadio)
-        viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+    private func goToRadio(with radio: RadioStation) {
+        let coordinator = RadioCoordinator(options: .push(rootView), radio: radio)
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makeAboutPage() {
-        let viewController = AboutViewController.instantiate(from: "Home")
+        let viewController = AboutViewController.instantiate(from: .home)
         let viewModel = AboutViewModel()
         viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
     private func makeAccountPage() {
-        let viewController = AccountViewController.instantiate(from: "Home")
+        let viewController = AccountViewController.instantiate(from: .home)
         let viewModel = AccountViewModel(delegate: self)
         viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: true)
+        rootView.pushViewController(viewController, animated: true)
     }
 
-    private func makeSignUpView() {
-        let viewController = SignUpViewController.instantiate(from: "Start")
-        let viewModel = SignUpViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        viewController.navigationItem.title = L1s.creatAccount
-        navigationController.pushViewController(viewController, animated: true)
+    private func goToSignUpView() {
+        let coordinator = LogInCoordinator(options: .push(rootView))
+        rootView.setNavigationBarHidden(false, animated: false)
+        coordinator.delegate = self
+        add(children: coordinator)
+        coordinator.start()
     }
 
     private func makePayWallView() {
-        let viewController = SubscriptionViewController.instantiate(from: "Subscription")
+        let viewController = SubscriptionViewController.instantiate(from: .subscription)
         let viewModel = SubscriptionViewModel(delegate: self)
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .fullScreen
-        navigationController.present(viewController, animated: true, completion: nil)
+        rootView.present(viewController, animated: true, completion: nil)
     }
 }
 
-extension HomeCoordinator: HomeViewModelDelegate {
+extension HomeCoordinator: HomeModule.CoordinatorDelegate {
     func showPayWall() {
         makePayWallView()
     }
 
-    func showSelectedRadio(_ selectedRadio: RadioStation) {
-        makeRadioPage(with: selectedRadio)
+    func showSelectedRadio(_ radio: RadioStation) {
+        goToRadio(with: radio)
     }
 
     func launchSettings() {
-        makeSettingsPage()
+        goToSettings()
     }
 }
 
-extension HomeCoordinator: SettingsViewModelDelegate {
-    func createAccount() {
-        makeSignUpView()
+extension HomeCoordinator: SettingsCoordinatorDelegate {
+    func goToCreateAccount() {
+        goToSignUpView()
     }
 
-    func callAccountPage() {
+    func goToAccountPage() {
         makeAccountPage()
     }
 
-    func callAboutPage() {
+    func goToAboutPage() {
         makeAboutPage()
     }
 
-    func callEditProfile() {
+    func goToEditProfile() {
         makeEditProfilePage()
     }
 }
@@ -130,20 +130,18 @@ extension HomeCoordinator: AccountViewModelDelete {
     }
 }
 
-extension HomeCoordinator: SignUpViewModelDelegate {
-    func callhomeScreen() {
-        start()
+extension HomeCoordinator: LogInCoordinatorDelegate {
+    func goHomeFromLogIn() {
+
+    }
+
+    func goPasswordReset() {
+
     }
 }
 
 extension HomeCoordinator: SubscriptionViewModelDelegate {
     func signUpFirst() {
-        makeSignUpView()
-    }
-}
-
-extension HomeCoordinator: RadioViewModelDelegate {
-    func openPayWallView() {
-        makePayWallView()
+        goToSignUpView()
     }
 }
