@@ -12,9 +12,3 @@ xcassets:
   outputs:
     - templateName: swift5
       output: Assets.swift
-
-colors:
-  inputs: colors.txt
-  outputs:
-    templateName: swift5
-    output: Colors.swift

@@ -121,7 +121,7 @@ private extension YourLibraryViewController {
     }
 
     func setupInterface() {
-        view.backgroundColor = ColorName.backgroundColor.color
+        view.backgroundColor = Asset.backgroundColor.color
         view.addSubview(libraryTableView)
     }
 

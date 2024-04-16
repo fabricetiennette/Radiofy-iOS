@@ -6,7 +6,7 @@
 //  Copyright © 2020 Fabrice Etiennette. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
 class LaunchCoordinator: Coordinator<UINavigationController> {
 
@@ -21,9 +21,9 @@ class LaunchCoordinator: Coordinator<UINavigationController> {
 
     override func start() {
         let module = LaunchModule(coordinatorDelegate: self, needAnimation: needAnimation)
-        let viewController = module.viewController
+        let hostingController = UIHostingController(rootView: module.launchView)
         rootView.setNavigationBarHidden(true, animated: true)
-        rootView.pushViewController(viewController, animated: false)
+        rootView.pushViewController(hostingController, animated: false)
     }
 }
 

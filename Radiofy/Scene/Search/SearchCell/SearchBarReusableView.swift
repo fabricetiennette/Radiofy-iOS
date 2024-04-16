@@ -15,7 +15,7 @@ final class SearchBarReusableView: UICollectionReusableView, NibReusable {
 
     func configureSearchBar() {
         searchBar.placeholder = L10n.searchYourRadio
-        searchBar.tintColor = ColorName.greenMain.color
+        searchBar.tintColor = Asset.greenMain.color
         searchBar.searchTextField.accessibilityIdentifier = "RadioSearchTextField"
         searchBar.searchTextField.backgroundColor = .white
         searchBar.searchTextField.textColor = .black

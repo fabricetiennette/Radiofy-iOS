@@ -110,7 +110,7 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
             durationLabel.isHidden = true
             replayButton.isEnabled = false
             forwardButton.isEnabled = false
-            liveLabel.textColor = ColorName.greenMain.color
+            liveLabel.textColor = Asset.greenMain.color
             popupItem.progress = 1.0
             setRadioBackgroundColor()
             popupItem.subtitle = L10n.live

@@ -41,7 +41,7 @@ final class RadioViewController: RadiofyViewController<RadioModule.ViewModel> {
 
     private lazy var playButton: ButtonRadioView = {
         let button = ButtonRadioView()
-        button.backgroundColor = ColorName.radiofyGreen.color
+        button.backgroundColor = Asset.radiofyGreen.color
         button.setTitle(L10n.play, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 24, weight: .semibold)
         button.titleLabel?.textColor = .white
@@ -97,8 +97,8 @@ private extension RadioViewController {
                 me.radioImageView.sd_setImage(with: url,
                                               placeholderImage: Asset.noPicture.image)
                 me.view.setBackgourndColorWithGradient(colorHead: radioSelected.color,
-                                                       colorCenter: ColorName.darkSlateColor.color,
-                                                       colorBottom: ColorName.darkSlateColor.color)
+                                                       colorCenter: Asset.darkSlateColor.color,
+                                                       colorBottom: Asset.darkSlateColor.color)
                 me.radioLabel.text = radioSelected.name
                 me.navigationItem.title = radioSelected.name
             })
@@ -115,7 +115,7 @@ private extension RadioViewController {
 
     func setupInterface() {
         navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = ColorName.backgroundColor.color
+        view.backgroundColor = Asset.backgroundColor.color
 
         view.addSubview(stackView)
     }
