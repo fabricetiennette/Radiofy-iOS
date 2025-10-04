@@ -10,17 +10,45 @@ import Foundation
 @testable import Radiofy
 
 class MockAuthService: AuthProtocol {
-    var currentUser: UserProtocol?
+    
+    private(set) var isAnonymous: Bool
+    private(set) var currentUser: UserProtocol?
 
     private let fakeAuthResponse: FakeAuthResponse
 
-    init(fakeAuthResponse: FakeAuthResponse) {
+    init(fakeAuthResponse: FakeAuthResponse, isAnonymous: Bool = false) {
         self.fakeAuthResponse = fakeAuthResponse
-        currentUser = fakeAuthResponse.authDataResult?.user
+        self.isAnonymous = isAnonymous
+        self.currentUser = fakeAuthResponse.authDataResult?.user
     }
 
     var userEmail: String? {
         return "test@radiofy.io"
+    }
+    
+    func linkUserToAnonymous(email: String, password: String, callback: @escaping (AuthResult) -> Void) {
+        // Mock : si pas d’erreur, on "link" en transformant l’anonyme en user normal
+        if let error = fakeAuthResponse.error {
+            callback(.failure(error))
+        } else if let user = fakeAuthResponse.authDataResult?.user {
+            isAnonymous = false
+            currentUser = user
+            callback(.success(user))
+        } else {
+            callback(.failure(FakeNetworkResponse.networkError))
+        }
+    }
+    
+    func signInUserAnonymously(callback: @escaping (AuthResult) -> Void) {
+        if let error = fakeAuthResponse.error {
+            callback(.failure(error))
+        } else if let user = fakeAuthResponse.authDataResult?.user {
+            isAnonymous = true
+            currentUser = user
+            callback(.success(user))
+        } else {
+            callback(.failure(FakeNetworkResponse.networkError))
+        }
     }
 
     func reauthenticate(password: String?, callback: @escaping (AuthResult) -> Void) {

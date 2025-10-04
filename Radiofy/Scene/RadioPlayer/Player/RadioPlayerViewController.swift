@@ -15,7 +15,7 @@ import AVKit
 import NVActivityIndicatorView
 
 class RadioPlayerViewController: UIViewController {
-
+    
     @IBOutlet weak var magicView: UIView!
     @IBOutlet weak var radioTopLabel: UILabel!
     @IBOutlet weak var radioImageView: UIImageView!
@@ -32,7 +32,7 @@ class RadioPlayerViewController: UIViewController {
     var viewModel: RadioPlayerViewModel!
 
     private let radioPlayer = FRadioPlayer.shared
-    private let podPlayer = AVPlayer()
+    private var podPlayer: AVPlayer { PlaybackCenter.shared.podPlayer }
     private var playerItem: AVPlayerItem?
     private var isRadio: Bool?
     static var player: AVPlayer?
@@ -40,7 +40,7 @@ class RadioPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         RadioPlayerViewController.player = podPlayer
-        radioPlayer.delegate = self
+        FRadioPlayer.shared.addObserver(self)
         setupAudioSession()
         observePlayerCurrentTime()
         setupRemoteTransportControls()
@@ -97,10 +97,10 @@ extension RadioPlayerViewController {
     }
 }
 
-extension RadioPlayerViewController: FRadioPlayerDelegate {
+extension RadioPlayerViewController: FRadioPlayerObserver {
 
-    func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
-        switch player.playbackState {
+    internal func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlayer.PlaybackState) {
+        switch state {
         case .playing:
             playButton.isSelected = true
             playerSlider.value = 0
@@ -126,7 +126,7 @@ extension RadioPlayerViewController: FRadioPlayerDelegate {
         }
     }
 
-    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
+    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayer.State) {
         switch player.state {
         case .error:
             popupItem.subtitle = L10n.radioTryLater
@@ -420,20 +420,31 @@ private extension RadioPlayerViewController {
 extension RadioPlayerViewController: Storyboarded {}
 
 extension RadioPlayerViewController: MusicPlayerDelegate {
+    
+    var audioType: AudioType {
+        get { isRadio ?? true ? .radio : .podcast }
+        set { isRadio = (newValue == .radio) }
+    }
+    
+    var isAudioPlaying: Bool {
+        if audioType == .podcast {
+            return PlaybackCenter.shared.isPodcastPlaying
+        } else {
+            return PlaybackCenter.shared.isRadioPlaying
+        }
+    }
 
     func play() {
-        if isRadio == true {
-            radioPlayer.play()
-        } else {
-            podPlayer.play()
+        switch audioType {
+        case .radio:   PlaybackCenter.shared.playRadio()
+        case .podcast: PlaybackCenter.shared.playPodcast()
         }
     }
 
     func stop() {
-        if isRadio == true {
-            self.radioPlayer.stop()
-        } else {
-            podPlayer.pause()
+        switch audioType {
+        case .radio:   PlaybackCenter.shared.stopRadio()
+        case .podcast: PlaybackCenter.shared.pausePodcast()
         }
     }
 }

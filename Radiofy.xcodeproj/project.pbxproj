@@ -109,6 +109,7 @@
 		2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C368DE12437F9FD00979816 /* ExternalAccessory.framework */; };
 		2C99C37D24471D210097E106 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C99C37C24471D210097E106 /* HomeKit.framework */; };
 		2C99C3832447D7410097E106 /* FavoriteRadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99C3822447D7410097E106 /* FavoriteRadioCell.swift */; };
+		2C9C3D172E91D5ED0028526D /* PlaybackCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */; };
 		2C9E841D24649E540059D842 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C9E841F24649E540059D842 /* InfoPlist.strings */; };
 		2CA61E10272323EA00E12A48 /* FavoriteRadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */; };
 		2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7CC532438C49C0028DEBF /* EditProfileViewController.swift */; };
@@ -346,6 +347,7 @@
 		2C95C13A245CE27C005D8503 /* CMTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		2C99C37C24471D210097E106 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		2C99C3822447D7410097E106 /* FavoriteRadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRadioCell.swift; sourceTree = "<group>"; };
+		2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackCenter.swift; sourceTree = "<group>"; };
 		2C9E841E24649E540059D842 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C9E842024649E5C0059D842 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteRadioCell.xib; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 		2C844A7E243FE810003E19E9 /* RadioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */,
 				2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */,
 				2C41976B2445121000FFB2FA /* Player */,
 				2C41976C2445122F00FFB2FA /* MiniPlayer */,
@@ -1510,6 +1513,7 @@
 				2C02588C26B5875F00985748 /* SettingsCoordinator.swift in Sources */,
 				2C498414245B056800B6201C /* Podcast.swift in Sources */,
 				2CF85AB7242D79DF002FBFF6 /* SignUpButtonView.swift in Sources */,
+				2C9C3D172E91D5ED0028526D /* PlaybackCenter.swift in Sources */,
 				2C49842B245B6B2100B6201C /* EpisodeViewController.swift in Sources */,
 				2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */,
 				2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */,
