@@ -1909,7 +1909,7 @@
 				CODE_SIGN_ENTITLEMENTS = Radiofy/Radiofy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
@@ -1919,7 +1919,7 @@
 					"@executable_path/Frameworks",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 2.5.0;
+				MARKETING_VERSION = 2.6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1936,7 +1936,7 @@
 				CODE_SIGN_ENTITLEMENTS = Radiofy/Radiofy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
@@ -1946,7 +1946,7 @@
 					"@executable_path/Frameworks",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 2.5.0;
+				MARKETING_VERSION = 2.6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
