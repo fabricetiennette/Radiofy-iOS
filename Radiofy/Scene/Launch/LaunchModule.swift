@@ -7,8 +7,27 @@
 //
 
 import UIKit
+import SwiftUI
 
-struct LaunchModule {
+protocol LaunchOutputBinding: ObservableObject {
+    var isOn: Bool { get }
+    
+    func isUserLoggedIn()
+    func setupEmailLanguage()
+}
+
+protocol LaunchServiceProtocol {
+    var isUserLoggedIn: Bool { get }
+    
+    func setFirebaseEmailLanguage()
+}
+
+protocol LaunchViewModelDelegate: AnyObject {
+    func showOnboardingPath()
+    func showHomeTabBar()
+}
+
+final class LaunchModule {
 
     typealias ViewModel = LaunchOutputBinding
     typealias Service = LaunchServiceProtocol
@@ -17,32 +36,15 @@ struct LaunchModule {
     private weak var coordinatorDelegate: CoordinatorDelegate?
     private let needAnimation: Bool
 
+    var launchView: some View {
+        let service = LaunchService()
+        let viewModel = LaunchViewModel(service: service, needAnimation: needAnimation)
+        viewModel.delegate = coordinatorDelegate
+        return LaunchView(viewModel: viewModel)
+    }
+
     init(coordinatorDelegate: CoordinatorDelegate?, needAnimation: Bool) {
         self.coordinatorDelegate = coordinatorDelegate
         self.needAnimation = needAnimation
     }
-
-    var viewController: UIViewController {
-        let service = LaunchService()
-        let viewModel = LaunchViewModel(service: service, needAnimation: needAnimation)
-        let launchViewController = LaunchViewController(viewModel: viewModel)
-        viewModel.delegate = coordinatorDelegate
-        return launchViewController
-    }
-}
-
-protocol LaunchOutputBinding {
-    func isUserLoggedIn()
-    func setupEmailLanguage()
-    var isOn: Bool { get }
-}
-
-protocol LaunchServiceProtocol {
-    var isUserLoggedIn: Bool { get }
-    func setFirebaseEmailLanguage()
-}
-
-protocol LaunchViewModelDelegate: AnyObject {
-    func showOnboardingPath()
-    func showHomeTabBar()
 }
