@@ -20,6 +20,7 @@
 		2C02A03E2665971F00A7F1D9 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02A03D2665971F00A7F1D9 /* HomeModule.swift */; };
 		2C02AF222454E126004E9D52 /* RadioPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AF212454E126004E9D52 /* RadioPlayerViewModelTests.swift */; };
 		2C02AF242454F2F0004E9D52 /* RadioViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AF232454F2F0004E9D52 /* RadioViewModelTests.swift */; };
+		2C1D302D2BCE9745005FBDA8 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D302C2BCE9745005FBDA8 /* LaunchView.swift */; };
 		2C22F1522448A30700CE1919 /* urlLoarder.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C22F1512448A30700CE1919 /* urlLoarder.json */; };
 		2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */; };
 		2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2662A3243AACFD00A3964E /* UIImageView.swift */; };
@@ -27,7 +28,6 @@
 		2C2B361927090CB000553945 /* RadioModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B361827090CB000553945 /* RadioModule.swift */; };
 		2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */; };
 		2C302A82263749410085325C /* LoaderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302A81263749410085325C /* LoaderIndicator.swift */; };
-		2C302A93263895970085325C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302A92263895970085325C /* LaunchViewController.swift */; };
 		2C302A9B263895BA0085325C /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302A9A263895BA0085325C /* LaunchViewModel.swift */; };
 		2C302AA626389C5E0085325C /* LaunchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302AA526389C5D0085325C /* LaunchModule.swift */; };
 		2C302AC82638A12D0085325C /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302AC72638A12D0085325C /* LaunchService.swift */; };
@@ -109,6 +109,7 @@
 		2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C368DE12437F9FD00979816 /* ExternalAccessory.framework */; };
 		2C99C37D24471D210097E106 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C99C37C24471D210097E106 /* HomeKit.framework */; };
 		2C99C3832447D7410097E106 /* FavoriteRadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99C3822447D7410097E106 /* FavoriteRadioCell.swift */; };
+		2C9C3D172E91D5ED0028526D /* PlaybackCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */; };
 		2C9E841D24649E540059D842 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C9E841F24649E540059D842 /* InfoPlist.strings */; };
 		2CA61E10272323EA00E12A48 /* FavoriteRadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */; };
 		2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7CC532438C49C0028DEBF /* EditProfileViewController.swift */; };
@@ -202,7 +203,6 @@
 		2CF7290F2708FC4100C5846B /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7290E2708FC4100C5846B /* SearchCell.xib */; };
 		2CF729122708FD9D00C5846B /* SearchBarReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF729112708FD9D00C5846B /* SearchBarReusableView.xib */; };
 		2CF729162709057C00C5846B /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CF729152709057C00C5846B /* colors.txt */; };
-		2CF72918270905DE00C5846B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF72917270905DE00C5846B /* Colors.swift */; };
 		2CF7EF272440C86D004A9B30 /* RadioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7EF262440C86D004A9B30 /* RadioPlayerViewModel.swift */; };
 		2CF7EF2B2441F702004A9B30 /* MiniPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7EF2A2441F702004A9B30 /* MiniPlayerViewModel.swift */; };
 		2CF7EF3224422B72004A9B30 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7EF3124422B72004A9B30 /* RadioViewController.swift */; };
@@ -256,6 +256,7 @@
 		2C02A03D2665971F00A7F1D9 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
 		2C02AF212454E126004E9D52 /* RadioPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewModelTests.swift; sourceTree = "<group>"; };
 		2C02AF232454F2F0004E9D52 /* RadioViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewModelTests.swift; sourceTree = "<group>"; };
+		2C1D302C2BCE9745005FBDA8 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		2C2117C5247C7CE100A65A0F /* Radiofy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Radiofy.entitlements; sourceTree = "<group>"; };
 		2C22F1512448A30700CE1919 /* urlLoarder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = urlLoarder.json; sourceTree = "<group>"; };
 		2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewModel.swift; sourceTree = "<group>"; };
@@ -264,7 +265,6 @@
 		2C2B361827090CB000553945 /* RadioModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModule.swift; sourceTree = "<group>"; };
 		2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRadioView.swift; sourceTree = "<group>"; };
 		2C302A81263749410085325C /* LoaderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderIndicator.swift; sourceTree = "<group>"; };
-		2C302A92263895970085325C /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2C302A9A263895BA0085325C /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		2C302AA526389C5D0085325C /* LaunchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModule.swift; sourceTree = "<group>"; };
 		2C302AC72638A12D0085325C /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
@@ -347,6 +347,7 @@
 		2C95C13A245CE27C005D8503 /* CMTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		2C99C37C24471D210097E106 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		2C99C3822447D7410097E106 /* FavoriteRadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRadioCell.swift; sourceTree = "<group>"; };
+		2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackCenter.swift; sourceTree = "<group>"; };
 		2C9E841E24649E540059D842 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C9E842024649E5C0059D842 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteRadioCell.xib; sourceTree = "<group>"; };
@@ -440,7 +441,6 @@
 		2CF7290E2708FC4100C5846B /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		2CF729112708FD9D00C5846B /* SearchBarReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarReusableView.xib; sourceTree = "<group>"; };
 		2CF729152709057C00C5846B /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
-		2CF72917270905DE00C5846B /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2CF7EF262440C86D004A9B30 /* RadioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewModel.swift; sourceTree = "<group>"; };
 		2CF7EF2A2441F702004A9B30 /* MiniPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewModel.swift; sourceTree = "<group>"; };
 		2CF7EF3124422B72004A9B30 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
@@ -707,6 +707,7 @@
 		2C844A7E243FE810003E19E9 /* RadioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */,
 				2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */,
 				2C41976B2445121000FFB2FA /* Player */,
 				2C41976C2445122F00FFB2FA /* MiniPlayer */,
@@ -727,7 +728,7 @@
 			children = (
 				2C68896F242E321500463F1B /* LaunchCoordinator.swift */,
 				2C302AA526389C5D0085325C /* LaunchModule.swift */,
-				2C302A92263895970085325C /* LaunchViewController.swift */,
+				2C1D302C2BCE9745005FBDA8 /* LaunchView.swift */,
 				2C302A9A263895BA0085325C /* LaunchViewModel.swift */,
 			);
 			path = Launch;
@@ -833,7 +834,6 @@
 		2CC824F527011E6C00A31476 /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
-				2CF72917270905DE00C5846B /* Colors.swift */,
 				2CC82507270125A600A31476 /* Assets.swift */,
 				2CC824F72701217F00A31476 /* Localizable.swift */,
 			);
@@ -1492,7 +1492,6 @@
 				2C498428245B325400B6201C /* RSSFeed+.swift in Sources */,
 				2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */,
 				2C5513D526FFDF140082BBB9 /* SearchModule.swift in Sources */,
-				2C302A93263895970085325C /* LaunchViewController.swift in Sources */,
 				2CDC5AB6243E9D5100498DE5 /* FirestoreManager.swift in Sources */,
 				2CD9741D2450F3AA00808E54 /* FireBaseError.swift in Sources */,
 				2CF85ABB242D86EB002FBFF6 /* SignUpViewController.swift in Sources */,
@@ -1515,6 +1514,7 @@
 				2C02588C26B5875F00985748 /* SettingsCoordinator.swift in Sources */,
 				2C498414245B056800B6201C /* Podcast.swift in Sources */,
 				2CF85AB7242D79DF002FBFF6 /* SignUpButtonView.swift in Sources */,
+				2C9C3D172E91D5ED0028526D /* PlaybackCenter.swift in Sources */,
 				2C49842B245B6B2100B6201C /* EpisodeViewController.swift in Sources */,
 				2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */,
 				2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */,
@@ -1578,6 +1578,7 @@
 				2CF5ED88242FFE970018E8A4 /* LogInViewModel.swift in Sources */,
 				2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */,
 				2CF0487C243E10A200E12429 /* MorningHomeCellView.swift in Sources */,
+				2C1D302D2BCE9745005FBDA8 /* LaunchView.swift in Sources */,
 				2C302AC82638A12D0085325C /* LaunchService.swift in Sources */,
 				2C02A03E2665971F00A7F1D9 /* HomeModule.swift in Sources */,
 				2C6B047126543268007247A4 /* UIApplication+.swift in Sources */,
@@ -1748,7 +1749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1768,7 +1769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1835,7 +1836,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1892,7 +1893,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1909,17 +1910,17 @@
 				CODE_SIGN_ENTITLEMENTS = Radiofy/Radiofy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 2.5.0;
+				MARKETING_VERSION = 2.6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1936,17 +1937,17 @@
 				CODE_SIGN_ENTITLEMENTS = Radiofy/Radiofy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 2.5.0;
+				MARKETING_VERSION = 2.6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";

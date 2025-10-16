@@ -59,8 +59,8 @@ private extension PodcastViewController {
                 NSAttributedString.Key.foregroundColor: UIColor.white]
             navigationController.navigationBar.largeTitleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationItem.standardAppearance?.backgroundColor = ColorName.navBar.color
-            navigationItem.scrollEdgeAppearance?.backgroundColor = ColorName.navBar.color
+            navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
+            navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
             navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigationController.navigationBar.shadowImage = UIImage()
             navigationController.navigationBar.isTranslucent = true

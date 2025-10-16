@@ -157,8 +157,8 @@ private extension SearchViewController {
             NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationItem.standardAppearance?.backgroundColor = ColorName.navBar.color
-        navigationItem.scrollEdgeAppearance?.backgroundColor = ColorName.navBar.color
+        navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
+        navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.isTranslucent = true
@@ -168,7 +168,7 @@ private extension SearchViewController {
     }
 
     func setupInterface() {
-        view.backgroundColor = ColorName.backgroundColor.color
+        view.backgroundColor = Asset.backgroundColor.color
         view.addSubview(searchCollectionView)
     }
 
