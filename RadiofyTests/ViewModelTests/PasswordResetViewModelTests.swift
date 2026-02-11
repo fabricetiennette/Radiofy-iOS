@@ -28,7 +28,7 @@ class PasswordResetViewModelTests: XCTestCase {
             authDataResult: fakeAuthDataResult, error: nil
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let passwordResetViewModel = PasswordResetViewModel(
             authService: authService
         )
@@ -52,7 +52,7 @@ class PasswordResetViewModelTests: XCTestCase {
             authDataResult: fakeAuthDataResult, error: nil
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let passwordResetViewModel = PasswordResetViewModel(
             authService: authService
         )
@@ -77,7 +77,7 @@ class PasswordResetViewModelTests: XCTestCase {
             error: FakeNetworkResponse.networkError
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let passwordResetViewModel = PasswordResetViewModel(
             authService: authService
         )

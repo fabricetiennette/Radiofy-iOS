@@ -24,7 +24,7 @@ class SignUpViewModelTests: XCTestCase {
         // Given:
         let fakeAuthResponse = FakeAuthResponse(authDataResult: fakeAuthDataResult, error: nil)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let signUpViewModel = SignUpViewModel(delegate: self as? SignUpViewModelDelegate, authService: authService)
         let email = "slashteuf"
         let password = "Azerty12*"
@@ -46,7 +46,7 @@ class SignUpViewModelTests: XCTestCase {
         // Given:
         let fakeAuthResponse = FakeAuthResponse(authDataResult: fakeAuthDataResult, error: nil)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let signUpViewModel = SignUpViewModel(delegate: self as? SignUpViewModelDelegate, authService: authService)
         let email = "slashteuf@hotmail.com"
         let password = "Azerty12*"
@@ -68,7 +68,7 @@ class SignUpViewModelTests: XCTestCase {
         // Given:
         let fakeAuthResponse = FakeAuthResponse(authDataResult: fakeAuthDataResult, error: nil)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let signUpViewModel = SignUpViewModel(delegate: self as? SignUpViewModelDelegate, authService: authService)
         let email = "slashteuf@hotmail.com"
         let password = "Azerty12*"
@@ -121,7 +121,7 @@ class SignUpViewModelTests: XCTestCase {
         let firestoreService = FirestoreService(
             firestoreManager: mockFirestoreService
         )
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let signUpViewModel = SignUpViewModel(
             delegate: self as? SignUpViewModelDelegate,
             authService: authService,
@@ -155,7 +155,7 @@ class SignUpViewModelTests: XCTestCase {
         let firestoreService = FirestoreService(
             firestoreManager: mockFirestoreService
         )
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let signUpViewModel = SignUpViewModel(
             delegate: self as? SignUpViewModelDelegate,
             authService: authService,
@@ -189,7 +189,7 @@ class SignUpViewModelTests: XCTestCase {
         let firestoreService = FirestoreService(
             firestoreManager: mockFirestoreService
         )
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let signUpViewModel = SignUpViewModel(
             delegate: self as? SignUpViewModelDelegate,
             authService: authService,
@@ -214,7 +214,7 @@ class SignUpViewModelTests: XCTestCase {
         )
         let mockAuthService = EmailVerifiedMock(fakeAuthResponse: fakeAuthResponse)
 
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let signUpViewModel = SignUpViewModel(
             delegate: self as? SignUpViewModelDelegate,
             authService: authService

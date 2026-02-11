@@ -24,16 +24,16 @@ class SubscriptionViewModel {
     var loadingHandler: (() -> Void)?
 
     private let firestoreService: FirestoreService
-    private let authService: AuthService
+    private let legacyFirebaseAuthService: LegacyFirebaseAuthService
 
     init(
         delegate: SubscriptionViewModelDelegate?,
         firestoreService: FirestoreService = .init(),
-        authService: AuthService = .init()
+        legacyFirebaseAuthService: LegacyFirebaseAuthService = .init()
     ) {
         self.delegate = delegate
         self.firestoreService = firestoreService
-        self.authService = authService
+        self.legacyFirebaseAuthService = legacyFirebaseAuthService
     }
 
     func showSafariView(with radiofyUrl: RadiofyAbout) {

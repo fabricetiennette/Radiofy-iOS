@@ -39,7 +39,7 @@ class AccountViewModelTests: XCTestCase {
         let mockStorageService = MockStorageService(fakeStorageResponse: fakeStorageResponse)
         let storageService = StorageService(storageManager: mockStorageService)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let accountViewModel = AccountViewModel(authService: authService, firestoreService: firestoreService, storageService: storageService)
         let expect = expectation(description: "Email error expected :D")
 
@@ -70,7 +70,7 @@ class AccountViewModelTests: XCTestCase {
         let mockStorageService = MockStorageService(fakeStorageResponse: fakeStorageResponse)
         let storageService = StorageService(storageManager: mockStorageService)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let accountViewModel = AccountViewModel(authService: authService, firestoreService: firestoreService, storageService: storageService)
         let expect = expectation(description: "Email error expected :D")
 
@@ -105,7 +105,7 @@ class AccountViewModelTests: XCTestCase {
         let mockStorageService = MockStorageService(fakeStorageResponse: fakeStorageResponse)
         let storageService = StorageService(storageManager: mockStorageService)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let accountViewModel = AccountViewModel(authService: authService, firestoreService: firestoreService, storageService: storageService)
         let expect = expectation(description: "Email error expected :D")
 
@@ -140,7 +140,7 @@ class AccountViewModelTests: XCTestCase {
         let mockStorageService = MockStorageService(fakeStorageResponse: fakeStorageResponse)
         let storageService = StorageService(storageManager: mockStorageService)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let accountViewModel = AccountViewModel(authService: authService, firestoreService: firestoreService, storageService: storageService)
         let expect = expectation(description: "Email error expected :D")
 
@@ -175,7 +175,7 @@ class AccountViewModelTests: XCTestCase {
         let mockStorageService = MockStorageService(fakeStorageResponse: fakeStorageResponse)
         let storageService = StorageService(storageManager: mockStorageService)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let accountViewModel = AccountViewModel(authService: authService, firestoreService: firestoreService, storageService: storageService)
         let expect = expectation(description: "Email error expected :D")
 
@@ -210,7 +210,7 @@ class AccountViewModelTests: XCTestCase {
         let mockStorageService = MockStorageService(fakeStorageResponse: fakeStorageResponse)
         let storageService = StorageService(storageManager: mockStorageService)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let accountViewModel = AccountViewModel(authService: authService, firestoreService: firestoreService, storageService: storageService)
         let expect = expectation(description: "Email error expected :D")
 

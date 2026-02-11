@@ -9,7 +9,7 @@
 import Foundation
 @testable import Radiofy
 
-class MockAuthService: AuthProtocol {
+class MockAuthService: LegacyFirebaseAuthProtocol {
     
     private(set) var isAnonymous: Bool
     private(set) var currentUser: UserProtocol?

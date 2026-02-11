@@ -103,7 +103,7 @@
 		2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */; };
 		2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A7C243F5D27003E19E9 /* RadioStation.swift */; };
 		2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */; };
-		2C8A4E022450461D00E8E6A3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4E012450461D00E8E6A3 /* AuthManager.swift */; };
+		2C8A4E022450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4E012450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift */; };
 		2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C9281B324296EA00052C714 /* Argon-Regular.otf */; };
 		2C95C13B245CE27C005D8503 /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95C13A245CE27C005D8503 /* CMTime.swift */; };
 		2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C368DE12437F9FD00979816 /* ExternalAccessory.framework */; };
@@ -160,12 +160,22 @@
 		2CDF26FA265D8E06008C3B71 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */; };
 		2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */; };
 		2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FD265D93C4008C3B71 /* LogInService.swift */; };
+		2CE3E28B2F3CAD5C008D2F42 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E28A2F3CAD59008D2F42 /* AuthServiceProtocol.swift */; };
+		2CE3E28D2F3CC915008D2F42 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E28C2F3CC914008D2F42 /* AuthModels.swift */; };
+		2CE3E28F2F3CCA3E008D2F42 /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E28E2F3CCA3C008D2F42 /* AuthSession.swift */; };
+		2CE3E2912F3CCE82008D2F42 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E2902F3CCE81008D2F42 /* AuthService.swift */; };
+		2CE3E2932F3CCF5B008D2F42 /* KeychainTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E2922F3CCF59008D2F42 /* KeychainTokenStore.swift */; };
+		2CE3E2952F3CCFCB008D2F42 /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E2942F3CCFCA008D2F42 /* TokenStore.swift */; };
+		2CE3E29A2F3CDC6F008D2F42 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2992F3CDC6F008D2F42 /* Staging.xcconfig */; };
+		2CE3E29C2F3CDCB1008D2F42 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E29B2F3CDCB1008D2F42 /* Prod.xcconfig */; };
+		2CE3E29E2F3CDE14008D2F42 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E29D2F3CDE12008D2F42 /* AppConfig.swift */; };
+		2CE3E2A02F3CE41C008D2F42 /* AuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E29F2F3CE41B008D2F42 /* AuthEndpoint.swift */; };
 		2CE43C40270E356E00D24C6F /* RadiofyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */; };
 		2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */; };
 		2CE6ACFE2452348D00D8A7B7 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */; };
 		2CE6AD002452563400D8A7B7 /* FakeAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */; };
-		2CE6AD05245258AC00D8A7B7 /* AuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6AD04245258AC00D8A7B7 /* AuthProtocol.swift */; };
-		2CE6AD0724525D3C00D8A7B7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6AD0624525D3C00D8A7B7 /* AuthService.swift */; };
+		2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6AD04245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift */; };
+		2CE6AD0724525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6AD0624525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift */; };
 		2CE74A6824532682008E3D57 /* FakeNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A6724532682008E3D57 /* FakeNetworkResponse.swift */; };
 		2CE74A6A245327D6008E3D57 /* FirestoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A69245327D6008E3D57 /* FirestoreProtocol.swift */; };
 		2CE74A6C24532929008E3D57 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A6B24532929008E3D57 /* FirestoreService.swift */; };
@@ -342,7 +352,7 @@
 		2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarReusableView.swift; sourceTree = "<group>"; };
 		2C844A7C243F5D27003E19E9 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
 		2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewController.swift; sourceTree = "<group>"; };
-		2C8A4E012450461D00E8E6A3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		2C8A4E012450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyFirebaseAuthManager.swift; sourceTree = "<group>"; };
 		2C9281B324296EA00052C714 /* Argon-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Argon-Regular.otf"; sourceTree = "<group>"; };
 		2C95C13A245CE27C005D8503 /* CMTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		2C99C37C24471D210097E106 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
@@ -405,12 +415,22 @@
 		2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModule.swift; sourceTree = "<group>"; };
 		2CDF26FD265D93C4008C3B71 /* LogInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInService.swift; sourceTree = "<group>"; };
+		2CE3E28A2F3CAD59008D2F42 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		2CE3E28C2F3CC914008D2F42 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		2CE3E28E2F3CCA3C008D2F42 /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
+		2CE3E2902F3CCE81008D2F42 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2CE3E2922F3CCF59008D2F42 /* KeychainTokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTokenStore.swift; sourceTree = "<group>"; };
+		2CE3E2942F3CCFCA008D2F42 /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
+		2CE3E2992F3CDC6F008D2F42 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		2CE3E29B2F3CDCB1008D2F42 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		2CE3E29D2F3CDE12008D2F42 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		2CE3E29F2F3CE41B008D2F42 /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
 		2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiofyViewController.swift; sourceTree = "<group>"; };
 		2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthResponse.swift; sourceTree = "<group>"; };
-		2CE6AD04245258AC00D8A7B7 /* AuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocol.swift; sourceTree = "<group>"; };
-		2CE6AD0624525D3C00D8A7B7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2CE6AD04245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyFirebaseAuthProtocol.swift; sourceTree = "<group>"; };
+		2CE6AD0624525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyFirebaseAuthService.swift; sourceTree = "<group>"; };
 		2CE74A6724532682008E3D57 /* FakeNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkResponse.swift; sourceTree = "<group>"; };
 		2CE74A69245327D6008E3D57 /* FirestoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreProtocol.swift; sourceTree = "<group>"; };
 		2CE74A6B24532929008E3D57 /* FirestoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
@@ -869,6 +889,43 @@
 			path = SearchCell;
 			sourceTree = "<group>";
 		};
+		2CE3E2872F3CA36F008D2F42 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3E29F2F3CE41B008D2F42 /* AuthEndpoint.swift */,
+				2CE3E2902F3CCE81008D2F42 /* AuthService.swift */,
+				2CE3E28E2F3CCA3C008D2F42 /* AuthSession.swift */,
+				2CE3E28C2F3CC914008D2F42 /* AuthModels.swift */,
+				2CE3E28A2F3CAD59008D2F42 /* AuthServiceProtocol.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2CE3E2882F3CA36F008D2F42 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		2CE3E2892F3CA36F008D2F42 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3E2942F3CCFCA008D2F42 /* TokenStore.swift */,
+				2CE3E2922F3CCF59008D2F42 /* KeychainTokenStore.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		2CE3E2962F3CDC21008D2F42 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3E2992F3CDC6F008D2F42 /* Staging.xcconfig */,
+				2CE3E29B2F3CDCB1008D2F42 /* Prod.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		2CE6ACFC2451F05700D8A7B7 /* TestsParameters */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,9 +940,12 @@
 		2CE6AD012452586A00D8A7B7 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				2CE6AD04245258AC00D8A7B7 /* AuthProtocol.swift */,
-				2C8A4E012450461D00E8E6A3 /* AuthManager.swift */,
-				2CE6AD0624525D3C00D8A7B7 /* AuthService.swift */,
+				2CE3E2872F3CA36F008D2F42 /* Services */,
+				2CE3E2882F3CA36F008D2F42 /* Session */,
+				2CE3E2892F3CA36F008D2F42 /* Storage */,
+				2CE6AD04245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift */,
+				2C8A4E012450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift */,
+				2CE6AD0624525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1168,6 +1228,7 @@
 		2CFD6BFB2429103900F35EC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3E2962F3CDC21008D2F42 /* Config */,
 				2CFD6BFC2429105700F35EC1 /* SupportingFiles */,
 				2C9281B224296E690052C714 /* Fonts */,
 				2CC824F527011E6C00A31476 /* SwiftGen */,
@@ -1193,6 +1254,7 @@
 		2CFD6C042429166D00F35EC1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3E29D2F3CDE12008D2F42 /* AppConfig.swift */,
 				2CB77E5F2649AF1C0069BC52 /* UIControl */,
 				2C302A80263749140085325C /* Loader */,
 				2CF85AB4242D7900002FBFF6 /* LogInButtonView.swift */,
@@ -1385,6 +1447,7 @@
 				2C9E841D24649E540059D842 /* InfoPlist.strings in Resources */,
 				2CF729162709057C00C5846B /* colors.txt in Resources */,
 				2CB30EDC2433F4EE00820DE4 /* loader-1212.json in Resources */,
+				2CE3E29C2F3CDCB1008D2F42 /* Prod.xcconfig in Resources */,
 				2C22F1522448A30700CE1919 /* urlLoarder.json in Resources */,
 				2C41976A2444DD2200FFB2FA /* progressBar.json in Resources */,
 				2CC825062701244C00A31476 /* Localizable.strings in Resources */,
@@ -1395,6 +1458,7 @@
 				2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */,
 				2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */,
 				2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */,
+				2CE3E29A2F3CDC6F008D2F42 /* Staging.xcconfig in Resources */,
 				2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */,
 				2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */,
 				2CA61E10272323EA00E12A48 /* FavoriteRadioCell.xib in Resources */,
@@ -1475,7 +1539,7 @@
 				2C302A82263749410085325C /* LoaderIndicator.swift in Sources */,
 				2CE74A7724533DAF008E3D57 /* StorageService.swift in Sources */,
 				2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */,
-				2CE6AD0724525D3C00D8A7B7 /* AuthService.swift in Sources */,
+				2CE6AD0724525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift in Sources */,
 				2CB30EE02433FAD100820DE4 /* MainTabBarController.swift in Sources */,
 				2C4E4CD024400A9900F907EB /* MiniPlayerViewController.swift in Sources */,
 				2CC4300F2435C81A001009E2 /* UIViewController+.swift in Sources */,
@@ -1503,28 +1567,31 @@
 				2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */,
 				2CE43C40270E356E00D24C6F /* RadiofyViewController.swift in Sources */,
 				2C498431245B790A00B6201C /* EpisodeDataSource.swift in Sources */,
-				2CF72918270905DE00C5846B /* Colors.swift in Sources */,
 				2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */,
 				2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */,
 				2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */,
 				2C004291244E4288006ABABF /* AccountViewModel.swift in Sources */,
 				2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */,
 				2CFD6BE324290E1000F35EC1 /* AppDelegate.swift in Sources */,
-				2C8A4E022450461D00E8E6A3 /* AuthManager.swift in Sources */,
+				2CE3E2A02F3CE41C008D2F42 /* AuthEndpoint.swift in Sources */,
+				2C8A4E022450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift in Sources */,
 				2C02588C26B5875F00985748 /* SettingsCoordinator.swift in Sources */,
 				2C498414245B056800B6201C /* Podcast.swift in Sources */,
 				2CF85AB7242D79DF002FBFF6 /* SignUpButtonView.swift in Sources */,
+				2CE3E2952F3CCFCB008D2F42 /* TokenStore.swift in Sources */,
+				2CE3E2912F3CCE82008D2F42 /* AuthService.swift in Sources */,
 				2C9C3D172E91D5ED0028526D /* PlaybackCenter.swift in Sources */,
 				2C49842B245B6B2100B6201C /* EpisodeViewController.swift in Sources */,
 				2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */,
 				2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */,
-				2CE6AD05245258AC00D8A7B7 /* AuthProtocol.swift in Sources */,
+				2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */,
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
 				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
 				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
 				2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */,
 				2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */,
 				2C3387672434D53600141102 /* SettingButtonView.swift in Sources */,
+				2CE3E29E2F3CDE14008D2F42 /* AppConfig.swift in Sources */,
 				2C685BB426B5FCB3006FD017 /* AccountModule.swift in Sources */,
 				2C02588E26B5876F00985748 /* SettingsModule.swift in Sources */,
 				2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */,
@@ -1540,6 +1607,7 @@
 				2CE74A6C24532929008E3D57 /* FirestoreService.swift in Sources */,
 				2C685BB026B5FC83006FD017 /* EditProfileModule.swift in Sources */,
 				2C49841F245B0FB100B6201C /* ListPodcastCell.swift in Sources */,
+				2CE3E28F2F3CCA3E008D2F42 /* AuthSession.swift in Sources */,
 				2C2B361727090C9E00553945 /* RadioCoordinator.swift in Sources */,
 				2C00428A244E1241006ABABF /* AboutViewController.swift in Sources */,
 				2C685BB626B5FCDA006FD017 /* AboutCoordinator.swift in Sources */,
@@ -1557,6 +1625,7 @@
 				2CB30EE42433FCC000820DE4 /* SearchCoordinator.swift in Sources */,
 				2C02589026B588D600985748 /* SettingsService.swift in Sources */,
 				2CC8038E2462E22A00F345C9 /* SubscriptionViewController.swift in Sources */,
+				2CE3E2932F3CCF5B008D2F42 /* KeychainTokenStore.swift in Sources */,
 				2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */,
 				2C302AA626389C5E0085325C /* LaunchModule.swift in Sources */,
 				2CA7CC562438C4B00028DEBF /* EditProfileViewModel.swift in Sources */,
@@ -1594,11 +1663,13 @@
 				2CF5ED83242F91EC0018E8A4 /* String+.swift in Sources */,
 				2C49840F245AFA3F00B6201C /* PodcastDataSource.swift in Sources */,
 				2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */,
+				2CE3E28D2F3CC915008D2F42 /* AuthModels.swift in Sources */,
 				2CF7EF272440C86D004A9B30 /* RadioPlayerViewModel.swift in Sources */,
 				2CC824F82701217F00A31476 /* Localizable.swift in Sources */,
 				2CF5ED6E242E53E60018E8A4 /* SignMeUpButtonView.swift in Sources */,
 				2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */,
 				2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */,
+				2CE3E28B2F3CAD5C008D2F42 /* AuthServiceProtocol.swift in Sources */,
 				2CBEAD7126530AD100F5E965 /* Stack.swift in Sources */,
 				2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */,
 				2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */,
@@ -1749,7 +1820,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1769,7 +1840,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1785,6 +1856,7 @@
 		};
 		2CFD6BF124290E1100F35EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CE3E2992F3CDC6F008D2F42 /* Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1848,6 +1920,7 @@
 		};
 		2CFD6BF224290E1100F35EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CE3E29B2F3CDCB1008D2F42 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1914,7 +1987,7 @@
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1941,7 +2014,7 @@
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1964,6 +2037,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1985,6 +2059,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -16,18 +16,18 @@ class EditProfileViewModel {
 
     // MARK: - Injection
 
-    private let authService: AuthService
+    private let legacyFirebaseAuthService: LegacyFirebaseAuthService
     private let firestoreService: FirestoreService
     private let storageService: StorageService
 
     // MARK: - Init
 
     init(
-        authService: AuthService = .init(),
+        legacyFirebaseAuthService: LegacyFirebaseAuthService = .init(),
         firestoreService: FirestoreService = .init(),
         storageService: StorageService = .init()
     ) {
-        self.authService = authService
+        self.legacyFirebaseAuthService = legacyFirebaseAuthService
         self.firestoreService = firestoreService
         self.storageService = storageService
     }
@@ -39,7 +39,7 @@ class EditProfileViewModel {
     }
 
     func saveUserInfo(_ imageData: Data?, _ userName: String) {
-        guard let email = authService.userEmail else { return }
+        guard let email = legacyFirebaseAuthService.userEmail else { return }
         guard let data = imageData else {
             errorHandler?(L10n.photoInvalidTryAgain)
             return
@@ -63,7 +63,7 @@ class EditProfileViewModel {
     // MARK: - Private
 
     private func getUserInfoFromDatabase() {
-        guard let email = authService.userEmail else { return }
+        guard let email = legacyFirebaseAuthService.userEmail else { return }
         firestoreService.getUserInfoFromDatabase(email: email) { result in
             switch result {
             case .success((let name, let photoURL)):

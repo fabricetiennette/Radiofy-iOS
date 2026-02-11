@@ -64,7 +64,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    <key>UIUserInterfaceStyle</key>
-    <string>Dark</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Dark</string>
+    <key>RADIOFY_API_BASE_URL</key>
+    <string>$(RADIOFY_API_BASE_URL)</string>
+    <key>RADIOFY_API_VERSION</key>
+    <string>$(RADIOFY_API_VERSION)</string>
 </dict>
 </plist>

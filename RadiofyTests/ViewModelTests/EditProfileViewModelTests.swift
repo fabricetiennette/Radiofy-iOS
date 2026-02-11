@@ -39,7 +39,7 @@ class EditProfileViewModelTests: XCTestCase {
         let mockStorageService = MockStorageService(fakeStorageResponse: fakeStorageResponse)
         let storageService = StorageService(storageManager: mockStorageService)
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let editProfileViewModel = EditProfileViewModel(authService: authService, firestoreService: firestoreService, storageService: storageService)
         let imageView = UIImageView()
         imageView.image = UIImage(named: "NoPicture")

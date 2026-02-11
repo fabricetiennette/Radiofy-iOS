@@ -1,0 +1,14 @@
+//
+//  Prod.xcconfig
+//  Radiofy
+//
+//  Created by Fabrice Etiennette on 11.02.2026.
+//  Copyright © 2026 Fabrice Etiennette. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+SLASH = /
+RADIOFY_API_BASE_URL = https:$(SLASH)$(SLASH)radiofy-backend---prod.wittywave-119f762a.westeurope.azurecontainerapps.io
+RADIOFY_API_VERSION = v1

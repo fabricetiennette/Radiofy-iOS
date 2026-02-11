@@ -36,7 +36,7 @@ class SettingViewModelTests: XCTestCase {
             firestoreManager: mockFirestoreService
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let settingViewModel = SettingsViewModel(delegate: self as? SettingsViewModelDelegate, authService: authService, firestoreService: firestoreService)
         let expect = expectation(description: "Email error expected :D")
 
@@ -67,7 +67,7 @@ class SettingViewModelTests: XCTestCase {
             firestoreManager: mockFirestoreService
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let settingViewModel = SettingsViewModel(delegate: self as? SettingsViewModelDelegate, authService: authService, firestoreService: firestoreService)
         let expect = expectation(description: "Email error expected :D")
 

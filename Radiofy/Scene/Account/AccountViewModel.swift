@@ -28,19 +28,19 @@ class AccountViewModel {
 
     // MARK: - Injection
 
-    private var authService: AuthService
+    private var legacyFirebaseAuthService: LegacyFirebaseAuthService
     private let firestoreService: FirestoreService
     private let storageService: StorageService
 
     // MARK: - Init
 
     init(
-        authService: AuthService = .init(),
+        legacyFirebaseAuthService: LegacyFirebaseAuthService = .init(),
         firestoreService: FirestoreService = .init(),
         storageService: StorageService = .init(),
         delegate: AccountViewModelDelete?
     ) {
-        self.authService = authService
+        self.legacyFirebaseAuthService = legacyFirebaseAuthService
         self.firestoreService = firestoreService
         self.storageService = storageService
         self.delegate = delegate
@@ -49,7 +49,7 @@ class AccountViewModel {
     // MARK: - viewModel Methods
 
     func isUserLoggedIn() {
-        authService.stateDidChangeForAuth {
+        legacyFirebaseAuthService.stateDidChangeForAuth {
             RadioPlayerViewController.player?.pause()
             self.player.stop()
             self.showStartViewIfSignOut()
@@ -57,13 +57,13 @@ class AccountViewModel {
     }
 
     func isUserAnonymous() {
-        if authService.isAnonymous == false {
+        if legacyFirebaseAuthService.isAnonymous == false {
             self.userIsNotAnonymous?()
         }
     }
 
     func getUserNameAndEmail() {
-        guard let email = authService.userEmail else { return }
+        guard let email = legacyFirebaseAuthService.userEmail else { return }
         firestoreService
             .getDocument(collection: "users", document: email, get: "name") { result in
             switch result {
@@ -76,7 +76,7 @@ class AccountViewModel {
     }
 
     func reauthenticateAndDelete(with password: String?) {
-        authService.reauthenticate(password: password) { [weak self] result in
+        legacyFirebaseAuthService.reauthenticate(password: password) { [weak self] result in
             guard let me = self else { return }
             switch result {
             case .success:
@@ -94,7 +94,7 @@ class AccountViewModel {
     // MARK: - Private
 
     private func deleteUserAccount() {
-        guard let email = authService.userEmail else { return }
+        guard let email = legacyFirebaseAuthService.userEmail else { return }
         deleteUserImageInStorage(with: email)
     }
 
@@ -121,7 +121,7 @@ class AccountViewModel {
     }
 
     private func deleteUserAuthentication(with email: String) {
-        authService.deleteUserAuthentication(with: email) { result in
+        legacyFirebaseAuthService.deleteUserAuthentication(with: email) { result in
             switch result {
             case .success:
                 self.resetDefaults()
