@@ -3,6 +3,7 @@ import SwiftUI
 struct PasswordResetView: View {
 
     @StateObject var viewModel: PasswordResetViewModel
+    let onGoToLogin: () -> Void
 
     @State private var remainingSeconds: Int = 0
     @State private var isTimerRunning: Bool = false
@@ -107,6 +108,11 @@ struct PasswordResetView: View {
                                 return
                             }
                             await viewModel.requestNewPassword()
+
+                            // Pop back to the parent (Login) on success.
+                            if viewModel.errorMessage == nil, viewModel.successMessage != nil {
+                                onGoToLogin()
+                            }
                         case .done:
                             break
                         }
@@ -189,7 +195,7 @@ struct PasswordResetView: View {
     )
 
     NavigationStack {
-        PasswordResetView(viewModel: viewModel)
+        PasswordResetView(viewModel: viewModel, onGoToLogin: {})
     }
 }
 #endif

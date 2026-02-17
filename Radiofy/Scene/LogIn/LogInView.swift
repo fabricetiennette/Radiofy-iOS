@@ -66,6 +66,8 @@ struct LogInView: View {
                     Text(errorMessage)
                         .font(.footnote)
                         .foregroundStyle(.red)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
 
                 // Log in button

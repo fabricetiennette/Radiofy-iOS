@@ -30,6 +30,7 @@ final class VerifyEmailViewModel: ObservableObject {
     }
     
     func verifyEmail() async {
+        print("➡️ verifyEmail tapped")
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard isValidEmail(trimmedEmail) else {
@@ -56,8 +57,10 @@ final class VerifyEmailViewModel: ObservableObject {
             try await authService.verifyEmail(email: trimmedEmail, code: trimmedCode)
             
             successMessage = "Email verified successfully."
+            print("✅ verifyEmail success — calling onAuthenticated()")
             onAuthenticated()
         } catch {
+            print("❌ verifyEmail failed:", error)
             errorMessage = "Failed to verify email."
             
         }
@@ -88,7 +91,7 @@ final class VerifyEmailViewModel: ObservableObject {
 
     private func startCooldown(seconds: Int) {
         cooldownSeconds = seconds
-        Task { [weak self] in
+        Task { @MainActor [weak self] in
             guard let self else { return }
             while self.cooldownSeconds > 0 {
                 try? await Task.sleep(nanoseconds: 1_000_000_000)

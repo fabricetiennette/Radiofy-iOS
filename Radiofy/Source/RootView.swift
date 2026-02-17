@@ -4,6 +4,7 @@ struct RootView: View {
     
     private let container: AppContainer
     @StateObject private var router: RootRouter
+    @State private var didStart = false
     
     init(container: AppContainer) {
         self.container = container
@@ -15,21 +16,29 @@ struct RootView: View {
         Group {
             switch router.route {
             case .launch:
-                LaunchView(shouldAnimate: true,
-                           onAppearAction: {
-                    //  optional: e.g. setup language
-                }, onFinished: {
-                    Task { await router.start() }
-                })
+                LaunchView(
+                    shouldAnimate: true,
+                    onAppearAction: {
+                        // optional: e.g. setup language
+                    },
+                    onFinished: {
+                        router.enableRouting()
+                    }
+                )
                 
             case .home:
-//                HomeView()
-                Text("Home")
+                HomeView()
+                
             case .onboarding:
                 OnboardingView {
                     router.setHome()
                 }
             }
+        }
+        .task {
+            guard !didStart else { return }
+            didStart = true
+            await router.start()
         }
         .environment(\.authService, container.authService)
     }

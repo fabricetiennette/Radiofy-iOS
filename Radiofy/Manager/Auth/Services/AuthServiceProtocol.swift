@@ -3,6 +3,7 @@ import Foundation
 public protocol AuthServicing {
     // Loads stored tokens (Keychain) into memory/session.
     func restoreSession() async
+    func resumeSession() async throws
     
     // Auth
     func register(email: String, password: String) async throws

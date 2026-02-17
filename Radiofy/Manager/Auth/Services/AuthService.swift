@@ -7,9 +7,6 @@ public final class AuthService: AuthServicing {
     private let tokenStore: TokenStore
     private let authSession: AuthSession
 
-    private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
-
     public init(
         baseURL: URL,
         urlSession: URLSession = .shared,
@@ -25,8 +22,22 @@ public final class AuthService: AuthServicing {
     // MARK: - Session
 
     public func restoreSession() async {
-        let refreshToken = tokenStore.readRefreshToken()
+        // Keychain access can be slow; avoid doing it on the MainActor.
+        let refreshToken = await Task.detached(priority: .userInitiated) { [tokenStore] in
+            tokenStore.readRefreshToken()
+        }.value
         await authSession.setRefreshToken(refreshToken)
+    }
+
+    /// Restores the refresh token from storage and attempts to refresh the access token.
+    /// Use this on app launch before calling authenticated endpoints.
+    public func resumeSession() async throws {
+        await restoreSession()
+        // If there is no refresh token, the user is not authenticated.
+        guard await authSession.refreshToken != nil else {
+            throw AuthServiceError.notAuthenticated
+        }
+        try await refresh()
     }
 
     // MARK: - Auth
@@ -51,11 +62,17 @@ public final class AuthService: AuthServicing {
 
     public func login(email: String, password: String) async throws {
         let body = AuthLoginRequest(email: email, password: password)
-        let tokens: AuthTokenResponse = try await sendJSON(
+        let (data, _) = try await sendRaw(
             endpoint: .login,
             body: body,
             authenticated: false
         )
+
+        guard !data.isEmpty else {
+            throw AuthServiceError.emptyData
+        }
+
+        let tokens = try JSONDecoder().decode(AuthTokenResponse.self, from: data)
         await saveTokens(tokens)
     }
 
@@ -63,26 +80,31 @@ public final class AuthService: AuthServicing {
         guard let refreshToken = await authSession.refreshToken else {
             throw AuthServiceError.notAuthenticated
         }
-
         let body = AuthRefreshRequest(refreshToken: refreshToken)
-        let tokens: AuthTokenResponse = try await sendJSON(
+        let requestBody = try JSONEncoder().encode(body)
+        let (data, _) = try await sendRequest(
             endpoint: .refresh,
-            body: body,
+            body: requestBody,
             authenticated: false
         )
-
+        let tokens = try JSONDecoder().decode(AuthTokenResponse.self, from: data)
         // Update access token.
         await authSession.setAccessToken(tokens.accessToken)
-
         // Handle refresh token rotation if it changes.
         if tokens.refreshToken != refreshToken {
             await authSession.setRefreshToken(tokens.refreshToken)
-            tokenStore.writeRefreshToken(tokens.refreshToken)
+            // Keychain access can be slow; avoid doing it on the MainActor.
+            _ = await Task.detached(priority: .userInitiated) { [tokenStore] in
+                tokenStore.writeRefreshToken(tokens.refreshToken)
+            }.value
         }
     }
 
     public func logout() async {
-        tokenStore.deleteRefreshToken()
+        // Keychain access can be slow; avoid doing it on the MainActor.
+        _ = await Task.detached(priority: .userInitiated) { [tokenStore] in
+            tokenStore.deleteRefreshToken()
+        }.value
         await authSession.clearTokens()
     }
 
@@ -90,11 +112,19 @@ public final class AuthService: AuthServicing {
 
     public func verifyEmail(email: String, code: String) async throws {
         let body = VerifyEmailRequest(email: email, code: code)
-        let tokens: AuthTokenResponse = try await sendJSON(
+
+        let (data, _) = try await sendRaw(
             endpoint: .verifyEmail,
             body: body,
             authenticated: false
         )
+
+        // Some backends return tokens after verification; others return an empty body.
+        guard !data.isEmpty else {
+            return
+        }
+
+        let tokens = try JSONDecoder().decode(AuthTokenResponse.self, from: data)
         await saveTokens(tokens)
     }
 
@@ -129,18 +159,21 @@ public final class AuthService: AuthServicing {
 
     // MARK: - User
 
+    private func sendJSON<T: Decodable>(
+        endpoint: AuthEndpoint,
+        authenticated: Bool
+    ) async throws -> T {
+        try await sendJSON(endpoint: endpoint, body: nil as Data?, authenticated: authenticated)
+    }
+
     public func me() async throws -> UserResponse {
-        try await sendJSON(
-            endpoint: .me,
-            body: Optional<Data>.none,
-            authenticated: true
-        )
+        try await sendJSON(endpoint: .me, authenticated: true)
     }
 
     public func deleteAccount() async throws {
         _ = try await sendRequest(
             endpoint: .deleteMe,
-            body: Optional<Data>.none,
+            body: nil,
             authenticated: true
         )
         await logout()
@@ -150,7 +183,10 @@ public final class AuthService: AuthServicing {
 
     private func saveTokens(_ tokens: AuthTokenResponse) async {
         await authSession.setTokens(accessToken: tokens.accessToken, refreshToken: tokens.refreshToken)
-        tokenStore.writeRefreshToken(tokens.refreshToken)
+        // Keychain access can be slow; avoid doing it on the MainActor.
+        _ = await Task.detached(priority: .userInitiated) { [tokenStore] in
+            tokenStore.writeRefreshToken(tokens.refreshToken)
+        }.value
     }
 
     private func sendJSON<T: Decodable, Body: Encodable>(
@@ -162,7 +198,7 @@ public final class AuthService: AuthServicing {
         if let raw = body as? Data {
             data = raw
         } else {
-            data = try encoder.encode(body)
+            data = try JSONEncoder().encode(body)
         }
         return try await sendJSON(endpoint: endpoint, body: data, authenticated: authenticated)
     }
@@ -173,7 +209,7 @@ public final class AuthService: AuthServicing {
         authenticated: Bool
     ) async throws -> T {
         let (data, _) = try await sendRequest(endpoint: endpoint, body: body, authenticated: authenticated)
-        return try decoder.decode(T.self, from: data)
+        return try JSONDecoder().decode(T.self, from: data)
     }
 
     @discardableResult
@@ -182,7 +218,7 @@ public final class AuthService: AuthServicing {
         body: Body,
         authenticated: Bool
     ) async throws -> (Data, HTTPURLResponse) {
-        let data = try encoder.encode(body)
+        let data = try JSONEncoder().encode(body)
         return try await sendRequest(endpoint: endpoint, body: data, authenticated: authenticated)
     }
 
@@ -194,6 +230,9 @@ public final class AuthService: AuthServicing {
     ) async throws -> (Data, HTTPURLResponse) {
 
         var request = URLRequest(url: baseURL.appendingPathComponent(endpoint.path))
+        // Prevent infinite loading if the server is unreachable or stalls.
+        request.timeoutInterval = 20
+
         request.httpMethod = endpoint.method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Accept")
 
@@ -228,5 +267,6 @@ public enum AuthServiceError: Error, Equatable {
     case notImplemented
     case notAuthenticated
     case invalidResponse
+    case emptyData
     case server(status: Int, message: String?)
 }

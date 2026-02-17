@@ -12,6 +12,7 @@ struct OnboardingView: View {
     let onAuthenticated: () -> Void
 
     @Environment(\.authService) private var authService
+
     @State private var path = NavigationPath()
 
     var body: some View {
@@ -138,8 +139,14 @@ struct OnboardingView: View {
     @ViewBuilder
     private var forgotPasswordDestination: some View {
         if let authService {
-            PasswordResetModule(authService: authService)
-                .makeView()
+            PasswordResetModule(
+                authService: authService,
+                onGoToLogin: {
+                    // Forgot Password is pushed from Login; popping returns to Login.
+                    if !path.isEmpty { path.removeLast() }
+                }
+            )
+            .makeView()
         } else {
             Text("Auth service is not available.")
         }

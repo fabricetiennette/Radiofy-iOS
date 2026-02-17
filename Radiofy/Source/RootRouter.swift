@@ -9,7 +9,9 @@ final class RootRouter: ObservableObject {
         case home
     }
     
-    @Published private(set) var route: Route = .launch
+    @Published var route: Route = .launch
+    private var isRoutingEnabled = false
+    private var pendingRoute: Route?
     
     private let auth: AuthServicing
     
@@ -18,21 +20,36 @@ final class RootRouter: ObservableObject {
     }
     
     func setHome() {
-        route = .home
+        setRoute(.home)
     }
-    
+
     func setOnboarding() {
-        route = .onboarding
+        setRoute(.onboarding)
+    }
+
+    func enableRouting() {
+        isRoutingEnabled = true
+        if let pendingRoute {
+            route = pendingRoute
+            self.pendingRoute = nil
+        }
+    }
+
+    private func setRoute(_ newRoute: Route) {
+        guard isRoutingEnabled else {
+            pendingRoute = newRoute
+            return
+        }
+        route = newRoute
     }
     
     func start() async {
-        await auth.restoreSession()
-        
         do {
-            try await auth.refresh()
+            try await auth.resumeSession()
             _ = try await auth.me()
             setHome()
         } catch {
+            await auth.logout()
             setOnboarding()
         }
     }
