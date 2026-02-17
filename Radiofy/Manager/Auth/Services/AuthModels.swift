@@ -37,6 +37,11 @@ public struct ResetPasswordRequest: Codable {
 
 // MARK: - Responses
 
+public struct RegisterResponse: Decodable, Equatable {
+    public let message: String
+    public let next: String?
+}
+
 public struct AuthTokenResponse: Codable {
     public let tokenType: String
     public let accessToken: String

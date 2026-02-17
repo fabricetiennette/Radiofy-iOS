@@ -35,19 +35,19 @@ class SignUpCoordinator: Coordinator<UIViewController> {
     weak var delegate: SignUpCoordinatorDelegate?
 
     override func start() {
-        let module = SignUpModule(coordinatorDelegate: self)
-        let signUpViewController = module.viewController
-        signUpViewController.navigationItem.title = L10n.createAccount
-
-        switch options {
-        case let .present(viewController, style: style):
-            let navigationController = UINavigationController(rootViewController: signUpViewController)
-            navigationController.modalPresentationStyle = style
-            viewController.present(signUpViewController, animated: true)
-
-        case let .push(navigationController):
-            navigationController.pushViewController(signUpViewController, animated: true)
-        }
+//        let module = SignUpModule(coordinatorDelegate: self)
+//        let signUpViewController = module.viewController
+//        signUpViewController.navigationItem.title = L10n.createAccount
+//
+//        switch options {
+//        case let .present(viewController, style: style):
+//            let navigationController = UINavigationController(rootViewController: signUpViewController)
+//            navigationController.modalPresentationStyle = style
+//            viewController.present(signUpViewController, animated: true)
+//
+//        case let .push(navigationController):
+//            navigationController.pushViewController(signUpViewController, animated: true)
+//        }
     }
 
     private func finish() {
@@ -62,12 +62,12 @@ class SignUpCoordinator: Coordinator<UIViewController> {
     }
 }
 
-extension SignUpCoordinator: SignUpModule.CoordinatorDelegate {
-    func didTapOnBack() {
-        finish()
-    }
-
-    func goToHomeView() {
-        delegate?.goHomeFromSignUp()
-    }
-}
+//extension SignUpCoordinator: SignUpModule.CoordinatorDelegate {
+//    func didTapOnBack() {
+//        finish()
+//    }
+//
+//    func goToHomeView() {
+//        delegate?.goHomeFromSignUp()
+//    }
+//}

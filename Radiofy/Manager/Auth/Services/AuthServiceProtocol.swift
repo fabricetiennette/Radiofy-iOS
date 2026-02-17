@@ -7,6 +7,7 @@ public protocol AuthServicing {
     // Auth
     func register(email: String, password: String) async throws
     func login(email: String, password: String) async throws
+    func signInWithApple(idToken: String, givenName: String?, familyName: String?) async throws
     func refresh() async throws
     func logout() async
     

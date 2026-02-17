@@ -31,14 +31,22 @@ public final class AuthService: AuthServicing {
 
     // MARK: - Auth
 
+    /// Signs in (or creates an account) using Sign in with Apple.
+    ///
+    /// TODO: Implement backend endpoint (e.g. POST /auth/apple) that validates the Apple identity token
+    /// and returns access + refresh tokens.
+    public func signInWithApple(idToken: String, givenName: String?, familyName: String?) async throws {
+        throw AuthServiceError.notImplemented
+    }
+
     public func register(email: String, password: String) async throws {
         let body = AuthRegisterRequest(email: email, password: password)
-        let tokens: AuthTokenResponse = try await sendJSON(
+        _ = try await sendRaw(
             endpoint: .register,
             body: body,
             authenticated: false
         )
-        await saveTokens(tokens)
+        // Tokens are issued only after email verification.
     }
 
     public func login(email: String, password: String) async throws {
@@ -82,11 +90,12 @@ public final class AuthService: AuthServicing {
 
     public func verifyEmail(email: String, code: String) async throws {
         let body = VerifyEmailRequest(email: email, code: code)
-        _ = try await sendRaw(
+        let tokens: AuthTokenResponse = try await sendJSON(
             endpoint: .verifyEmail,
             body: body,
             authenticated: false
         )
+        await saveTokens(tokens)
     }
 
     public func resendVerificationEmail(email: String) async throws {
@@ -216,6 +225,7 @@ public final class AuthService: AuthServicing {
 }
 
 public enum AuthServiceError: Error, Equatable {
+    case notImplemented
     case notAuthenticated
     case invalidResponse
     case server(status: Int, message: String?)

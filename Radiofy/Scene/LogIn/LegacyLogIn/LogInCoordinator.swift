@@ -36,19 +36,19 @@ class LogInCoordinator: Coordinator<UIViewController> {
     weak var delegate: LogInCoordinatorDelegate?
 
     override func start() {
-        let module = LogInModule(coordinatorDelegate: self)
-        let logInViewController = module.viewController
-        logInViewController.navigationItem.title = L10n.logIn
-
-        switch options {
-        case let .present(viewController, style: style):
-            let navigationController = UINavigationController(rootViewController: logInViewController)
-            navigationController.modalPresentationStyle = style
-            viewController.present(logInViewController, animated: true)
-
-        case let .push(navigationController):
-            navigationController.pushViewController(logInViewController, animated: true)
-        }
+//        let module = LogInModule(coordinatorDelegate: self)
+//        let logInViewController = module.viewController
+//        logInViewController.navigationItem.title = L10n.logIn
+//
+//        switch options {
+//        case let .present(viewController, style: style):
+//            let navigationController = UINavigationController(rootViewController: logInViewController)
+//            navigationController.modalPresentationStyle = style
+//            viewController.present(logInViewController, animated: true)
+//
+//        case let .push(navigationController):
+//            navigationController.pushViewController(logInViewController, animated: true)
+//        }
     }
 
     private func finish() {
@@ -63,16 +63,16 @@ class LogInCoordinator: Coordinator<UIViewController> {
     }
 }
 
-extension LogInCoordinator: LogInModule.CoordinatorDelegate {
-    func didTapOnBack() {
-        finish()
-    }
-
-    func goToHomeView() {
-        delegate?.goHomeFromLogIn()
-    }
-
-    func launchPasswordReset() {
-        delegate?.goPasswordReset()
-    }
-}
+//extension LogInCoordinator: LogInModule.CoordinatorDelegate {
+//    func didTapOnBack() {
+//        finish()
+//    }
+//
+//    func goToHomeView() {
+//        delegate?.goHomeFromLogIn()
+//    }
+//
+//    func launchPasswordReset() {
+//        delegate?.goPasswordReset()
+//    }
+//}

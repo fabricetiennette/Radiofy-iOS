@@ -23,11 +23,11 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
     // MARK: - Private
 
     private func launchOnboarding() {
-        let module = OnBoardingModule(coordinatorDelegate: self)
-        let viewController = module.viewController
-        viewController.setNavigationBackButton(image: UIImage(named: "BackIcon"), state: .normal)
-        viewController.setUIBarButtonItem(style: .plain)
-        rootView.viewControllers = [viewController]
+//        let module = OnBoardingModule(coordinatorDelegate: self)
+//        let viewController = module.viewController
+//        viewController.setNavigationBackButton(image: UIImage(named: "BackIcon"), state: .normal)
+//        viewController.setUIBarButtonItem(style: .plain)
+//        rootView.viewControllers = [viewController]
     }
 
     private func goToSignUpView() {
@@ -54,43 +54,43 @@ class OnBoardingCoordinator: Coordinator<UINavigationController> {
     }
 
     private func launchHome() {
-        let coordinator = LaunchCoordinator(rootView: rootView, needAnimation: false)
-        add(children: coordinator)
-        coordinator.start()
+//        let coordinator = LaunchCoordinator(rootView: rootView, needAnimation: false)
+//        add(children: coordinator)
+//        coordinator.start()
     }
 }
 
     // MARK: - Extension
+//
+//extension OnBoardingCoordinator: LaunchModule.CoordinatorDelegate {
+//
+//    func showOnboardingPath() {
+//        let coordinator = OnBoardingCoordinator(rootView: rootView)
+//        add(children: coordinator)
+//        coordinator.start()
+//    }
+//
+//    func showHomeTabBar() {
+//        let coordinator = TabBarCoordinator(rootView: rootView)
+//        add(children: coordinator)
+//        coordinator.start()
+//    }
+//}
 
-extension OnBoardingCoordinator: LaunchModule.CoordinatorDelegate {
-
-    func showOnboardingPath() {
-        let coordinator = OnBoardingCoordinator(rootView: rootView)
-        add(children: coordinator)
-        coordinator.start()
-    }
-
-    func showHomeTabBar() {
-        let coordinator = TabBarCoordinator(rootView: rootView)
-        add(children: coordinator)
-        coordinator.start()
-    }
-}
-
-extension OnBoardingCoordinator: OnBoardingModule.CoordinatorDelegate {
-
-    func goToLogIn() {
-        goToLogInView()
-    }
-
-    func goToSignUp() {
-        goToSignUpView()
-    }
-
-    func goToSignIn() {
-        launchHome()
-    }
-}
+//extension OnBoardingCoordinator: OnBoardingModule.CoordinatorDelegate {
+//
+//    func goToLogIn() {
+//        goToLogInView()
+//    }
+//
+//    func goToSignUp() {
+//        goToSignUpView()
+//    }
+//
+//    func goToSignIn() {
+//        launchHome()
+//    }
+//}
 
 extension OnBoardingCoordinator: SignUpCoordinatorDelegate {
     func goHomeFromSignUp() {

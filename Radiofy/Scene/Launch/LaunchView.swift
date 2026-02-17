@@ -1,21 +1,16 @@
-//
-//  LaunchView.swift
-//  Radiofy
-//
-//  Created by Fabrice Etiennette on 16.04.2024.
-//  Copyright © 2024 Fabrice Etiennette. All rights reserved.
-//
-
 import SwiftUI
 
-struct LaunchView<ViewModel>: View where ViewModel: LaunchModule.ViewModel {
-    @ObservedObject var viewModel: ViewModel
-    
+/// Splash screen that optionally animates the logo and then calls `onFinished`.
+struct LaunchView: View {
+    let shouldAnimate: Bool
+    let onAppearAction: () -> Void
+    let onFinished: () -> Void
+
     @State private var isAnimating = false
-    
+
     var body: some View {
         Color.black
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea()
             .overlay {
                 VStack {
                     Image(asset: Asset.radiofy)
@@ -23,39 +18,36 @@ struct LaunchView<ViewModel>: View where ViewModel: LaunchModule.ViewModel {
                         .offset(y: isAnimating ? 0 : -60)
                 }
             }
-            .onAppear(perform: {
-                viewModel.setupEmailLanguage()
-                startAnimation()
-            })
+            .task {
+                onAppearAction()
+                await run()
+            }
     }
-    
-    private func startAnimation() {
-        switch viewModel.isOn {
-        case true:
-            animateLogo()
-            
-        case false:
-            viewModel.isUserLoggedIn()
-        }
-    }
-    
-    private func animateLogo() {
-        withAnimation(.smooth(duration: 2).speed(0.6)) {
-            isAnimating = true
+
+    private func run() async {
+        if shouldAnimate {
+            await MainActor.run {
+                withAnimation(.smooth(duration: 2).speed(0.6)) {
+                    isAnimating = true
+                }
+            }
+
+            // Keep the splash visible a little longer than the animation.
+            try? await Task.sleep(nanoseconds: 2_500_000_000)
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            viewModel.isUserLoggedIn()
+        await MainActor.run {
+            onFinished()
         }
     }
 }
 
 #if DEBUG
 #Preview {
-    let service = LaunchService()
-    let viewModel = LaunchViewModel(service: service, needAnimation: true)
-    return Group {
-        LaunchView(viewModel: viewModel)
-    }
+    LaunchView(
+        shouldAnimate: true,
+        onAppearAction: {},
+        onFinished: {}
+    )
 }
 #endif

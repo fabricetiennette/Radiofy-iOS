@@ -28,18 +28,18 @@ final class PasswordResetCoordinator: Coordinator<UIViewController> {
     }
 
     override func start() {
-        let module = PasswordResetModule()
-        let passwordResetViewController = module.viewController
-        passwordResetViewController.navigationItem.title = L10n.resetPassword
-
-        switch options {
-        case let .present(viewController, style: style):
-            let navigationController = UINavigationController(rootViewController: passwordResetViewController)
-            navigationController.modalPresentationStyle = style
-            viewController.present(passwordResetViewController, animated: true)
-
-        case let .push(navigationController):
-            navigationController.pushViewController(passwordResetViewController, animated: true)
-        }
+//        let module = PasswordResetModule()
+//        let passwordResetViewController = module.viewController
+//        passwordResetViewController.navigationItem.title = L10n.resetPassword
+//
+//        switch options {
+//        case let .present(viewController, style: style):
+//            let navigationController = UINavigationController(rootViewController: passwordResetViewController)
+//            navigationController.modalPresentationStyle = style
+//            viewController.present(passwordResetViewController, animated: true)
+//
+//        case let .push(navigationController):
+//            navigationController.pushViewController(passwordResetViewController, animated: true)
+//        }
     }
 }
