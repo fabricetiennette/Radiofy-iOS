@@ -18,6 +18,7 @@ struct RootView: View {
             case .launch:
                 LaunchView(
                     shouldAnimate: true,
+                    isLoading: true,
                     onAppearAction: {
                         // optional: e.g. setup language
                     },
@@ -27,7 +28,13 @@ struct RootView: View {
                 )
                 
             case .home:
-                HomeView()
+                AccountModule(
+                    authService: container.authService,
+                    onLogout: {
+                        router.setOnboarding()
+                    }
+                )
+                .makeView()
                 
             case .onboarding:
                 OnboardingView {

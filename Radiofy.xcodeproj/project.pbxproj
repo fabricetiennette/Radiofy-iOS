@@ -161,6 +161,9 @@
 		2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974182450713200808E54 /* UserDefaultConfig.swift */; };
 		2CD9741B24508B6800808E54 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9741A24508B6800808E54 /* StorageManager.swift */; };
 		2CD9741D2450F3AA00808E54 /* FireBaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9741C2450F3AA00808E54 /* FireBaseError.swift */; };
+		2CD9B02D2F97ADF300320246 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B02C2F97ADE600320246 /* SpinnerView.swift */; };
+		2CD9B0352F98F3B500320246 /* loader1010-white-11px.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD9B0342F98F3B500320246 /* loader1010-white-11px.json */; };
+		2CD9B0372F9907A200320246 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B0362F99079C00320246 /* AccountView.swift */; };
 		2CDC5AB1243E72AB00498DE5 /* NationalStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB0243E72AB00498DE5 /* NationalStationsCell.swift */; };
 		2CDC5AB4243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB3243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift */; };
 		2CDC5AB6243E9D5100498DE5 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB5243E9D5100498DE5 /* FirestoreManager.swift */; };
@@ -420,6 +423,9 @@
 		2CD974182450713200808E54 /* UserDefaultConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConfig.swift; sourceTree = "<group>"; };
 		2CD9741A24508B6800808E54 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2CD9741C2450F3AA00808E54 /* FireBaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseError.swift; sourceTree = "<group>"; };
+		2CD9B02C2F97ADE600320246 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		2CD9B0342F98F3B500320246 /* loader1010-white-11px.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "loader1010-white-11px.json"; sourceTree = "<group>"; };
+		2CD9B0362F99079C00320246 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		2CDC5AB0243E72AB00498DE5 /* NationalStationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalStationsCell.swift; sourceTree = "<group>"; };
 		2CDC5AB3243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CDC5AB5243E9D5100498DE5 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
@@ -552,10 +558,10 @@
 		2C00428D244E4241006ABABF /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				2C685BB126B5FCA4006FD017 /* AccountCoordinator.swift */,
+				2CD9B0362F99079C00320246 /* AccountView.swift */,
 				2C685BB326B5FCB3006FD017 /* AccountModule.swift */,
-				2C00428E244E4258006ABABF /* AccountViewController.swift */,
 				2C004290244E4288006ABABF /* AccountViewModel.swift */,
+				2CD9B0382F9907AB00320246 /* LegacyAccount */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 		2C302A80263749140085325C /* Loader */ = {
 			isa = PBXGroup;
 			children = (
+				2CD9B02C2F97ADE600320246 /* SpinnerView.swift */,
 				2C302A81263749410085325C /* LoaderIndicator.swift */,
 			);
 			path = Loader;
@@ -842,6 +849,7 @@
 			children = (
 				2C4197692444DD2100FFB2FA /* progressBar.json */,
 				2C22F1512448A30700CE1919 /* urlLoarder.json */,
+				2CD9B0342F98F3B500320246 /* loader1010-white-11px.json */,
 				2C41975124449E0E00FFB2FA /* musicLoader.json */,
 				2C73D551243D21D800896D24 /* loadingDot.json */,
 				2CB30EDD2433F9B700820DE4 /* loader1010.json */,
@@ -929,6 +937,15 @@
 				2CC825032701244C00A31476 /* Localizable.strings */,
 			);
 			path = Translations;
+			sourceTree = "<group>";
+		};
+		2CD9B0382F9907AB00320246 /* LegacyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				2C685BB126B5FCA4006FD017 /* AccountCoordinator.swift */,
+				2C00428E244E4258006ABABF /* AccountViewController.swift */,
+			);
+			path = LegacyAccount;
 			sourceTree = "<group>";
 		};
 		2CDC5AB2243E7DF100498DE5 /* CollectionCell */ = {
@@ -1518,6 +1535,7 @@
 				2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */,
 				2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */,
 				2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */,
+				2CD9B0352F98F3B500320246 /* loader1010-white-11px.json in Resources */,
 				2CE3E29A2F3CDC6F008D2F42 /* Staging.xcconfig in Resources */,
 				2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */,
 				2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */,
@@ -1640,6 +1658,7 @@
 				2C02588C26B5875F00985748 /* SettingsCoordinator.swift in Sources */,
 				2C498414245B056800B6201C /* Podcast.swift in Sources */,
 				2CF85AB7242D79DF002FBFF6 /* SignUpButtonView.swift in Sources */,
+				2CD9B0372F9907A200320246 /* AccountView.swift in Sources */,
 				2CE3E2952F3CCFCB008D2F42 /* TokenStore.swift in Sources */,
 				2CE3E2912F3CCE82008D2F42 /* AuthService.swift in Sources */,
 				2C9C3D172E91D5ED0028526D /* PlaybackCenter.swift in Sources */,
@@ -1757,6 +1776,7 @@
 				2C498423245B2DF200B6201C /* Episode.swift in Sources */,
 				2CF5ED75242E5A150018E8A4 /* FinalLogInButtonView.swift in Sources */,
 				2CDDB448244A6B5500DC31F5 /* SearchImageView.swift in Sources */,
+				2CD9B02D2F97ADF300320246 /* SpinnerView.swift in Sources */,
 				2C33876C2434DA0000141102 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

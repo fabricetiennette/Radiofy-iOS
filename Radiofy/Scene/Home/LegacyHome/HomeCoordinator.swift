@@ -69,10 +69,10 @@ class HomeCoordinator: Coordinator<UINavigationController> {
     }
 
     private func makeAccountPage() {
-        let viewController = AccountViewController.instantiate(from: .home)
-        let viewModel = AccountViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        rootView.pushViewController(viewController, animated: true)
+//        let viewController = AccountViewController.instantiate(from: .home)
+//        let viewModel = AccountViewModel(delegate: self)
+//        viewController.viewModel = viewModel
+//        rootView.pushViewController(viewController, animated: true)
     }
 
     private func goToSignUpView() {
@@ -124,11 +124,11 @@ extension HomeCoordinator: SettingsCoordinatorDelegate {
     }
 }
 
-extension HomeCoordinator: AccountViewModelDelete {
-    func showSubscriptionPage() {
-        makePayWallView()
-    }
-}
+//extension HomeCoordinator: AccountViewModelDelete {
+//    func showSubscriptionPage() {
+//        makePayWallView()
+//    }
+//}
 
 //extension HomeCoordinator: LogInCoordinatorDelegate {
 //    func goHomeFromLogIn() {
