@@ -134,6 +134,13 @@
 		2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */; };
 		2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE72433FEE900820DE4 /* SearchViewController.swift */; };
 		2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */; };
+		2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468722F9F8783002E0BB2 /* HealthService.swift */; };
+		2CB468752F9F87F3002E0BB2 /* HealthServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468742F9F87D5002E0BB2 /* HealthServicing.swift */; };
+		2CB468772F9F89AD002E0BB2 /* HealthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468762F9F89A7002E0BB2 /* HealthEndpoint.swift */; };
+		2CB468792F9F89E4002E0BB2 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468782F9F89D8002E0BB2 /* HealthModel.swift */; };
+		2CB4687B2F9F8DD2002E0BB2 /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4687A2F9F8DCD002E0BB2 /* APIClientProtocol.swift */; };
+		2CB4687D2F9F925B002E0BB2 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4687C2F9F9245002E0BB2 /* LaunchViewModel.swift */; };
+		2CB4687F2F9F92D0002E0BB2 /* LaunchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4687E2F9F92C7002E0BB2 /* LaunchModule.swift */; };
 		2CB77E612649AF470069BC52 /* UIControl+CombineCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */; };
 		2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E642649C3B90069BC52 /* OnBoardingService.swift */; };
 		2CBEAD6F26530A6400F5E965 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBEAD6E26530A6400F5E965 /* UIStackView+.swift */; };
@@ -390,6 +397,13 @@
 		2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryCoordinator.swift; sourceTree = "<group>"; };
 		2CB30EE72433FEE900820DE4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewController.swift; sourceTree = "<group>"; };
+		2CB468722F9F8783002E0BB2 /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		2CB468742F9F87D5002E0BB2 /* HealthServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthServicing.swift; sourceTree = "<group>"; };
+		2CB468762F9F89A7002E0BB2 /* HealthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthEndpoint.swift; sourceTree = "<group>"; };
+		2CB468782F9F89D8002E0BB2 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
+		2CB4687A2F9F8DCD002E0BB2 /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
+		2CB4687C2F9F9245002E0BB2 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		2CB4687E2F9F92C7002E0BB2 /* LaunchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModule.swift; sourceTree = "<group>"; };
 		2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+CombineCompatible.swift"; sourceTree = "<group>"; };
 		2CB77E642649C3B90069BC52 /* OnBoardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingService.swift; sourceTree = "<group>"; };
 		2CBEAD6E26530A6400F5E965 /* UIStackView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
@@ -819,6 +833,8 @@
 		2C9281B5242975B40052C714 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				2CB4687E2F9F92C7002E0BB2 /* LaunchModule.swift */,
+				2CB4687C2F9F9245002E0BB2 /* LaunchViewModel.swift */,
 				2C1D302C2BCE9745005FBDA8 /* LaunchView.swift */,
 			);
 			path = Launch;
@@ -880,6 +896,17 @@
 				2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */,
 			);
 			path = YourLibrary;
+			sourceTree = "<group>";
+		};
+		2CB468712F9F8778002E0BB2 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				2CB468782F9F89D8002E0BB2 /* HealthModel.swift */,
+				2CB468762F9F89A7002E0BB2 /* HealthEndpoint.swift */,
+				2CB468742F9F87D5002E0BB2 /* HealthServicing.swift */,
+				2CB468722F9F8783002E0BB2 /* HealthService.swift */,
+			);
+			path = Health;
 			sourceTree = "<group>";
 		};
 		2CB77E5F2649AF1C0069BC52 /* UIControl */ = {
@@ -1290,9 +1317,11 @@
 		2CFD6BFA2429102800F35EC1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				2CB4687A2F9F8DCD002E0BB2 /* APIClientProtocol.swift */,
 				2C67230F2465BDEF00ABCD5B /* NetworkManager.swift */,
 				2CD9741C2450F3AA00808E54 /* FireBaseError.swift */,
 				2CB77E662649C9B30069BC52 /* Services */,
+				2CB468712F9F8778002E0BB2 /* Health */,
 				2CE6AD012452586A00D8A7B7 /* Auth */,
 				2CE6AD022452587600D8A7B7 /* Firestore */,
 				2CE6AD032452588B00D8A7B7 /* Storage */,
@@ -1615,12 +1644,15 @@
 				2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */,
 				2C685BB826B5FCEB006FD017 /* AboutModule.swift in Sources */,
 				2C302A82263749410085325C /* LoaderIndicator.swift in Sources */,
+				2CB4687D2F9F925B002E0BB2 /* LaunchViewModel.swift in Sources */,
 				2CE74A7724533DAF008E3D57 /* StorageService.swift in Sources */,
 				2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */,
 				2CE6AD0724525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift in Sources */,
+				2CB4687F2F9F92D0002E0BB2 /* LaunchModule.swift in Sources */,
 				2CB30EE02433FAD100820DE4 /* MainTabBarController.swift in Sources */,
 				2C4E4CD024400A9900F907EB /* MiniPlayerViewController.swift in Sources */,
 				2CC4300F2435C81A001009E2 /* UIViewController+.swift in Sources */,
+				2CB468792F9F89E4002E0BB2 /* HealthModel.swift in Sources */,
 				2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */,
 				2C685BAE26B5FC70006FD017 /* EditProfileCoordinator.swift in Sources */,
 				2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */,
@@ -1666,6 +1698,7 @@
 				2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */,
 				2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */,
 				2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */,
+				2CB468772F9F89AD002E0BB2 /* HealthEndpoint.swift in Sources */,
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
 				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
 				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
@@ -1680,6 +1713,7 @@
 				2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */,
 				2C00428C244E1289006ABABF /* AboutViewModel.swift in Sources */,
 				2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */,
+				2CB468752F9F87F3002E0BB2 /* HealthServicing.swift in Sources */,
 				2CB77E612649AF470069BC52 /* UIControl+CombineCompatible.swift in Sources */,
 				2C49841C245B0CBD00B6201C /* PodcastListViewModel.swift in Sources */,
 				2C4226772F427213008A1414 /* RadiofyApp.swift in Sources */,
@@ -1757,12 +1791,14 @@
 				2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */,
 				2CF7EF342442502D004A9B30 /* RadioViewModel.swift in Sources */,
 				2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */,
+				2CB4687B2F9F8DD2002E0BB2 /* APIClientProtocol.swift in Sources */,
 				2C3BF170244B31E900BA895B /* SearchViewModel.swift in Sources */,
 				2C338779243586C800141102 /* HomeViewController.swift in Sources */,
 				2C4226902F438090008A1414 /* AppleSignInHelper.swift in Sources */,
 				2C6723102465BDEF00ABCD5B /* NetworkManager.swift in Sources */,
 				2CC803902462EFFA00F345C9 /* SubscribeButtonView.swift in Sources */,
 				2CC4302324362FD7001009E2 /* FooterProfileTableViewCell.swift in Sources */,
+				2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */,
 				2CF7EF3224422B72004A9B30 /* RadioViewController.swift in Sources */,
 				2CD974172450708A00808E54 /* UserDefault+.swift in Sources */,
 				2C685BB226B5FCA4006FD017 /* AccountCoordinator.swift in Sources */,

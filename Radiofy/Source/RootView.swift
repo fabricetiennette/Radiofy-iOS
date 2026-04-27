@@ -16,16 +16,14 @@ struct RootView: View {
         Group {
             switch router.route {
             case .launch:
-                LaunchView(
+                LaunchModule(
+                    healthService: container.healthService,
                     shouldAnimate: true,
-                    isLoading: true,
-                    onAppearAction: {
-                        // optional: e.g. setup language
-                    },
                     onFinished: {
                         router.enableRouting()
                     }
                 )
+                .makeView()
                 
             case .home:
                 AccountModule(
