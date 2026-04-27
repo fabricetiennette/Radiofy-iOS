@@ -14,6 +14,7 @@ public enum AuthEndpoint {
     case resendVerification
     case forgotPassword
     case resetPassword
+    case appleSignIn
     case me
     case deleteMe
     
@@ -28,6 +29,7 @@ public enum AuthEndpoint {
         case .resendVerification: return "\(apiVersion)/auth/verify-email/resend"
         case .forgotPassword: return "\(apiVersion)/auth/forgot-password"
         case .resetPassword: return "\(apiVersion)/auth/reset-password"
+        case .appleSignIn: return "\(apiVersion)/auth/apple"
         case .me: return "\(apiVersion)/user/me"
         case .deleteMe: return "\(apiVersion)/user/me"
         }
@@ -35,7 +37,7 @@ public enum AuthEndpoint {
 
     var method: HTTPMethod {
         switch self {
-        case .register, .login, .refresh, .verifyEmail, .resendVerification, .forgotPassword, .resetPassword:
+        case .register, .login, .refresh, .appleSignIn, .verifyEmail, .resendVerification, .forgotPassword, .resetPassword:
             return .post
         case .me:
             return .get

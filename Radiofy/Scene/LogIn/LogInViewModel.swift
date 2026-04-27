@@ -201,7 +201,9 @@ final class LogInViewModel: ObservableObject {
         defer { isLoading = false }
 
         do {
-            _ = try await authService.signInWithApple(idToken: idToken, givenName: givenName, familyName: familyName)
+            _ = try await authService.signInWithApple(idToken: idToken,
+                                                      givenName: givenName,
+                                                      familyName: familyName)
             onAuthenticated()
         } catch {
             errorMessage = "Apple sign in failed."

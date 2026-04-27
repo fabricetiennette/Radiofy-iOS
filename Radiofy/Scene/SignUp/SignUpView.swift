@@ -166,21 +166,24 @@ private extension SignUpView {
                 viewModel.errorMessage = "Apple credential is missing."
                 return
             }
-
+            
             let idTokenString = credential.identityToken.flatMap { String(data: $0, encoding: .utf8) }
             guard let idTokenString else {
                 viewModel.errorMessage = "Apple identity token is missing."
                 return
             }
-
+            
             let givenName = credential.fullName?.givenName
             let familyName = credential.fullName?.familyName
-
+            
             Task {
                 await viewModel.signInWithApple(idToken: idTokenString, givenName: givenName, familyName: familyName)
             }
-
-        case .failure:
+            
+        case .failure(let error):
+            if let authError = error as? ASAuthorizationError, authError.code == .canceled {
+                return
+            }
             viewModel.errorMessage = "Apple sign in failed."
         }
     }

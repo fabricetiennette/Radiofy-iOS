@@ -35,6 +35,12 @@ public struct ResetPasswordRequest: Codable {
     public let newPassword: String
 }
 
+public struct AppleSignInRequest: Codable {
+    public let idToken: String
+    public let givenName: String
+    public let familyName: String
+}
+
 // MARK: - Responses
 
 public struct RegisterResponse: Decodable, Equatable {

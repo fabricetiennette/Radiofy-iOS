@@ -43,11 +43,24 @@ public final class AuthService: AuthServicing {
     // MARK: - Auth
 
     /// Signs in (or creates an account) using Sign in with Apple.
-    ///
-    /// TODO: Implement backend endpoint (e.g. POST /auth/apple) that validates the Apple identity token
-    /// and returns access + refresh tokens.
+    /// returns access + refresh tokens.
     public func signInWithApple(idToken: String, givenName: String?, familyName: String?) async throws {
-        throw AuthServiceError.notImplemented
+        let body = AppleSignInRequest(idToken: idToken,
+                                      givenName: givenName ?? "",
+                                      familyName: familyName ?? "")
+        
+        let (data, _) = try await sendRaw(
+            endpoint: .appleSignIn,
+            body: body,
+            authenticated: false
+        )
+        
+        guard !data.isEmpty else {
+            throw AuthServiceError.emptyData
+        }
+        
+        let tokens = try JSONDecoder().decode(AuthTokenResponse.self, from: data)
+        await saveTokens(tokens)
     }
 
     public func register(email: String, password: String) async throws {
