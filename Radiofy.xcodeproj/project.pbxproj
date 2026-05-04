@@ -206,6 +206,12 @@
 		2CE74A7E24537BE0008E3D57 /* LogInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A7D24537BE0008E3D57 /* LogInViewModelTests.swift */; };
 		2CE74A8024539D68008E3D57 /* PasswordResetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A7F24539D68008E3D57 /* PasswordResetViewModelTests.swift */; };
 		2CE74A822453A123008E3D57 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A812453A123008E3D57 /* HomeViewModelTests.swift */; };
+		2CE7B33F2FA8C360001E7FBD /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B33E2FA8C35E001E7FBD /* MainTabView.swift */; };
+		2CE7B3412FA8C3A7001E7FBD /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3402FA8C3A6001E7FBD /* RadioView.swift */; };
+		2CE7B3432FA8C3F2001E7FBD /* PodcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3422FA8C3E9001E7FBD /* PodcastView.swift */; };
+		2CE7B3452FA8C411001E7FBD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3442FA8C409001E7FBD /* LibraryView.swift */; };
+		2CE7B3472FA8C429001E7FBD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3462FA8C424001E7FBD /* SearchView.swift */; };
+		2CE7B3492FA8C692001E7FBD /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3482FA8C68E001E7FBD /* MiniPlayerView.swift */; };
 		2CEBC5052662F35500479DBC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5042662F35500479DBC /* SDWebImage */; };
 		2CEBC5172662FF2100479DBC /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5162662FF2100479DBC /* FirebaseAnalytics */; };
 		2CEBC5192662FF2100479DBC /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5182662FF2100479DBC /* FirebaseCrashlytics */; };
@@ -475,6 +481,12 @@
 		2CE74A7D24537BE0008E3D57 /* LogInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModelTests.swift; sourceTree = "<group>"; };
 		2CE74A7F24539D68008E3D57 /* PasswordResetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModelTests.swift; sourceTree = "<group>"; };
 		2CE74A812453A123008E3D57 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		2CE7B33E2FA8C35E001E7FBD /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		2CE7B3402FA8C3A6001E7FBD /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		2CE7B3422FA8C3E9001E7FBD /* PodcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastView.swift; sourceTree = "<group>"; };
+		2CE7B3442FA8C409001E7FBD /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		2CE7B3462FA8C424001E7FBD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		2CE7B3482FA8C68E001E7FBD /* MiniPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		2CF04879243E028800E12429 /* PopularStationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularStationsCell.swift; sourceTree = "<group>"; };
 		2CF0487B243E10A200E12429 /* MorningHomeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningHomeCellView.swift; sourceTree = "<group>"; };
 		2CF0487D243E1F9200E12429 /* RecentlyPlayedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCell.swift; sourceTree = "<group>"; };
@@ -689,6 +701,7 @@
 		2C498404245ADFAD00B6201C /* Podcast */ = {
 			isa = PBXGroup;
 			children = (
+				2CE7B3422FA8C3E9001E7FBD /* PodcastView.swift */,
 				2C498405245ADFD000B6201C /* PodcastCoordinator.swift */,
 				2C498407245AE01600B6201C /* PodcastViewController.swift */,
 				2C49840B245AF87200B6201C /* PodcastViewModel.swift */,
@@ -814,8 +827,8 @@
 		2C844A7E243FE810003E19E9 /* RadioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */,
-				2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */,
+				2CE7B3482FA8C68E001E7FBD /* MiniPlayerView.swift */,
+				2CE7B34A2FA8C697001E7FBD /* LegacyPlayer */,
 				2C41976B2445121000FFB2FA /* Player */,
 				2C41976C2445122F00FFB2FA /* MiniPlayer */,
 			);
@@ -877,6 +890,7 @@
 		2CB30EE12433FC6C00820DE4 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				2CE7B3462FA8C424001E7FBD /* SearchView.swift */,
 				2CDDB444244A16DE00DC31F5 /* SearchCell */,
 				2CB30EE32433FCC000820DE4 /* SearchCoordinator.swift */,
 				2C5513D426FFDF140082BBB9 /* SearchModule.swift */,
@@ -889,6 +903,7 @@
 		2CB30EE22433FC7700820DE4 /* YourLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				2CE7B3442FA8C409001E7FBD /* LibraryView.swift */,
 				2CA61E112723243E00E12A48 /* LibraryCell */,
 				2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */,
 				2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */,
@@ -1125,6 +1140,24 @@
 			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
+		2CE7B33D2FA8C34E001E7FBD /* LegacyTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2C55CF7E2635D49600723042 /* TabBarCoordinator.swift */,
+				2CB30EDF2433FAD100820DE4 /* MainTabBarController.swift */,
+			);
+			path = LegacyTabBar;
+			sourceTree = "<group>";
+		};
+		2CE7B34A2FA8C697001E7FBD /* LegacyPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */,
+				2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */,
+			);
+			path = LegacyPlayer;
+			sourceTree = "<group>";
+		};
 		2CF04881243E2F9200E12429 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1176,18 +1209,19 @@
 			path = PasswordReset;
 			sourceTree = "<group>";
 		};
-		2CF7EF282440CE76004A9B30 /* MainTabBarController */ = {
+		2CF7EF282440CE76004A9B30 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				2CB30EDF2433FAD100820DE4 /* MainTabBarController.swift */,
-				2C55CF7E2635D49600723042 /* TabBarCoordinator.swift */,
+				2CE7B33E2FA8C35E001E7FBD /* MainTabView.swift */,
+				2CE7B33D2FA8C34E001E7FBD /* LegacyTabBar */,
 			);
-			path = MainTabBarController;
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
 		2CF7EF3024422B59004A9B30 /* Radio */ = {
 			isa = PBXGroup;
 			children = (
+				2CE7B3402FA8C3A6001E7FBD /* RadioView.swift */,
 				2C2B361627090C9E00553945 /* RadioCoordinator.swift */,
 				2C2B361827090CB000553945 /* RadioModule.swift */,
 				2CF7EF3124422B72004A9B30 /* RadioViewController.swift */,
@@ -1296,7 +1330,7 @@
 				2C4226882F436D09008A1414 /* PrivacyPolicy */,
 				2CF5ED6F242E57E00018E8A4 /* LogIn */,
 				2CF5ED89243010C40018E8A4 /* PasswordReset */,
-				2CF7EF282440CE76004A9B30 /* MainTabBarController */,
+				2CF7EF282440CE76004A9B30 /* MainTabBar */,
 				2CC8038C2462E20B00F345C9 /* Subscription */,
 				2CF5ED78242ED1D30018E8A4 /* Home */,
 				2C844A7E243FE810003E19E9 /* RadioPlayer */,
@@ -1655,6 +1689,7 @@
 				2CB468792F9F89E4002E0BB2 /* HealthModel.swift in Sources */,
 				2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */,
 				2C685BAE26B5FC70006FD017 /* EditProfileCoordinator.swift in Sources */,
+				2CE7B3412FA8C3A7001E7FBD /* RadioView.swift in Sources */,
 				2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */,
 				2CF04880243E29B400E12429 /* HomeDataSource.swift in Sources */,
 				2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */,
@@ -1670,6 +1705,7 @@
 				2CF7EF2B2441F702004A9B30 /* MiniPlayerViewModel.swift in Sources */,
 				2C498435245B793E00B6201C /* EpisodeCell.swift in Sources */,
 				2C42267D2F4273EF008A1414 /* RootView.swift in Sources */,
+				2CE7B33F2FA8C360001E7FBD /* MainTabView.swift in Sources */,
 				2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */,
 				2C4226A22F44B80D008A1414 /* HomeView.swift in Sources */,
 				2C55CF772635CB5900723042 /* Coordinator.swift in Sources */,
@@ -1700,6 +1736,7 @@
 				2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */,
 				2CB468772F9F89AD002E0BB2 /* HealthEndpoint.swift in Sources */,
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
+				2CE7B3432FA8C3F2001E7FBD /* PodcastView.swift in Sources */,
 				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
 				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
 				2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */,
@@ -1748,6 +1785,7 @@
 				2CF7EF36244256AB004A9B30 /* PopularStationsCollectionViewCell.swift in Sources */,
 				2C368DDA243763AF00979816 /* UIView+.swift in Sources */,
 				2C545A04265596F10024F671 /* ServicesProtocol.swift in Sources */,
+				2CE7B3492FA8C692001E7FBD /* MiniPlayerView.swift in Sources */,
 				2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */,
 				2C498412245AFB2A00B6201C /* PodcastCell.swift in Sources */,
 				2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */,
@@ -1798,6 +1836,7 @@
 				2C6723102465BDEF00ABCD5B /* NetworkManager.swift in Sources */,
 				2CC803902462EFFA00F345C9 /* SubscribeButtonView.swift in Sources */,
 				2CC4302324362FD7001009E2 /* FooterProfileTableViewCell.swift in Sources */,
+				2CE7B3472FA8C429001E7FBD /* SearchView.swift in Sources */,
 				2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */,
 				2CF7EF3224422B72004A9B30 /* RadioViewController.swift in Sources */,
 				2CD974172450708A00808E54 /* UserDefault+.swift in Sources */,
@@ -1807,6 +1846,7 @@
 				2CC4301E24362D25001009E2 /* EditProfileButtonView.swift in Sources */,
 				2CE74A7524533C64008E3D57 /* StorageProtocol.swift in Sources */,
 				2CC4302124362FBC001009E2 /* MiddleProfileTableViewCell.swift in Sources */,
+				2CE7B3452FA8C411001E7FBD /* LibraryView.swift in Sources */,
 				2CF0487A243E028800E12429 /* PopularStationsCell.swift in Sources */,
 				2CF0487E243E1F9200E12429 /* RecentlyPlayedCell.swift in Sources */,
 				2C498423245B2DF200B6201C /* Episode.swift in Sources */,
