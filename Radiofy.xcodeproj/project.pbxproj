@@ -28,8 +28,6 @@
 		2C2B361927090CB000553945 /* RadioModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B361827090CB000553945 /* RadioModule.swift */; };
 		2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */; };
 		2C302A82263749410085325C /* LoaderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302A81263749410085325C /* LoaderIndicator.swift */; };
-		2C302A9B263895BA0085325C /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302A9A263895BA0085325C /* LaunchViewModel.swift */; };
-		2C302AA626389C5E0085325C /* LaunchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302AA526389C5D0085325C /* LaunchModule.swift */; };
 		2C302AC82638A12D0085325C /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302AC72638A12D0085325C /* LaunchService.swift */; };
 		2C3144362455A29E00AEC114 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3144352455A29E00AEC114 /* SearchViewModelTests.swift */; };
 		2C3144382455A55C00AEC114 /* YourLibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3144372455A55C00AEC114 /* YourLibraryViewModelTests.swift */; };
@@ -48,6 +46,23 @@
 		2C3BF170244B31E900BA895B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BF16F244B31E900BA895B /* SearchViewModel.swift */; };
 		2C41975224449E0F00FFB2FA /* musicLoader.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C41975124449E0E00FFB2FA /* musicLoader.json */; };
 		2C41976A2444DD2200FFB2FA /* progressBar.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C4197692444DD2100FFB2FA /* progressBar.json */; };
+		2C4226772F427213008A1414 /* RadiofyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226762F427207008A1414 /* RadiofyApp.swift */; };
+		2C4226792F427264008A1414 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226782F42725E008A1414 /* AppContainer.swift */; };
+		2C42267B2F4272FE008A1414 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42267A2F4272F7008A1414 /* RootRouter.swift */; };
+		2C42267D2F4273EF008A1414 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42267C2F4273EA008A1414 /* RootView.swift */; };
+		2C4226802F427E7F008A1414 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42267F2F427E74008A1414 /* OnBoardingView.swift */; };
+		2C4226832F4286F2008A1414 /* AuthServiceEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226822F4286F0008A1414 /* AuthServiceEnvironment.swift */; };
+		2C4226872F432520008A1414 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226862F432511008A1414 /* SignUpView.swift */; };
+		2C42268A2F436D23008A1414 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226892F436D22008A1414 /* PrivacyPolicyView.swift */; };
+		2C42268D2F437F5D008A1414 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42268C2F437F5B008A1414 /* LogInView.swift */; };
+		2C4226902F438090008A1414 /* AppleSignInHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42268F2F43808C008A1414 /* AppleSignInHelper.swift */; };
+		2C4226922F4381A6008A1414 /* AppleSignInSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226912F4381A5008A1414 /* AppleSignInSupport.swift */; };
+		2C4226952F43A160008A1414 /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226942F43A158008A1414 /* PasswordResetView.swift */; };
+		2C4226982F43E566008A1414 /* VerifyEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226972F43E55D008A1414 /* VerifyEmailView.swift */; };
+		2C42269A2F43E570008A1414 /* VerifyEmailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226992F43E56C008A1414 /* VerifyEmailModule.swift */; };
+		2C42269C2F43E586008A1414 /* VerifyEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42269B2F43E57E008A1414 /* VerifyEmailViewModel.swift */; };
+		2C42269F2F43EC37008A1414 /* OTPCodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42269E2F43EC34008A1414 /* OTPCodeField.swift */; };
+		2C4226A22F44B80D008A1414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226A12F44B804008A1414 /* HomeView.swift */; };
 		2C498406245ADFD000B6201C /* PodcastCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498405245ADFD000B6201C /* PodcastCoordinator.swift */; };
 		2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498407245AE01600B6201C /* PodcastViewController.swift */; };
 		2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49840B245AF87200B6201C /* PodcastViewModel.swift */; };
@@ -87,15 +102,11 @@
 		2C685BB626B5FCDA006FD017 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BB526B5FCDA006FD017 /* AboutCoordinator.swift */; };
 		2C685BB826B5FCEB006FD017 /* AboutModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BB726B5FCEB006FD017 /* AboutModule.swift */; };
 		2C688964242E134600463F1B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688963242E134600463F1B /* Storyboarded.swift */; };
-		2C688966242E139200463F1B /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688965242E139200463F1B /* OnBoardingViewModel.swift */; };
 		2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688967242E13A300463F1B /* SignUpViewModel.swift */; };
-		2C68896C242E149600463F1B /* OnBoardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68896B242E149600463F1B /* OnBoardingCoordinator.swift */; };
-		2C688970242E321500463F1B /* LaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68896F242E321500463F1B /* LaunchCoordinator.swift */; };
 		2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688971242E3C8100463F1B /* RootCoordinator.swift */; };
 		2C6B047126543268007247A4 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B047026543268007247A4 /* UIApplication+.swift */; };
 		2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */; };
 		2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6F10E824644B9D00C65001 /* StoreKit.framework */; };
-		2C716AAC2662A5E200660042 /* PasswordResetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAB2662A5E200660042 /* PasswordResetCoordinator.swift */; };
 		2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAD2662A5F500660042 /* PasswordResetModule.swift */; };
 		2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAF2662A98B00660042 /* PasswordResetService.swift */; };
 		2C73D552243D21D800896D24 /* loadingDot.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D551243D21D800896D24 /* loadingDot.json */; };
@@ -103,7 +114,7 @@
 		2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */; };
 		2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A7C243F5D27003E19E9 /* RadioStation.swift */; };
 		2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */; };
-		2C8A4E022450461D00E8E6A3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4E012450461D00E8E6A3 /* AuthManager.swift */; };
+		2C8A4E022450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4E012450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift */; };
 		2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C9281B324296EA00052C714 /* Argon-Regular.otf */; };
 		2C95C13B245CE27C005D8503 /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95C13A245CE27C005D8503 /* CMTime.swift */; };
 		2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C368DE12437F9FD00979816 /* ExternalAccessory.framework */; };
@@ -123,8 +134,14 @@
 		2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */; };
 		2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE72433FEE900820DE4 /* SearchViewController.swift */; };
 		2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */; };
+		2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468722F9F8783002E0BB2 /* HealthService.swift */; };
+		2CB468752F9F87F3002E0BB2 /* HealthServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468742F9F87D5002E0BB2 /* HealthServicing.swift */; };
+		2CB468772F9F89AD002E0BB2 /* HealthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468762F9F89A7002E0BB2 /* HealthEndpoint.swift */; };
+		2CB468792F9F89E4002E0BB2 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468782F9F89D8002E0BB2 /* HealthModel.swift */; };
+		2CB4687B2F9F8DD2002E0BB2 /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4687A2F9F8DCD002E0BB2 /* APIClientProtocol.swift */; };
+		2CB4687D2F9F925B002E0BB2 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4687C2F9F9245002E0BB2 /* LaunchViewModel.swift */; };
+		2CB4687F2F9F92D0002E0BB2 /* LaunchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4687E2F9F92C7002E0BB2 /* LaunchModule.swift */; };
 		2CB77E612649AF470069BC52 /* UIControl+CombineCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */; };
-		2CB77E632649C0F40069BC52 /* OnBoardingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E622649C0F40069BC52 /* OnBoardingModule.swift */; };
 		2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB77E642649C3B90069BC52 /* OnBoardingService.swift */; };
 		2CBEAD6F26530A6400F5E965 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBEAD6E26530A6400F5E965 /* UIStackView+.swift */; };
 		2CBEAD7126530AD100F5E965 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBEAD7026530AD100F5E965 /* Stack.swift */; };
@@ -140,7 +157,6 @@
 		2CC825062701244C00A31476 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC825032701244C00A31476 /* Localizable.strings */; };
 		2CC82508270125A600A31476 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC82507270125A600A31476 /* Assets.swift */; };
 		2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90B26526631001877B0 /* SignUpModule.swift */; };
-		2CC9E90E26526668001877B0 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */; };
 		2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90F265269AE001877B0 /* SignUpService.swift */; };
 		2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE0429245ED53B00685ABA /* RadioPodcast.swift */; };
 		2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFC4712446144D00AE9B23 /* Sequence+.swift */; };
@@ -152,20 +168,32 @@
 		2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974182450713200808E54 /* UserDefaultConfig.swift */; };
 		2CD9741B24508B6800808E54 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9741A24508B6800808E54 /* StorageManager.swift */; };
 		2CD9741D2450F3AA00808E54 /* FireBaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9741C2450F3AA00808E54 /* FireBaseError.swift */; };
+		2CD9B02D2F97ADF300320246 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B02C2F97ADE600320246 /* SpinnerView.swift */; };
+		2CD9B0352F98F3B500320246 /* loader1010-white-11px.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD9B0342F98F3B500320246 /* loader1010-white-11px.json */; };
+		2CD9B0372F9907A200320246 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9B0362F99079C00320246 /* AccountView.swift */; };
 		2CDC5AB1243E72AB00498DE5 /* NationalStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB0243E72AB00498DE5 /* NationalStationsCell.swift */; };
 		2CDC5AB4243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB3243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift */; };
 		2CDC5AB6243E9D5100498DE5 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB5243E9D5100498DE5 /* FirestoreManager.swift */; };
 		2CDDB446244A16F900DC31F5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDB445244A16F900DC31F5 /* SearchCell.swift */; };
 		2CDDB448244A6B5500DC31F5 /* SearchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */; };
-		2CDF26FA265D8E06008C3B71 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */; };
 		2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */; };
 		2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FD265D93C4008C3B71 /* LogInService.swift */; };
+		2CE3E28B2F3CAD5C008D2F42 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E28A2F3CAD59008D2F42 /* AuthServiceProtocol.swift */; };
+		2CE3E28D2F3CC915008D2F42 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E28C2F3CC914008D2F42 /* AuthModels.swift */; };
+		2CE3E28F2F3CCA3E008D2F42 /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E28E2F3CCA3C008D2F42 /* AuthSession.swift */; };
+		2CE3E2912F3CCE82008D2F42 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E2902F3CCE81008D2F42 /* AuthService.swift */; };
+		2CE3E2932F3CCF5B008D2F42 /* KeychainTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E2922F3CCF59008D2F42 /* KeychainTokenStore.swift */; };
+		2CE3E2952F3CCFCB008D2F42 /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E2942F3CCFCA008D2F42 /* TokenStore.swift */; };
+		2CE3E29A2F3CDC6F008D2F42 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E2992F3CDC6F008D2F42 /* Staging.xcconfig */; };
+		2CE3E29C2F3CDCB1008D2F42 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3E29B2F3CDCB1008D2F42 /* Prod.xcconfig */; };
+		2CE3E29E2F3CDE14008D2F42 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E29D2F3CDE12008D2F42 /* AppConfig.swift */; };
+		2CE3E2A02F3CE41C008D2F42 /* AuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3E29F2F3CE41B008D2F42 /* AuthEndpoint.swift */; };
 		2CE43C40270E356E00D24C6F /* RadiofyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */; };
 		2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */; };
 		2CE6ACFE2452348D00D8A7B7 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */; };
 		2CE6AD002452563400D8A7B7 /* FakeAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */; };
-		2CE6AD05245258AC00D8A7B7 /* AuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6AD04245258AC00D8A7B7 /* AuthProtocol.swift */; };
-		2CE6AD0724525D3C00D8A7B7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6AD0624525D3C00D8A7B7 /* AuthService.swift */; };
+		2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6AD04245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift */; };
+		2CE6AD0724525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6AD0624525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift */; };
 		2CE74A6824532682008E3D57 /* FakeNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A6724532682008E3D57 /* FakeNetworkResponse.swift */; };
 		2CE74A6A245327D6008E3D57 /* FirestoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A69245327D6008E3D57 /* FirestoreProtocol.swift */; };
 		2CE74A6C24532929008E3D57 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A6B24532929008E3D57 /* FirestoreService.swift */; };
@@ -189,7 +217,6 @@
 		2CF0487E243E1F9200E12429 /* RecentlyPlayedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0487D243E1F9200E12429 /* RecentlyPlayedCell.swift */; };
 		2CF04880243E29B400E12429 /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0487F243E29B400E12429 /* HomeDataSource.swift */; };
 		2CF5ED6E242E53E60018E8A4 /* SignMeUpButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED6D242E53E60018E8A4 /* SignMeUpButtonView.swift */; };
-		2CF5ED71242E58000018E8A4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED70242E58000018E8A4 /* LogInViewController.swift */; };
 		2CF5ED73242E59E40018E8A4 /* ForgettenPasswordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED72242E59E40018E8A4 /* ForgettenPasswordButtonView.swift */; };
 		2CF5ED75242E5A150018E8A4 /* FinalLogInButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED74242E5A150018E8A4 /* FinalLogInButtonView.swift */; };
 		2CF5ED7C242F87700018E8A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF5ED7B242F87700018E8A4 /* GoogleService-Info.plist */; };
@@ -197,7 +224,6 @@
 		2CF5ED83242F91EC0018E8A4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED82242F91EC0018E8A4 /* String+.swift */; };
 		2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED84242FB27E0018E8A4 /* HomeCoordinator.swift */; };
 		2CF5ED88242FFE970018E8A4 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED87242FFE970018E8A4 /* LogInViewModel.swift */; };
-		2CF5ED8B2430110B0018E8A4 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED8A2430110B0018E8A4 /* PasswordResetViewController.swift */; };
 		2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED8C2430112E0018E8A4 /* PasswordResetViewModel.swift */; };
 		2CF7290D2708F6CE00C5846B /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 2CF7290C2708F6CE00C5846B /* Reusable */; };
 		2CF7290F2708FC4100C5846B /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7290E2708FC4100C5846B /* SearchCell.xib */; };
@@ -210,9 +236,7 @@
 		2CF7EF36244256AB004A9B30 /* PopularStationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7EF35244256AB004A9B30 /* PopularStationsCollectionViewCell.swift */; };
 		2CF85AB5242D7900002FBFF6 /* LogInButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF85AB4242D7900002FBFF6 /* LogInButtonView.swift */; };
 		2CF85AB7242D79DF002FBFF6 /* SignUpButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF85AB6242D79DF002FBFF6 /* SignUpButtonView.swift */; };
-		2CF85ABB242D86EB002FBFF6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF85ABA242D86EB002FBFF6 /* SignUpViewController.swift */; };
 		2CFD6BE324290E1000F35EC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD6BE224290E1000F35EC1 /* AppDelegate.swift */; };
-		2CFD6BE724290E1000F35EC1 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD6BE624290E1000F35EC1 /* OnBoardingViewController.swift */; };
 		2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BEB24290E1100F35EC1 /* Assets.xcassets */; };
 		2CFD6BEF24290E1100F35EC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */; };
 		2CFEFAC72631DBF600CB4515 /* LNPopupController-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */; };
@@ -265,8 +289,6 @@
 		2C2B361827090CB000553945 /* RadioModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModule.swift; sourceTree = "<group>"; };
 		2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRadioView.swift; sourceTree = "<group>"; };
 		2C302A81263749410085325C /* LoaderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderIndicator.swift; sourceTree = "<group>"; };
-		2C302A9A263895BA0085325C /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
-		2C302AA526389C5D0085325C /* LaunchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModule.swift; sourceTree = "<group>"; };
 		2C302AC72638A12D0085325C /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
 		2C3144352455A29E00AEC114 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		2C3144372455A55C00AEC114 /* YourLibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewModelTests.swift; sourceTree = "<group>"; };
@@ -286,6 +308,23 @@
 		2C3BF16F244B31E900BA895B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2C41975124449E0E00FFB2FA /* musicLoader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = musicLoader.json; sourceTree = "<group>"; };
 		2C4197692444DD2100FFB2FA /* progressBar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressBar.json; sourceTree = "<group>"; };
+		2C4226762F427207008A1414 /* RadiofyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiofyApp.swift; sourceTree = "<group>"; };
+		2C4226782F42725E008A1414 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		2C42267A2F4272F7008A1414 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		2C42267C2F4273EA008A1414 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		2C42267F2F427E74008A1414 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		2C4226822F4286F0008A1414 /* AuthServiceEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceEnvironment.swift; sourceTree = "<group>"; };
+		2C4226862F432511008A1414 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2C4226892F436D22008A1414 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		2C42268C2F437F5B008A1414 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		2C42268F2F43808C008A1414 /* AppleSignInHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInHelper.swift; sourceTree = "<group>"; };
+		2C4226912F4381A5008A1414 /* AppleSignInSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInSupport.swift; sourceTree = "<group>"; };
+		2C4226942F43A158008A1414 /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		2C4226972F43E55D008A1414 /* VerifyEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailView.swift; sourceTree = "<group>"; };
+		2C4226992F43E56C008A1414 /* VerifyEmailModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailModule.swift; sourceTree = "<group>"; };
+		2C42269B2F43E57E008A1414 /* VerifyEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewModel.swift; sourceTree = "<group>"; };
+		2C42269E2F43EC34008A1414 /* OTPCodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPCodeField.swift; sourceTree = "<group>"; };
+		2C4226A12F44B804008A1414 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C498405245ADFD000B6201C /* PodcastCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCoordinator.swift; sourceTree = "<group>"; };
 		2C498407245AE01600B6201C /* PodcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewController.swift; sourceTree = "<group>"; };
 		2C49840B245AF87200B6201C /* PodcastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewModel.swift; sourceTree = "<group>"; };
@@ -326,15 +365,11 @@
 		2C685BB526B5FCDA006FD017 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 		2C685BB726B5FCEB006FD017 /* AboutModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModule.swift; sourceTree = "<group>"; };
 		2C688963242E134600463F1B /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
-		2C688965242E139200463F1B /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		2C688967242E13A300463F1B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		2C68896B242E149600463F1B /* OnBoardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCoordinator.swift; sourceTree = "<group>"; };
-		2C68896F242E321500463F1B /* LaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCoordinator.swift; sourceTree = "<group>"; };
 		2C688971242E3C8100463F1B /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		2C6B047026543268007247A4 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		2C6F10E824644B9D00C65001 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		2C716AAB2662A5E200660042 /* PasswordResetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetCoordinator.swift; sourceTree = "<group>"; };
 		2C716AAD2662A5F500660042 /* PasswordResetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetModule.swift; sourceTree = "<group>"; };
 		2C716AAF2662A98B00660042 /* PasswordResetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetService.swift; sourceTree = "<group>"; };
 		2C73D551243D21D800896D24 /* loadingDot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingDot.json; sourceTree = "<group>"; };
@@ -342,7 +377,7 @@
 		2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarReusableView.swift; sourceTree = "<group>"; };
 		2C844A7C243F5D27003E19E9 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
 		2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewController.swift; sourceTree = "<group>"; };
-		2C8A4E012450461D00E8E6A3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		2C8A4E012450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyFirebaseAuthManager.swift; sourceTree = "<group>"; };
 		2C9281B324296EA00052C714 /* Argon-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Argon-Regular.otf"; sourceTree = "<group>"; };
 		2C95C13A245CE27C005D8503 /* CMTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		2C99C37C24471D210097E106 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
@@ -362,8 +397,14 @@
 		2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryCoordinator.swift; sourceTree = "<group>"; };
 		2CB30EE72433FEE900820DE4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewController.swift; sourceTree = "<group>"; };
+		2CB468722F9F8783002E0BB2 /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		2CB468742F9F87D5002E0BB2 /* HealthServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthServicing.swift; sourceTree = "<group>"; };
+		2CB468762F9F89A7002E0BB2 /* HealthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthEndpoint.swift; sourceTree = "<group>"; };
+		2CB468782F9F89D8002E0BB2 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
+		2CB4687A2F9F8DCD002E0BB2 /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
+		2CB4687C2F9F9245002E0BB2 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		2CB4687E2F9F92C7002E0BB2 /* LaunchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModule.swift; sourceTree = "<group>"; };
 		2CB77E602649AF470069BC52 /* UIControl+CombineCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+CombineCompatible.swift"; sourceTree = "<group>"; };
-		2CB77E622649C0F40069BC52 /* OnBoardingModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModule.swift; sourceTree = "<group>"; };
 		2CB77E642649C3B90069BC52 /* OnBoardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingService.swift; sourceTree = "<group>"; };
 		2CBEAD6E26530A6400F5E965 /* UIStackView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		2CBEAD7026530AD100F5E965 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -380,7 +421,6 @@
 		2CC825052701244C00A31476 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CC82507270125A600A31476 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		2CC9E90B26526631001877B0 /* SignUpModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModule.swift; sourceTree = "<group>"; };
-		2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		2CC9E90F265269AE001877B0 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		2CCE0429245ED53B00685ABA /* RadioPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPodcast.swift; sourceTree = "<group>"; };
 		2CCFC4712446144D00AE9B23 /* Sequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
@@ -397,20 +437,32 @@
 		2CD974182450713200808E54 /* UserDefaultConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConfig.swift; sourceTree = "<group>"; };
 		2CD9741A24508B6800808E54 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2CD9741C2450F3AA00808E54 /* FireBaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseError.swift; sourceTree = "<group>"; };
+		2CD9B02C2F97ADE600320246 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		2CD9B0342F98F3B500320246 /* loader1010-white-11px.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "loader1010-white-11px.json"; sourceTree = "<group>"; };
+		2CD9B0362F99079C00320246 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		2CDC5AB0243E72AB00498DE5 /* NationalStationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalStationsCell.swift; sourceTree = "<group>"; };
 		2CDC5AB3243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CDC5AB5243E9D5100498DE5 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		2CDDB445244A16F900DC31F5 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageView.swift; sourceTree = "<group>"; };
-		2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModule.swift; sourceTree = "<group>"; };
 		2CDF26FD265D93C4008C3B71 /* LogInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInService.swift; sourceTree = "<group>"; };
+		2CE3E28A2F3CAD59008D2F42 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		2CE3E28C2F3CC914008D2F42 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		2CE3E28E2F3CCA3C008D2F42 /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
+		2CE3E2902F3CCE81008D2F42 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2CE3E2922F3CCF59008D2F42 /* KeychainTokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTokenStore.swift; sourceTree = "<group>"; };
+		2CE3E2942F3CCFCA008D2F42 /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
+		2CE3E2992F3CDC6F008D2F42 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		2CE3E29B2F3CDCB1008D2F42 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		2CE3E29D2F3CDE12008D2F42 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		2CE3E29F2F3CE41B008D2F42 /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
 		2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiofyViewController.swift; sourceTree = "<group>"; };
 		2CE6ACFA2451BD6E00D8A7B7 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		2CE6ACFD2452348D00D8A7B7 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		2CE6ACFF2452563400D8A7B7 /* FakeAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthResponse.swift; sourceTree = "<group>"; };
-		2CE6AD04245258AC00D8A7B7 /* AuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocol.swift; sourceTree = "<group>"; };
-		2CE6AD0624525D3C00D8A7B7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2CE6AD04245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyFirebaseAuthProtocol.swift; sourceTree = "<group>"; };
+		2CE6AD0624525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyFirebaseAuthService.swift; sourceTree = "<group>"; };
 		2CE74A6724532682008E3D57 /* FakeNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkResponse.swift; sourceTree = "<group>"; };
 		2CE74A69245327D6008E3D57 /* FirestoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreProtocol.swift; sourceTree = "<group>"; };
 		2CE74A6B24532929008E3D57 /* FirestoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
@@ -428,7 +480,6 @@
 		2CF0487D243E1F9200E12429 /* RecentlyPlayedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCell.swift; sourceTree = "<group>"; };
 		2CF0487F243E29B400E12429 /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		2CF5ED6D242E53E60018E8A4 /* SignMeUpButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMeUpButtonView.swift; sourceTree = "<group>"; };
-		2CF5ED70242E58000018E8A4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2CF5ED72242E59E40018E8A4 /* ForgettenPasswordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgettenPasswordButtonView.swift; sourceTree = "<group>"; };
 		2CF5ED74242E5A150018E8A4 /* FinalLogInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalLogInButtonView.swift; sourceTree = "<group>"; };
 		2CF5ED7B242F87700018E8A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -436,7 +487,6 @@
 		2CF5ED82242F91EC0018E8A4 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		2CF5ED84242FB27E0018E8A4 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		2CF5ED87242FFE970018E8A4 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
-		2CF5ED8A2430110B0018E8A4 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		2CF5ED8C2430112E0018E8A4 /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
 		2CF7290E2708FC4100C5846B /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		2CF729112708FD9D00C5846B /* SearchBarReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarReusableView.xib; sourceTree = "<group>"; };
@@ -448,10 +498,8 @@
 		2CF7EF35244256AB004A9B30 /* PopularStationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularStationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CF85AB4242D7900002FBFF6 /* LogInButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInButtonView.swift; sourceTree = "<group>"; };
 		2CF85AB6242D79DF002FBFF6 /* SignUpButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpButtonView.swift; sourceTree = "<group>"; };
-		2CF85ABA242D86EB002FBFF6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2CFD6BDF24290E1000F35EC1 /* Radiofy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radiofy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFD6BE224290E1000F35EC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2CFD6BE624290E1000F35EC1 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		2CFD6BEB24290E1100F35EC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CFD6BEE24290E1100F35EC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CFD6C012429123A00F35EC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -524,10 +572,10 @@
 		2C00428D244E4241006ABABF /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				2C685BB126B5FCA4006FD017 /* AccountCoordinator.swift */,
+				2CD9B0362F99079C00320246 /* AccountView.swift */,
 				2C685BB326B5FCB3006FD017 /* AccountModule.swift */,
-				2C00428E244E4258006ABABF /* AccountViewController.swift */,
 				2C004290244E4288006ABABF /* AccountViewModel.swift */,
+				2CD9B0382F9907AB00320246 /* LegacyAccount */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -535,6 +583,7 @@
 		2C302A80263749140085325C /* Loader */ = {
 			isa = PBXGroup;
 			children = (
+				2CD9B02C2F97ADE600320246 /* SpinnerView.swift */,
 				2C302A81263749410085325C /* LoaderIndicator.swift */,
 			);
 			path = Loader;
@@ -580,6 +629,61 @@
 				2CF7EF2A2441F702004A9B30 /* MiniPlayerViewModel.swift */,
 			);
 			path = MiniPlayer;
+			sourceTree = "<group>";
+		};
+		2C4226852F4323BA008A1414 /* LegacyCommon */ = {
+			isa = PBXGroup;
+			children = (
+				2C55CF762635CB5900723042 /* Coordinator.swift */,
+				2C688971242E3C8100463F1B /* RootCoordinator.swift */,
+			);
+			path = LegacyCommon;
+			sourceTree = "<group>";
+		};
+		2C4226882F436D09008A1414 /* PrivacyPolicy */ = {
+			isa = PBXGroup;
+			children = (
+				2C4226892F436D22008A1414 /* PrivacyPolicyView.swift */,
+			);
+			path = PrivacyPolicy;
+			sourceTree = "<group>";
+		};
+		2C42268E2F438082008A1414 /* AppleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				2C4226912F4381A5008A1414 /* AppleSignInSupport.swift */,
+				2C42268F2F43808C008A1414 /* AppleSignInHelper.swift */,
+			);
+			path = AppleSignIn;
+			sourceTree = "<group>";
+		};
+		2C4226962F43E541008A1414 /* VerifyEmail */ = {
+			isa = PBXGroup;
+			children = (
+				2C42269B2F43E57E008A1414 /* VerifyEmailViewModel.swift */,
+				2C4226972F43E55D008A1414 /* VerifyEmailView.swift */,
+				2C4226992F43E56C008A1414 /* VerifyEmailModule.swift */,
+			);
+			path = VerifyEmail;
+			sourceTree = "<group>";
+		};
+		2C42269D2F43EC2A008A1414 /* OTPCode */ = {
+			isa = PBXGroup;
+			children = (
+				2C42269E2F43EC34008A1414 /* OTPCodeField.swift */,
+			);
+			path = OTPCode;
+			sourceTree = "<group>";
+		};
+		2C4226A02F44B7EA008A1414 /* LegacyHome */ = {
+			isa = PBXGroup;
+			children = (
+				2CF5ED84242FB27E0018E8A4 /* HomeCoordinator.swift */,
+				2C02A03D2665971F00A7F1D9 /* HomeModule.swift */,
+				2C338778243586C800141102 /* HomeViewController.swift */,
+				2CF5ED80242F90210018E8A4 /* HomeViewModel.swift */,
+			);
+			path = LegacyHome;
 			sourceTree = "<group>";
 		};
 		2C498404245ADFAD00B6201C /* Podcast */ = {
@@ -677,7 +781,10 @@
 			isa = PBXGroup;
 			children = (
 				2CFD6BE224290E1000F35EC1 /* AppDelegate.swift */,
-				2C688971242E3C8100463F1B /* RootCoordinator.swift */,
+				2C4226762F427207008A1414 /* RadiofyApp.swift */,
+				2C4226782F42725E008A1414 /* AppContainer.swift */,
+				2C42267A2F4272F7008A1414 /* RootRouter.swift */,
+				2C42267C2F4273EA008A1414 /* RootView.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -685,7 +792,7 @@
 		2C55CF752635CB2800723042 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2C55CF762635CB5900723042 /* Coordinator.swift */,
+				2C4226852F4323BA008A1414 /* LegacyCommon */,
 				2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */,
 				2C688963242E134600463F1B /* Storyboarded.swift */,
 			);
@@ -726,10 +833,9 @@
 		2C9281B5242975B40052C714 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				2C68896F242E321500463F1B /* LaunchCoordinator.swift */,
-				2C302AA526389C5D0085325C /* LaunchModule.swift */,
+				2CB4687E2F9F92C7002E0BB2 /* LaunchModule.swift */,
+				2CB4687C2F9F9245002E0BB2 /* LaunchViewModel.swift */,
 				2C1D302C2BCE9745005FBDA8 /* LaunchView.swift */,
-				2C302A9A263895BA0085325C /* LaunchViewModel.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -759,6 +865,7 @@
 			children = (
 				2C4197692444DD2100FFB2FA /* progressBar.json */,
 				2C22F1512448A30700CE1919 /* urlLoarder.json */,
+				2CD9B0342F98F3B500320246 /* loader1010-white-11px.json */,
 				2C41975124449E0E00FFB2FA /* musicLoader.json */,
 				2C73D551243D21D800896D24 /* loadingDot.json */,
 				2CB30EDD2433F9B700820DE4 /* loader1010.json */,
@@ -789,6 +896,17 @@
 				2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */,
 			);
 			path = YourLibrary;
+			sourceTree = "<group>";
+		};
+		2CB468712F9F8778002E0BB2 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				2CB468782F9F89D8002E0BB2 /* HealthModel.swift */,
+				2CB468762F9F89A7002E0BB2 /* HealthEndpoint.swift */,
+				2CB468742F9F87D5002E0BB2 /* HealthServicing.swift */,
+				2CB468722F9F8783002E0BB2 /* HealthService.swift */,
+			);
+			path = Health;
 			sourceTree = "<group>";
 		};
 		2CB77E5F2649AF1C0069BC52 /* UIControl */ = {
@@ -848,6 +966,15 @@
 			path = Translations;
 			sourceTree = "<group>";
 		};
+		2CD9B0382F9907AB00320246 /* LegacyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				2C685BB126B5FCA4006FD017 /* AccountCoordinator.swift */,
+				2C00428E244E4258006ABABF /* AccountViewController.swift */,
+			);
+			path = LegacyAccount;
+			sourceTree = "<group>";
+		};
 		2CDC5AB2243E7DF100498DE5 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -869,6 +996,44 @@
 			path = SearchCell;
 			sourceTree = "<group>";
 		};
+		2CE3E2872F3CA36F008D2F42 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C4226822F4286F0008A1414 /* AuthServiceEnvironment.swift */,
+				2CE3E29F2F3CE41B008D2F42 /* AuthEndpoint.swift */,
+				2CE3E2902F3CCE81008D2F42 /* AuthService.swift */,
+				2CE3E28E2F3CCA3C008D2F42 /* AuthSession.swift */,
+				2CE3E28C2F3CC914008D2F42 /* AuthModels.swift */,
+				2CE3E28A2F3CAD59008D2F42 /* AuthServiceProtocol.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2CE3E2882F3CA36F008D2F42 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		2CE3E2892F3CA36F008D2F42 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3E2942F3CCFCA008D2F42 /* TokenStore.swift */,
+				2CE3E2922F3CCF59008D2F42 /* KeychainTokenStore.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		2CE3E2962F3CDC21008D2F42 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3E2992F3CDC6F008D2F42 /* Staging.xcconfig */,
+				2CE3E29B2F3CDCB1008D2F42 /* Prod.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		2CE6ACFC2451F05700D8A7B7 /* TestsParameters */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,9 +1048,13 @@
 		2CE6AD012452586A00D8A7B7 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				2CE6AD04245258AC00D8A7B7 /* AuthProtocol.swift */,
-				2C8A4E012450461D00E8E6A3 /* AuthManager.swift */,
-				2CE6AD0624525D3C00D8A7B7 /* AuthService.swift */,
+				2C42268E2F438082008A1414 /* AppleSignIn */,
+				2CE3E2872F3CA36F008D2F42 /* Services */,
+				2CE3E2882F3CA36F008D2F42 /* Session */,
+				2CE3E2892F3CA36F008D2F42 /* Storage */,
+				2CE6AD04245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift */,
+				2C8A4E012450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift */,
+				2CE6AD0624525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -978,9 +1147,8 @@
 		2CF5ED6F242E57E00018E8A4 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				2CDF26F9265D8E06008C3B71 /* LogInCoordinator.swift */,
+				2C42268C2F437F5B008A1414 /* LogInView.swift */,
 				2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */,
-				2CF5ED70242E58000018E8A4 /* LogInViewController.swift */,
 				2CF5ED87242FFE970018E8A4 /* LogInViewModel.swift */,
 			);
 			path = LogIn;
@@ -989,10 +1157,8 @@
 		2CF5ED78242ED1D30018E8A4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2CF5ED84242FB27E0018E8A4 /* HomeCoordinator.swift */,
-				2C02A03D2665971F00A7F1D9 /* HomeModule.swift */,
-				2C338778243586C800141102 /* HomeViewController.swift */,
-				2CF5ED80242F90210018E8A4 /* HomeViewModel.swift */,
+				2C4226A12F44B804008A1414 /* HomeView.swift */,
+				2C4226A02F44B7EA008A1414 /* LegacyHome */,
 				2CF04881243E2F9200E12429 /* DataSource */,
 				2CF04882243E60BE00E12429 /* TableCell */,
 				2CDC5AB2243E7DF100498DE5 /* CollectionCell */,
@@ -1003,9 +1169,8 @@
 		2CF5ED89243010C40018E8A4 /* PasswordReset */ = {
 			isa = PBXGroup;
 			children = (
-				2C716AAB2662A5E200660042 /* PasswordResetCoordinator.swift */,
+				2C4226942F43A158008A1414 /* PasswordResetView.swift */,
 				2C716AAD2662A5F500660042 /* PasswordResetModule.swift */,
-				2CF5ED8A2430110B0018E8A4 /* PasswordResetViewController.swift */,
 				2CF5ED8C2430112E0018E8A4 /* PasswordResetViewModel.swift */,
 			);
 			path = PasswordReset;
@@ -1034,10 +1199,7 @@
 		2CF85AB8242D7DAC002FBFF6 /* onBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				2C68896B242E149600463F1B /* OnBoardingCoordinator.swift */,
-				2CB77E622649C0F40069BC52 /* OnBoardingModule.swift */,
-				2CFD6BE624290E1000F35EC1 /* OnBoardingViewController.swift */,
-				2C688965242E139200463F1B /* OnBoardingViewModel.swift */,
+				2C42267F2F427E74008A1414 /* OnBoardingView.swift */,
 			);
 			path = onBoarding;
 			sourceTree = "<group>";
@@ -1045,10 +1207,9 @@
 		2CF85AB9242D86BB002FBFF6 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				2CC9E90D26526668001877B0 /* SignUpCoordinator.swift */,
-				2CC9E90B26526631001877B0 /* SignUpModule.swift */,
-				2CF85ABA242D86EB002FBFF6 /* SignUpViewController.swift */,
+				2C4226862F432511008A1414 /* SignUpView.swift */,
 				2C688967242E13A300463F1B /* SignUpViewModel.swift */,
+				2CC9E90B26526631001877B0 /* SignUpModule.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1078,14 +1239,14 @@
 			isa = PBXGroup;
 			children = (
 				2C2117C5247C7CE100A65A0F /* Radiofy.entitlements */,
+				2C55CF742635CAFF00723042 /* Source */,
 				2C55CF752635CB2800723042 /* Common */,
+				2CFD6BF92429101F00F35EC1 /* Scene */,
 				2CFD6BF72429100100F35EC1 /* Extensions */,
 				2CFD6C042429166D00F35EC1 /* Helpers */,
 				2CFD6BFB2429103900F35EC1 /* Resources */,
-				2C55CF742635CAFF00723042 /* Source */,
 				2CFD6BFA2429102800F35EC1 /* Manager */,
 				2C688973242E4B0200463F1B /* Storyboard */,
-				2CFD6BF92429101F00F35EC1 /* Scene */,
 				2CFD6BF82429101800F35EC1 /* Model */,
 			);
 			path = Radiofy;
@@ -1129,12 +1290,14 @@
 			isa = PBXGroup;
 			children = (
 				2C9281B5242975B40052C714 /* Launch */,
-				2CF7EF282440CE76004A9B30 /* MainTabBarController */,
-				2CC8038C2462E20B00F345C9 /* Subscription */,
 				2CF85AB8242D7DAC002FBFF6 /* onBoarding */,
 				2CF85AB9242D86BB002FBFF6 /* SignUp */,
+				2C4226962F43E541008A1414 /* VerifyEmail */,
+				2C4226882F436D09008A1414 /* PrivacyPolicy */,
 				2CF5ED6F242E57E00018E8A4 /* LogIn */,
 				2CF5ED89243010C40018E8A4 /* PasswordReset */,
+				2CF7EF282440CE76004A9B30 /* MainTabBarController */,
+				2CC8038C2462E20B00F345C9 /* Subscription */,
 				2CF5ED78242ED1D30018E8A4 /* Home */,
 				2C844A7E243FE810003E19E9 /* RadioPlayer */,
 				2CF7EF3024422B59004A9B30 /* Radio */,
@@ -1154,9 +1317,11 @@
 		2CFD6BFA2429102800F35EC1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				2CB4687A2F9F8DCD002E0BB2 /* APIClientProtocol.swift */,
 				2C67230F2465BDEF00ABCD5B /* NetworkManager.swift */,
 				2CD9741C2450F3AA00808E54 /* FireBaseError.swift */,
 				2CB77E662649C9B30069BC52 /* Services */,
+				2CB468712F9F8778002E0BB2 /* Health */,
 				2CE6AD012452586A00D8A7B7 /* Auth */,
 				2CE6AD022452587600D8A7B7 /* Firestore */,
 				2CE6AD032452588B00D8A7B7 /* Storage */,
@@ -1168,6 +1333,7 @@
 		2CFD6BFB2429103900F35EC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3E2962F3CDC21008D2F42 /* Config */,
 				2CFD6BFC2429105700F35EC1 /* SupportingFiles */,
 				2C9281B224296E690052C714 /* Fonts */,
 				2CC824F527011E6C00A31476 /* SwiftGen */,
@@ -1193,6 +1359,8 @@
 		2CFD6C042429166D00F35EC1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3E29D2F3CDE12008D2F42 /* AppConfig.swift */,
+				2C42269D2F43EC2A008A1414 /* OTPCode */,
 				2CB77E5F2649AF1C0069BC52 /* UIControl */,
 				2C302A80263749140085325C /* Loader */,
 				2CF85AB4242D7900002FBFF6 /* LogInButtonView.swift */,
@@ -1385,6 +1553,7 @@
 				2C9E841D24649E540059D842 /* InfoPlist.strings in Resources */,
 				2CF729162709057C00C5846B /* colors.txt in Resources */,
 				2CB30EDC2433F4EE00820DE4 /* loader-1212.json in Resources */,
+				2CE3E29C2F3CDCB1008D2F42 /* Prod.xcconfig in Resources */,
 				2C22F1522448A30700CE1919 /* urlLoarder.json in Resources */,
 				2C41976A2444DD2200FFB2FA /* progressBar.json in Resources */,
 				2CC825062701244C00A31476 /* Localizable.strings in Resources */,
@@ -1395,6 +1564,8 @@
 				2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */,
 				2CFD6BEC24290E1100F35EC1 /* Assets.xcassets in Resources */,
 				2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */,
+				2CD9B0352F98F3B500320246 /* loader1010-white-11px.json in Resources */,
+				2CE3E29A2F3CDC6F008D2F42 /* Staging.xcconfig in Resources */,
 				2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */,
 				2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */,
 				2CA61E10272323EA00E12A48 /* FavoriteRadioCell.xib in Resources */,
@@ -1473,81 +1644,94 @@
 				2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */,
 				2C685BB826B5FCEB006FD017 /* AboutModule.swift in Sources */,
 				2C302A82263749410085325C /* LoaderIndicator.swift in Sources */,
+				2CB4687D2F9F925B002E0BB2 /* LaunchViewModel.swift in Sources */,
 				2CE74A7724533DAF008E3D57 /* StorageService.swift in Sources */,
 				2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */,
-				2CE6AD0724525D3C00D8A7B7 /* AuthService.swift in Sources */,
+				2CE6AD0724525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift in Sources */,
+				2CB4687F2F9F92D0002E0BB2 /* LaunchModule.swift in Sources */,
 				2CB30EE02433FAD100820DE4 /* MainTabBarController.swift in Sources */,
 				2C4E4CD024400A9900F907EB /* MiniPlayerViewController.swift in Sources */,
 				2CC4300F2435C81A001009E2 /* UIViewController+.swift in Sources */,
+				2CB468792F9F89E4002E0BB2 /* HealthModel.swift in Sources */,
 				2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */,
-				2CFD6BE724290E1000F35EC1 /* OnBoardingViewController.swift in Sources */,
 				2C685BAE26B5FC70006FD017 /* EditProfileCoordinator.swift in Sources */,
 				2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */,
-				2CC9E90E26526668001877B0 /* SignUpCoordinator.swift in Sources */,
 				2CF04880243E29B400E12429 /* HomeDataSource.swift in Sources */,
-				2C688970242E321500463F1B /* LaunchCoordinator.swift in Sources */,
 				2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */,
 				2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */,
 				2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */,
 				2C498428245B325400B6201C /* RSSFeed+.swift in Sources */,
 				2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */,
 				2C5513D526FFDF140082BBB9 /* SearchModule.swift in Sources */,
+				2C42269C2F43E586008A1414 /* VerifyEmailViewModel.swift in Sources */,
 				2CDC5AB6243E9D5100498DE5 /* FirestoreManager.swift in Sources */,
 				2CD9741D2450F3AA00808E54 /* FireBaseError.swift in Sources */,
-				2CF85ABB242D86EB002FBFF6 /* SignUpViewController.swift in Sources */,
 				2C498419245B0C8400B6201C /* PodcastListDataSource.swift in Sources */,
 				2CF7EF2B2441F702004A9B30 /* MiniPlayerViewModel.swift in Sources */,
 				2C498435245B793E00B6201C /* EpisodeCell.swift in Sources */,
+				2C42267D2F4273EF008A1414 /* RootView.swift in Sources */,
 				2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */,
+				2C4226A22F44B80D008A1414 /* HomeView.swift in Sources */,
 				2C55CF772635CB5900723042 /* Coordinator.swift in Sources */,
 				2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */,
 				2CE43C40270E356E00D24C6F /* RadiofyViewController.swift in Sources */,
 				2C498431245B790A00B6201C /* EpisodeDataSource.swift in Sources */,
-				2CF72918270905DE00C5846B /* Colors.swift in Sources */,
+				2C4226792F427264008A1414 /* AppContainer.swift in Sources */,
 				2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */,
 				2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */,
 				2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */,
 				2C004291244E4288006ABABF /* AccountViewModel.swift in Sources */,
+				2C4226872F432520008A1414 /* SignUpView.swift in Sources */,
 				2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */,
 				2CFD6BE324290E1000F35EC1 /* AppDelegate.swift in Sources */,
-				2C8A4E022450461D00E8E6A3 /* AuthManager.swift in Sources */,
+				2CE3E2A02F3CE41C008D2F42 /* AuthEndpoint.swift in Sources */,
+				2C42268D2F437F5D008A1414 /* LogInView.swift in Sources */,
+				2C8A4E022450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift in Sources */,
 				2C02588C26B5875F00985748 /* SettingsCoordinator.swift in Sources */,
 				2C498414245B056800B6201C /* Podcast.swift in Sources */,
 				2CF85AB7242D79DF002FBFF6 /* SignUpButtonView.swift in Sources */,
+				2CD9B0372F9907A200320246 /* AccountView.swift in Sources */,
+				2CE3E2952F3CCFCB008D2F42 /* TokenStore.swift in Sources */,
+				2CE3E2912F3CCE82008D2F42 /* AuthService.swift in Sources */,
 				2C9C3D172E91D5ED0028526D /* PlaybackCenter.swift in Sources */,
 				2C49842B245B6B2100B6201C /* EpisodeViewController.swift in Sources */,
 				2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */,
 				2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */,
-				2CE6AD05245258AC00D8A7B7 /* AuthProtocol.swift in Sources */,
+				2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */,
+				2CB468772F9F89AD002E0BB2 /* HealthEndpoint.swift in Sources */,
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
 				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
 				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
 				2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */,
 				2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */,
 				2C3387672434D53600141102 /* SettingButtonView.swift in Sources */,
+				2CE3E29E2F3CDE14008D2F42 /* AppConfig.swift in Sources */,
+				2C4226802F427E7F008A1414 /* OnBoardingView.swift in Sources */,
 				2C685BB426B5FCB3006FD017 /* AccountModule.swift in Sources */,
+				2C42269A2F43E570008A1414 /* VerifyEmailModule.swift in Sources */,
 				2C02588E26B5876F00985748 /* SettingsModule.swift in Sources */,
 				2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */,
-				2C688966242E139200463F1B /* OnBoardingViewModel.swift in Sources */,
 				2C00428C244E1289006ABABF /* AboutViewModel.swift in Sources */,
-				2CF5ED71242E58000018E8A4 /* LogInViewController.swift in Sources */,
 				2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */,
-				2C68896C242E149600463F1B /* OnBoardingCoordinator.swift in Sources */,
-				2C302A9B263895BA0085325C /* LaunchViewModel.swift in Sources */,
+				2CB468752F9F87F3002E0BB2 /* HealthServicing.swift in Sources */,
 				2CB77E612649AF470069BC52 /* UIControl+CombineCompatible.swift in Sources */,
 				2C49841C245B0CBD00B6201C /* PodcastListViewModel.swift in Sources */,
-				2CB77E632649C0F40069BC52 /* OnBoardingModule.swift in Sources */,
+				2C4226772F427213008A1414 /* RadiofyApp.swift in Sources */,
+				2C42267B2F4272FE008A1414 /* RootRouter.swift in Sources */,
 				2CE74A6C24532929008E3D57 /* FirestoreService.swift in Sources */,
 				2C685BB026B5FC83006FD017 /* EditProfileModule.swift in Sources */,
 				2C49841F245B0FB100B6201C /* ListPodcastCell.swift in Sources */,
+				2CE3E28F2F3CCA3E008D2F42 /* AuthSession.swift in Sources */,
 				2C2B361727090C9E00553945 /* RadioCoordinator.swift in Sources */,
 				2C00428A244E1241006ABABF /* AboutViewController.swift in Sources */,
 				2C685BB626B5FCDA006FD017 /* AboutCoordinator.swift in Sources */,
 				2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */,
+				2C42269F2F43EC37008A1414 /* OTPCodeField.swift in Sources */,
 				2CF85AB5242D7900002FBFF6 /* LogInButtonView.swift in Sources */,
 				2C498433245B792C00B6201C /* EpisodeHeaderCell.swift in Sources */,
 				2CC82508270125A600A31476 /* Assets.swift in Sources */,
 				2C591A13243CBB8A004CF4F6 /* UIImage+.swift in Sources */,
+				2C4226982F43E566008A1414 /* VerifyEmailView.swift in Sources */,
 				2C95C13B245CE27C005D8503 /* CMTime.swift in Sources */,
 				2CDC5AB1243E72AB00498DE5 /* NationalStationsCell.swift in Sources */,
 				2C498426245B2FEF00B6201C /* PodcastService.swift in Sources */,
@@ -1557,31 +1741,33 @@
 				2CB30EE42433FCC000820DE4 /* SearchCoordinator.swift in Sources */,
 				2C02589026B588D600985748 /* SettingsService.swift in Sources */,
 				2CC8038E2462E22A00F345C9 /* SubscriptionViewController.swift in Sources */,
+				2CE3E2932F3CCF5B008D2F42 /* KeychainTokenStore.swift in Sources */,
+				2C4226832F4286F2008A1414 /* AuthServiceEnvironment.swift in Sources */,
 				2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */,
-				2C302AA626389C5E0085325C /* LaunchModule.swift in Sources */,
 				2CA7CC562438C4B00028DEBF /* EditProfileViewModel.swift in Sources */,
 				2CF7EF36244256AB004A9B30 /* PopularStationsCollectionViewCell.swift in Sources */,
 				2C368DDA243763AF00979816 /* UIView+.swift in Sources */,
 				2C545A04265596F10024F671 /* ServicesProtocol.swift in Sources */,
 				2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */,
 				2C498412245AFB2A00B6201C /* PodcastCell.swift in Sources */,
-				2C716AAC2662A5E200660042 /* PasswordResetCoordinator.swift in Sources */,
 				2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */,
 				2C498421245B14DD00B6201C /* PodcastStation.swift in Sources */,
 				2C2B361927090CB000553945 /* RadioModule.swift in Sources */,
 				2CE74A6A245327D6008E3D57 /* FirestoreProtocol.swift in Sources */,
-				2CDF26FA265D8E06008C3B71 /* LogInCoordinator.swift in Sources */,
 				2CDDB446244A16F900DC31F5 /* SearchCell.swift in Sources */,
 				2C33876A2434D9DA00141102 /* SettingsViewController.swift in Sources */,
 				2C3387752435387300141102 /* SignOutButtonView.swift in Sources */,
 				2C498417245B0C3800B6201C /* PodcastListViewController.swift in Sources */,
 				2CF5ED88242FFE970018E8A4 /* LogInViewModel.swift in Sources */,
 				2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */,
+				2C42268A2F436D23008A1414 /* PrivacyPolicyView.swift in Sources */,
 				2CF0487C243E10A200E12429 /* MorningHomeCellView.swift in Sources */,
+				2C4226922F4381A6008A1414 /* AppleSignInSupport.swift in Sources */,
 				2C1D302D2BCE9745005FBDA8 /* LaunchView.swift in Sources */,
 				2C302AC82638A12D0085325C /* LaunchService.swift in Sources */,
 				2C02A03E2665971F00A7F1D9 /* HomeModule.swift in Sources */,
 				2C6B047126543268007247A4 /* UIApplication+.swift in Sources */,
+				2C4226952F43A160008A1414 /* PasswordResetView.swift in Sources */,
 				2C99C3832447D7410097E106 /* FavoriteRadioCell.swift in Sources */,
 				2C3387702434ED4300141102 /* SettingsDataSource.swift in Sources */,
 				2C49842D245B6B5A00B6201C /* EpisodeViewModel.swift in Sources */,
@@ -1590,25 +1776,29 @@
 				2CF5ED81242F90210018E8A4 /* HomeViewModel.swift in Sources */,
 				2C533B4724427DB6005FC8EC /* HomeHeaderCell.swift in Sources */,
 				2C688964242E134600463F1B /* Storyboarded.swift in Sources */,
-				2CF5ED8B2430110B0018E8A4 /* PasswordResetViewController.swift in Sources */,
 				2CF5ED83242F91EC0018E8A4 /* String+.swift in Sources */,
 				2C49840F245AFA3F00B6201C /* PodcastDataSource.swift in Sources */,
 				2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */,
+				2CE3E28D2F3CC915008D2F42 /* AuthModels.swift in Sources */,
 				2CF7EF272440C86D004A9B30 /* RadioPlayerViewModel.swift in Sources */,
 				2CC824F82701217F00A31476 /* Localizable.swift in Sources */,
 				2CF5ED6E242E53E60018E8A4 /* SignMeUpButtonView.swift in Sources */,
 				2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */,
 				2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */,
+				2CE3E28B2F3CAD5C008D2F42 /* AuthServiceProtocol.swift in Sources */,
 				2CBEAD7126530AD100F5E965 /* Stack.swift in Sources */,
 				2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */,
 				2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */,
 				2CF7EF342442502D004A9B30 /* RadioViewModel.swift in Sources */,
 				2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */,
+				2CB4687B2F9F8DD2002E0BB2 /* APIClientProtocol.swift in Sources */,
 				2C3BF170244B31E900BA895B /* SearchViewModel.swift in Sources */,
 				2C338779243586C800141102 /* HomeViewController.swift in Sources */,
+				2C4226902F438090008A1414 /* AppleSignInHelper.swift in Sources */,
 				2C6723102465BDEF00ABCD5B /* NetworkManager.swift in Sources */,
 				2CC803902462EFFA00F345C9 /* SubscribeButtonView.swift in Sources */,
 				2CC4302324362FD7001009E2 /* FooterProfileTableViewCell.swift in Sources */,
+				2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */,
 				2CF7EF3224422B72004A9B30 /* RadioViewController.swift in Sources */,
 				2CD974172450708A00808E54 /* UserDefault+.swift in Sources */,
 				2C685BB226B5FCA4006FD017 /* AccountCoordinator.swift in Sources */,
@@ -1622,6 +1812,7 @@
 				2C498423245B2DF200B6201C /* Episode.swift in Sources */,
 				2CF5ED75242E5A150018E8A4 /* FinalLogInButtonView.swift in Sources */,
 				2CDDB448244A6B5500DC31F5 /* SearchImageView.swift in Sources */,
+				2CD9B02D2F97ADF300320246 /* SpinnerView.swift in Sources */,
 				2C33876C2434DA0000141102 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1749,7 +1940,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1769,7 +1960,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1785,6 +1976,7 @@
 		};
 		2CFD6BF124290E1100F35EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CE3E2992F3CDC6F008D2F42 /* Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1848,6 +2040,7 @@
 		};
 		2CFD6BF224290E1100F35EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CE3E29B2F3CDCB1008D2F42 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1914,7 +2107,7 @@
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1941,7 +2134,7 @@
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1964,6 +2157,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1985,6 +2179,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

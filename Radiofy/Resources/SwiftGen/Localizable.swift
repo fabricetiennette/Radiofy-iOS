@@ -90,12 +90,16 @@ internal enum L10n {
   internal static let logOut = L10n.tr("Localizable", "Log out", fallback: "Log out")
   /// Are you sure you want to log out?
   internal static let logOutMessage = L10n.tr("Localizable", "LogOutMessage", fallback: "Are you sure you want to log out?")
+  /// Radiofy
+  internal static let mainTitle = L10n.tr("Localizable", "main_title", fallback: "Radiofy")
   /// /month.
   internal static let month = L10n.tr("Localizable", "month.", fallback: "/month.")
   /// Name entered is not valid. 2 characters minimum & 15 Maximum.
   internal static let nameInvalid = L10n.tr("Localizable", "name_invalid", fallback: "Name entered is not valid. 2 characters minimum & 15 Maximum.")
   /// No prior purchases found for your account.
   internal static let noPriorPurchasesFoundForYourAccount = L10n.tr("Localizable", "No prior purchases found for your account.", fallback: "No prior purchases found for your account.")
+  /// The best radio stations and podcasts on
+  internal static let onboardingOne = L10n.tr("Localizable", "onboarding_one", fallback: "The best radio stations and podcasts on")
   /// Please make sure your password contain a least 8 characters, 1 special character and 1 number.
   internal static let passwordInvalid = L10n.tr("Localizable", "password_invalid", fallback: "Please make sure your password contain a least 8 characters, 1 special character and 1 number.")
   /// Photo invalid, try again.

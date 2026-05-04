@@ -1,37 +1,14 @@
-//
-//  PasswordResetModule.swift
-//  Radiofy
-//
-//  Created by Fabrice Etiennette on 29/05/2021.
-//  Copyright © 2021 Fabrice Etiennette. All rights reserved.
-//
-
-import UIKit
+import SwiftUI
 import Combine
 
-final class PasswordResetModule {
+struct PasswordResetModule {
 
-    typealias ViewModel = PasswordResetInputBinding & PasswordResetOutputBinding
-    typealias Service = PasswordResetServiceProtocol
+    let authService: AuthServicing
+    let onGoToLogin: () -> Void
 
-    var viewController: UIViewController {
-        let service = PasswordResetService()
-        let viewModel = PasswordResetViewModel(service: service)
-        let loginViewController = PasswordResetViewController.instantiate(from: .start)
-        loginViewController.viewModel = viewModel
-        return loginViewController
+    @MainActor
+    func makeView() -> some View {
+        let viewModel = PasswordResetViewModel(authService: authService)
+        return PasswordResetView(viewModel: viewModel, onGoToLogin: onGoToLogin)
     }
-}
-
-protocol PasswordResetInputBinding {
-    func resetPassword(with emailText: String?)
-}
-
-protocol PasswordResetOutputBinding {
-    var errorSubject: PassthroughSubject<String, Never> { get set }
-    var emailSuccessSubject: PassthroughSubject<String, Never> { get set }
-}
-
-protocol PasswordResetServiceProtocol {
-    func sendPasswordReset(email: String) -> AnyPublisher<Void, Error>
 }

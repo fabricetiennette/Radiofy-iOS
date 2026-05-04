@@ -1,61 +1,125 @@
-//
-//  PasswordResetViewModel.swift
-//  Radiofy
-//
-//  Created by Fabrice Etiennette on 29/03/2020.
-//  Copyright © 2020 Fabrice Etiennette. All rights reserved.
-//
-
 import Foundation
-import Combine
 
-final class PasswordResetViewModel: PasswordResetModule.ViewModel {
+@MainActor
+final class PasswordResetViewModel: ObservableObject {
 
-    private let service: PasswordResetModule.Service
-
-    var errorSubject = PassthroughSubject<String, Never>()
-    var emailSuccessSubject = PassthroughSubject<String, Never>()
-    private var disposeBag = Set<AnyCancellable>()
-
-    init(service: PasswordResetModule.Service) {
-        self.service = service
+    enum Step: Equatable {
+        case enterEmail
+        case enterCodeAndPassword
+        case done
     }
 
-    func resetPassword(with emailText: String?) {
-        if validateTextFields(emailText) == nil {
+    @Published var step: Step = .enterEmail
 
-            let email = emailText.clearedText()
+    // MARK: - Input
 
-            sendPasswordReset(with: email)
+    @Published var email: String = ""
+    @Published var code: String = ""
+    @Published var newPassword: String = ""
+
+    // MARK: - Output / UI state
+
+    @Published private(set) var isLoading: Bool = false
+    @Published private(set) var successMessage: String?
+    @Published private(set) var errorMessage: String?
+
+    // MARK: - Dependencies
+
+    private let authService: AuthServicing
+
+    init(authService: AuthServicing) {
+        self.authService = authService
+    }
+    
+    func setError(_ message: String) {
+        errorMessage = message
+        successMessage = nil
+    }
+
+    // MARK: - Actions
+
+    /// Requests an OTP code to be sent to the provided email.
+    ///
+    /// Security note: the API should always respond the same way (e.g. 204) whether the email exists or not.
+    func requestPasswordReset() async {
+        let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard isValidEmail(trimmedEmail) else {
+            errorMessage = L10n.emailInvalid
+            successMessage = nil
+            return
+        }
+
+        isLoading = true
+        errorMessage = nil
+        successMessage = nil
+        defer { isLoading = false }
+
+        do {
+            try await authService.requestPasswordReset(email: trimmedEmail)
+
+            // Do not reveal whether the email exists.
+            successMessage = "If an account exists for \(trimmedEmail), you will receive an email with a verification code."
+            step = .enterCodeAndPassword
+        } catch {
+            // Keep errors generic to avoid leaking account existence.
+            errorMessage = "Could not request password reset. Please try again."
         }
     }
+    
+    
+    func requestNewPassword() async {
+        let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
 
-    private func sendPasswordReset(with email: String) {
-        service.sendPasswordReset(email: email)
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .failure(let error):
-                    self.errorSubject.send(error.localizedDescription)
-                case .finished: break
-                }
-            } receiveValue: { [weak self] _ in
-                guard let self = self else { return }
-                self.emailSuccessSubject.send("\(L10n.anEmailWasSentTo) \(email).")
-            }
-            .store(in: &disposeBag)
-    }
-
-    // validate emailTextFields text is correct
-    private func validateTextFields(_ emailTextField: String?) -> Void? {
-
-        // validate email is in a good format
-        let email = emailTextField.clearedText()
-        if email.isValidEmail() == false {
-            return errorSubject.send(L10n.emailInvalid)
+        guard isValidEmail(trimmedEmail) else {
+            errorMessage = L10n.emailInvalid
+            successMessage = nil
+            return
         }
 
-        return nil
+        let trimmedCode = code.trimmingCharacters(in: .whitespacesAndNewlines)
+        let isSixDigits = trimmedCode.count == 6 && trimmedCode.allSatisfy({ $0.isNumber })
+        guard isSixDigits else {
+            errorMessage = "Invalid verification code."
+            successMessage = nil
+            return
+        }
+
+        let trimmedPassword = newPassword.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard isValidPassword(trimmedPassword) else {
+            errorMessage = "Password must be at least 8 characters long and include 1 uppercase, 1 lowercase and 1 number."
+            successMessage = nil
+            return
+        }
+
+        isLoading = true
+        errorMessage = nil
+        successMessage = nil
+        defer { isLoading = false }
+
+        do {
+            try await authService.resetPassword(email: trimmedEmail, code: trimmedCode, newPassword: trimmedPassword)
+            successMessage = "Password reset successful."
+            step = .done
+        } catch {
+            errorMessage = "Could not reset password. Please try again."
+        }
+    }
+}
+
+// MARK: - Private helpers
+
+private extension PasswordResetViewModel {
+    func isValidEmail(_ value: String) -> Bool {
+        // Keep this simple; you can swap for a stricter validator later.
+        value.contains("@") && value.contains(".")
+    }
+    
+    func isValidPassword(_ value: String) -> Bool {
+        guard value.count >= 8 else { return false }
+        let hasUpper = value.range(of: #"[A-Z]"#, options: .regularExpression) != nil
+        let hasLower = value.range(of: #"[a-z]"#, options: .regularExpression) != nil
+        let hasDigit = value.range(of: #"[0-9]"#, options: .regularExpression) != nil
+        return hasUpper && hasLower && hasDigit
     }
 }

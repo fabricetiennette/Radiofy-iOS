@@ -28,7 +28,7 @@ class LogInViewModelTests: XCTestCase {
             authDataResult: fakeAuthDataResult, error: nil
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let logInViewModel = LogInViewModel(
             delegate: self as? LogInViewModelDelegate,
             authService: authService
@@ -54,7 +54,7 @@ class LogInViewModelTests: XCTestCase {
             authDataResult: fakeAuthDataResult, error: nil
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let logInViewModel = LogInViewModel(
             delegate: self as? LogInViewModelDelegate,
             authService: authService
@@ -80,7 +80,7 @@ class LogInViewModelTests: XCTestCase {
             authDataResult: fakeAuthDataResult, error: nil
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let logInViewModel = LogInViewModel(
             delegate: self as? LogInViewModelDelegate,
             authService: authService
@@ -106,7 +106,7 @@ class LogInViewModelTests: XCTestCase {
             authDataResult: nil, error: FakeNetworkResponse.networkError
         )
         let mockAuthService = MockAuthService(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let logInViewModel = LogInViewModel(
             delegate: self as? LogInViewModelDelegate,
             authService: authService
@@ -132,7 +132,7 @@ class LogInViewModelTests: XCTestCase {
             authDataResult: fakeAuthDataResult, error: nil
         )
         let mockAuthService = EmailMock(fakeAuthResponse: fakeAuthResponse)
-        let authService = AuthService(authManager: mockAuthService)
+        let authService = AuthService(LegacyFirebaseAuthManager: mockAuthService)
         let logInViewModel = LogInViewModel(
             delegate: self as? LogInViewModelDelegate,
             authService: authService

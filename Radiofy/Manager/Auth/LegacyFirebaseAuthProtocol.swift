@@ -1,5 +1,5 @@
 //
-//  AuthProtocol.swift
+//  LegacyFirebaseAuthProtocol.swift
 //  Radiofy
 //
 //  Created by Fabrice Etiennette on 24/04/2020.
@@ -10,7 +10,7 @@ import Foundation
 
 typealias AuthResult = Result<UserProtocol, Error>
 
-protocol AuthProtocol {
+protocol LegacyFirebaseAuthProtocol {
     var currentUser: UserProtocol? { get }
     var userEmail: String? { get }
     var isAnonymous: Bool { get }

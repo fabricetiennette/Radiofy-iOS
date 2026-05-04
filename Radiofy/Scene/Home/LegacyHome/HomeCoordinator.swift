@@ -69,18 +69,18 @@ class HomeCoordinator: Coordinator<UINavigationController> {
     }
 
     private func makeAccountPage() {
-        let viewController = AccountViewController.instantiate(from: .home)
-        let viewModel = AccountViewModel(delegate: self)
-        viewController.viewModel = viewModel
-        rootView.pushViewController(viewController, animated: true)
+//        let viewController = AccountViewController.instantiate(from: .home)
+//        let viewModel = AccountViewModel(delegate: self)
+//        viewController.viewModel = viewModel
+//        rootView.pushViewController(viewController, animated: true)
     }
 
     private func goToSignUpView() {
-        let coordinator = LogInCoordinator(options: .push(rootView))
-        rootView.setNavigationBarHidden(false, animated: false)
-        coordinator.delegate = self
-        add(children: coordinator)
-        coordinator.start()
+//        let coordinator = LogInCoordinator(options: .push(rootView))
+//        rootView.setNavigationBarHidden(false, animated: false)
+//        coordinator.delegate = self
+//        add(children: coordinator)
+//        coordinator.start()
     }
 
     private func makePayWallView() {
@@ -124,21 +124,21 @@ extension HomeCoordinator: SettingsCoordinatorDelegate {
     }
 }
 
-extension HomeCoordinator: AccountViewModelDelete {
-    func showSubscriptionPage() {
-        makePayWallView()
-    }
-}
+//extension HomeCoordinator: AccountViewModelDelete {
+//    func showSubscriptionPage() {
+//        makePayWallView()
+//    }
+//}
 
-extension HomeCoordinator: LogInCoordinatorDelegate {
-    func goHomeFromLogIn() {
-
-    }
-
-    func goPasswordReset() {
-
-    }
-}
+//extension HomeCoordinator: LogInCoordinatorDelegate {
+//    func goHomeFromLogIn() {
+//
+//    }
+//
+//    func goPasswordReset() {
+//
+//    }
+//}
 
 extension HomeCoordinator: SubscriptionViewModelDelegate {
     func signUpFirst() {

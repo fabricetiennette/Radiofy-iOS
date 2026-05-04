@@ -113,12 +113,12 @@ extension PodcastCoordinator: SubscriptionViewModelDelegate {
     }
 }
 
-extension PodcastCoordinator: SignUpViewModelDelegate {
-    func didTapOnBack() {
-
-    }
-
-    func goToHomeView() {
-        launchHomeView()
-    }
-}
+//extension PodcastCoordinator: SignUpViewModelDelegate {
+//    func didTapOnBack() {
+//
+//    }
+//
+//    func goToHomeView() {
+//        launchHomeView()
+//    }
+//}

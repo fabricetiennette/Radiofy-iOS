@@ -1,5 +1,5 @@
 //
-//  AuthManager.swift
+//  LegacyFirebaseAuthManager.swift
 //  Radiofy
 //
 //  Created by Fabrice Etiennette on 22/04/2020.
@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class AuthManager: AuthProtocol {
+class LegacyFirebaseAuthManager: LegacyFirebaseAuthProtocol {
 
     let firebaseAuth = Auth.auth()
     var handle: AuthStateDidChangeListenerHandle = Auth.auth()

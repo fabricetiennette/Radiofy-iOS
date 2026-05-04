@@ -91,12 +91,12 @@ extension YourLibraryCoordinator: SubscriptionViewModelDelegate {
     }
 }
 
-extension YourLibraryCoordinator: SignUpViewModelDelegate {
-    func didTapOnBack() {
-
-    }
-
-    func goToHomeView() {
-        launchHomeView()
-    }
-}
+//extension YourLibraryCoordinator: SignUpViewModelDelegate {
+//    func didTapOnBack() {
+//
+//    }
+//
+//    func goToHomeView() {
+//        launchHomeView()
+//    }
+//}

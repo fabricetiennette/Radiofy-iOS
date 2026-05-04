@@ -8,26 +8,26 @@
 
 import Foundation
 
-public class AuthService {
+public class LegacyFirebaseAuthService {
 
-    private var authManager: AuthProtocol
+    private var legacyFirebaseAuthManager: LegacyFirebaseAuthProtocol
 
-    init(authManager: AuthProtocol = AuthManager()) {
-        self.authManager = authManager
+    init(legacyFirebaseAuthManager: LegacyFirebaseAuthProtocol = LegacyFirebaseAuthManager()) {
+        self.legacyFirebaseAuthManager = legacyFirebaseAuthManager
     }
 
     // CurrentUser
     var currentUser: UserProtocol? {
-        return authManager.currentUser
+        return legacyFirebaseAuthManager.currentUser
     }
 
     var isAnonymous: Bool {
-        return authManager.isAnonymous
+        return legacyFirebaseAuthManager.isAnonymous
     }
 
     // User email
     var userEmail: String? {
-        return authManager.userEmail
+        return legacyFirebaseAuthManager.userEmail
     }
 
     // Sign In user from Firebase
@@ -36,7 +36,7 @@ public class AuthService {
         password: String,
         callback: @escaping (AuthResult) -> Void
     ) {
-        authManager.signIn(email: email, password: password) { result in
+        legacyFirebaseAuthManager.signIn(email: email, password: password) { result in
             switch result {
             case .success(let auth):
                 callback(.success(auth))
@@ -51,7 +51,7 @@ public class AuthService {
         password: String,
         callback: @escaping (AuthResult) -> Void
     ) {
-        authManager.linkUserToAnonymous(email: email, password: password) { result in
+        legacyFirebaseAuthManager.linkUserToAnonymous(email: email, password: password) { result in
             switch result {
             case .success(let auth):
                 callback(.success(auth))
@@ -62,7 +62,7 @@ public class AuthService {
     }
 
     func signInAnonymously(callback: @escaping (AuthResult) -> Void) {
-        authManager.signInUserAnonymously { result in
+        legacyFirebaseAuthManager.signInUserAnonymously { result in
             switch result {
             case .success(let auth):
                 callback(.success(auth))
@@ -74,7 +74,7 @@ public class AuthService {
 
     // Sign Out user
     func signOutUser(callback: @escaping (Result<Any, Error>) -> Void) {
-        authManager.signOutUser { result in
+        legacyFirebaseAuthManager.signOutUser { result in
             switch result {
             case .success:
                 callback(.success(()))
@@ -86,7 +86,7 @@ public class AuthService {
 
     // check if user email if verified
     func isUserEmailVerified() -> Bool {
-        return authManager.isUserEmailVerified()
+        return legacyFirebaseAuthManager.isUserEmailVerified()
     }
 
     // create and save user in firebase
@@ -96,7 +96,7 @@ public class AuthService {
         email: String,
         callback: @escaping (AuthResult) -> Void
     ) {
-        authManager.createUser(name: name, password: password, email: email) { result in
+        legacyFirebaseAuthManager.createUser(name: name, password: password, email: email) { result in
             switch result {
             case .success(let auth):
                 callback(.success(auth))
@@ -110,7 +110,7 @@ public class AuthService {
     func sendEmailVerificationToUser(
         callback: @escaping (Result<Any, Error>) -> Void
     ) {
-        authManager.sendEmailVerificationToUser { result in
+        legacyFirebaseAuthManager.sendEmailVerificationToUser { result in
             switch result {
             case .success(let success):
                 callback(.success(success))
@@ -125,7 +125,7 @@ public class AuthService {
         email: String,
         callback: @escaping (Result<Void, Error>) -> Void
     ) {
-        authManager.sendPasswordReset(email: email) { result in
+        legacyFirebaseAuthManager.sendPasswordReset(email: email) { result in
             switch result {
             case .success(let success):
                 callback(.success(success))
@@ -137,14 +137,14 @@ public class AuthService {
 
     // Add authentication Listener
     func stateDidChangeForAuth(callback: @escaping () -> Void) {
-        authManager.stateDidChangeForAuth {
+        legacyFirebaseAuthManager.stateDidChangeForAuth {
             callback()
         }
     }
 
     // Remove authentication Listener
     func removeListener() {
-        authManager.removeListener()
+        legacyFirebaseAuthManager.removeListener()
     }
 
     // reauthenticate user
@@ -152,7 +152,7 @@ public class AuthService {
         password: String?,
         callback: @escaping (AuthResult) -> Void
     ) {
-        authManager.reauthenticate(password: password) { result in
+        legacyFirebaseAuthManager.reauthenticate(password: password) { result in
             switch result {
             case .success(let auth):
                 callback(.success(auth))
@@ -167,7 +167,7 @@ public class AuthService {
         with email: String,
         callback: @escaping (Result<Void, Error>) -> Void
     ) {
-        authManager.deleteUserAuthentication(with: email) { result in
+        legacyFirebaseAuthManager.deleteUserAuthentication(with: email) { result in
             switch result {
             case .success(let success):
                 callback(.success(success))

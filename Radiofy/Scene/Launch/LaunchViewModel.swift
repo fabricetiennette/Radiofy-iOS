@@ -1,39 +1,23 @@
-//
-//  LaunchViewModel.swift
-//  Radiofy
-//
-//  Created by Fabrice Etiennette on 27/04/2021.
-//  Copyright © 2021 Fabrice Etiennette. All rights reserved.
-//
-
 import Foundation
 
-final class LaunchViewModel: LaunchModule.ViewModel {
+@MainActor
+final class LaunchViewModel: ObservableObject {
+    @Published var isLoading = false
+    @Published var hasError = false
 
-    weak var delegate: LaunchModule.CoordinatorDelegate?
+    private let healthService: HealthServicing
 
-    private let service: LaunchModule.Service
-
-    var isOn: Bool
-
-    init(service: LaunchModule.Service, needAnimation: Bool) {
-        self.service = service
-        self.isOn = needAnimation
+    init(healthService: HealthServicing) {
+        self.healthService = healthService
     }
 
-    func isUserLoggedIn() {
-        let result = service.isUserLoggedIn
-        switch result {
-        case true:
-            delegate?.showHomeTabBar()
-            
-        case false:
-            delegate?.showOnboardingPath()
-        }
-    }
+    func pingRequest() async {
+        hasError = false
+        isLoading = true
+        defer { isLoading = false }
 
-    func setupEmailLanguage() {
-        service.setFirebaseEmailLanguage()
+        let isHealthy = await healthService.pingHealth()
+        hasError = !isHealthy
+//        hasError = true
     }
-
 }

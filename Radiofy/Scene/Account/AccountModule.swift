@@ -1,9 +1,12 @@
-//
-//  AccountModule.swift
-//  Radiofy
-//
-//  Created by Fabrice Etiennette on 31/07/2021.
-//  Copyright © 2021 Fabrice Etiennette. All rights reserved.
-//
+import SwiftUI
 
-import Foundation
+struct AccountModule {
+    let authService: AuthServicing
+    let onLogout: () -> Void
+
+    @MainActor
+    func makeView() -> some View {
+        let viewModel = AccountViewModel(authService: authService)
+        return AccountView(viewModel: viewModel, onLogout: onLogout)
+    }
+}

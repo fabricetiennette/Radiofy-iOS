@@ -9,16 +9,16 @@
 import Foundation
 import FirebaseAuth
 
-struct LaunchService: LaunchModule.Service {
-
-    private let auth = Auth.auth()
-
-    var isUserLoggedIn: Bool {
-        auth.currentUser != nil
-    }
-
-    func setFirebaseEmailLanguage() {
-        let language = Locale.preferredLanguages.first
-        auth.languageCode = language
-    }
-}
+//struct LaunchService: LaunchModule.Service {
+//
+//    private let auth = Auth.auth()
+//
+//    var isUserLoggedIn: Bool {
+//        auth.currentUser != nil
+//    }
+//
+//    func setFirebaseEmailLanguage() {
+//        let language = Locale.preferredLanguages.first
+//        auth.languageCode = language
+//    }
+//}
