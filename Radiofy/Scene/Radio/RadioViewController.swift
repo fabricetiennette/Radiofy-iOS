@@ -121,13 +121,13 @@ private extension RadioViewController {
     }
 
     func configureView() {
-        guard let navigationController = navigationController else { return }
-        navigationController.setNavigationBarHidden(false, animated: true)
-        navigationController.navigationBar.tintColor = .white
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController.navigationBar.shadowImage = UIImage()
-        navigationController.navigationBar.isTranslucent = true
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        guard let navigationController = navigationController else { return }
+//        navigationController.setNavigationBarHidden(false, animated: true)
+//        navigationController.navigationBar.tintColor = .white
+////        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController.navigationBar.shadowImage = UIImage()
+//        navigationController.navigationBar.isTranslucent = true
+//        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 
     func addFavoriteButton() {

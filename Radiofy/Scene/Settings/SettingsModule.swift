@@ -69,9 +69,9 @@ protocol SettingsViewModelDelegate: AnyObject {
     func createAccount()
 }
 
-protocol SettingsCoordinatorDelegate: CoordinatorDelegate {
-    func goToCreateAccount()
-    func goToAccountPage()
-    func goToAboutPage()
-    func goToEditProfile()
-}
+//protocol SettingsCoordinatorDelegate: CoordinatorDelegate {
+//    func goToCreateAccount()
+//    func goToAccountPage()
+//    func goToAboutPage()
+//    func goToEditProfile()
+//}

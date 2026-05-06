@@ -109,17 +109,17 @@ private extension SettingsViewController {
     }
 
     func configureView() {
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.barTintColor = UIColor(cgColor: #colorLiteral(red: 0.156845212, green: 0.1568739116, blue: 0.1568388939, alpha: 1))
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationItem.title = L10n.settings
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(
-            image: .none,
-            style: .plain,
-            target: nil,
-            action: nil
-        )
+//        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.barTintColor = UIColor(cgColor: #colorLiteral(red: 0.156845212, green: 0.1568739116, blue: 0.1568388939, alpha: 1))
+//        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        self.navigationItem.title = L10n.settings
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(
+//            image: .none,
+//            style: .plain,
+//            target: nil,
+//            action: nil
+//        )
     }
 }

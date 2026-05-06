@@ -2,8 +2,12 @@ import SwiftUI
 
 struct SearchView: View {
     var body: some View {
-        VStack(spacing: 16) {
-            Text("SearchView!")
+        List {
+            Section("Recently Searched") {
+                Text("Radio Nova")
+                Text("Dîner entre amis !")
+                Text("Kizomba Essentials")
+            }
         }
     }
 }
@@ -13,3 +17,4 @@ struct SearchView: View {
     SearchView()
 }
 #endif
+

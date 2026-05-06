@@ -61,16 +61,16 @@ private extension EpisodeViewController {
 private extension EpisodeViewController {
 
     func configureNavbar() {
-        guard let navigationController = navigationController else { return }
-        navigationController.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
-        navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController.navigationBar.isTranslucent = true
-        navigationController.navigationBar.tintColor = .white
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = viewModel.selectedPodcast?.trackName
+//        guard let navigationController = navigationController else { return }
+//        navigationController.navigationBar.titleTextAttributes = [
+//            NSAttributedString.Key.foregroundColor: UIColor.white]
+//        navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
+//        navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
+//        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController.navigationBar.isTranslucent = true
+//        navigationController.navigationBar.tintColor = .white
+//        navigationItem.largeTitleDisplayMode = .never
+//        navigationItem.title = viewModel.selectedPodcast?.trackName
     }
 }
 

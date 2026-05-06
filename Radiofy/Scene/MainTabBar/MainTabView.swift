@@ -1,26 +1,33 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @State private var selectedTab: MainTab = .home
+    @State private var searchText = ""
+
     var body: some View {
-        TabView {
-            Tab("Home", systemImage: "house.fill") {
+        TabView(selection: $selectedTab) {
+            Tab(L10n.home, systemImage: "house.fill", value: MainTab.home) {
                 HomeView()
             }
-            
-            Tab("Radio", systemImage: "dot.radiowaves.left.and.right") {
+
+            Tab(L10n.radio, systemImage: "dot.radiowaves.left.and.right", value: MainTab.radio) {
                 RadioView()
             }
-            
-            Tab("Podcast", systemImage: "mic.fill") {
+
+            Tab(L10n.podcast, systemImage: "mic.fill", value: MainTab.podcast) {
                 PodcastView()
             }
-            
-            Tab("Library", systemImage: "music.note.square.stack.fill") {
+
+            Tab(L10n.library, systemImage: "music.note.square.stack.fill", value: MainTab.library) {
                 LibraryView()
             }
-            
-            Tab(role: .search) {
-                SearchView()
+
+            Tab(value: MainTab.search, role: .search) {
+                NavigationStack {
+                    SearchView()
+                        .navigationTitle(L10n.search)
+                        .searchable(text: $searchText)
+                }
             }
         }
         .tabViewBottomAccessory {
@@ -28,6 +35,14 @@ struct MainTabView: View {
         }
         .tabBarMinimizeBehavior(.onScrollDown)
     }
+}
+
+private enum MainTab: Hashable {
+    case home
+    case radio
+    case podcast
+    case library
+    case search
 }
 
 #Preview {

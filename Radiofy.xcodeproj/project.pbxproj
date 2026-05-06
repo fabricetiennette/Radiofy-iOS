@@ -247,7 +247,6 @@
 		2CFD6BEF24290E1100F35EC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */; };
 		2CFEFAC72631DBF600CB4515 /* LNPopupController-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */; };
 		2CFEFB2C2631E1C000CB4515 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB2B2631E1C000CB4515 /* Alamofire */; };
-		2CFEFB702631E60200CB4515 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */; };
 		2CFEFB942631E82E00CB4515 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */; };
 		2CFEFBD42631EB7D00CB4515 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFBD32631EB7D00CB4515 /* FeedKit */; };
 		2CFEFBF62631ED3900CB4515 /* FRadioPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFBF52631ED3900CB4515 /* FRadioPlayer */; };
@@ -537,7 +536,6 @@
 				2CEBC5172662FF2100479DBC /* FirebaseAnalytics in Frameworks */,
 				2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */,
 				2CEBC51F2662FF2100479DBC /* FirebaseFirestore in Frameworks */,
-				2CFEFB702631E60200CB4515 /* IQKeyboardManagerSwift in Frameworks */,
 				2CFEFBF62631ED3900CB4515 /* FRadioPlayer in Frameworks */,
 				2CFEFB2C2631E1C000CB4515 /* Alamofire in Frameworks */,
 				2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */,
@@ -1477,7 +1475,6 @@
 				2C5CAD5026309B610093F7E3 /* Lottie */,
 				2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */,
 				2CFEFB2B2631E1C000CB4515 /* Alamofire */,
-				2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */,
 				2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */,
 				2CFEFBD32631EB7D00CB4515 /* FeedKit */,
 				2CFEFBF52631ED3900CB4515 /* FRadioPlayer */,
@@ -1552,7 +1549,6 @@
 				2C5CAD4F26309B610093F7E3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				2CFEFAC52631DBF600CB4515 /* XCRemoteSwiftPackageReference "LNPopupController" */,
 				2CFEFB2A2631E1C000CB4515 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				2CFEFB922631E82E00CB4515 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				2CFEFBD22631EB7D00CB4515 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				2CFEFBF42631ED3900CB4515 /* XCRemoteSwiftPackageReference "FRadioPlayer" */,
@@ -1980,7 +1976,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2000,7 +1996,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2068,7 +2064,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2126,7 +2122,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2147,7 +2143,7 @@
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2174,7 +2170,7 @@
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2197,7 +2193,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2219,7 +2215,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2325,14 +2321,6 @@
 				minimumVersion = 5.4.3;
 			};
 		};
-		2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.5.6;
-			};
-		};
 		2CFEFB922631E82E00CB4515 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
@@ -2409,11 +2397,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2CFEFB2A2631E1C000CB4515 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
 		};
 		2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */ = {
 			isa = XCSwiftPackageProductDependency;
