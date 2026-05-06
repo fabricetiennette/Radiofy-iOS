@@ -3,8 +3,10 @@ import SwiftUI
 struct PodcastView: View {
     var body: some View {
         VStack(spacing: 16) {
-            Text("PodcastView!")
+            Text(" Podcast !")
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.ignoresSafeArea())
     }
 }
 

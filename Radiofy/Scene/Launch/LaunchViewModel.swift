@@ -18,6 +18,5 @@ final class LaunchViewModel: ObservableObject {
 
         let isHealthy = await healthService.pingHealth()
         hasError = !isHealthy
-//        hasError = true
     }
 }

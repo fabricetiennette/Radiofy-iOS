@@ -3,8 +3,10 @@ import SwiftUI
 struct LibraryView: View {
     var body: some View {
         VStack(spacing: 16) {
-            Text("LibraryView!")
+            Text(" Library !")
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.ignoresSafeArea())
     }
 }
 

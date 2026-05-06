@@ -105,6 +105,7 @@
 		2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688967242E13A300463F1B /* SignUpViewModel.swift */; };
 		2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688971242E3C8100463F1B /* RootCoordinator.swift */; };
 		2C6B047126543268007247A4 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B047026543268007247A4 /* UIApplication+.swift */; };
+		2C6BD5232FAB763E000CC668 /* AccountAvatarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6BD5222FAB763C000CC668 /* AccountAvatarButton.swift */; };
 		2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */; };
 		2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6F10E824644B9D00C65001 /* StoreKit.framework */; };
 		2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAD2662A5F500660042 /* PasswordResetModule.swift */; };
@@ -373,6 +374,7 @@
 		2C688967242E13A300463F1B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		2C688971242E3C8100463F1B /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		2C6B047026543268007247A4 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		2C6BD5222FAB763C000CC668 /* AccountAvatarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAvatarButton.swift; sourceTree = "<group>"; };
 		2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		2C6F10E824644B9D00C65001 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2C716AAD2662A5F500660042 /* PasswordResetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetModule.swift; sourceTree = "<group>"; };
@@ -820,6 +822,14 @@
 				2C67230C24659DA700ABCD5B /* Subscription.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2C6BD5212FAB7633000CC668 /* Button++ */ = {
+			isa = PBXGroup;
+			children = (
+				2C6BD5222FAB763C000CC668 /* AccountAvatarButton.swift */,
+			);
+			path = "Button++";
 			sourceTree = "<group>";
 		};
 		2C844A7E243FE810003E19E9 /* RadioPlayer */ = {
@@ -1395,6 +1405,7 @@
 				2C42269D2F43EC2A008A1414 /* OTPCode */,
 				2CB77E5F2649AF1C0069BC52 /* UIControl */,
 				2C302A80263749140085325C /* Loader */,
+				2C6BD5212FAB7633000CC668 /* Button++ */,
 				2CF85AB4242D7900002FBFF6 /* LogInButtonView.swift */,
 				2CF85AB6242D79DF002FBFF6 /* SignUpButtonView.swift */,
 				2CF5ED6D242E53E60018E8A4 /* SignMeUpButtonView.swift */,
@@ -1703,6 +1714,7 @@
 				2C42267D2F4273EF008A1414 /* RootView.swift in Sources */,
 				2CE7B33F2FA8C360001E7FBD /* MainTabView.swift in Sources */,
 				2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */,
+				2C6BD5232FAB763E000CC668 /* AccountAvatarButton.swift in Sources */,
 				2C4226A22F44B80D008A1414 /* HomeView.swift in Sources */,
 				2C55CF772635CB5900723042 /* Coordinator.swift in Sources */,
 				2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */,

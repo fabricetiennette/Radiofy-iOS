@@ -26,7 +26,9 @@ struct RootView: View {
                 .makeView()
                 
             case .home:
-                MainTabView()
+                MainTabView {
+                    router.setOnboarding()
+                }
                 
             case .onboarding:
                 OnboardingView {
