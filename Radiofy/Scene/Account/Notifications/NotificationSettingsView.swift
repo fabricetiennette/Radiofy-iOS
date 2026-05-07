@@ -1,29 +1,38 @@
 import SwiftUI
 
 struct NotificationSettingsView: View {
-    @State private var pushNotificationsEnabled = true
-    @State private var newRadioNotificationsEnabled = true
-    @State private var podcastNotificationsEnabled = true
+
+    @State private var newPodcastEnabled = false
 
     var body: some View {
         List {
             Section {
-                Toggle("Push notifications", isOn: $pushNotificationsEnabled)
-                Toggle("New radios", isOn: $newRadioNotificationsEnabled)
-                Toggle("Podcasts", isOn: $podcastNotificationsEnabled)
+                Toggle(isOn: $newPodcastEnabled) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(L10n.newPodcast)
+                        
+                        Text(L10n.newPodcastDescription)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
             } footer: {
-                Text("Choose which notifications you want to receive from Radiofy.")
+                Text(L10n.notificationsFooter)
+                    .padding(.top, 8)
             }
+            .listRowBackground(Color.white.opacity(0.08))
         }
-        .listStyle(.insetGrouped)
+        .navigationTitle(L10n.notifications)
+        .navigationBarTitleDisplayMode(.inline)
         .scrollContentBackground(.hidden)
         .background(Color.black.ignoresSafeArea())
-        .navigationTitle("Notifications")
     }
 }
 
 #if DEBUG
 #Preview {
-    NotificationSettingsView()
+    NavigationStack {
+        NotificationSettingsView()
+    }
 }
 #endif

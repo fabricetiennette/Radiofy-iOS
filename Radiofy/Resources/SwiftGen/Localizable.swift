@@ -14,6 +14,12 @@ internal enum L10n {
   internal static let about = L10n.tr("Localizable", "About", fallback: "About")
   /// Account
   internal static let account = L10n.tr("Localizable", "Account", fallback: "Account")
+  /// Account management
+  internal static let accountManagement = L10n.tr("Localizable", "accountManagement", fallback: "Account management")
+  /// Radiofy uses industry-standard encryption to protect the confidentiality of your personal information.
+  internal static let accountSecurityFooter = L10n.tr("Localizable", "accountSecurityFooter", fallback: "Radiofy uses industry-standard encryption to protect the confidentiality of your personal information.")
+  /// This action cannot be undone.
+  internal static let actionCannotBeUndone = L10n.tr("Localizable", "actionCannotBeUndone", fallback: "This action cannot be undone.")
   /// An email was sent to
   internal static let anEmailWasSentTo = L10n.tr("Localizable", "An email was sent to", fallback: "An email was sent to")
   /// This action requires you to enter your password.
@@ -40,6 +46,10 @@ internal enum L10n {
   internal static let createAccount = L10n.tr("Localizable", "Create account", fallback: "Create account")
   /// Delete Account
   internal static let deleteAccount = L10n.tr("Localizable", "DeleteAccount", fallback: "Delete Account")
+  /// Delete account failed
+  internal static let deleteAccountFailed = L10n.tr("Localizable", "deleteAccountFailed", fallback: "Delete account failed")
+  /// Delete your account?
+  internal static let deleteYourAccountQuestion = L10n.tr("Localizable", "deleteYourAccountQuestion", fallback: "Delete your account?")
   /// Duration
   internal static let duration = L10n.tr("Localizable", "Duration", fallback: "Duration")
   /// Edit Profile
@@ -92,14 +102,26 @@ internal enum L10n {
   internal static let logOut = L10n.tr("Localizable", "Log out", fallback: "Log out")
   /// Are you sure you want to log out?
   internal static let logOutMessage = L10n.tr("Localizable", "LogOutMessage", fallback: "Are you sure you want to log out?")
+  /// This will sign you out of Radiofy on this device.
+  internal static let logoutMessage = L10n.tr("Localizable", "logoutMessage", fallback: "This will sign you out of Radiofy on this device.")
   /// Radiofy
   internal static let mainTitle = L10n.tr("Localizable", "main_title", fallback: "Radiofy")
   /// /month.
   internal static let month = L10n.tr("Localizable", "month.", fallback: "/month.")
   /// Name entered is not valid. 2 characters minimum & 15 Maximum.
   internal static let nameInvalid = L10n.tr("Localizable", "name_invalid", fallback: "Name entered is not valid. 2 characters minimum & 15 Maximum.")
+  /// New Podcast
+  internal static let newPodcast = L10n.tr("Localizable", "newPodcast", fallback: "New Podcast")
+  /// Get notified when a new podcast episode is available.
+  internal static let newPodcastDescription = L10n.tr("Localizable", "newPodcastDescription", fallback: "Get notified when a new podcast episode is available.")
   /// No prior purchases found for your account.
   internal static let noPriorPurchasesFoundForYourAccount = L10n.tr("Localizable", "No prior purchases found for your account.", fallback: "No prior purchases found for your account.")
+  /// Notifications
+  internal static let notifications = L10n.tr("Localizable", "notifications", fallback: "Notifications")
+  /// Radiofy uses your notification preferences to decide which alerts to send. You can change your preferences anytime in your account.
+  internal static let notificationsFooter = L10n.tr("Localizable", "notificationsFooter", fallback: "Radiofy uses your notification preferences to decide which alerts to send. You can change your preferences anytime in your account.")
+  /// OK
+  internal static let ok = L10n.tr("Localizable", "ok", fallback: "OK")
   /// The best radio stations and podcasts on
   internal static let onboardingOne = L10n.tr("Localizable", "onboarding_one", fallback: "The best radio stations and podcasts on")
   /// Please make sure your password contain a least 8 characters, 1 special character and 1 number.
@@ -110,6 +132,8 @@ internal enum L10n {
   internal static let play = L10n.tr("Localizable", "play", fallback: "Play")
   /// Podcast
   internal static let podcast = L10n.tr("Localizable", "podcast", fallback: "Podcast")
+  /// Privacy
+  internal static let privacy = L10n.tr("Localizable", "privacy", fallback: "Privacy")
   /// Privacy Policy
   internal static let privacyPolicy = L10n.tr("Localizable", "Privacy Policy", fallback: "Privacy Policy")
   /// Radio
@@ -132,16 +156,22 @@ internal enum L10n {
   internal static let searchYourRadio = L10n.tr("Localizable", "Search your radio", fallback: "Search your radio")
   /// Search
   internal static let searchTab = L10n.tr("Localizable", "SearchTab", fallback: "Search")
+  /// Session
+  internal static let session = L10n.tr("Localizable", "session", fallback: "Session")
   /// Settings
   internal static let settings = L10n.tr("Localizable", "Settings", fallback: "Settings")
   /// SIGN UP
   internal static let signUp = L10n.tr("Localizable", "SIGN UP", fallback: "SIGN UP")
+  /// Signed in
+  internal static let signedIn = L10n.tr("Localizable", "signedIn", fallback: "Signed in")
   /// Station unavaible, try later
   internal static let stationUnavaibleTryLater = L10n.tr("Localizable", "Station unavaible, try later", fallback: "Station unavaible, try later")
   /// Take photo
   internal static let takePhoto = L10n.tr("Localizable", "Take photo", fallback: "Take photo")
   /// Terms of Service
   internal static let termsOfService = L10n.tr("Localizable", "Terms of Service", fallback: "Terms of Service")
+  /// Terms & Conditions
+  internal static let termsAndConditions = L10n.tr("Localizable", "termsAndConditions", fallback: "Terms & Conditions")
   /// Please verify your email first
   internal static let verifiedEmailFirst = L10n.tr("Localizable", "verified_Email_First", fallback: "Please verify your email first")
   /// Your Library
