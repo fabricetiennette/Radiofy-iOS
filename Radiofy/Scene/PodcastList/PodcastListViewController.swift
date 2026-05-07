@@ -52,19 +52,19 @@ private extension PodcastListViewController {
 }
 private extension PodcastListViewController {
     func configureNavbar() {
-        guard let navigationController = navigationController else { return }
-            navigationController.navigationBar.titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
-            navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
-            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            navigationController.navigationBar.shadowImage = UIImage()
-            navigationController.navigationBar.isTranslucent = true
-            navigationController.navigationBar.tintColor = .white
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationItem.title = viewModel.title
+//        guard let navigationController = navigationController else { return }
+//            navigationController.navigationBar.titleTextAttributes = [
+//                NSAttributedString.Key.foregroundColor: UIColor.white]
+//            navigationController.navigationBar.largeTitleTextAttributes = [
+//                NSAttributedString.Key.foregroundColor: UIColor.white]
+//            navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
+//            navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
+//            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//            navigationController.navigationBar.shadowImage = UIImage()
+//            navigationController.navigationBar.isTranslucent = true
+//            navigationController.navigationBar.tintColor = .white
+//            navigationController.navigationBar.prefersLargeTitles = true
+//            navigationItem.title = viewModel.title
     }
 }
 extension PodcastListViewController: Storyboarded {}

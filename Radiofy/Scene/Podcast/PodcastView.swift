@@ -1,10 +1,9 @@
 import SwiftUI
 
-struct HomeView: View {
+struct PodcastView: View {
     var body: some View {
         VStack(spacing: 16) {
-            Text("Welcome! Your're logged in!")
-            Text(" Home !")
+            Text(" Podcast !")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.ignoresSafeArea())
@@ -13,6 +12,6 @@ struct HomeView: View {
 
 #if DEBUG
 #Preview {
-    HomeView()
+    PodcastView()
 }
 #endif

@@ -26,13 +26,9 @@ struct RootView: View {
                 .makeView()
                 
             case .home:
-                AccountModule(
-                    authService: container.authService,
-                    onLogout: {
-                        router.setOnboarding()
-                    }
-                )
-                .makeView()
+                MainTabView {
+                    router.setOnboarding()
+                }
                 
             case .onboarding:
                 OnboardingView {

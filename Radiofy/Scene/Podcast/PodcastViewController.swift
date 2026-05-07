@@ -54,19 +54,19 @@ private extension PodcastViewController {
 
 private extension PodcastViewController {
     func configureNavbar() {
-        guard let navigationController = navigationController else { return }
-            navigationController.navigationBar.titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationController.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white]
-            navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
-            navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
-            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            navigationController.navigationBar.shadowImage = UIImage()
-            navigationController.navigationBar.isTranslucent = true
-            navigationController.navigationBar.tintColor = .white
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationItem.title = "Podcast"
+//        guard let navigationController = navigationController else { return }
+//            navigationController.navigationBar.titleTextAttributes = [
+//                NSAttributedString.Key.foregroundColor: UIColor.white]
+//            navigationController.navigationBar.largeTitleTextAttributes = [
+//                NSAttributedString.Key.foregroundColor: UIColor.white]
+//            navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
+//            navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
+//            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//            navigationController.navigationBar.shadowImage = UIImage()
+//            navigationController.navigationBar.isTranslucent = true
+//            navigationController.navigationBar.tintColor = .white
+//            navigationController.navigationBar.prefersLargeTitles = true
+//            navigationItem.title = "Podcast"
     }
 }
 

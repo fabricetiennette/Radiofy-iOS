@@ -1,6 +1,5 @@
 import UIKit
 import Firebase
-import IQKeyboardManagerSwift
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
 
@@ -11,8 +10,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         // Configure third-party services.
         FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
-        // Enable keyboard management for legacy UIKit screens.
-        IQKeyboardManager.shared.enable = true
 
         return true
     }

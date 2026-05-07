@@ -24,7 +24,6 @@
 		2C22F1522448A30700CE1919 /* urlLoarder.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C22F1512448A30700CE1919 /* urlLoarder.json */; };
 		2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */; };
 		2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2662A3243AACFD00A3964E /* UIImageView.swift */; };
-		2C2B361727090C9E00553945 /* RadioCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B361627090C9E00553945 /* RadioCoordinator.swift */; };
 		2C2B361927090CB000553945 /* RadioModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B361827090CB000553945 /* RadioModule.swift */; };
 		2C2C1FFD2443BB02000300F5 /* ButtonRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */; };
 		2C302A82263749410085325C /* LoaderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C302A81263749410085325C /* LoaderIndicator.swift */; };
@@ -63,7 +62,6 @@
 		2C42269C2F43E586008A1414 /* VerifyEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42269B2F43E57E008A1414 /* VerifyEmailViewModel.swift */; };
 		2C42269F2F43EC37008A1414 /* OTPCodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42269E2F43EC34008A1414 /* OTPCodeField.swift */; };
 		2C4226A22F44B80D008A1414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226A12F44B804008A1414 /* HomeView.swift */; };
-		2C498406245ADFD000B6201C /* PodcastCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498405245ADFD000B6201C /* PodcastCoordinator.swift */; };
 		2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498407245AE01600B6201C /* PodcastViewController.swift */; };
 		2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49840B245AF87200B6201C /* PodcastViewModel.swift */; };
 		2C49840F245AFA3F00B6201C /* PodcastDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49840E245AFA3F00B6201C /* PodcastDataSource.swift */; };
@@ -83,14 +81,11 @@
 		2C498433245B792C00B6201C /* EpisodeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498432245B792C00B6201C /* EpisodeHeaderCell.swift */; };
 		2C498435245B793E00B6201C /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498434245B793E00B6201C /* EpisodeCell.swift */; };
 		2C4E4CD024400A9900F907EB /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CCF24400A9900F907EB /* MiniPlayerViewController.swift */; };
-		2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */; };
 		2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */; };
 		2C533B4524426EB2005FC8EC /* NationStationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */; };
 		2C533B4724427DB6005FC8EC /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */; };
 		2C545A04265596F10024F671 /* ServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C545A03265596F10024F671 /* ServicesProtocol.swift */; };
 		2C5513D526FFDF140082BBB9 /* SearchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5513D426FFDF140082BBB9 /* SearchModule.swift */; };
-		2C55CF772635CB5900723042 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55CF762635CB5900723042 /* Coordinator.swift */; };
-		2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55CF7E2635D49600723042 /* TabBarCoordinator.swift */; };
 		2C591A13243CBB8A004CF4F6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C591A12243CBB8A004CF4F6 /* UIImage+.swift */; };
 		2C5CAD5126309B610093F7E3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2C5CAD5026309B610093F7E3 /* Lottie */; };
 		2C67230A24659DA700ABCD5B /* Subscription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C67230C24659DA700ABCD5B /* Subscription.storyboard */; };
@@ -103,8 +98,8 @@
 		2C685BB826B5FCEB006FD017 /* AboutModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BB726B5FCEB006FD017 /* AboutModule.swift */; };
 		2C688964242E134600463F1B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688963242E134600463F1B /* Storyboarded.swift */; };
 		2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688967242E13A300463F1B /* SignUpViewModel.swift */; };
-		2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688971242E3C8100463F1B /* RootCoordinator.swift */; };
 		2C6B047126543268007247A4 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B047026543268007247A4 /* UIApplication+.swift */; };
+		2C6BD5232FAB763E000CC668 /* AccountAvatarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6BD5222FAB763C000CC668 /* AccountAvatarButton.swift */; };
 		2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */; };
 		2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6F10E824644B9D00C65001 /* StoreKit.framework */; };
 		2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAD2662A5F500660042 /* PasswordResetModule.swift */; };
@@ -129,9 +124,6 @@
 		2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30ED724337CF100820DE4 /* UILabel+.swift */; };
 		2CB30EDC2433F4EE00820DE4 /* loader-1212.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CB30EDB2433F4ED00820DE4 /* loader-1212.json */; };
 		2CB30EDE2433F9B800820DE4 /* loader1010.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CB30EDD2433F9B700820DE4 /* loader1010.json */; };
-		2CB30EE02433FAD100820DE4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EDF2433FAD100820DE4 /* MainTabBarController.swift */; };
-		2CB30EE42433FCC000820DE4 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE32433FCC000820DE4 /* SearchCoordinator.swift */; };
-		2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */; };
 		2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE72433FEE900820DE4 /* SearchViewController.swift */; };
 		2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */; };
 		2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468722F9F8783002E0BB2 /* HealthService.swift */; };
@@ -206,6 +198,12 @@
 		2CE74A7E24537BE0008E3D57 /* LogInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A7D24537BE0008E3D57 /* LogInViewModelTests.swift */; };
 		2CE74A8024539D68008E3D57 /* PasswordResetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A7F24539D68008E3D57 /* PasswordResetViewModelTests.swift */; };
 		2CE74A822453A123008E3D57 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE74A812453A123008E3D57 /* HomeViewModelTests.swift */; };
+		2CE7B33F2FA8C360001E7FBD /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B33E2FA8C35E001E7FBD /* MainTabView.swift */; };
+		2CE7B3412FA8C3A7001E7FBD /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3402FA8C3A6001E7FBD /* RadioView.swift */; };
+		2CE7B3432FA8C3F2001E7FBD /* PodcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3422FA8C3E9001E7FBD /* PodcastView.swift */; };
+		2CE7B3452FA8C411001E7FBD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3442FA8C409001E7FBD /* LibraryView.swift */; };
+		2CE7B3472FA8C429001E7FBD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3462FA8C424001E7FBD /* SearchView.swift */; };
+		2CE7B3492FA8C692001E7FBD /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7B3482FA8C68E001E7FBD /* MiniPlayerView.swift */; };
 		2CEBC5052662F35500479DBC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5042662F35500479DBC /* SDWebImage */; };
 		2CEBC5172662FF2100479DBC /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5162662FF2100479DBC /* FirebaseAnalytics */; };
 		2CEBC5192662FF2100479DBC /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEBC5182662FF2100479DBC /* FirebaseCrashlytics */; };
@@ -222,7 +220,6 @@
 		2CF5ED7C242F87700018E8A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF5ED7B242F87700018E8A4 /* GoogleService-Info.plist */; };
 		2CF5ED81242F90210018E8A4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED80242F90210018E8A4 /* HomeViewModel.swift */; };
 		2CF5ED83242F91EC0018E8A4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED82242F91EC0018E8A4 /* String+.swift */; };
-		2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED84242FB27E0018E8A4 /* HomeCoordinator.swift */; };
 		2CF5ED88242FFE970018E8A4 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED87242FFE970018E8A4 /* LogInViewModel.swift */; };
 		2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED8C2430112E0018E8A4 /* PasswordResetViewModel.swift */; };
 		2CF7290D2708F6CE00C5846B /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 2CF7290C2708F6CE00C5846B /* Reusable */; };
@@ -241,7 +238,6 @@
 		2CFD6BEF24290E1100F35EC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD6BED24290E1100F35EC1 /* LaunchScreen.storyboard */; };
 		2CFEFAC72631DBF600CB4515 /* LNPopupController-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */; };
 		2CFEFB2C2631E1C000CB4515 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB2B2631E1C000CB4515 /* Alamofire */; };
-		2CFEFB702631E60200CB4515 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */; };
 		2CFEFB942631E82E00CB4515 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */; };
 		2CFEFBD42631EB7D00CB4515 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFBD32631EB7D00CB4515 /* FeedKit */; };
 		2CFEFBF62631ED3900CB4515 /* FRadioPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFEFBF52631ED3900CB4515 /* FRadioPlayer */; };
@@ -285,7 +281,6 @@
 		2C22F1512448A30700CE1919 /* urlLoarder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = urlLoarder.json; sourceTree = "<group>"; };
 		2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewModel.swift; sourceTree = "<group>"; };
 		2C2662A3243AACFD00A3964E /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		2C2B361627090C9E00553945 /* RadioCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCoordinator.swift; sourceTree = "<group>"; };
 		2C2B361827090CB000553945 /* RadioModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModule.swift; sourceTree = "<group>"; };
 		2C2C1FFC2443BB02000300F5 /* ButtonRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRadioView.swift; sourceTree = "<group>"; };
 		2C302A81263749410085325C /* LoaderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderIndicator.swift; sourceTree = "<group>"; };
@@ -325,7 +320,6 @@
 		2C42269B2F43E57E008A1414 /* VerifyEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewModel.swift; sourceTree = "<group>"; };
 		2C42269E2F43EC34008A1414 /* OTPCodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPCodeField.swift; sourceTree = "<group>"; };
 		2C4226A12F44B804008A1414 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		2C498405245ADFD000B6201C /* PodcastCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCoordinator.swift; sourceTree = "<group>"; };
 		2C498407245AE01600B6201C /* PodcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewController.swift; sourceTree = "<group>"; };
 		2C49840B245AF87200B6201C /* PodcastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewModel.swift; sourceTree = "<group>"; };
 		2C49840E245AFA3F00B6201C /* PodcastDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDataSource.swift; sourceTree = "<group>"; };
@@ -345,15 +339,12 @@
 		2C498432245B792C00B6201C /* EpisodeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeHeaderCell.swift; sourceTree = "<group>"; };
 		2C498434245B793E00B6201C /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		2C4E4CCF24400A9900F907EB /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
-		2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerCoordinator.swift; sourceTree = "<group>"; };
 		2C4E4CD5244025F000F907EB /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNPopupController.framework; path = Carthage/Build/iOS/LNPopupController.framework; sourceTree = "<group>"; };
 		2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryModule.swift; sourceTree = "<group>"; };
 		2C533B4424426EB2005FC8EC /* NationStationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationStationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C533B4624427DB6005FC8EC /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		2C545A03265596F10024F671 /* ServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProtocol.swift; sourceTree = "<group>"; };
 		2C5513D426FFDF140082BBB9 /* SearchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModule.swift; sourceTree = "<group>"; };
-		2C55CF762635CB5900723042 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		2C55CF7E2635D49600723042 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		2C591A12243CBB8A004CF4F6 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		2C67230B24659DA700ABCD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Subscription.storyboard; sourceTree = "<group>"; };
 		2C67230E24659DAC00ABCD5B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Subscription.strings; sourceTree = "<group>"; };
@@ -366,8 +357,8 @@
 		2C685BB726B5FCEB006FD017 /* AboutModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModule.swift; sourceTree = "<group>"; };
 		2C688963242E134600463F1B /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		2C688967242E13A300463F1B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		2C688971242E3C8100463F1B /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		2C6B047026543268007247A4 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		2C6BD5222FAB763C000CC668 /* AccountAvatarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAvatarButton.swift; sourceTree = "<group>"; };
 		2C6F10E624642F8D00C65001 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		2C6F10E824644B9D00C65001 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2C716AAD2662A5F500660042 /* PasswordResetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetModule.swift; sourceTree = "<group>"; };
@@ -392,9 +383,6 @@
 		2CB30ED724337CF100820DE4 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		2CB30EDB2433F4ED00820DE4 /* loader-1212.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loader-1212.json"; sourceTree = "<group>"; };
 		2CB30EDD2433F9B700820DE4 /* loader1010.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader1010.json; sourceTree = "<group>"; };
-		2CB30EDF2433FAD100820DE4 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		2CB30EE32433FCC000820DE4 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
-		2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryCoordinator.swift; sourceTree = "<group>"; };
 		2CB30EE72433FEE900820DE4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewController.swift; sourceTree = "<group>"; };
 		2CB468722F9F8783002E0BB2 /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
@@ -475,6 +463,12 @@
 		2CE74A7D24537BE0008E3D57 /* LogInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModelTests.swift; sourceTree = "<group>"; };
 		2CE74A7F24539D68008E3D57 /* PasswordResetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModelTests.swift; sourceTree = "<group>"; };
 		2CE74A812453A123008E3D57 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		2CE7B33E2FA8C35E001E7FBD /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		2CE7B3402FA8C3A6001E7FBD /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		2CE7B3422FA8C3E9001E7FBD /* PodcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastView.swift; sourceTree = "<group>"; };
+		2CE7B3442FA8C409001E7FBD /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		2CE7B3462FA8C424001E7FBD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		2CE7B3482FA8C68E001E7FBD /* MiniPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		2CF04879243E028800E12429 /* PopularStationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularStationsCell.swift; sourceTree = "<group>"; };
 		2CF0487B243E10A200E12429 /* MorningHomeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningHomeCellView.swift; sourceTree = "<group>"; };
 		2CF0487D243E1F9200E12429 /* RecentlyPlayedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCell.swift; sourceTree = "<group>"; };
@@ -485,7 +479,6 @@
 		2CF5ED7B242F87700018E8A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2CF5ED80242F90210018E8A4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		2CF5ED82242F91EC0018E8A4 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		2CF5ED84242FB27E0018E8A4 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		2CF5ED87242FFE970018E8A4 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		2CF5ED8C2430112E0018E8A4 /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
 		2CF7290E2708FC4100C5846B /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
@@ -525,7 +518,6 @@
 				2CEBC5172662FF2100479DBC /* FirebaseAnalytics in Frameworks */,
 				2C99C37B244713650097E106 /* ExternalAccessory.framework in Frameworks */,
 				2CEBC51F2662FF2100479DBC /* FirebaseFirestore in Frameworks */,
-				2CFEFB702631E60200CB4515 /* IQKeyboardManagerSwift in Frameworks */,
 				2CFEFBF62631ED3900CB4515 /* FRadioPlayer in Frameworks */,
 				2CFEFB2C2631E1C000CB4515 /* Alamofire in Frameworks */,
 				2C6F10E924644B9D00C65001 /* StoreKit.framework in Frameworks */,
@@ -631,15 +623,6 @@
 			path = MiniPlayer;
 			sourceTree = "<group>";
 		};
-		2C4226852F4323BA008A1414 /* LegacyCommon */ = {
-			isa = PBXGroup;
-			children = (
-				2C55CF762635CB5900723042 /* Coordinator.swift */,
-				2C688971242E3C8100463F1B /* RootCoordinator.swift */,
-			);
-			path = LegacyCommon;
-			sourceTree = "<group>";
-		};
 		2C4226882F436D09008A1414 /* PrivacyPolicy */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,7 +661,6 @@
 		2C4226A02F44B7EA008A1414 /* LegacyHome */ = {
 			isa = PBXGroup;
 			children = (
-				2CF5ED84242FB27E0018E8A4 /* HomeCoordinator.swift */,
 				2C02A03D2665971F00A7F1D9 /* HomeModule.swift */,
 				2C338778243586C800141102 /* HomeViewController.swift */,
 				2CF5ED80242F90210018E8A4 /* HomeViewModel.swift */,
@@ -689,7 +671,7 @@
 		2C498404245ADFAD00B6201C /* Podcast */ = {
 			isa = PBXGroup;
 			children = (
-				2C498405245ADFD000B6201C /* PodcastCoordinator.swift */,
+				2CE7B3422FA8C3E9001E7FBD /* PodcastView.swift */,
 				2C498407245AE01600B6201C /* PodcastViewController.swift */,
 				2C49840B245AF87200B6201C /* PodcastViewModel.swift */,
 				2C49840D245AFA2800B6201C /* DataSource */,
@@ -792,7 +774,6 @@
 		2C55CF752635CB2800723042 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2C4226852F4323BA008A1414 /* LegacyCommon */,
 				2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */,
 				2C688963242E134600463F1B /* Storyboarded.swift */,
 			);
@@ -811,11 +792,19 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		2C6BD5212FAB7633000CC668 /* Button++ */ = {
+			isa = PBXGroup;
+			children = (
+				2C6BD5222FAB763C000CC668 /* AccountAvatarButton.swift */,
+			);
+			path = "Button++";
+			sourceTree = "<group>";
+		};
 		2C844A7E243FE810003E19E9 /* RadioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */,
-				2C4E4CD124400E0000F907EB /* RadioPlayerCoordinator.swift */,
+				2CE7B3482FA8C68E001E7FBD /* MiniPlayerView.swift */,
+				2CE7B34A2FA8C697001E7FBD /* LegacyPlayer */,
 				2C41976B2445121000FFB2FA /* Player */,
 				2C41976C2445122F00FFB2FA /* MiniPlayer */,
 			);
@@ -877,8 +866,8 @@
 		2CB30EE12433FC6C00820DE4 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				2CE7B3462FA8C424001E7FBD /* SearchView.swift */,
 				2CDDB444244A16DE00DC31F5 /* SearchCell */,
-				2CB30EE32433FCC000820DE4 /* SearchCoordinator.swift */,
 				2C5513D426FFDF140082BBB9 /* SearchModule.swift */,
 				2CB30EE72433FEE900820DE4 /* SearchViewController.swift */,
 				2C3BF16F244B31E900BA895B /* SearchViewModel.swift */,
@@ -889,8 +878,8 @@
 		2CB30EE22433FC7700820DE4 /* YourLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				2CE7B3442FA8C409001E7FBD /* LibraryView.swift */,
 				2CA61E112723243E00E12A48 /* LibraryCell */,
-				2CB30EE52433FCE800820DE4 /* YourLibraryCoordinator.swift */,
 				2C4EF3A8271C9A43007AC723 /* YourLibraryModule.swift */,
 				2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */,
 				2C22F1532448FA7E00CE1919 /* YourLibraryViewModel.swift */,
@@ -1125,6 +1114,14 @@
 			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
+		2CE7B34A2FA8C697001E7FBD /* LegacyPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2C9C3D162E91D5E50028526D /* PlaybackCenter.swift */,
+			);
+			path = LegacyPlayer;
+			sourceTree = "<group>";
+		};
 		2CF04881243E2F9200E12429 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1176,19 +1173,18 @@
 			path = PasswordReset;
 			sourceTree = "<group>";
 		};
-		2CF7EF282440CE76004A9B30 /* MainTabBarController */ = {
+		2CF7EF282440CE76004A9B30 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				2CB30EDF2433FAD100820DE4 /* MainTabBarController.swift */,
-				2C55CF7E2635D49600723042 /* TabBarCoordinator.swift */,
+				2CE7B33E2FA8C35E001E7FBD /* MainTabView.swift */,
 			);
-			path = MainTabBarController;
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
 		2CF7EF3024422B59004A9B30 /* Radio */ = {
 			isa = PBXGroup;
 			children = (
-				2C2B361627090C9E00553945 /* RadioCoordinator.swift */,
+				2CE7B3402FA8C3A6001E7FBD /* RadioView.swift */,
 				2C2B361827090CB000553945 /* RadioModule.swift */,
 				2CF7EF3124422B72004A9B30 /* RadioViewController.swift */,
 				2CF7EF332442502D004A9B30 /* RadioViewModel.swift */,
@@ -1296,7 +1292,7 @@
 				2C4226882F436D09008A1414 /* PrivacyPolicy */,
 				2CF5ED6F242E57E00018E8A4 /* LogIn */,
 				2CF5ED89243010C40018E8A4 /* PasswordReset */,
-				2CF7EF282440CE76004A9B30 /* MainTabBarController */,
+				2CF7EF282440CE76004A9B30 /* MainTabBar */,
 				2CC8038C2462E20B00F345C9 /* Subscription */,
 				2CF5ED78242ED1D30018E8A4 /* Home */,
 				2C844A7E243FE810003E19E9 /* RadioPlayer */,
@@ -1363,6 +1359,7 @@
 				2C42269D2F43EC2A008A1414 /* OTPCode */,
 				2CB77E5F2649AF1C0069BC52 /* UIControl */,
 				2C302A80263749140085325C /* Loader */,
+				2C6BD5212FAB7633000CC668 /* Button++ */,
 				2CF85AB4242D7900002FBFF6 /* LogInButtonView.swift */,
 				2CF85AB6242D79DF002FBFF6 /* SignUpButtonView.swift */,
 				2CF5ED6D242E53E60018E8A4 /* SignMeUpButtonView.swift */,
@@ -1443,7 +1440,6 @@
 				2C5CAD5026309B610093F7E3 /* Lottie */,
 				2CFEFAC62631DBF600CB4515 /* LNPopupController-Static */,
 				2CFEFB2B2631E1C000CB4515 /* Alamofire */,
-				2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */,
 				2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */,
 				2CFEFBD32631EB7D00CB4515 /* FeedKit */,
 				2CFEFBF52631ED3900CB4515 /* FRadioPlayer */,
@@ -1518,7 +1514,6 @@
 				2C5CAD4F26309B610093F7E3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				2CFEFAC52631DBF600CB4515 /* XCRemoteSwiftPackageReference "LNPopupController" */,
 				2CFEFB2A2631E1C000CB4515 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				2CFEFB922631E82E00CB4515 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				2CFEFBD22631EB7D00CB4515 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				2CFEFBF42631ED3900CB4515 /* XCRemoteSwiftPackageReference "FRadioPlayer" */,
@@ -1649,19 +1644,18 @@
 				2CCFC4722446144D00AE9B23 /* Sequence+.swift in Sources */,
 				2CE6AD0724525D3C00D8A7B7 /* LegacyFirebaseAuthService.swift in Sources */,
 				2CB4687F2F9F92D0002E0BB2 /* LaunchModule.swift in Sources */,
-				2CB30EE02433FAD100820DE4 /* MainTabBarController.swift in Sources */,
 				2C4E4CD024400A9900F907EB /* MiniPlayerViewController.swift in Sources */,
 				2CC4300F2435C81A001009E2 /* UIViewController+.swift in Sources */,
 				2CB468792F9F89E4002E0BB2 /* HealthModel.swift in Sources */,
 				2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */,
 				2C685BAE26B5FC70006FD017 /* EditProfileCoordinator.swift in Sources */,
+				2CE7B3412FA8C3A7001E7FBD /* RadioView.swift in Sources */,
 				2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */,
 				2CF04880243E29B400E12429 /* HomeDataSource.swift in Sources */,
 				2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */,
 				2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */,
 				2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */,
 				2C498428245B325400B6201C /* RSSFeed+.swift in Sources */,
-				2C688972242E3C8100463F1B /* RootCoordinator.swift in Sources */,
 				2C5513D526FFDF140082BBB9 /* SearchModule.swift in Sources */,
 				2C42269C2F43E586008A1414 /* VerifyEmailViewModel.swift in Sources */,
 				2CDC5AB6243E9D5100498DE5 /* FirestoreManager.swift in Sources */,
@@ -1670,10 +1664,10 @@
 				2CF7EF2B2441F702004A9B30 /* MiniPlayerViewModel.swift in Sources */,
 				2C498435245B793E00B6201C /* EpisodeCell.swift in Sources */,
 				2C42267D2F4273EF008A1414 /* RootView.swift in Sources */,
+				2CE7B33F2FA8C360001E7FBD /* MainTabView.swift in Sources */,
 				2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */,
+				2C6BD5232FAB763E000CC668 /* AccountAvatarButton.swift in Sources */,
 				2C4226A22F44B80D008A1414 /* HomeView.swift in Sources */,
-				2C55CF772635CB5900723042 /* Coordinator.swift in Sources */,
-				2C4E4CD224400E0000F907EB /* RadioPlayerCoordinator.swift in Sources */,
 				2CE43C40270E356E00D24C6F /* RadiofyViewController.swift in Sources */,
 				2C498431245B790A00B6201C /* EpisodeDataSource.swift in Sources */,
 				2C4226792F427264008A1414 /* AppContainer.swift in Sources */,
@@ -1700,8 +1694,8 @@
 				2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */,
 				2CB468772F9F89AD002E0BB2 /* HealthEndpoint.swift in Sources */,
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
+				2CE7B3432FA8C3F2001E7FBD /* PodcastView.swift in Sources */,
 				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
-				2CF5ED85242FB27E0018E8A4 /* HomeCoordinator.swift in Sources */,
 				2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */,
 				2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */,
 				2C3387672434D53600141102 /* SettingButtonView.swift in Sources */,
@@ -1722,7 +1716,6 @@
 				2C685BB026B5FC83006FD017 /* EditProfileModule.swift in Sources */,
 				2C49841F245B0FB100B6201C /* ListPodcastCell.swift in Sources */,
 				2CE3E28F2F3CCA3E008D2F42 /* AuthSession.swift in Sources */,
-				2C2B361727090C9E00553945 /* RadioCoordinator.swift in Sources */,
 				2C00428A244E1241006ABABF /* AboutViewController.swift in Sources */,
 				2C685BB626B5FCDA006FD017 /* AboutCoordinator.swift in Sources */,
 				2C6F10E724642F8D00C65001 /* SubscriptionViewModel.swift in Sources */,
@@ -1736,9 +1729,7 @@
 				2CDC5AB1243E72AB00498DE5 /* NationalStationsCell.swift in Sources */,
 				2C498426245B2FEF00B6201C /* PodcastService.swift in Sources */,
 				2CDC5AB4243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift in Sources */,
-				2C498406245ADFD000B6201C /* PodcastCoordinator.swift in Sources */,
 				2CC803922462F0D600F345C9 /* SubcribePremiumView.swift in Sources */,
-				2CB30EE42433FCC000820DE4 /* SearchCoordinator.swift in Sources */,
 				2C02589026B588D600985748 /* SettingsService.swift in Sources */,
 				2CC8038E2462E22A00F345C9 /* SubscriptionViewController.swift in Sources */,
 				2CE3E2932F3CCF5B008D2F42 /* KeychainTokenStore.swift in Sources */,
@@ -1748,7 +1739,7 @@
 				2CF7EF36244256AB004A9B30 /* PopularStationsCollectionViewCell.swift in Sources */,
 				2C368DDA243763AF00979816 /* UIView+.swift in Sources */,
 				2C545A04265596F10024F671 /* ServicesProtocol.swift in Sources */,
-				2CB30EE62433FCE800820DE4 /* YourLibraryCoordinator.swift in Sources */,
+				2CE7B3492FA8C692001E7FBD /* MiniPlayerView.swift in Sources */,
 				2C498412245AFB2A00B6201C /* PodcastCell.swift in Sources */,
 				2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */,
 				2C498421245B14DD00B6201C /* PodcastStation.swift in Sources */,
@@ -1783,7 +1774,6 @@
 				2CF7EF272440C86D004A9B30 /* RadioPlayerViewModel.swift in Sources */,
 				2CC824F82701217F00A31476 /* Localizable.swift in Sources */,
 				2CF5ED6E242E53E60018E8A4 /* SignMeUpButtonView.swift in Sources */,
-				2C55CF7F2635D49600723042 /* TabBarCoordinator.swift in Sources */,
 				2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */,
 				2CE3E28B2F3CAD5C008D2F42 /* AuthServiceProtocol.swift in Sources */,
 				2CBEAD7126530AD100F5E965 /* Stack.swift in Sources */,
@@ -1798,6 +1788,7 @@
 				2C6723102465BDEF00ABCD5B /* NetworkManager.swift in Sources */,
 				2CC803902462EFFA00F345C9 /* SubscribeButtonView.swift in Sources */,
 				2CC4302324362FD7001009E2 /* FooterProfileTableViewCell.swift in Sources */,
+				2CE7B3472FA8C429001E7FBD /* SearchView.swift in Sources */,
 				2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */,
 				2CF7EF3224422B72004A9B30 /* RadioViewController.swift in Sources */,
 				2CD974172450708A00808E54 /* UserDefault+.swift in Sources */,
@@ -1807,6 +1798,7 @@
 				2CC4301E24362D25001009E2 /* EditProfileButtonView.swift in Sources */,
 				2CE74A7524533C64008E3D57 /* StorageProtocol.swift in Sources */,
 				2CC4302124362FBC001009E2 /* MiddleProfileTableViewCell.swift in Sources */,
+				2CE7B3452FA8C411001E7FBD /* LibraryView.swift in Sources */,
 				2CF0487A243E028800E12429 /* PopularStationsCell.swift in Sources */,
 				2CF0487E243E1F9200E12429 /* RecentlyPlayedCell.swift in Sources */,
 				2C498423245B2DF200B6201C /* Episode.swift in Sources */,
@@ -1940,7 +1932,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1960,7 +1952,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2028,7 +2020,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2086,7 +2078,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2103,17 +2095,17 @@
 				CODE_SIGN_ENTITLEMENTS = Radiofy/Radiofy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2130,17 +2122,17 @@
 				CODE_SIGN_ENTITLEMENTS = Radiofy/Radiofy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Radiofy/Resources/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fabricetiennette.Radiofy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2157,7 +2149,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2179,7 +2171,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27HT7JX8Q;
 				INFOPLIST_FILE = RadiofyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2285,14 +2277,6 @@
 				minimumVersion = 5.4.3;
 			};
 		};
-		2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.5.6;
-			};
-		};
 		2CFEFB922631E82E00CB4515 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
@@ -2369,11 +2353,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2CFEFB2A2631E1C000CB4515 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		2CFEFB6F2631E60200CB4515 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2CFEFB6E2631E60200CB4515 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
 		};
 		2CFEFB932631E82E00CB4515 /* NVActivityIndicatorViewExtended */ = {
 			isa = XCSwiftPackageProductDependency;

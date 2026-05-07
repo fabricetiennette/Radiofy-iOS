@@ -74,6 +74,8 @@ internal enum L10n {
   internal static let isTemporarilyUnavailable = L10n.tr("Localizable", "is temporarily unavailable.", fallback: "is temporarily unavailable.")
   /// Just
   internal static let just = L10n.tr("Localizable", "Just", fallback: "Just")
+  /// Library
+  internal static let library = L10n.tr("Localizable", "library", fallback: "Library")
   /// Wait 12 hours before start listening again or go premium!
   internal static let limitMessage = L10n.tr("Localizable", "limitMessage", fallback: "Wait 12 hours before start listening again or go premium!")
   /// Listening Limit Reached
@@ -106,8 +108,12 @@ internal enum L10n {
   internal static let photoInvalidTryAgain = L10n.tr("Localizable", "Photo invalid, try again.", fallback: "Photo invalid, try again.")
   /// Play
   internal static let play = L10n.tr("Localizable", "play", fallback: "Play")
+  /// Podcast
+  internal static let podcast = L10n.tr("Localizable", "podcast", fallback: "Podcast")
   /// Privacy Policy
   internal static let privacyPolicy = L10n.tr("Localizable", "Privacy Policy", fallback: "Privacy Policy")
+  /// Radio
+  internal static let radio = L10n.tr("Localizable", "radio", fallback: "Radio")
   /// Could not get radio station, try later
   internal static let radioTryLater = L10n.tr("Localizable", "radio_try_later", fallback: "Could not get radio station, try later")
   /// Ready

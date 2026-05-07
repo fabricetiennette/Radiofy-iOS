@@ -41,7 +41,7 @@ final class YourLibraryViewController: RadiofyViewController<YourLibraryModule.V
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+//        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
     }
 }
 

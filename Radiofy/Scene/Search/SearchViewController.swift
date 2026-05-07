@@ -20,7 +20,7 @@ final class SearchViewController: RadiofyViewController<SearchModule.ViewModel> 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.keyboardDismissMode = .onDrag
+//        collectionView.keyboardDismissMode = .onDrag
         collectionView.register(cellType: SearchCell.self)
         collectionView.register(supplementaryViewType: SearchBarReusableView.self,
                                 ofKind: UICollectionView.elementKindSectionHeader)
@@ -152,19 +152,19 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
 private extension SearchViewController {
     func configureNavbar() {
-        guard let navigationController = navigationController else { return }
-        navigationController.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController.navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
-        navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController.navigationBar.shadowImage = UIImage()
-        navigationController.navigationBar.isTranslucent = true
-        navigationController.navigationBar.tintColor = .white
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationItem.title = L10n.search
+//        guard let navigationController = navigationController else { return }
+//        navigationController.navigationBar.titleTextAttributes = [
+//            NSAttributedString.Key.foregroundColor: UIColor.white]
+//        navigationController.navigationBar.largeTitleTextAttributes = [
+//            NSAttributedString.Key.foregroundColor: UIColor.white]
+//        navigationItem.standardAppearance?.backgroundColor = Asset.navBar.color
+//        navigationItem.scrollEdgeAppearance?.backgroundColor = Asset.navBar.color
+////        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController.navigationBar.shadowImage = UIImage()
+//        navigationController.navigationBar.isTranslucent = true
+//        navigationController.navigationBar.tintColor = .white
+//        navigationController.navigationBar.prefersLargeTitles = true
+//        navigationItem.title = L10n.search
     }
 
     func setupInterface() {
