@@ -8,12 +8,12 @@ struct SignUpView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 // Title
-                Text("Create a Radiofy ID")
+                Text(L10n.createRadiofyId)
                     .font(.system(size: 28, weight: .bold))
 
                 // Email
                 VStack(alignment: .leading, spacing: 8) {
-                    TextField("Email", text: $viewModel.email)
+                    TextField(L10n.email, text: $viewModel.email)
                         .textContentType(.emailAddress)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
@@ -28,9 +28,9 @@ struct SignUpView: View {
                     HStack(spacing: 10) {
                         Group {
                             if viewModel.isPasswordVisible {
-                                TextField("Password", text: $viewModel.password)
+                                TextField(L10n.password, text: $viewModel.password)
                             } else {
-                                SecureField("Password", text: $viewModel.password)
+                                SecureField(L10n.password, text: $viewModel.password)
                             }
                         }
                         .textContentType(.newPassword)
@@ -44,7 +44,7 @@ struct SignUpView: View {
                                 .foregroundStyle(.secondary)
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel(viewModel.isPasswordVisible ? "Hide password" : "Show password")
+                        .accessibilityLabel(viewModel.isPasswordVisible ? L10n.hidePassword : L10n.showPassword)
                     }
                     .padding()
                     .background(.thinMaterial)
@@ -75,7 +75,7 @@ struct SignUpView: View {
                             ProgressView()
                                 .tint(.black)
                         } else {
-                            Text("SIGN UP")
+                            Text(L10n.signUp)
                                 .font(.system(size: 15, weight: .bold))
                                 .foregroundStyle(.black)
                         }
@@ -105,7 +105,7 @@ struct SignUpView: View {
                             .fill(Color.white.opacity(0.35))
                             .frame(height: 1)
 
-                        Text("OR")
+                        Text(L10n.or.uppercased())
                             .font(.footnote.weight(.semibold))
                             .foregroundStyle(.white.opacity(0.75))
 
@@ -135,14 +135,14 @@ struct SignUpView: View {
                 PrivacyPolicyView()
             }
         }
-        .navigationTitle("Sign up")
+        .navigationTitle(L10n.signUp)
         .navigationBarTitleDisplayMode(.inline)
     }
 
     private var privacyPolicyAttributedText: AttributedString {
-        var text = AttributedString("By signing up, you confirm that you have read and accept the Privacy Policy.")
+        var text = AttributedString(L10n.signUpPrivacyConfirmation)
 
-        if let range = text.range(of: "Privacy Policy") {
+        if let range = text.range(of: L10n.privacyPolicy) {
             text[range].link = URL(string: "radiofy://privacy-policy")
             text[range].underlineStyle = .single
             text[range].foregroundColor = .primary
@@ -163,13 +163,13 @@ private extension SignUpView {
         switch result {
         case .success(let authorization):
             guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else {
-                viewModel.errorMessage = "Apple credential is missing."
+                viewModel.errorMessage = L10n.appleCredentialMissing
                 return
             }
             
             let idTokenString = credential.identityToken.flatMap { String(data: $0, encoding: .utf8) }
             guard let idTokenString else {
-                viewModel.errorMessage = "Apple identity token is missing."
+                viewModel.errorMessage = L10n.appleIdentityTokenMissing
                 return
             }
             
@@ -184,7 +184,7 @@ private extension SignUpView {
             if let authError = error as? ASAuthorizationError, authError.code == .canceled {
                 return
             }
-            viewModel.errorMessage = "Apple sign in failed."
+            viewModel.errorMessage = L10n.appleSignInFailed
         }
     }
 }

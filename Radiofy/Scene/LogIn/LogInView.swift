@@ -8,12 +8,12 @@ struct LogInView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 // Title
-                Text("Log in to Radiofy")
+                Text(L10n.logInToRadiofy)
                     .font(.system(size: 28, weight: .bold))
 
                 // Email
                 VStack(alignment: .leading, spacing: 8) {
-                    TextField("Email", text: $viewModel.email)
+                    TextField(L10n.email, text: $viewModel.email)
                         .textContentType(.username)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
@@ -28,9 +28,9 @@ struct LogInView: View {
                     HStack(spacing: 10) {
                         Group {
                             if viewModel.isPasswordVisible {
-                                TextField("Password", text: $viewModel.password)
+                                TextField(L10n.password, text: $viewModel.password)
                             } else {
-                                SecureField("Password", text: $viewModel.password)
+                                SecureField(L10n.password, text: $viewModel.password)
                             }
                         }
                         .textContentType(.password)
@@ -44,7 +44,7 @@ struct LogInView: View {
                                 .foregroundStyle(.secondary)
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel(viewModel.isPasswordVisible ? "Hide password" : "Show password")
+                        .accessibilityLabel(viewModel.isPasswordVisible ? L10n.hidePassword : L10n.showPassword)
                     }
                     .padding()
                     .background(.thinMaterial)
@@ -53,7 +53,7 @@ struct LogInView: View {
                     HStack {
                         Spacer()
 
-                        Button("Forgot your password?") {
+                        Button(L10n.forgotYourPassword) {
                             viewModel.didTapPasswordReset()
                         }
                         .font(.system(size: 14, weight: .semibold))
@@ -83,7 +83,7 @@ struct LogInView: View {
                             ProgressView()
                                 .tint(.black)
                         } else {
-                            Text("LOG IN")
+                            Text(L10n.logIn.uppercased())
                                 .font(.system(size: 15, weight: .bold))
                                 .foregroundStyle(.black)
                         }
@@ -101,7 +101,7 @@ struct LogInView: View {
                             .fill(Color.white.opacity(0.35))
                             .frame(height: 1)
 
-                        Text("OR")
+                        Text(L10n.or.uppercased())
                             .font(.footnote.weight(.semibold))
                             .foregroundStyle(.white.opacity(0.75))
 
@@ -126,7 +126,7 @@ struct LogInView: View {
             .padding(.horizontal, 20)
             .padding(.top, 24)
         }
-        .navigationTitle("Log in")
+        .navigationTitle(L10n.logIn)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -149,11 +149,11 @@ private extension LogInView {
                     )
                 }
             } catch {
-                viewModel.errorMessage = "Apple sign in failed."
+                viewModel.errorMessage = L10n.appleSignInFailed
             }
 
         case .failure:
-            viewModel.errorMessage = "Apple sign in failed."
+            viewModel.errorMessage = L10n.appleSignInFailed
         }
     }
 }
