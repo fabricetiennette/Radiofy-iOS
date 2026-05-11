@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Radiofy
 
@@ -7,7 +7,30 @@
 */
 
 "Create account" = "Create account";
+"createRadiofyId" = "Create a Radiofy ID";
+"email" = "Email";
+"password" = "Password";
+"hidePassword" = "Hide password";
+"showPassword" = "Show password";
+"or" = "Or";
+"signUpPrivacyConfirmation" = "By signing up, you confirm that you have read and accept the Privacy Policy.";
+"appleCredentialMissing" = "Apple credential is missing.";
+"appleIdentityTokenMissing" = "Apple identity token is missing.";
+"appleSignInFailed" = "Apple sign in failed.";
 "Log in" = "Log in";
+"logInToRadiofy" = "Log in to Radiofy";
+"forgotYourPassword" = "Forgot your password?";
+"forgotPassword" = "Forgot password";
+"resetYourPassword" = "Reset your password";
+"passwordResetInstructions" = "Enter the email address associated with your account and we’ll send you a verification code.";
+"sixDigitCode" = "6-digit code";
+"newPassword" = "New password";
+"codeExpiresIn" = "Code expires in %@.";
+"codeExpiredRequestNew" = "Your code has expired. Please request a new one.";
+"verificationCodeExpiredRequestNew" = "Verification code expired. Please request a new code.";
+"sendCode" = "Send code";
+"send" = "Send";
+"done" = "Done";
 "Reset password" = "Reset password";
 "Home" = "Home";
 "Error saving user data" = "Error saving user data";
@@ -16,6 +39,11 @@
 "password_invalid" = "Please make sure your password contain a least 8 characters, 1 special character and 1 number.";
 "SIGN UP" = "SIGN UP";
 "verified_Email_First" = "Please verify your email first";
+"verifyYourEmail" = "Verify your email";
+"verify" = "Verify";
+"resendCode" = "Resend code";
+"youCanResendIn" = "You can resend in %@";
+"verifyEmailInfo" = "We sent a 6-digit code to %@. Check your junk/spam folder.";
 "An email was sent to" = "An email was sent to";
 "Error" = "Error";
 "radio_try_later" = "Could not get radio station, try later";
@@ -73,3 +101,23 @@
 "radio" = "Radio";
 "podcast" = "Podcast";
 "library" = "Library";
+"notifications" = "Notifications";
+"termsAndConditions" = "Terms & Conditions";
+"privacy" = "Privacy";
+"accountSecurityFooter" = "Radiofy uses industry-standard encryption to protect the confidentiality of your personal information.";
+"session" = "Session";
+"accountManagement" = "Account management";
+"logoutMessage" = "This will sign you out of Radiofy on this device.";
+"deleteYourAccountQuestion" = "Delete your account?";
+"deleteAccountFailed" = "Delete account failed";
+"ok" = "OK";
+"signedIn" = "Signed in";
+"actionCannotBeUndone" = "This action cannot be undone.";
+"newPodcast" = "New Podcast";
+"newPodcastDescription" = "Get notified when a new podcast episode is available.";
+"notificationsFooter" = "Radiofy uses your notification preferences to decide which alerts to send. You can change your preferences anytime in your account.";
+"unknownError" = "Unknown error";
+"pleaseWait" = "Please wait";
+"gettingThingsReady" = "Getting things ready";
+"loadingTitle" = "Loading";
+"almostThere" = "Almost there";

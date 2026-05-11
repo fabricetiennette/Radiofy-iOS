@@ -92,7 +92,6 @@
 		2C6723102465BDEF00ABCD5B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67230F2465BDEF00ABCD5B /* NetworkManager.swift */; };
 		2C685BAE26B5FC70006FD017 /* EditProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BAD26B5FC70006FD017 /* EditProfileCoordinator.swift */; };
 		2C685BB026B5FC83006FD017 /* EditProfileModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BAF26B5FC83006FD017 /* EditProfileModule.swift */; };
-		2C685BB226B5FCA4006FD017 /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BB126B5FCA4006FD017 /* AccountCoordinator.swift */; };
 		2C685BB426B5FCB3006FD017 /* AccountModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BB326B5FCB3006FD017 /* AccountModule.swift */; };
 		2C685BB626B5FCDA006FD017 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BB526B5FCDA006FD017 /* AboutCoordinator.swift */; };
 		2C685BB826B5FCEB006FD017 /* AboutModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C685BB726B5FCEB006FD017 /* AboutModule.swift */; };
@@ -120,6 +119,7 @@
 		2CA61E10272323EA00E12A48 /* FavoriteRadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */; };
 		2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7CC532438C49C0028DEBF /* EditProfileViewController.swift */; };
 		2CA7CC562438C4B00028DEBF /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7CC552438C4B00028DEBF /* EditProfileViewModel.swift */; };
+		2CAB9F882FACB1DF00C36E8E /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAB9F872FACB1D700C36E8E /* NotificationSettingsView.swift */; };
 		2CB30ED12432473700820DE4 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30ED02432473700820DE4 /* UIButton+.swift */; };
 		2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30ED724337CF100820DE4 /* UILabel+.swift */; };
 		2CB30EDC2433F4EE00820DE4 /* loader-1212.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CB30EDB2433F4ED00820DE4 /* loader-1212.json */; };
@@ -351,7 +351,6 @@
 		2C67230F2465BDEF00ABCD5B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2C685BAD26B5FC70006FD017 /* EditProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCoordinator.swift; sourceTree = "<group>"; };
 		2C685BAF26B5FC83006FD017 /* EditProfileModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModule.swift; sourceTree = "<group>"; };
-		2C685BB126B5FCA4006FD017 /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
 		2C685BB326B5FCB3006FD017 /* AccountModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModule.swift; sourceTree = "<group>"; };
 		2C685BB526B5FCDA006FD017 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 		2C685BB726B5FCEB006FD017 /* AboutModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModule.swift; sourceTree = "<group>"; };
@@ -379,6 +378,7 @@
 		2CA61E0F272323EA00E12A48 /* FavoriteRadioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteRadioCell.xib; sourceTree = "<group>"; };
 		2CA7CC532438C49C0028DEBF /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		2CA7CC552438C4B00028DEBF /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		2CAB9F872FACB1D700C36E8E /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
 		2CB30ED02432473700820DE4 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		2CB30ED724337CF100820DE4 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		2CB30EDB2433F4ED00820DE4 /* loader-1212.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loader-1212.json"; sourceTree = "<group>"; };
@@ -564,9 +564,10 @@
 		2C00428D244E4241006ABABF /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				2CD9B0362F99079C00320246 /* AccountView.swift */,
 				2C685BB326B5FCB3006FD017 /* AccountModule.swift */,
+				2CD9B0362F99079C00320246 /* AccountView.swift */,
 				2C004290244E4288006ABABF /* AccountViewModel.swift */,
+				2CAB9F862FACB1CB00C36E8E /* Notifications */,
 				2CD9B0382F9907AB00320246 /* LegacyAccount */,
 			);
 			path = Account;
@@ -849,6 +850,14 @@
 			path = EditProfile;
 			sourceTree = "<group>";
 		};
+		2CAB9F862FACB1CB00C36E8E /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				2CAB9F872FACB1D700C36E8E /* NotificationSettingsView.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		2CB30ED42432A19F00820DE4 /* LottieAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -958,7 +967,6 @@
 		2CD9B0382F9907AB00320246 /* LegacyAccount */ = {
 			isa = PBXGroup;
 			children = (
-				2C685BB126B5FCA4006FD017 /* AccountCoordinator.swift */,
 				2C00428E244E4258006ABABF /* AccountViewController.swift */,
 			);
 			path = LegacyAccount;
@@ -1692,6 +1700,7 @@
 				2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */,
 				2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */,
 				2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */,
+				2CAB9F882FACB1DF00C36E8E /* NotificationSettingsView.swift in Sources */,
 				2CB468772F9F89AD002E0BB2 /* HealthEndpoint.swift in Sources */,
 				2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */,
 				2CE7B3432FA8C3F2001E7FBD /* PodcastView.swift in Sources */,
@@ -1792,7 +1801,6 @@
 				2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */,
 				2CF7EF3224422B72004A9B30 /* RadioViewController.swift in Sources */,
 				2CD974172450708A00808E54 /* UserDefault+.swift in Sources */,
-				2C685BB226B5FCA4006FD017 /* AccountCoordinator.swift in Sources */,
 				2CD9741B24508B6800808E54 /* StorageManager.swift in Sources */,
 				2CB30ED12432473700820DE4 /* UIButton+.swift in Sources */,
 				2CC4301E24362D25001009E2 /* EditProfileButtonView.swift in Sources */,

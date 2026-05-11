@@ -14,15 +14,15 @@ struct PasswordResetView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text("Reset your password")
+                Text(L10n.resetYourPassword)
                     .font(.system(size: 28, weight: .bold))
 
-                Text("Enter the email address associated with your account and we’ll send you a verification code.")
+                Text(L10n.passwordResetInstructions)
                     .font(.system(size: 14))
                     .foregroundStyle(.secondary)
 
                 // Email
-                TextField("Email", text: $viewModel.email)
+                TextField(L10n.email, text: $viewModel.email)
                     .textContentType(.emailAddress)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
@@ -34,7 +34,7 @@ struct PasswordResetView: View {
                 // Step 2: Code + new password
                 if viewModel.step == .enterCodeAndPassword {
                     VStack(alignment: .leading, spacing: 16) {
-                        TextField("6-digit code", text: $viewModel.code)
+                        TextField(L10n.sixDigitCode, text: $viewModel.code)
                             .keyboardType(.numberPad)
                             .textInputAutocapitalization(.never)
                             .autocorrectionDisabled()
@@ -52,9 +52,9 @@ struct PasswordResetView: View {
                         HStack(spacing: 10) {
                             Group {
                                 if isNewPasswordVisible {
-                                    TextField("New password", text: $viewModel.newPassword)
+                                    TextField(L10n.newPassword, text: $viewModel.newPassword)
                                 } else {
-                                    SecureField("New password", text: $viewModel.newPassword)
+                                    SecureField(L10n.newPassword, text: $viewModel.newPassword)
                                 }
                             }
                             .textInputAutocapitalization(.never)
@@ -67,18 +67,18 @@ struct PasswordResetView: View {
                                     .foregroundStyle(.secondary)
                             }
                             .buttonStyle(.plain)
-                            .accessibilityLabel(isNewPasswordVisible ? "Hide password" : "Show password")
+                            .accessibilityLabel(isNewPasswordVisible ? L10n.hidePassword : L10n.showPassword)
                         }
                         .padding()
                         .background(.thinMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
 
-                        Text("Code expires in \(formattedTime(remainingSeconds)).")
+                        Text(L10n.codeExpiresIn(formattedTime(remainingSeconds)))
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundStyle(remainingSeconds > 0 ? Color.secondary : Color.red)
 
                         if remainingSeconds == 0 {
-                            Text("Your code has expired. Please request a new one.")
+                            Text(L10n.codeExpiredRequestNew)
                                 .font(.system(size: 14))
                                 .foregroundStyle(.secondary)
                         }
@@ -104,7 +104,7 @@ struct PasswordResetView: View {
                             await viewModel.requestPasswordReset()
                         case .enterCodeAndPassword:
                             guard remainingSeconds > 0 else {
-                                viewModel.setError("Verification code expired. Please request a new code.")
+                                viewModel.setError(L10n.verificationCodeExpiredRequestNew)
                                 return
                             }
                             await viewModel.requestNewPassword()
@@ -141,7 +141,7 @@ struct PasswordResetView: View {
             .padding(.horizontal, 20)
             .padding(.top, 24)
         }
-        .navigationTitle("Forgot password")
+        .navigationTitle(L10n.forgotPassword)
         .navigationBarTitleDisplayMode(.inline)
         .onChange(of: viewModel.step) { _, newStep in
             if newStep == .enterCodeAndPassword {
@@ -162,11 +162,11 @@ struct PasswordResetView: View {
     private var buttonTitle: String {
         switch viewModel.step {
         case .enterEmail:
-            return "SEND CODE"
+            return L10n.sendCode.uppercased()
         case .enterCodeAndPassword:
-            return "SEND"
+            return L10n.send.uppercased()
         case .done:
-            return "DONE"
+            return L10n.done.uppercased()
         }
     }
 

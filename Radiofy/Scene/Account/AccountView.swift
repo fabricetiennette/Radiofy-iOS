@@ -1,84 +1,154 @@
 import SwiftUI
 
 struct AccountView: View {
+    @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel: AccountViewModel
     let onLogout: () -> Void
+    @State private var isShowingLogoutConfirmation = false
     @State private var isShowingDeleteConfirmation = false
     @State private var isDeletingAccount = false
     @State private var deleteAccountError: String?
     
     var body: some View {
-        VStack(spacing: 16) {
-            Text(" Your're logged in!")
+        List {
+            Section {
+                userHeaderCard
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
+                    .listRowBackground(Color.clear)
+            }
             
-            Button {
+            Section {
+                NavigationLink {
+                    NotificationSettingsView()
+                } label: {
+                    Text(L10n.notifications)
+                }
+            }
+            .listRowBackground(Color.white.opacity(0.08))
+            
+            Section {
+                Button {
+                    // TODO: Terms & Conditions.
+                } label: {
+                    Text(L10n.termsAndConditions)
+                }
+                
+                
+                Button {
+                    // TODO: Privacy settings.
+                } label: {
+                    Text(L10n.privacy)
+                }
+            } footer: {
+                Text(L10n.accountSecurityFooter)
+                    .padding(.top, 2)
+            }
+            .listRowBackground(Color.white.opacity(0.08))
+            
+            Section {
+                Button {
+                    isShowingLogoutConfirmation = true
+                } label: {
+                    Text(L10n.logOut)
+                        .foregroundStyle(.red)
+                }
+            } header: {
+                Text(L10n.session)
+            }
+            .listRowBackground(Color.white.opacity(0.08))
+            
+            Section {
+                Button(role: .destructive) {
+                    isShowingDeleteConfirmation = true
+                } label: {
+                    if isDeletingAccount {
+                        ProgressView()
+                    } else {
+                        Text(L10n.deleteAccount)
+                            .foregroundStyle(.red.opacity(0.75))
+                    }
+                }
+                .disabled(isDeletingAccount)
+            } header: {
+                Text(L10n.accountManagement)
+            }
+            .listRowBackground(Color.white.opacity(0.06))
+        }
+        .listStyle(.insetGrouped)
+        .navigationTitle(L10n.account)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                }
+            }
+        }
+        .scrollContentBackground(.hidden)
+        .background(Color.black.ignoresSafeArea())
+        .alert("\(L10n.logOut)?", isPresented: $isShowingLogoutConfirmation) {
+            Button(L10n.cancel, role: .cancel) {}
+            
+            Button(L10n.logOut, role: .destructive) {
                 Task {
                     await viewModel.logout()
                     onLogout()
                 }
-            } label: {
-                Text("Log out")
-                    .font(.system(size: 16, weight: .semibold))
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Color.white)
-                    .foregroundStyle(Color.black)
-                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
             }
-
-            Button(role: .destructive) {
-                isShowingDeleteConfirmation = true
-            } label: {
-                if isDeletingAccount {
-                    ProgressView()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 50)
-                        .background(Color.red.opacity(0.18))
-                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                } else {
-                    Text("Delete user")
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 50)
-                        .background(Color.red.opacity(0.18))
-                        .foregroundStyle(Color.red)
-                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                }
-            }
-            .disabled(isDeletingAccount)
+        } message: {
+            Text(L10n.logoutMessage)
         }
-        .padding(.horizontal, 24)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black.ignoresSafeArea())
-        .confirmationDialog(
-            "Delete your account?",
-            isPresented: $isShowingDeleteConfirmation,
-            titleVisibility: .visible
-        ) {
-            Button("Delete account", role: .destructive) {
+        .alert(L10n.deleteYourAccountQuestion, isPresented: $isShowingDeleteConfirmation) {
+            Button(L10n.cancel, role: .cancel) {}
+            
+            Button(L10n.deleteAccount, role: .destructive) {
                 Task {
                     await deleteAccount()
                 }
             }
-
-            Button("Cancel", role: .cancel) {}
         } message: {
-            Text("This action cannot be undone.")
+            Text(L10n.actionCannotBeUndone)
         }
-        .alert("Delete account failed", isPresented: Binding(
+        .alert(L10n.deleteAccountFailed, isPresented: Binding(
             get: { deleteAccountError != nil },
             set: { if !$0 { deleteAccountError = nil } }
         )) {
-            Button("OK", role: .cancel) {}
+            Button(L10n.ok, role: .cancel) {}
         } message: {
             Text(deleteAccountError ?? "")
         }
     }
     
+    private var userHeaderCard: some View {
+        HStack(spacing: 16) {
+            AccountAvatarButton(initials: "JE") {}
+                .allowsHitTesting(false)
+            
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Jean Fabrice Etiennette")
+                    .font(.system(size: 22, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.85)
+                
+                Text(L10n.signedIn)
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundStyle(.secondary)
+            }
+            
+            Spacer(minLength: 0)
+        }
+        .padding(18)
+        .background(Color.white.opacity(0.11))
+        .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
+    }
+    
     private func deleteAccount() async {
         isDeletingAccount = true
         defer { isDeletingAccount = false }
-
+        
         do {
             try await viewModel.deleteAccount()
             onLogout()
@@ -97,3 +167,4 @@ struct AccountView: View {
     }
 }
 #endif
+

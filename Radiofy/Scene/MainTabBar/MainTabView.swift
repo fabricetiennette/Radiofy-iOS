@@ -47,14 +47,16 @@ struct MainTabView: View {
         .tabBarMinimizeBehavior(.onScrollDown)
         .sheet(isPresented: $isAccountPresented) {
             if let authService {
-                AccountModule(
-                    authService: authService,
-                    onLogout: {
-                        isAccountPresented = false
-                        onLogout()
-                    }
-                )
-                .makeView()
+                NavigationStack {
+                    AccountModule(
+                        authService: authService,
+                        onLogout: {
+                            isAccountPresented = false
+                            onLogout()
+                        }
+                    )
+                    .makeView()
+                }
             } else {
                 Text("Auth service is not available.")
             }

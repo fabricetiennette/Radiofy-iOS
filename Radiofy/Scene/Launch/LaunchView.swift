@@ -11,7 +11,7 @@ struct LaunchView: View {
     @State private var minimumAnimationCompleted = false
     @State private var shouldShowSpinner = false
     @State private var loadingMessage: String?
-    private let errorMessage = "Unknown error"
+    private var errorMessage: String { L10n.unknownError }
 
     var body: some View {
         Color.black
@@ -81,7 +81,7 @@ struct LaunchView: View {
             guard !Task.isCancelled else { return }
             await MainActor.run {
                 if viewModel.isLoading && !viewModel.hasError {
-                    loadingMessage = "Please wait"
+                    loadingMessage = L10n.pleaseWait
                 }
             }
 
@@ -89,7 +89,7 @@ struct LaunchView: View {
             guard !Task.isCancelled else { return }
             await MainActor.run {
                 if viewModel.isLoading && !viewModel.hasError {
-                    loadingMessage = "Getting things ready"
+                    loadingMessage = L10n.gettingThingsReady
                 }
             }
 
@@ -97,7 +97,7 @@ struct LaunchView: View {
             guard !Task.isCancelled else { return }
             await MainActor.run {
                 if viewModel.isLoading && !viewModel.hasError {
-                    loadingMessage = "Loading"
+                    loadingMessage = L10n.loadingTitle
                 }
             }
 
@@ -105,7 +105,7 @@ struct LaunchView: View {
             guard !Task.isCancelled else { return }
             await MainActor.run {
                 if viewModel.isLoading && !viewModel.hasError {
-                    loadingMessage = "Almost there"
+                    loadingMessage = L10n.almostThere
                 }
             }
         }

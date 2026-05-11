@@ -8,7 +8,7 @@ struct VerifyEmailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 // Title
-                Text("Verify your email")
+                Text(L10n.verifyYourEmail)
                     .font(.system(size: 28, weight: .bold))
                 
                 // Subtitle
@@ -51,7 +51,7 @@ struct VerifyEmailView: View {
                             ProgressView()
                                 .tint(.black)
                         } else {
-                            Text("VERIFY")
+                            Text(L10n.verify.uppercased())
                                 .font(.system(size: 15, weight: .bold))
                                 .foregroundStyle(.black)
                         }
@@ -67,7 +67,7 @@ struct VerifyEmailView: View {
                     Button {
                         Task { await viewModel.resendVerificationCode() }
                     } label: {
-                        Text("Resend code")
+                        Text(L10n.resendCode)
                             .font(.system(size: 14, weight: .semibold))
                             .underline()
                             .foregroundStyle(viewModel.canResend ? .primary : .secondary)
@@ -76,7 +76,7 @@ struct VerifyEmailView: View {
                     .disabled(!viewModel.canResend)
                     
                     if viewModel.cooldownSeconds > 0 {
-                        Text("You can resend in \(formattedCooldown(viewModel.cooldownSeconds))")
+                        Text(L10n.youCanResendIn(formattedCooldown(viewModel.cooldownSeconds)))
                             .font(.system(size: 14))
                             .foregroundStyle(.secondary)
                     }
@@ -91,7 +91,7 @@ struct VerifyEmailView: View {
     }
     
     private var infoAttributedText: AttributedString {
-        var text = AttributedString("We sent a 6-digit code to \(viewModel.email). Check your junk/spam folder.")
+        var text = AttributedString(L10n.verifyEmailInfo(viewModel.email))
         text.font = .system(size: 14)
 
         if let range = text.range(of: viewModel.email) {
