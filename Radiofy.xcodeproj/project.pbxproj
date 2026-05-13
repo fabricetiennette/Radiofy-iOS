@@ -964,6 +964,14 @@
 			path = Translations;
 			sourceTree = "<group>";
 		};
+		2CC8D5582FB3548000CDEED4 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				2CF7EF3124422B72004A9B30 /* RadioViewController.swift */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
 		2CD9B0382F9907AB00320246 /* LegacyAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -1194,8 +1202,8 @@
 			children = (
 				2CE7B3402FA8C3A6001E7FBD /* RadioView.swift */,
 				2C2B361827090CB000553945 /* RadioModule.swift */,
-				2CF7EF3124422B72004A9B30 /* RadioViewController.swift */,
 				2CF7EF332442502D004A9B30 /* RadioViewModel.swift */,
+				2CC8D5582FB3548000CDEED4 /* Legacy */,
 			);
 			path = Radio;
 			sourceTree = "<group>";
@@ -1303,8 +1311,8 @@
 				2CF7EF282440CE76004A9B30 /* MainTabBar */,
 				2CC8038C2462E20B00F345C9 /* Subscription */,
 				2CF5ED78242ED1D30018E8A4 /* Home */,
-				2C844A7E243FE810003E19E9 /* RadioPlayer */,
 				2CF7EF3024422B59004A9B30 /* Radio */,
+				2C844A7E243FE810003E19E9 /* RadioPlayer */,
 				2CB30EE12433FC6C00820DE4 /* Search */,
 				2CB30EE22433FC7700820DE4 /* YourLibrary */,
 				2C498404245ADFAD00B6201C /* Podcast */,

@@ -1,48 +1,15 @@
-//
-//  RadioModule.swift
-//  Radiofy
-//
-//  Created by Fabrice Etiennette on 02/10/2021.
-//  Copyright © 2021 Fabrice Etiennette. All rights reserved.
-//
+import SwiftUI
 
-import UIKit
-import Combine
-
+/// Builds the Sign Up feature (SwiftUI) with its dependencies.
+/// Keeps composition outside the view for a clean architecture.
 struct RadioModule {
+    let authService: AuthServicing
 
-    typealias ViewModel = RadioModuleOutputBinding & RadioModuleInputBinding
-    typealias CoordinatorDelegate = RadioModuleViewModelDelegate
 
-    private weak var coordinatorDelegate: CoordinatorDelegate?
-    private var radio: RadioStation
-
-    init(coordinatorDelegate: CoordinatorDelegate?, radio: RadioStation) {
-        self.coordinatorDelegate = coordinatorDelegate
-        self.radio = radio
-    }
-
-    var viewController: UIViewController {
-        let viewModel = RadioViewModel(radio: radio)
-        let radioViewController = RadioViewController(viewModel: viewModel)
-        viewModel.delegate = coordinatorDelegate
-        return radioViewController
+    @MainActor
+    func makeView() -> some View {
+        let viewModel = RadioViewModel(authService: authService)
+        return RadioView(viewModel: viewModel)
     }
 }
 
-protocol RadioModuleOutputBinding {
-    var radioDetailsSubject: PassthroughSubject<RadioStation, Never> { get set }
-}
-
-protocol RadioModuleInputBinding {
-    var isRadioFavorite: Bool { get }
-
-    func deleteFromUserDefaults()
-    func saveToUserDefaults()
-    func playRadio()
-    func showRadioDetails()
-}
-
-protocol RadioModuleViewModelDelegate: AnyObject {
-    func openPayWallView()
-}

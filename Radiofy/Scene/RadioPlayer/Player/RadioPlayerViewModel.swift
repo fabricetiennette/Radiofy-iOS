@@ -28,25 +28,25 @@ class RadioPlayerViewModel {
     }
 
     func playFromProfile(callback: ((Bool) -> Void)) {
-        guard let radioStaion = RadioViewModel.radioStation else { return }
-
-        let audioRadio = AudioItem(
-            name: radioStaion.name,
-            streamURL: radioStaion.streamURL,
-            imageURL: radioStaion.imageURL,
-            author: "",
-            mainColor: radioStaion.color
-        )
-
-        if audio.first?.name == radioStaion.name {
-            callback(false)
-        } else {
-            audio.removeAll()
-            audio.append(audioRadio)
-            saveRecenltyPlayedStationToUserDefaults()
-            audioHandle?(audio)
-            callback(true)
-        }
+//        guard let radioStaion = RadioViewModel.radioStation else { return }
+//
+//        let audioRadio = AudioItem(
+//            name: radioStaion.name,
+//            streamURL: radioStaion.streamURL,
+//            imageURL: radioStaion.imageURL,
+//            author: "",
+//            mainColor: radioStaion.color
+//        )
+//
+//        if audio.first?.name == radioStaion.name {
+//            callback(false)
+//        } else {
+//            audio.removeAll()
+//            audio.append(audioRadio)
+//            saveRecenltyPlayedStationToUserDefaults()
+//            audioHandle?(audio)
+//            callback(true)
+//        }
     }
 
     func playPodcastEpisode(callback: ((Bool) -> Void)) {

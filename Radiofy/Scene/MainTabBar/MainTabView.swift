@@ -18,7 +18,14 @@ struct MainTabView: View {
 
             Tab(L10n.radio, systemImage: "dot.radiowaves.left.and.right", value: MainTab.radio) {
                 tabRoot(title: L10n.radio) {
-                    RadioView()
+                    if let authService  {
+                        NavigationStack {
+                            RadioModule(authService: authService)
+                                .makeView()
+                        }
+                    } else {
+                        Text("Auth service is not available.")
+                    }
                 }
             }
 
