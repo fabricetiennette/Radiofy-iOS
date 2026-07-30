@@ -19,9 +19,11 @@ final class PasswordResetViewModel: ObservableObject {
 
     // MARK: - Output / UI state
 
-    @Published private(set) var isLoading: Bool = false
+    @Published private(set) var state: LoadState = .idle
     @Published private(set) var successMessage: String?
-    @Published private(set) var errorMessage: String?
+
+    var isLoading: Bool { state.isLoading }
+    var errorMessage: String? { state.errorMessage }
 
     // MARK: - Dependencies
 
@@ -30,9 +32,9 @@ final class PasswordResetViewModel: ObservableObject {
     init(authService: AuthServicing) {
         self.authService = authService
     }
-    
+
     func setError(_ message: String) {
-        errorMessage = message
+        state = .failed(message)
         successMessage = nil
     }
 
@@ -45,25 +47,23 @@ final class PasswordResetViewModel: ObservableObject {
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard isValidEmail(trimmedEmail) else {
-            errorMessage = L10n.emailInvalid
-            successMessage = nil
+            setError(L10n.emailInvalid)
             return
         }
 
-        isLoading = true
-        errorMessage = nil
+        state = .loading
         successMessage = nil
-        defer { isLoading = false }
 
         do {
             try await authService.requestPasswordReset(email: trimmedEmail)
 
             // Do not reveal whether the email exists.
+            state = .loaded
             successMessage = "If an account exists for \(trimmedEmail), you will receive an email with a verification code."
             step = .enterCodeAndPassword
         } catch {
             // Keep errors generic to avoid leaking account existence.
-            errorMessage = "Could not request password reset. Please try again."
+            setError("Could not request password reset. Please try again.")
         }
     }
     
@@ -72,37 +72,33 @@ final class PasswordResetViewModel: ObservableObject {
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard isValidEmail(trimmedEmail) else {
-            errorMessage = L10n.emailInvalid
-            successMessage = nil
+            setError(L10n.emailInvalid)
             return
         }
 
         let trimmedCode = code.trimmingCharacters(in: .whitespacesAndNewlines)
         let isSixDigits = trimmedCode.count == 6 && trimmedCode.allSatisfy({ $0.isNumber })
         guard isSixDigits else {
-            errorMessage = "Invalid verification code."
-            successMessage = nil
+            setError("Invalid verification code.")
             return
         }
 
         let trimmedPassword = newPassword.trimmingCharacters(in: .whitespacesAndNewlines)
         guard isValidPassword(trimmedPassword) else {
-            errorMessage = "Password must be at least 8 characters long and include 1 uppercase, 1 lowercase and 1 number."
-            successMessage = nil
+            setError("Password must be at least 8 characters long and include 1 uppercase, 1 lowercase and 1 number.")
             return
         }
 
-        isLoading = true
-        errorMessage = nil
+        state = .loading
         successMessage = nil
-        defer { isLoading = false }
 
         do {
             try await authService.resetPassword(email: trimmedEmail, code: trimmedCode, newPassword: trimmedPassword)
+            state = .loaded
             successMessage = "Password reset successful."
             step = .done
         } catch {
-            errorMessage = "Could not reset password. Please try again."
+            setError("Could not reset password. Please try again.")
         }
     }
 }

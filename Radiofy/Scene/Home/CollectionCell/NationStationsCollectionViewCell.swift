@@ -16,8 +16,8 @@ class NationalStationsCollectionViewCell: UICollectionViewCell {
 
     func configureCell(station: RadioStation) {
 
-        let url = URL(string: station.imageURL)
-        nationalStationsImageView.sd_setImage(with: url, completed: nil)
-        nationalStationsLabel.text = station.name
+//        let url = URL(string: station.imageURL)
+//        nationalStationsImageView.sd_setImage(with: url, completed: nil)
+//        nationalStationsLabel.text = station.name
     }
 }

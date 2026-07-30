@@ -1,72 +1,58 @@
-//
-//  RadioViewModel.swift
-//  Radiofy
-//
-//  Created by Fabrice Etiennette on 11/04/2020.
-//  Copyright © 2020 Fabrice Etiennette. All rights reserved.
-//
+import SwiftUI
 
-import Foundation
-import Combine
+@MainActor
+final class RadioViewModel: ObservableObject {
 
-final class RadioViewModel: RadioModule.ViewModel {
+    /// Tiles in the featured grid at the top of the screen.
+    private static let featuredLimit = 6
 
-    weak var delegate: RadioModule.CoordinatorDelegate?
+    // MARK: - Output / UI state
+    @Published private(set) var featuredStations: [RadioStation] = []
+    @Published private(set) var featuredState: LoadState = .idle
 
-    var radioDetailsSubject = PassthroughSubject<RadioStation, Never>()
+    // MARK: - Dependencies
+    private let authService: AuthServicing
+    private let radioService: RadioServicing
 
-    // Check if selected radio is a favorite
-    var isRadioFavorite: Bool {
-        let favoriteStations = UserDefaultConfig.favoriteStations
-        if favoriteStations.contains(where: {$0 == radio.name}) {
-            return true
-        }
-        return false
+    init(authService: AuthServicing, radioService: RadioServicing) {
+        self.authService = authService
+        self.radioService = radioService
     }
 
-    static let NotificationPlayPressed = NSNotification.Name(rawValue: "Play")
-    static var radioStation: RadioStation?
-    private var radio: RadioStation {
-        didSet {
-            showRadioDetails()
-        }
-    }
+    // MARK: - Actions
 
-    init(radio: RadioStation) {
-        self.radio = radio
-    }
+    func loadFeaturedStations() async {
+        guard featuredState != .loading else { return }
+        featuredState = .loading
 
-    // Save a new Radio to favorite
-    func saveToUserDefaults() {
-        var favoriteStations = UserDefaultConfig.favoriteStations
-        favoriteStations.insert(radio.name, at: 0)
-        let radioName = favoriteStations.unique()
-        UserDefaultConfig.favoriteStations = radioName
-    }
-
-    // Delete one radio from favorite list
-    func deleteFromUserDefaults() {
-        var favoriteStations = UserDefaultConfig.favoriteStations
-        if let index = favoriteStations.firstIndex(of: radio.name) {
-            favoriteStations.remove(at: index)
-            UserDefaultConfig.favoriteStations = favoriteStations
+        do {
+            featuredStations = try await radioService.browseStations(
+                countryCode: nil,
+                tag: nil,
+                limit: Self.featuredLimit,
+                offset: 0
+            )
+            featuredState = .loaded
+        } catch {
+            featuredStations = []
+            featuredState = .failed(Self.message(for: error))
         }
     }
 
-    func showRadioDetails() {
-        radioDetailsSubject.send(radio)
-    }
+    private static func message(for error: Error) -> String {
+        guard let radioError = error as? RadioServiceError else {
+            return "Could not load stations."
+        }
 
-    private func notificationSendToPlayer() {
-        NotificationCenter.default.post(name: RadioViewModel.NotificationPlayPressed, object: nil)
-    }
-
-    func playRadio() {
-        RadioViewModel.radioStation = radio
-        notificationSendToPlayer()
-    }
-
-    func showPayWall() {
-        delegate?.openPayWallView()
+        switch radioError {
+        case .notAuthenticated:
+            return "Your session has expired. Please sign in again."
+        case .server(let status, _):
+            return "The server responded with \(status)."
+        case .decodingFailed:
+            return "Unexpected response from the server."
+        case .invalidURL, .invalidResponse, .invalidStationUuid:
+            return "Could not load stations."
+        }
     }
 }

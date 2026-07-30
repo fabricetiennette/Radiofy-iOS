@@ -323,15 +323,15 @@ private extension RadioPlayerViewController {
     }
 
     func addObserver() {
-        podPlayer.addObserver(self, forKeyPath: "timeControlStatus", options: [.old, .new], context: nil)
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(playStation(notification:)),
-            name: RadioViewModel.NotificationPlayPressed, object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(playEpisode(notification:)),
-            name: EpisodeViewModel.NotificationEpisode, object: nil
-        )
+//        podPlayer.addObserver(self, forKeyPath: "timeControlStatus", options: [.old, .new], context: nil)
+//        NotificationCenter.default.addObserver(
+//            self, selector: #selector(playStation(notification:)),
+//            name: RadioViewModel.NotificationPlayPressed, object: nil
+//        )
+//        NotificationCenter.default.addObserver(
+//            self, selector: #selector(playEpisode(notification:)),
+//            name: EpisodeViewModel.NotificationEpisode, object: nil
+//        )
     }
 }
 

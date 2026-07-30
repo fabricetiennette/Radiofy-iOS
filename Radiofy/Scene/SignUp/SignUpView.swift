@@ -163,13 +163,13 @@ private extension SignUpView {
         switch result {
         case .success(let authorization):
             guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else {
-                viewModel.errorMessage = L10n.appleCredentialMissing
+                viewModel.setError(L10n.appleCredentialMissing)
                 return
             }
             
             let idTokenString = credential.identityToken.flatMap { String(data: $0, encoding: .utf8) }
             guard let idTokenString else {
-                viewModel.errorMessage = L10n.appleIdentityTokenMissing
+                viewModel.setError(L10n.appleIdentityTokenMissing)
                 return
             }
             
@@ -184,7 +184,7 @@ private extension SignUpView {
             if let authError = error as? ASAuthorizationError, authError.code == .canceled {
                 return
             }
-            viewModel.errorMessage = L10n.appleSignInFailed
+            viewModel.setError(L10n.appleSignInFailed)
         }
     }
 }

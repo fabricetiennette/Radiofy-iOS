@@ -1,48 +1,48 @@
-//
-//  RadioModule.swift
-//  Radiofy
-//
-//  Created by Fabrice Etiennette on 02/10/2021.
-//  Copyright © 2021 Fabrice Etiennette. All rights reserved.
-//
+import SwiftUI
 
-import UIKit
-import Combine
-
+/// Builds the Radio feature (SwiftUI) with its dependencies.
+/// Keeps composition outside the view for a clean architecture.
 struct RadioModule {
+    let authService: AuthServicing
+    let radioService: RadioServicing
 
-    typealias ViewModel = RadioModuleOutputBinding & RadioModuleInputBinding
-    typealias CoordinatorDelegate = RadioModuleViewModelDelegate
-
-    private weak var coordinatorDelegate: CoordinatorDelegate?
-    private var radio: RadioStation
-
-    init(coordinatorDelegate: CoordinatorDelegate?, radio: RadioStation) {
-        self.coordinatorDelegate = coordinatorDelegate
-        self.radio = radio
-    }
-
-    var viewController: UIViewController {
-        let viewModel = RadioViewModel(radio: radio)
-        let radioViewController = RadioViewController(viewModel: viewModel)
-        viewModel.delegate = coordinatorDelegate
-        return radioViewController
+    @MainActor
+    func makeView() -> some View {
+        let viewModel = RadioViewModel(authService: authService, radioService: radioService)
+        return RadioView(viewModel: viewModel)
     }
 }
 
-protocol RadioModuleOutputBinding {
-    var radioDetailsSubject: PassthroughSubject<RadioStation, Never> { get set }
-}
+#if DEBUG
+/// Serves canned stations so previews never hit the network.
+struct PreviewRadioService: RadioServicing {
 
-protocol RadioModuleInputBinding {
-    var isRadioFavorite: Bool { get }
+    static let sampleStations: [RadioStation] = [
+        ("Radio One Stereo", "Tanzania"), ("Radio Lac", "Switzerland"),
+        ("Couleur 3", "Switzerland"), ("FIP", "France"),
+        ("NTS Radio", "United Kingdom"), ("Worldwide FM", "United Kingdom")
+    ].enumerated().map { index, station in
+        RadioStation(
+            id: "preview-\(index)",
+            name: station.0,
+            streamUrl: nil,
+            imageUrl: nil,
+            country: station.1,
+            language: nil,
+            tags: []
+        )
+    }
 
-    func deleteFromUserDefaults()
-    func saveToUserDefaults()
-    func playRadio()
-    func showRadioDetails()
-}
+    func browseStations(countryCode: String?, tag: String?, limit: Int, offset: Int) async throws -> [RadioStation] {
+        Array(Self.sampleStations.prefix(limit))
+    }
 
-protocol RadioModuleViewModelDelegate: AnyObject {
-    func openPayWallView()
+    func searchStations(query: String, limit: Int, offset: Int) async throws -> [RadioStation] {
+        Array(Self.sampleStations.prefix(limit))
+    }
+
+    func resolveStreamUrl(stationUuid: String) async throws -> URL {
+        throw RadioServiceError.invalidStationUuid
+    }
 }
+#endif

@@ -16,11 +16,11 @@ class RecentlyPlayedCollectionViewCell: UICollectionViewCell {
 
     func configureCell(station: RadioStation) {
 
-        let url = URL(string: station.imageURL)
-        recentlyPlayedImageView.sd_setImage(with: url, completed: nil)
-        recentlyPlayedLabel.text = station.name
-
-        recentlyPlayedImageView.layer.cornerRadius = recentlyPlayedImageView.frame.size.width / 2
-        recentlyPlayedImageView.layer.masksToBounds = true
+//        let url = URL(string: station.imageURL)
+//        recentlyPlayedImageView.sd_setImage(with: url, completed: nil)
+//        recentlyPlayedLabel.text = station.name
+//
+//        recentlyPlayedImageView.layer.cornerRadius = recentlyPlayedImageView.frame.size.width / 2
+//        recentlyPlayedImageView.layer.masksToBounds = true
     }
 }

@@ -23,30 +23,30 @@ class FirestoreManager: FirestoreProtocol {
         callback: @escaping (Result<[RadioStation], Error>) -> Void
     ) {
         var stations: [RadioStation] = []
-        database.collection(collectionName).getDocuments { (querySnapshot, error) in
-            if let error = error {
-                callback(.failure(error))
-                return
-            } else {
-                for document in querySnapshot!.documents {
-                    let data = document.data()
-                    guard
-                        let imageURL = data["imageURL"],
-                        let name = data["name"],
-                        let streamURL = data["streamURL"],
-                        let unformattedColor = data["mainColor"]
-                        else { return }
-                    let station = RadioStation(
-                        name: name as! String,
-                        imageURL: imageURL as! String,
-                        streamURL: streamURL as! String,
-                        unformattedColor: unformattedColor as! String
-                    )
-                    stations.append(station)
-                }
-                callback(.success(stations))
-            }
-        }
+//        database.collection(collectionName).getDocuments { (querySnapshot, error) in
+//            if let error = error {
+//                callback(.failure(error))
+//                return
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    let data = document.data()
+//                    guard
+//                        let imageURL = data["imageURL"],
+//                        let name = data["name"],
+//                        let streamURL = data["streamURL"],
+//                        let unformattedColor = data["mainColor"]
+//                        else { return }
+//                    let station = RadioStation(
+//                        name: name as! String,
+//                        imageURL: imageURL as! String,
+//                        streamURL: streamURL as! String,
+//                        unformattedColor: unformattedColor as! String
+//                    )
+//                    stations.append(station)
+//                }
+//                callback(.success(stations))
+//            }
+//        }
     }
 
     func getPodcastStationFromDatabase(

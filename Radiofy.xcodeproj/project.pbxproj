@@ -148,6 +148,10 @@
 		2CC824F82701217F00A31476 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC824F72701217F00A31476 /* Localizable.swift */; };
 		2CC825062701244C00A31476 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC825032701244C00A31476 /* Localizable.strings */; };
 		2CC82508270125A600A31476 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC82507270125A600A31476 /* Assets.swift */; };
+		2CC8D55A2FB4B04000CDEED4 /* RadioEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8D5592FB4B03800CDEED4 /* RadioEndpoint.swift */; };
+		2CC8D55E2FB4B15E00CDEED4 /* RadioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8D55D2FB4B15900CDEED4 /* RadioService.swift */; };
+		2CC8D5602FB4B18000CDEED4 /* RadioServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8D55F2FB4B17000CDEED4 /* RadioServiceProtocol.swift */; };
+		2CC8D5622FB4B1F400CDEED4 /* RadioModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8D5612FB4B1EC00CDEED4 /* RadioModels.swift */; };
 		2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90B26526631001877B0 /* SignUpModule.swift */; };
 		2CC9E910265269AE001877B0 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9E90F265269AE001877B0 /* SignUpService.swift */; };
 		2CCE042A245ED53B00685ABA /* RadioPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE0429245ED53B00685ABA /* RadioPodcast.swift */; };
@@ -156,6 +160,7 @@
 		2CD0AFB42461604400A258EB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFB62461604400A258EB /* Home.storyboard */; };
 		2CD0AFBE2461831800A258EB /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFC02461831800A258EB /* Player.storyboard */; };
 		2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD0AFCA2461842700A258EB /* Podcast.storyboard */; };
+		2CD0E3C6301BADD000C2CC57 /* LoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0E3C5301BADD000C2CC57 /* LoadState.swift */; };
 		2CD974172450708A00808E54 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974162450708A00808E54 /* UserDefault+.swift */; };
 		2CD974192450713200808E54 /* UserDefaultConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD974182450713200808E54 /* UserDefaultConfig.swift */; };
 		2CD9741B24508B6800808E54 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9741A24508B6800808E54 /* StorageManager.swift */; };
@@ -408,6 +413,10 @@
 		2CC825042701244C00A31476 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CC825052701244C00A31476 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CC82507270125A600A31476 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		2CC8D5592FB4B03800CDEED4 /* RadioEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioEndpoint.swift; sourceTree = "<group>"; };
+		2CC8D55D2FB4B15900CDEED4 /* RadioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioService.swift; sourceTree = "<group>"; };
+		2CC8D55F2FB4B17000CDEED4 /* RadioServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioServiceProtocol.swift; sourceTree = "<group>"; };
+		2CC8D5612FB4B1EC00CDEED4 /* RadioModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModels.swift; sourceTree = "<group>"; };
 		2CC9E90B26526631001877B0 /* SignUpModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModule.swift; sourceTree = "<group>"; };
 		2CC9E90F265269AE001877B0 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		2CCE0429245ED53B00685ABA /* RadioPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPodcast.swift; sourceTree = "<group>"; };
@@ -421,6 +430,7 @@
 		2CD0AFC22461832200A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Player.strings; sourceTree = "<group>"; };
 		2CD0AFC92461842700A258EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Podcast.storyboard; sourceTree = "<group>"; };
 		2CD0AFCC2461847E00A258EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Podcast.strings; sourceTree = "<group>"; };
+		2CD0E3C5301BADD000C2CC57 /* LoadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadState.swift; sourceTree = "<group>"; };
 		2CD974162450708A00808E54 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
 		2CD974182450713200808E54 /* UserDefaultConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConfig.swift; sourceTree = "<group>"; };
 		2CD9741A24508B6800808E54 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -775,6 +785,7 @@
 		2C55CF752635CB2800723042 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2CD0E3C5301BADD000C2CC57 /* LoadState.swift */,
 				2CE43C3F270E356D00D24C6F /* RadiofyViewController.swift */,
 				2C688963242E134600463F1B /* Storyboarded.swift */,
 			);
@@ -962,6 +973,33 @@
 				2CC825032701244C00A31476 /* Localizable.strings */,
 			);
 			path = Translations;
+			sourceTree = "<group>";
+		};
+		2CC8D5582FB3548000CDEED4 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				2CF7EF3124422B72004A9B30 /* RadioViewController.swift */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+		2CC8D55B2FB4B04500CDEED4 /* RadioStation */ = {
+			isa = PBXGroup;
+			children = (
+				2CC8D55C2FB4B05D00CDEED4 /* Services */,
+			);
+			path = RadioStation;
+			sourceTree = "<group>";
+		};
+		2CC8D55C2FB4B05D00CDEED4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2CC8D5612FB4B1EC00CDEED4 /* RadioModels.swift */,
+				2CC8D55F2FB4B17000CDEED4 /* RadioServiceProtocol.swift */,
+				2CC8D55D2FB4B15900CDEED4 /* RadioService.swift */,
+				2CC8D5592FB4B03800CDEED4 /* RadioEndpoint.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		2CD9B0382F9907AB00320246 /* LegacyAccount */ = {
@@ -1194,8 +1232,8 @@
 			children = (
 				2CE7B3402FA8C3A6001E7FBD /* RadioView.swift */,
 				2C2B361827090CB000553945 /* RadioModule.swift */,
-				2CF7EF3124422B72004A9B30 /* RadioViewController.swift */,
 				2CF7EF332442502D004A9B30 /* RadioViewModel.swift */,
+				2CC8D5582FB3548000CDEED4 /* Legacy */,
 			);
 			path = Radio;
 			sourceTree = "<group>";
@@ -1303,8 +1341,8 @@
 				2CF7EF282440CE76004A9B30 /* MainTabBar */,
 				2CC8038C2462E20B00F345C9 /* Subscription */,
 				2CF5ED78242ED1D30018E8A4 /* Home */,
-				2C844A7E243FE810003E19E9 /* RadioPlayer */,
 				2CF7EF3024422B59004A9B30 /* Radio */,
+				2C844A7E243FE810003E19E9 /* RadioPlayer */,
 				2CB30EE12433FC6C00820DE4 /* Search */,
 				2CB30EE22433FC7700820DE4 /* YourLibrary */,
 				2C498404245ADFAD00B6201C /* Podcast */,
@@ -1327,6 +1365,7 @@
 				2CB77E662649C9B30069BC52 /* Services */,
 				2CB468712F9F8778002E0BB2 /* Health */,
 				2CE6AD012452586A00D8A7B7 /* Auth */,
+				2CC8D55B2FB4B04500CDEED4 /* RadioStation */,
 				2CE6AD022452587600D8A7B7 /* Firestore */,
 				2CE6AD032452588B00D8A7B7 /* Storage */,
 				2C498424245B2FD500B6201C /* Podcast */,
@@ -1682,6 +1721,7 @@
 				2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */,
 				2CA7CC542438C49C0028DEBF /* EditProfileViewController.swift in Sources */,
 				2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */,
+				2CC8D5602FB4B18000CDEED4 /* RadioServiceProtocol.swift in Sources */,
 				2C004291244E4288006ABABF /* AccountViewModel.swift in Sources */,
 				2C4226872F432520008A1414 /* SignUpView.swift in Sources */,
 				2C688968242E13A300463F1B /* SignUpViewModel.swift in Sources */,
@@ -1707,6 +1747,7 @@
 				2CB77E652649C3B90069BC52 /* OnBoardingService.swift in Sources */,
 				2C4EF3A9271C9A43007AC723 /* YourLibraryModule.swift in Sources */,
 				2C004293244E460F006ABABF /* DeleteAccountView.swift in Sources */,
+				2CD0E3C6301BADD000C2CC57 /* LoadState.swift in Sources */,
 				2C3387672434D53600141102 /* SettingButtonView.swift in Sources */,
 				2CE3E29E2F3CDE14008D2F42 /* AppConfig.swift in Sources */,
 				2C4226802F427E7F008A1414 /* OnBoardingView.swift in Sources */,
@@ -1758,6 +1799,7 @@
 				2C33876A2434D9DA00141102 /* SettingsViewController.swift in Sources */,
 				2C3387752435387300141102 /* SignOutButtonView.swift in Sources */,
 				2C498417245B0C3800B6201C /* PodcastListViewController.swift in Sources */,
+				2CC8D5622FB4B1F400CDEED4 /* RadioModels.swift in Sources */,
 				2CF5ED88242FFE970018E8A4 /* LogInViewModel.swift in Sources */,
 				2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */,
 				2C42268A2F436D23008A1414 /* PrivacyPolicyView.swift in Sources */,
@@ -1788,6 +1830,7 @@
 				2CBEAD7126530AD100F5E965 /* Stack.swift in Sources */,
 				2C2662A4243AACFD00A3964E /* UIImageView.swift in Sources */,
 				2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */,
+				2CC8D55A2FB4B04000CDEED4 /* RadioEndpoint.swift in Sources */,
 				2CF7EF342442502D004A9B30 /* RadioViewModel.swift in Sources */,
 				2CC9E90C26526631001877B0 /* SignUpModule.swift in Sources */,
 				2CB4687B2F9F8DD2002E0BB2 /* APIClientProtocol.swift in Sources */,
@@ -1796,6 +1839,7 @@
 				2C4226902F438090008A1414 /* AppleSignInHelper.swift in Sources */,
 				2C6723102465BDEF00ABCD5B /* NetworkManager.swift in Sources */,
 				2CC803902462EFFA00F345C9 /* SubscribeButtonView.swift in Sources */,
+				2CC8D55E2FB4B15E00CDEED4 /* RadioService.swift in Sources */,
 				2CC4302324362FD7001009E2 /* FooterProfileTableViewCell.swift in Sources */,
 				2CE7B3472FA8C429001E7FBD /* SearchView.swift in Sources */,
 				2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */,
