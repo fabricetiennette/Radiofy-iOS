@@ -21,10 +21,10 @@ final class SearchCell: UICollectionViewCell, NibReusable {
         radioNameLabel.text = station.name
 
         // Image
-        let url = URL(string: station.imageURL)
-        radioImageView.sd_setImage(with: url, completed: nil)
-
-        // BackgroundColor
-        magicalView.backgroundColor = station.color
+//        let url = URL(string: station.imageURL)
+//        radioImageView.sd_setImage(with: url, completed: nil)
+//
+//        // BackgroundColor
+//        magicalView.backgroundColor = station.color
     }
 }

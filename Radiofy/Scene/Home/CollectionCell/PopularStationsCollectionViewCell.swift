@@ -16,8 +16,8 @@ class PopularStationsCollectionViewCell: UICollectionViewCell {
 
     func configureCell(station: RadioStation) {
 
-        let url = URL(string: station.imageURL)
-        popularStationImageView.sd_setImage(with: url, completed: nil)
-        popularStationLabel.text = station.name
+//        let url = URL(string: station.imageURL)
+//        popularStationImageView.sd_setImage(with: url, completed: nil)
+//        popularStationLabel.text = station.name
     }
 }

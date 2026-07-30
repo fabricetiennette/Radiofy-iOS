@@ -149,11 +149,11 @@ private extension LogInView {
                     )
                 }
             } catch {
-                viewModel.errorMessage = L10n.appleSignInFailed
+                viewModel.setError(L10n.appleSignInFailed)
             }
 
         case .failure:
-            viewModel.errorMessage = L10n.appleSignInFailed
+            viewModel.setError(L10n.appleSignInFailed)
         }
     }
 }

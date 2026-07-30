@@ -16,8 +16,8 @@ final class FavoriteRadioCell: UITableViewCell, NibReusable {
     @IBOutlet weak var radioLabel: UILabel!
 
     func configureCell(station: RadioStation, indexPath: IndexPath) {
-        let url = URL(string: station.imageURL)
-        radioImageview.sd_setImage(with: url, completed: nil)
-        radioLabel.text = station.name
+//        let url = URL(string: station.imageURL)
+//        radioImageview.sd_setImage(with: url, completed: nil)
+//        radioLabel.text = station.name
     }
 }

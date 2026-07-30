@@ -9,9 +9,11 @@ final class SignUpViewModel: ObservableObject {
     @Published var isPasswordVisible: Bool = false
 
     // MARK: - Output / UI state
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String?
+    @Published private(set) var state: LoadState = .idle
     @Published var isPrivacyPolicyPresented: Bool = false
+
+    var isLoading: Bool { state.isLoading }
+    var errorMessage: String? { state.errorMessage }
 
     // MARK: - Dependencies
     private let authService: AuthServicing
@@ -42,34 +44,36 @@ final class SignUpViewModel: ObservableObject {
 
     // MARK: - Actions
 
+    func setError(_ message: String) {
+        state = .failed(message)
+    }
+
     func signUp() async {
         guard canSubmit else { return }
 
-        isLoading = true
-        errorMessage = nil
-        defer { isLoading = false }
+        state = .loading
 
         do {
             let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
             try await authService.register(email: trimmedEmail, password: password)
 
             // The backend sends the verification code email and returns tokens only after verification.
+            state = .loaded
             onEmailVerificationRequired(trimmedEmail)
         } catch {
-            errorMessage = "Could not create account."
+            setError("Could not create account.")
         }
     }
 
     func signInWithApple(idToken: String, givenName: String?, familyName: String?) async {
-        isLoading = true
-        errorMessage = nil
-        defer { isLoading = false }
+        state = .loading
 
         do {
             try await authService.signInWithApple(idToken: idToken, givenName: givenName, familyName: familyName)
+            state = .loaded
             onAuthenticated()
         } catch {
-            errorMessage = "Apple sign in failed."
+            setError("Apple sign in failed.")
         }
     }
 }

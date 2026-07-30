@@ -12,9 +12,11 @@ final class VerifyEmailViewModel: ObservableObject {
 
     // MARK: - Output / UI state
 
-    @Published private(set) var isLoading: Bool = false
-    @Published private(set) var errorMessage: String?
+    @Published private(set) var state: LoadState = .idle
     @Published private(set) var successMessage: String?
+
+    var isLoading: Bool { state.isLoading }
+    var errorMessage: String? { state.errorMessage }
 
     var canResend: Bool { !isLoading && cooldownSeconds == 0 }
 
@@ -34,59 +36,56 @@ final class VerifyEmailViewModel: ObservableObject {
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard isValidEmail(trimmedEmail) else {
-            errorMessage = L10n.emailInvalid
-            successMessage = nil
+            setError(L10n.emailInvalid)
             return
         }
-        
+
         let trimmedCode = code.trimmingCharacters(in: .whitespacesAndNewlines)
         let isSixDigits = trimmedCode.count == 6 && trimmedCode.allSatisfy({ $0.isNumber })
         guard isSixDigits else {
-            errorMessage = "Invalid verification code."
-            successMessage = nil
+            setError("Invalid verification code.")
             return
         }
 
-
-        isLoading = true
-        errorMessage = nil
+        state = .loading
         successMessage = nil
-        defer { isLoading = false }
-        
+
         do {
             try await authService.verifyEmail(email: trimmedEmail, code: trimmedCode)
-            
+
+            state = .loaded
             successMessage = "Email verified successfully."
             print("✅ verifyEmail success — calling onAuthenticated()")
             onAuthenticated()
         } catch {
             print("❌ verifyEmail failed:", error)
-            errorMessage = "Failed to verify email."
-            
+            setError("Failed to verify email.")
         }
-        
     }
-    
+
     func resendVerificationCode() async {
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
         guard isValidEmail(trimmedEmail) else {
-            errorMessage = L10n.emailInvalid
-            successMessage = nil
+            setError(L10n.emailInvalid)
             return
         }
 
-        isLoading = true
-        errorMessage = nil
+        state = .loading
         successMessage = nil
-        defer { isLoading = false }
 
         do {
             try await authService.resendVerificationEmail(email: trimmedEmail)
+            state = .loaded
             successMessage = "Verification code sent."
             startCooldown(seconds: 60)
         } catch {
-            errorMessage = "Failed to resend verification code."
+            setError("Failed to resend verification code.")
         }
+    }
+
+    private func setError(_ message: String) {
+        state = .failed(message)
+        successMessage = nil
     }
 
     private func startCooldown(seconds: Int) {

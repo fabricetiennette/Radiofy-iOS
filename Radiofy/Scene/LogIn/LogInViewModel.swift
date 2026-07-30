@@ -139,8 +139,10 @@ final class LogInViewModel: ObservableObject {
 
     // MARK: - Output / UI state
 
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String?
+    @Published private(set) var state: LoadState = .idle
+
+    var isLoading: Bool { state.isLoading }
+    var errorMessage: String? { state.errorMessage }
 
     // MARK: - Dependencies
 
@@ -169,6 +171,10 @@ final class LogInViewModel: ObservableObject {
 
     // MARK: - Actions
 
+    func setError(_ message: String) {
+        state = .failed(message)
+    }
+
     func didTapPasswordReset() {
         onForgotPassword()
     }
@@ -179,34 +185,32 @@ final class LogInViewModel: ObservableObject {
 
     func logIn() async {
         guard canSubmit else {
-            errorMessage = "Please enter a valid email and password."
+            setError("Please enter a valid email and password.")
             return
         }
 
-        isLoading = true
-        errorMessage = nil
-        defer { isLoading = false }
+        state = .loading
 
         do {
             _ = try await authService.login(email: email, password: password)
+            state = .loaded
             onAuthenticated()
         } catch {
-            errorMessage = "Invalid email or password."
+            setError("Invalid email or password.")
         }
     }
-    
+
     func signInWithApple(idToken: String, givenName: String?, familyName: String?) async {
-        isLoading = true
-        errorMessage = nil
-        defer { isLoading = false }
+        state = .loading
 
         do {
             _ = try await authService.signInWithApple(idToken: idToken,
                                                       givenName: givenName,
                                                       familyName: familyName)
+            state = .loaded
             onAuthenticated()
         } catch {
-            errorMessage = "Apple sign in failed."
+            setError("Apple sign in failed.")
         }
     }
 }

@@ -22,34 +22,34 @@ struct HomeService: HomeModule.Service {
 
             Future { handler in
                 var stations: [RadioStation] = []
-                database.collection(collectionName).getDocuments { (querySnapshot, error) in
-                    if let error = error {
-                        handler(.failure(error))
-                        return
-                    } else {
-                        for document in querySnapshot!.documents {
-                            let data = document.data()
-                            guard
-                                let imageURL = data["imageURL"],
-                                let name = data["name"],
-                                let streamURL = data["streamURL"],
-                                let unformattedColor = data["mainColor"]
-                            else { return }
-                            let station = RadioStation(
-                                // swiftlint:disable:next force_cast
-                                name: name as! String,
-                                // swiftlint:disable:next force_cast
-                                imageURL: imageURL as! String,
-                                // swiftlint:disable:next force_cast
-                                streamURL: streamURL as! String,
-                                // swiftlint:disable:next force_cast
-                                unformattedColor: unformattedColor as! String
-                            )
-                            stations.append(station)
-                        }
-                        handler(.success(stations))
-                    }
-                }
+//                database.collection(collectionName).getDocuments { (querySnapshot, error) in
+//                    if let error = error {
+//                        handler(.failure(error))
+//                        return
+//                    } else {
+//                        for document in querySnapshot!.documents {
+//                            let data = document.data()
+//                            guard
+//                                let imageURL = data["imageURL"],
+//                                let name = data["name"],
+//                                let streamURL = data["streamURL"],
+//                                let unformattedColor = data["mainColor"]
+//                            else { return }
+//                            let station = RadioStation(
+//                                // swiftlint:disable:next force_cast
+//                                name: name as! String,
+//                                // swiftlint:disable:next force_cast
+//                                imageURL: imageURL as! String,
+//                                // swiftlint:disable:next force_cast
+//                                streamURL: streamURL as! String,
+//                                // swiftlint:disable:next force_cast
+//                                unformattedColor: unformattedColor as! String
+//                            )
+//                            stations.append(station)
+//                        }
+//                        handler(.success(stations))
+//                    }
+//                }
             }
         }.eraseToAnyPublisher()
     }

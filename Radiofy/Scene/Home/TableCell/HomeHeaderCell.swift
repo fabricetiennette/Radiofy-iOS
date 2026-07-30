@@ -65,12 +65,12 @@ private extension HomeHeaderCell {
 extension HomeHeaderCell {
     func configureCell(_ stations: [RadioStation]) {
 
-        if stations.count == 6 {
-            for index in 0...5 {
-                let url = URL(string: stations[index].imageURL)
-                cellImageView[index].sd_setImage(with: url, completed: nil)
-                cellLabel[index].text = stations[index].name
-            }
-        }
+//        if stations.count == 6 {
+//            for index in 0...5 {
+//                let url = URL(string: stations[index].imageURL)
+//                cellImageView[index].sd_setImage(with: url, completed: nil)
+//                cellLabel[index].text = stations[index].name
+//            }
+//        }
     }
 }

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+    let radioService: RadioServicing
     let onLogout: () -> Void
 
     @Environment(\.authService) private var authService
@@ -18,9 +19,9 @@ struct MainTabView: View {
 
             Tab(L10n.radio, systemImage: "dot.radiowaves.left.and.right", value: MainTab.radio) {
                 tabRoot(title: L10n.radio) {
-                    if let authService  {
+                    if let authService {
                         NavigationStack {
-                            RadioModule(authService: authService)
+                            RadioModule(authService: authService, radioService: radioService)
                                 .makeView()
                         }
                     } else {
@@ -104,6 +105,8 @@ private enum MainTab: Hashable {
     case search
 }
 
+#if DEBUG
 #Preview {
-    MainTabView(onLogout: {})
+    MainTabView(radioService: PreviewRadioService(), onLogout: {})
 }
+#endif

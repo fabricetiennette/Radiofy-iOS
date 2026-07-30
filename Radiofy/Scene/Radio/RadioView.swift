@@ -16,12 +16,13 @@ struct RadioView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
 
-                    // Section 1: Featured 6 radios
-                    LazyVGrid(columns: featuredColumns, alignment: .center, spacing: 12) {
-                        ForEach(0..<6) { index in
-                            RadioTileLarge(title: sampleFeaturedTitles[index % sampleFeaturedTitles.count])
-                        }
-                    }
+                    // Section 1: Featured radios, live from the API
+                    FeaturedStationsGrid(
+                        state: viewModel.featuredState,
+                        stations: viewModel.featuredStations,
+                        columns: featuredColumns,
+                        retry: { Task { await viewModel.loadFeaturedStations() } }
+                    )
                     .padding(20)
 
                     // Section 2: On Air Now (horizontal)
@@ -94,6 +95,9 @@ struct RadioView: View {
             .navigationDestination(isPresented: $showDiscoverList) {
                 DiscoverListView()
             }
+            .task {
+                await viewModel.loadFeaturedStations()
+            }
         }
     }
 }
@@ -135,19 +139,89 @@ private struct SectionHeader: View {
     }
 }
 
+private struct FeaturedStationsGrid: View {
+    let state: LoadState
+    let stations: [RadioStation]
+    let columns: [GridItem]
+    let retry: () -> Void
+
+    var body: some View {
+        switch state {
+        case .idle, .loading:
+            LazyVGrid(columns: columns, alignment: .center, spacing: 12) {
+                ForEach(0..<6, id: \.self) { _ in
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(.white.opacity(0.08))
+                        .frame(height: 110)
+                }
+            }
+            .accessibilityLabel("Loading stations")
+
+        case .loaded:
+            LazyVGrid(columns: columns, alignment: .center, spacing: 12) {
+                ForEach(stations) { station in
+                    RadioTileLarge(station: station)
+                }
+            }
+
+        case .failed(let message):
+            VStack(spacing: 12) {
+                Text(message)
+                    .font(.subheadline)
+                    .foregroundStyle(.white.opacity(0.7))
+                    .multilineTextAlignment(.center)
+
+                Button("Try again", action: retry)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(
+                        Capsule().fill(.white.opacity(0.12))
+                    )
+                    .buttonStyle(.plain)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 32)
+        }
+    }
+}
+
 private struct RadioTileLarge: View {
-    let title: String
+    let station: RadioStation
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
                 .frame(height: 110)
-                .overlay(
-                    Image(systemName: "dot.radiowaves.left.and.right")
-                        .font(.system(size: 28, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.9))
-                )
+                .overlay {
+                    // Most stations come back with an empty favicon, so the gradient
+                    // stays visible as the fallback rather than an empty box.
+                    if let imageUrl = station.imageUrl {
+                        AsyncImage(url: imageUrl) { image in
+                            image.resizable().scaledToFill()
+                        } placeholder: {
+                            placeholderIcon
+                        }
+                    } else {
+                        placeholderIcon
+                    }
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+
+            Text(station.name)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.white)
+                .lineLimit(2)
         }
+        .accessibilityElement(children: .combine)
+    }
+
+    private var placeholderIcon: some View {
+        Image(systemName: "dot.radiowaves.left.and.right")
+            .font(.system(size: 28, weight: .bold))
+            .foregroundStyle(.white.opacity(0.9))
     }
 }
 
@@ -319,9 +393,7 @@ private struct LatestEpisodeRow: View {
 }
 
 // MARK: - Sample Data
-private let sampleFeaturedTitles: [String] = [
-    "Hits Hits", "Country", "Música Uno", "Club", "Chill", "News"
-]
+// Sections below still run on mock data until their endpoints exist.
 
 private let sampleShows: [(title: String, subtitle: String)] = [
     ("The Rebecca Judd Show", "Big hits, throwbacks, and the best"),
@@ -356,7 +428,10 @@ private let sampleEpisodePages: [[Episodee]] = [
 
 #if DEBUG
 #Preview {
-    let viewModel = RadioViewModel(authService: AuthService(baseURL: AppConfig.apiBaseURL))
+    let viewModel = RadioViewModel(
+        authService: AuthService(baseURL: AppConfig.apiBaseURL),
+        radioService: PreviewRadioService()
+    )
     NavigationStack {
         RadioView(viewModel: viewModel)
     }.preferredColorScheme(.dark)
