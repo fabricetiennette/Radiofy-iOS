@@ -159,3 +159,21 @@ public enum RadioServiceError: Error {
     case decodingFailed(Error)
     case invalidStationUuid
 }
+
+extension RadioServiceError: LocalizedError {
+    /// Feeds `error.localizedDescription`, so view models can surface an error
+    /// without each one repeating the same switch. Errors thrown by URLSession
+    /// keep their own system message ("The Internet connection appears to be offline").
+    public var errorDescription: String? {
+        switch self {
+        case .notAuthenticated:
+            return "Your session has expired. Please sign in again."
+        case .server(let status, _):
+            return "The server responded with \(status)."
+        case .decodingFailed:
+            return "Unexpected response from the server."
+        case .invalidURL, .invalidResponse, .invalidStationUuid:
+            return "Could not load stations."
+        }
+    }
+}

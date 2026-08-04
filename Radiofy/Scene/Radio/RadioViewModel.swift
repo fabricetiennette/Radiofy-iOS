@@ -35,24 +35,7 @@ final class RadioViewModel: ObservableObject {
             featuredState = .loaded
         } catch {
             featuredStations = []
-            featuredState = .failed(Self.message(for: error))
-        }
-    }
-
-    private static func message(for error: Error) -> String {
-        guard let radioError = error as? RadioServiceError else {
-            return "Could not load stations."
-        }
-
-        switch radioError {
-        case .notAuthenticated:
-            return "Your session has expired. Please sign in again."
-        case .server(let status, _):
-            return "The server responded with \(status)."
-        case .decodingFailed:
-            return "Unexpected response from the server."
-        case .invalidURL, .invalidResponse, .invalidStationUuid:
-            return "Could not load stations."
+            featuredState = .failed(error.localizedDescription)
         }
     }
 }

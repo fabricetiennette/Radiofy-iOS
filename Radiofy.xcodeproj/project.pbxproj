@@ -62,6 +62,8 @@
 		2C42269C2F43E586008A1414 /* VerifyEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42269B2F43E57E008A1414 /* VerifyEmailViewModel.swift */; };
 		2C42269F2F43EC37008A1414 /* OTPCodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C42269E2F43EC34008A1414 /* OTPCodeField.swift */; };
 		2C4226A22F44B80D008A1414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226A12F44B804008A1414 /* HomeView.swift */; };
+		2C46CBFC30220DE900042461 /* SearchActivityReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46CBFB30220DE900042461 /* SearchActivityReporter.swift */; };
+		2C46CBFE30220DF200042461 /* SearchStationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46CBFD30220DF200042461 /* SearchStationRow.swift */; };
 		2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498407245AE01600B6201C /* PodcastViewController.swift */; };
 		2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49840B245AF87200B6201C /* PodcastViewModel.swift */; };
 		2C49840F245AFA3F00B6201C /* PodcastDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49840E245AFA3F00B6201C /* PodcastDataSource.swift */; };
@@ -105,7 +107,6 @@
 		2C716AB02662A98B00660042 /* PasswordResetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C716AAF2662A98B00660042 /* PasswordResetService.swift */; };
 		2C73D552243D21D800896D24 /* loadingDot.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C73D551243D21D800896D24 /* loadingDot.json */; };
 		2C7AC79826B1C9BD00721FEA /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC79726B1C9BD00721FEA /* HomeService.swift */; };
-		2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */; };
 		2C844A7D243F5D27003E19E9 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A7C243F5D27003E19E9 /* RadioStation.swift */; };
 		2C844A88243FEFCA003E19E9 /* RadioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */; };
 		2C8A4E022450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A4E012450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift */; };
@@ -124,7 +125,6 @@
 		2CB30ED824337CF100820DE4 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30ED724337CF100820DE4 /* UILabel+.swift */; };
 		2CB30EDC2433F4EE00820DE4 /* loader-1212.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CB30EDB2433F4ED00820DE4 /* loader-1212.json */; };
 		2CB30EDE2433F9B800820DE4 /* loader1010.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CB30EDD2433F9B700820DE4 /* loader1010.json */; };
-		2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE72433FEE900820DE4 /* SearchViewController.swift */; };
 		2CB30EEA2433FEFA00820DE4 /* YourLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */; };
 		2CB468732F9F878C002E0BB2 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468722F9F8783002E0BB2 /* HealthService.swift */; };
 		2CB468752F9F87F3002E0BB2 /* HealthServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB468742F9F87D5002E0BB2 /* HealthServicing.swift */; };
@@ -171,7 +171,6 @@
 		2CDC5AB1243E72AB00498DE5 /* NationalStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB0243E72AB00498DE5 /* NationalStationsCell.swift */; };
 		2CDC5AB4243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB3243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift */; };
 		2CDC5AB6243E9D5100498DE5 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDC5AB5243E9D5100498DE5 /* FirestoreManager.swift */; };
-		2CDDB446244A16F900DC31F5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDB445244A16F900DC31F5 /* SearchCell.swift */; };
 		2CDDB448244A6B5500DC31F5 /* SearchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */; };
 		2CDF26FC265D8E1C008C3B71 /* LogInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */; };
 		2CDF26FE265D93C4008C3B71 /* LogInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF26FD265D93C4008C3B71 /* LogInService.swift */; };
@@ -228,8 +227,6 @@
 		2CF5ED88242FFE970018E8A4 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED87242FFE970018E8A4 /* LogInViewModel.swift */; };
 		2CF5ED8D2430112E0018E8A4 /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5ED8C2430112E0018E8A4 /* PasswordResetViewModel.swift */; };
 		2CF7290D2708F6CE00C5846B /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 2CF7290C2708F6CE00C5846B /* Reusable */; };
-		2CF7290F2708FC4100C5846B /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF7290E2708FC4100C5846B /* SearchCell.xib */; };
-		2CF729122708FD9D00C5846B /* SearchBarReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF729112708FD9D00C5846B /* SearchBarReusableView.xib */; };
 		2CF729162709057C00C5846B /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CF729152709057C00C5846B /* colors.txt */; };
 		2CF7EF272440C86D004A9B30 /* RadioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7EF262440C86D004A9B30 /* RadioPlayerViewModel.swift */; };
 		2CF7EF2B2441F702004A9B30 /* MiniPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7EF2A2441F702004A9B30 /* MiniPlayerViewModel.swift */; };
@@ -325,6 +322,8 @@
 		2C42269B2F43E57E008A1414 /* VerifyEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewModel.swift; sourceTree = "<group>"; };
 		2C42269E2F43EC34008A1414 /* OTPCodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPCodeField.swift; sourceTree = "<group>"; };
 		2C4226A12F44B804008A1414 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2C46CBFB30220DE900042461 /* SearchActivityReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchActivityReporter.swift; sourceTree = "<group>"; };
+		2C46CBFD30220DF200042461 /* SearchStationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStationRow.swift; sourceTree = "<group>"; };
 		2C498407245AE01600B6201C /* PodcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewController.swift; sourceTree = "<group>"; };
 		2C49840B245AF87200B6201C /* PodcastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewModel.swift; sourceTree = "<group>"; };
 		2C49840E245AFA3F00B6201C /* PodcastDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDataSource.swift; sourceTree = "<group>"; };
@@ -369,7 +368,6 @@
 		2C716AAF2662A98B00660042 /* PasswordResetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetService.swift; sourceTree = "<group>"; };
 		2C73D551243D21D800896D24 /* loadingDot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingDot.json; sourceTree = "<group>"; };
 		2C7AC79726B1C9BD00721FEA /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
-		2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarReusableView.swift; sourceTree = "<group>"; };
 		2C844A7C243F5D27003E19E9 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
 		2C844A87243FEFCA003E19E9 /* RadioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewController.swift; sourceTree = "<group>"; };
 		2C8A4E012450461D00E8E6A3 /* LegacyFirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyFirebaseAuthManager.swift; sourceTree = "<group>"; };
@@ -388,7 +386,6 @@
 		2CB30ED724337CF100820DE4 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		2CB30EDB2433F4ED00820DE4 /* loader-1212.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loader-1212.json"; sourceTree = "<group>"; };
 		2CB30EDD2433F9B700820DE4 /* loader1010.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader1010.json; sourceTree = "<group>"; };
-		2CB30EE72433FEE900820DE4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2CB30EE92433FEFA00820DE4 /* YourLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryViewController.swift; sourceTree = "<group>"; };
 		2CB468722F9F8783002E0BB2 /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
 		2CB468742F9F87D5002E0BB2 /* HealthServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthServicing.swift; sourceTree = "<group>"; };
@@ -441,7 +438,6 @@
 		2CDC5AB0243E72AB00498DE5 /* NationalStationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalStationsCell.swift; sourceTree = "<group>"; };
 		2CDC5AB3243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CDC5AB5243E9D5100498DE5 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
-		2CDDB445244A16F900DC31F5 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		2CDDB447244A6B5500DC31F5 /* SearchImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageView.swift; sourceTree = "<group>"; };
 		2CDF26FB265D8E1C008C3B71 /* LogInModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModule.swift; sourceTree = "<group>"; };
 		2CDF26FD265D93C4008C3B71 /* LogInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInService.swift; sourceTree = "<group>"; };
@@ -491,8 +487,6 @@
 		2CF5ED82242F91EC0018E8A4 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		2CF5ED87242FFE970018E8A4 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		2CF5ED8C2430112E0018E8A4 /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
-		2CF7290E2708FC4100C5846B /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
-		2CF729112708FD9D00C5846B /* SearchBarReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarReusableView.xib; sourceTree = "<group>"; };
 		2CF729152709057C00C5846B /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
 		2CF7EF262440C86D004A9B30 /* RadioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewModel.swift; sourceTree = "<group>"; };
 		2CF7EF2A2441F702004A9B30 /* MiniPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewModel.swift; sourceTree = "<group>"; };
@@ -889,7 +883,6 @@
 				2CE7B3462FA8C424001E7FBD /* SearchView.swift */,
 				2CDDB444244A16DE00DC31F5 /* SearchCell */,
 				2C5513D426FFDF140082BBB9 /* SearchModule.swift */,
-				2CB30EE72433FEE900820DE4 /* SearchViewController.swift */,
 				2C3BF16F244B31E900BA895B /* SearchViewModel.swift */,
 			);
 			path = Search;
@@ -1023,10 +1016,8 @@
 		2CDDB444244A16DE00DC31F5 /* SearchCell */ = {
 			isa = PBXGroup;
 			children = (
-				2CDDB445244A16F900DC31F5 /* SearchCell.swift */,
-				2CF7290E2708FC4100C5846B /* SearchCell.xib */,
-				2C83E00D244D872D002D05C9 /* SearchBarReusableView.swift */,
-				2CF729112708FD9D00C5846B /* SearchBarReusableView.xib */,
+				2C46CBFB30220DE900042461 /* SearchActivityReporter.swift */,
+				2C46CBFD30220DF200042461 /* SearchStationRow.swift */,
 			);
 			path = SearchCell;
 			sourceTree = "<group>";
@@ -1611,8 +1602,6 @@
 				2C9281B424296EA00052C714 /* Argon-Regular.otf in Resources */,
 				2CD0AFC82461842700A258EB /* Podcast.storyboard in Resources */,
 				2CA61E10272323EA00E12A48 /* FavoriteRadioCell.xib in Resources */,
-				2CF7290F2708FC4100C5846B /* SearchCell.xib in Resources */,
-				2CF729122708FD9D00C5846B /* SearchBarReusableView.xib in Resources */,
 				2CF5ED7C242F87700018E8A4 /* GoogleService-Info.plist in Resources */,
 				2CB30EDE2433F9B800820DE4 /* loader1010.json in Resources */,
 			);
@@ -1699,7 +1688,6 @@
 				2CE7B3412FA8C3A7001E7FBD /* RadioView.swift in Sources */,
 				2C22F1542448FA7E00CE1919 /* YourLibraryViewModel.swift in Sources */,
 				2CF04880243E29B400E12429 /* HomeDataSource.swift in Sources */,
-				2C83E00E244D872D002D05C9 /* SearchBarReusableView.swift in Sources */,
 				2CE6ACFB2451BD6E00D8A7B7 /* UITableView+.swift in Sources */,
 				2C716AAE2662A5F500660042 /* PasswordResetModule.swift in Sources */,
 				2C498428245B325400B6201C /* RSSFeed+.swift in Sources */,
@@ -1737,7 +1725,6 @@
 				2CE3E2912F3CCE82008D2F42 /* AuthService.swift in Sources */,
 				2C9C3D172E91D5ED0028526D /* PlaybackCenter.swift in Sources */,
 				2C49842B245B6B2100B6201C /* EpisodeViewController.swift in Sources */,
-				2CB30EE82433FEE900820DE4 /* SearchViewController.swift in Sources */,
 				2C00428F244E4258006ABABF /* AccountViewController.swift in Sources */,
 				2CE6AD05245258AC00D8A7B7 /* LegacyFirebaseAuthProtocol.swift in Sources */,
 				2CAB9F882FACB1DF00C36E8E /* NotificationSettingsView.swift in Sources */,
@@ -1762,6 +1749,7 @@
 				2C49841C245B0CBD00B6201C /* PodcastListViewModel.swift in Sources */,
 				2C4226772F427213008A1414 /* RadiofyApp.swift in Sources */,
 				2C42267B2F4272FE008A1414 /* RootRouter.swift in Sources */,
+				2C46CBFE30220DF200042461 /* SearchStationRow.swift in Sources */,
 				2CE74A6C24532929008E3D57 /* FirestoreService.swift in Sources */,
 				2C685BB026B5FC83006FD017 /* EditProfileModule.swift in Sources */,
 				2C49841F245B0FB100B6201C /* ListPodcastCell.swift in Sources */,
@@ -1780,6 +1768,7 @@
 				2C498426245B2FEF00B6201C /* PodcastService.swift in Sources */,
 				2CDC5AB4243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift in Sources */,
 				2CC803922462F0D600F345C9 /* SubcribePremiumView.swift in Sources */,
+				2C46CBFC30220DE900042461 /* SearchActivityReporter.swift in Sources */,
 				2C02589026B588D600985748 /* SettingsService.swift in Sources */,
 				2CC8038E2462E22A00F345C9 /* SubscriptionViewController.swift in Sources */,
 				2CE3E2932F3CCF5B008D2F42 /* KeychainTokenStore.swift in Sources */,
@@ -1795,7 +1784,6 @@
 				2C498421245B14DD00B6201C /* PodcastStation.swift in Sources */,
 				2C2B361927090CB000553945 /* RadioModule.swift in Sources */,
 				2CE74A6A245327D6008E3D57 /* FirestoreProtocol.swift in Sources */,
-				2CDDB446244A16F900DC31F5 /* SearchCell.swift in Sources */,
 				2C33876A2434D9DA00141102 /* SettingsViewController.swift in Sources */,
 				2C3387752435387300141102 /* SignOutButtonView.swift in Sources */,
 				2C498417245B0C3800B6201C /* PodcastListViewController.swift in Sources */,

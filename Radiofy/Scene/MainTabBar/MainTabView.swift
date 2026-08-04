@@ -6,8 +6,8 @@ struct MainTabView: View {
 
     @Environment(\.authService) private var authService
     @State private var selectedTab: MainTab = .home
-    @State private var searchText = ""
     @State private var isAccountPresented = false
+    @State private var isSearchActive = false
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -43,9 +43,11 @@ struct MainTabView: View {
             }
 
             Tab(value: MainTab.search, role: .search) {
-                tabRoot(title: L10n.search) {
-                    SearchView()
-                        .searchable(text: $searchText)
+                // The header steps aside while searching, so results start at the
+                // top of the screen the way they do in Music.
+                tabRoot(title: L10n.search, showsHeader: !isSearchActive) {
+                    SearchModule(radioService: radioService, isSearchActive: $isSearchActive)
+                        .makeView()
                 }
             }
         }
@@ -73,22 +75,25 @@ struct MainTabView: View {
 
     private func tabRoot<Content: View>(
         title: String,
+        showsHeader: Bool = true,
         @ViewBuilder content: () -> Content
     ) -> some View {
         NavigationStack {
             VStack(spacing: 0) {
-                HStack(alignment: .center) {
-                    Text(title)
-                        .font(.largeTitle.bold())
-                        .foregroundStyle(.primary)
+                if showsHeader {
+                    HStack(alignment: .center) {
+                        Text(title)
+                            .font(.largeTitle.bold())
+                            .foregroundStyle(.primary)
 
-                    Spacer()
+                        Spacer()
 
-                    AccountAvatarButton(initials: "JE") {
-                        isAccountPresented = true
+                        AccountAvatarButton(initials: "JE") {
+                            isAccountPresented = true
+                        }
                     }
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
 
                 content()
             }
