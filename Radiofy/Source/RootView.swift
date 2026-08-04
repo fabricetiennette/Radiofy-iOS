@@ -26,7 +26,10 @@ struct RootView: View {
                 .makeView()
                 
             case .home:
-                MainTabView(radioService: container.radioService) {
+                MainTabView(
+                    radioService: container.radioService,
+                    stationRepository: container.stationRepository
+                ) {
                     router.setOnboarding()
                 }
                 

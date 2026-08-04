@@ -29,6 +29,10 @@ final class SearchViewModel: ObservableObject {
 
     /// Stations requested per search.
     private static let resultsLimit = 30
+    /// Stations kept on device to feed the recents list and the suggestions.
+    private static let recentStationsLimit = 10
+    /// Suggestions offered under the search field while typing.
+    private static let suggestionsLimit = 3
 
     // MARK: - Input
 
@@ -39,16 +43,35 @@ final class SearchViewModel: ObservableObject {
 
     @Published private(set) var state: LoadState = .idle
     @Published private(set) var stations: [RadioStation] = []
+    @Published private(set) var recentStations: [RadioStation] = []
 
     var isLoading: Bool { state.isLoading }
     var errorMessage: String? { state.errorMessage }
 
+    /// Interim completions drawn from the stations already opened. Swap this for
+    /// the backend suggest endpoint when it exists; nothing else has to change.
+    var suggestions: [String] {
+        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedQuery.isEmpty else { return [] }
+
+        return recentStations
+            .map(\.name)
+            .filter {
+                $0.localizedCaseInsensitiveContains(trimmedQuery)
+                && $0.localizedCaseInsensitiveCompare(trimmedQuery) != .orderedSame
+            }
+            .prefix(Self.suggestionsLimit)
+            .map { $0 }
+    }
+
     // MARK: - Dependencies
 
     private let radioService: RadioServicing
+    private let stationRepository: StationRepositing
 
-    init(radioService: RadioServicing) {
+    init(radioService: RadioServicing, stationRepository: StationRepositing) {
         self.radioService = radioService
+        self.stationRepository = stationRepository
     }
 
     // MARK: - Actions
@@ -83,5 +106,24 @@ final class SearchViewModel: ObservableObject {
             stations = []
             state = .failed(error.localizedDescription)
         }
+    }
+
+    // MARK: - Recents
+
+    func loadRecentStations() async {
+        recentStations = (try? await stationRepository.recentStations(limit: Self.recentStationsLimit)) ?? []
+    }
+
+    /// Called when a station is opened from the results. Recording the opened
+    /// station rather than the typed query keeps only what actually led
+    /// somewhere, instead of every abandoned keystroke.
+    func openStation(_ station: RadioStation) async {
+        try? await stationRepository.markOpened(station)
+        await loadRecentStations()
+    }
+
+    func clearRecentStations() async {
+        try? await stationRepository.clearRecentStations()
+        await loadRecentStations()
     }
 }

@@ -45,4 +45,29 @@ struct PreviewRadioService: RadioServicing {
         throw RadioServiceError.invalidStationUuid
     }
 }
+
+/// In-memory station store so previews never touch SwiftData.
+/// Seed it with `recents:` to preview the populated list instead of the empty state.
+@MainActor
+final class PreviewStationRepository: StationRepositing {
+
+    private var opened: [RadioStation]
+
+    init(recents: [RadioStation] = []) {
+        opened = recents
+    }
+
+    func recentStations(limit: Int) async throws -> [RadioStation] {
+        Array(opened.prefix(limit))
+    }
+
+    func markOpened(_ station: RadioStation) async throws {
+        opened.removeAll { $0.id == station.id }
+        opened.insert(station, at: 0)
+    }
+
+    func clearRecentStations() async throws {
+        opened.removeAll()
+    }
+}
 #endif

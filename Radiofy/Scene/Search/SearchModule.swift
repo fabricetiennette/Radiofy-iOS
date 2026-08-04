@@ -55,12 +55,16 @@ import SwiftUI
 /// Keeps composition outside the view for a clean architecture.
 struct SearchModule {
     let radioService: RadioServicing
+    let stationRepository: StationRepositing
     /// Lets the host hide its header while the search field is active.
     let isSearchActive: Binding<Bool>
 
     @MainActor
     func makeView() -> some View {
-        let viewModel = SearchViewModel(radioService: radioService)
+        let viewModel = SearchViewModel(
+            radioService: radioService,
+            stationRepository: stationRepository
+        )
         return SearchView(viewModel: viewModel, isSearchActive: isSearchActive)
     }
 }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MainTabView: View {
     let radioService: RadioServicing
+    let stationRepository: StationRepositing
     let onLogout: () -> Void
 
     @Environment(\.authService) private var authService
@@ -46,7 +47,11 @@ struct MainTabView: View {
                 // The header steps aside while searching, so results start at the
                 // top of the screen the way they do in Music.
                 tabRoot(title: L10n.search, showsHeader: !isSearchActive) {
-                    SearchModule(radioService: radioService, isSearchActive: $isSearchActive)
+                    SearchModule(
+                        radioService: radioService,
+                        stationRepository: stationRepository,
+                        isSearchActive: $isSearchActive
+                    )
                         .makeView()
                 }
             }
@@ -112,6 +117,10 @@ private enum MainTab: Hashable {
 
 #if DEBUG
 #Preview {
-    MainTabView(radioService: PreviewRadioService(), onLogout: {})
+    MainTabView(
+        radioService: PreviewRadioService(),
+        stationRepository: PreviewStationRepository(),
+        onLogout: {}
+    )
 }
 #endif

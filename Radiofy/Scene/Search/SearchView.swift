@@ -11,6 +11,9 @@ struct SearchView: View {
             // which is the only place \.isSearching can be read.
             .background(SearchActivityReporter(isActive: $isSearchActive))
             .searchable(text: $viewModel.query, prompt: L10n.search)
+            .task {
+                await viewModel.loadRecentStations()
+            }
             .task(id: SearchRequest(query: viewModel.query, scope: viewModel.scope)) {
                 // .task(id:) cancels and restarts its work whenever the request changes,
                 // so this sleep debounces keystrokes without any timer bookkeeping.
@@ -105,22 +108,59 @@ struct SearchView: View {
         }
     }
 
+    @ViewBuilder
     private var recentSearches: some View {
-        List {
-            Section("Recent Searches") {
-                Text("Radio Nova")
-                Text("Dîner entre amis !")
-                Text("Kizomba Essentials")
+        if viewModel.recentStations.isEmpty {
+            ContentUnavailableView(
+                "Search stations",
+                systemImage: "magnifyingglass",
+                description: Text("Find stations by name, country or genre.")
+            )
+        } else {
+            List {
+                HStack {
+                    Text("Recently Searched")
+                        .font(.body)
+                        .foregroundStyle(.white)
+                        .fontWeight(.semibold)
+
+                    Spacer()
+
+                    Button("Clear") {
+                        Task { await viewModel.clearRecentStations() }
+                    }
+                    .font(.body)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(Color(asset: Asset.radiofyGreen))
+                }
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden, edges: .top)
+                .padding(.top, 15)
+                .alignmentGuide(.listRowSeparatorTrailing) { d in d[.trailing] + 20 }
+                .frame(minHeight: 40)
+
+                ForEach(viewModel.recentStations) { station in
+                    SearchStationRow(station: station, showsChevron: true)
+                        .alignmentGuide(.listRowSeparatorTrailing) { d in d[.trailing] + 20 }
+                        .listRowBackground(Color.clear)
+                }
             }
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
         }
-        .listStyle(.plain)
-        .scrollContentBackground(.hidden)
     }
 
     private var resultsList: some View {
         List(viewModel.stations) { station in
-            SearchStationRow(station: station)
-                .listRowBackground(Color.black)
+            Button {
+                // Opening is only recorded for now; playback lands with the player.
+                Task { await viewModel.openStation(station) }
+            } label: {
+                SearchStationRow(station: station)
+            }
+            .buttonStyle(.plain)
+            .alignmentGuide(.listRowSeparatorTrailing) { d in d[.trailing] + 20 }
+            .listRowBackground(Color.black)
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
@@ -128,14 +168,23 @@ struct SearchView: View {
 }
 
 #if DEBUG
-#Preview {
+private func previewSearch(recents: [RadioStation]) -> some View {
     NavigationStack {
         SearchModule(
             radioService: PreviewRadioService(),
+            stationRepository: PreviewStationRepository(recents: recents),
             isSearchActive: .constant(false)
         )
         .makeView()
     }
     .preferredColorScheme(.dark)
+}
+
+#Preview("Recents") {
+    previewSearch(recents: Array(PreviewRadioService.sampleStations.prefix(3)))
+}
+
+#Preview("No recents") {
+    previewSearch(recents: [])
 }
 #endif

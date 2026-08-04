@@ -3,11 +3,15 @@ import SwiftUI
 struct SearchStationRow: View {
     let station: RadioStation
 
+    /// Music shows a chevron on rows that navigate and an ellipsis on rows that
+    /// open a menu, so the accessory is the caller's decision, not the row's.
+    var showsChevron: Bool = false
+
     var body: some View {
         HStack(spacing: 12) {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
-                .frame(width: 52, height: 52)
+                .frame(width: 48, height: 48)
                 .overlay {
                     if let imageUrl = station.imageUrl {
                         AsyncImage(url: imageUrl) { image in
@@ -35,8 +39,15 @@ struct SearchStationRow: View {
             }
 
             Spacer()
+
+            if showsChevron {
+                Image(systemName: "chevron.right")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(.white.opacity(0.3))
+                    .padding(.trailing, 6)
+            }
+            
         }
-        .padding(.vertical, 4)
         .accessibilityElement(children: .combine)
     }
 

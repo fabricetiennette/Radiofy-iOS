@@ -14,4 +14,5 @@ struct UserDefaultConfig {
 
     @UserDefault("favoriteStations", defaultValue: [])
     static var favoriteStations: [String]
+
 }

@@ -64,6 +64,9 @@
 		2C4226A22F44B80D008A1414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4226A12F44B804008A1414 /* HomeView.swift */; };
 		2C46CBFC30220DE900042461 /* SearchActivityReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46CBFB30220DE900042461 /* SearchActivityReporter.swift */; };
 		2C46CBFE30220DF200042461 /* SearchStationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46CBFD30220DF200042461 /* SearchStationRow.swift */; };
+		2C46CC0330221F0200042461 /* StationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46CBFF30221F0200042461 /* StationEntity.swift */; };
+		2C46CC0430221F0200042461 /* StationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46CC0030221F0200042461 /* StationRepository.swift */; };
+		2C46CC0530221F0200042461 /* StationRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46CC0130221F0200042461 /* StationRepositoryProtocol.swift */; };
 		2C498408245AE01600B6201C /* PodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C498407245AE01600B6201C /* PodcastViewController.swift */; };
 		2C49840C245AF87200B6201C /* PodcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49840B245AF87200B6201C /* PodcastViewModel.swift */; };
 		2C49840F245AFA3F00B6201C /* PodcastDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49840E245AFA3F00B6201C /* PodcastDataSource.swift */; };
@@ -324,6 +327,9 @@
 		2C4226A12F44B804008A1414 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C46CBFB30220DE900042461 /* SearchActivityReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchActivityReporter.swift; sourceTree = "<group>"; };
 		2C46CBFD30220DF200042461 /* SearchStationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStationRow.swift; sourceTree = "<group>"; };
+		2C46CBFF30221F0200042461 /* StationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationEntity.swift; sourceTree = "<group>"; };
+		2C46CC0030221F0200042461 /* StationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRepository.swift; sourceTree = "<group>"; };
+		2C46CC0130221F0200042461 /* StationRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRepositoryProtocol.swift; sourceTree = "<group>"; };
 		2C498407245AE01600B6201C /* PodcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewController.swift; sourceTree = "<group>"; };
 		2C49840B245AF87200B6201C /* PodcastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewModel.swift; sourceTree = "<group>"; };
 		2C49840E245AFA3F00B6201C /* PodcastDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDataSource.swift; sourceTree = "<group>"; };
@@ -673,6 +679,16 @@
 			path = LegacyHome;
 			sourceTree = "<group>";
 		};
+		2C46CC0230221F0200042461 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				2C46CBFF30221F0200042461 /* StationEntity.swift */,
+				2C46CC0030221F0200042461 /* StationRepository.swift */,
+				2C46CC0130221F0200042461 /* StationRepositoryProtocol.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		2C498404245ADFAD00B6201C /* Podcast */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,6 +995,7 @@
 		2CC8D55B2FB4B04500CDEED4 /* RadioStation */ = {
 			isa = PBXGroup;
 			children = (
+				2C46CC0230221F0200042461 /* Persistence */,
 				2CC8D55C2FB4B05D00CDEED4 /* Services */,
 			);
 			path = RadioStation;
@@ -1765,6 +1782,9 @@
 				2C4226982F43E566008A1414 /* VerifyEmailView.swift in Sources */,
 				2C95C13B245CE27C005D8503 /* CMTime.swift in Sources */,
 				2CDC5AB1243E72AB00498DE5 /* NationalStationsCell.swift in Sources */,
+				2C46CC0330221F0200042461 /* StationEntity.swift in Sources */,
+				2C46CC0430221F0200042461 /* StationRepository.swift in Sources */,
+				2C46CC0530221F0200042461 /* StationRepositoryProtocol.swift in Sources */,
 				2C498426245B2FEF00B6201C /* PodcastService.swift in Sources */,
 				2CDC5AB4243E7E2B00498DE5 /* RecentlyPlayedCollectionViewCell.swift in Sources */,
 				2CC803922462F0D600F345C9 /* SubcribePremiumView.swift in Sources */,
