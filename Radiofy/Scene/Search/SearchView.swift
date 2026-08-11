@@ -23,7 +23,12 @@ struct SearchView: View {
                 } catch {
                     return
                 }
-                await viewModel.search()
+
+                // Both answer the same keystroke, so they go out together rather
+                // than the suggestions waiting on the results.
+                async let suggestions: Void = viewModel.loadSuggestions()
+                async let stations: Void = viewModel.search()
+                _ = await (suggestions, stations)
             }
     }
 
@@ -151,33 +156,127 @@ struct SearchView: View {
     }
 
     private var resultsList: some View {
-        List(viewModel.stations) { station in
-            Button {
-                // Opening is only recorded for now; playback lands with the player.
-                Task { await viewModel.openStation(station) }
-            } label: {
-                SearchStationRow(station: station)
+        // Read once, outside the alignment closures: those are @Sendable and cannot
+        // reach into a main-actor view model, but they can capture a plain Int.
+        let lastSuggestion = viewModel.suggestions.count - 1
+
+        return List {
+            // Above the results rather than instead of them: `.searchSuggestions`
+            // replaces the content, which hid the very results being searched for.
+            ForEach(Array(viewModel.suggestions.enumerated()), id: \.element) { index, suggestion in
+                Button {
+                    viewModel.query = suggestion
+                } label: {
+                    SuggestionRow(suggestion: suggestion, query: viewModel.query)
+                }
+                .buttonStyle(.plain)
+                .alignmentGuide(.listRowSeparatorTrailing) { d in d[.trailing] + 20 }
+                // The last suggestion's rule runs full width, marking the boundary
+                // between the suggestions and the results below.
+                .alignmentGuide(.listRowSeparatorLeading) { d in
+                    index == lastSuggestion ? d[.leading] : d[.leading] + 26
+                }
+                // A suggestion is one line of text; the default row insets give it
+                // as much room as a station row with its artwork. The first one gets
+                // more headroom, sitting right under the scope picker.
+                .listRowInsets(EdgeInsets(
+                    top: index == 0 ? 18 : 6,
+                    leading: 14,
+                    bottom: 6,
+                    trailing: 20
+                ))
+                // In this list the line between two rows is the lower one's top
+                // separator, so only the very first row's may be hidden.
+                .listRowSeparator(index == 0 ? .hidden : .automatic, edges: .top)
+                .listRowBackground(Color.black)
             }
-            .buttonStyle(.plain)
-            .alignmentGuide(.listRowSeparatorTrailing) { d in d[.trailing] + 20 }
-            .listRowBackground(Color.black)
+
+            ForEach(Array(viewModel.stations.enumerated()), id: \.element.id) { index, station in
+                Button {
+                    // Opening is only recorded for now; playback lands with the player.
+                    Task { await viewModel.openStation(station) }
+                } label: {
+                    SearchStationRow(station: station)
+                }
+                .buttonStyle(.plain)
+                .alignmentGuide(.listRowSeparatorTrailing) { d in d[.trailing] + 20 }
+                // Only the top of the list, so this applies when no suggestion
+                // precedes the results.
+                .listRowSeparator(
+                    index == 0 && viewModel.suggestions.isEmpty ? .hidden : .automatic,
+                    edges: .top
+                )
+                .listRowBackground(Color.black)
+            }
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
     }
 }
 
+// MARK: - Reusable Components
+
+private struct SuggestionRow: View {
+    let suggestion: String
+    let query: String
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Image(systemName: "magnifyingglass")
+                .font(.body)
+                .foregroundStyle(.white)
+                .fontWeight(.semibold)
+
+            Text(highlighted)
+                .lineLimit(1)
+
+            Spacer()
+        }
+        .frame(minHeight: 30)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(suggestion)
+    }
+
+    /// What the user already typed stays solid and the completion is dimmed, so
+    /// the eye lands on the part that is new — the treatment Music uses.
+    private var highlighted: AttributedString {
+        var attributed = AttributedString(suggestion)
+        attributed.foregroundColor = .white.opacity(0.55)
+
+        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmedQuery.isEmpty,
+           let match = attributed.range(of: trimmedQuery, options: [.caseInsensitive]) {
+            attributed[match].foregroundColor = .white
+        }
+
+        return attributed
+    }
+}
+
 #if DEBUG
-private func previewSearch(recents: [RadioStation]) -> some View {
-    NavigationStack {
-        SearchModule(
-            radioService: PreviewRadioService(),
-            stationRepository: PreviewStationRepository(recents: recents),
-            isSearchActive: .constant(false)
-        )
-        .makeView()
+/// Builds the view model directly rather than through the module, so a preview can
+/// start with a query already typed — the only way to reach the results and the
+/// suggestions, which the view model fills itself and does not expose for writing.
+@MainActor
+private func previewSearch(
+    recents: [RadioStation] = [],
+    query: String = "",
+    isSearching: Bool = false
+) -> some View {
+    let viewModel = SearchViewModel(
+        radioService: PreviewRadioService(),
+        stationRepository: PreviewStationRepository(recents: recents)
+    )
+    viewModel.query = query
+
+    return NavigationStack {
+        SearchView(viewModel: viewModel, isSearchActive: .constant(isSearching))
     }
     .preferredColorScheme(.dark)
+}
+
+#Preview("Suggestions") {
+    previewSearch(query: "nova", isSearching: true)
 }
 
 #Preview("Recents") {
@@ -185,6 +284,6 @@ private func previewSearch(recents: [RadioStation]) -> some View {
 }
 
 #Preview("No recents") {
-    previewSearch(recents: [])
+    previewSearch()
 }
 #endif

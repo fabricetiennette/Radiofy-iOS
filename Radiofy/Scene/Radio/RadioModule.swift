@@ -41,6 +41,12 @@ struct PreviewRadioService: RadioServicing {
         Array(Self.sampleStations.prefix(limit))
     }
 
+    /// Built from the query so previews show the typed part highlighted, which is
+    /// the whole point of the suggestion row.
+    func suggestions(query: String, limit: Int) async throws -> [String] {
+        Array(["radio \(query)", "\(query) fm", "smooth \(query)"].prefix(limit))
+    }
+
     func resolveStreamUrl(stationUuid: String) async throws -> URL {
         throw RadioServiceError.invalidStationUuid
     }

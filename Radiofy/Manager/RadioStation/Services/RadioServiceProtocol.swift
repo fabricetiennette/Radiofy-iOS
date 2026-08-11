@@ -14,5 +14,11 @@ public protocol RadioServicing {
         offset: Int
     ) async throws -> [RadioStation]
 
+    /// Search terms to offer while the user types, most popular first.
+    func suggestions(
+        query: String,
+        limit: Int
+    ) async throws -> [String]
+
     func resolveStreamUrl(stationUuid: String) async throws -> URL
 }

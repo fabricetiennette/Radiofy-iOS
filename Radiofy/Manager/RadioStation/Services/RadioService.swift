@@ -51,7 +51,7 @@ public final class RadioService: RadioServicing {
 
     public func searchStations(
         query: String,
-        limit: Int = 20,
+        limit: Int = 10,
         offset: Int = 0
     ) async throws -> [RadioStation] {
         let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -70,6 +70,22 @@ public final class RadioService: RadioServicing {
         )
 
         return dtos.map { $0.toDomain() }
+    }
+
+    public func suggestions(query: String, limit: Int = 3) async throws -> [String] {
+        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedQuery.isEmpty else { return [] }
+
+        let queryItems = [
+            URLQueryItem(name: "q", value: trimmedQuery),
+            URLQueryItem(name: "limit", value: String(limit))
+        ]
+
+        return try await sendJSON(
+            endpoint: .suggest,
+            queryItems: queryItems,
+            authenticated: true
+        )
     }
 
     public func resolveStreamUrl(stationUuid: String) async throws -> URL {

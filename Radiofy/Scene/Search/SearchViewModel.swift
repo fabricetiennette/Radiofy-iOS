@@ -28,7 +28,7 @@ final class SearchViewModel: ObservableObject {
     }
 
     /// Stations requested per search.
-    private static let resultsLimit = 30
+    private static let resultsLimit = 10
     /// Stations kept on device to feed the recents list and the suggestions.
     private static let recentStationsLimit = 10
     /// Suggestions offered under the search field while typing.
@@ -44,25 +44,10 @@ final class SearchViewModel: ObservableObject {
     @Published private(set) var state: LoadState = .idle
     @Published private(set) var stations: [RadioStation] = []
     @Published private(set) var recentStations: [RadioStation] = []
+    @Published private(set) var suggestions: [String] = []
 
     var isLoading: Bool { state.isLoading }
     var errorMessage: String? { state.errorMessage }
-
-    /// Interim completions drawn from the stations already opened. Swap this for
-    /// the backend suggest endpoint when it exists; nothing else has to change.
-    var suggestions: [String] {
-        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmedQuery.isEmpty else { return [] }
-
-        return recentStations
-            .map(\.name)
-            .filter {
-                $0.localizedCaseInsensitiveContains(trimmedQuery)
-                && $0.localizedCaseInsensitiveCompare(trimmedQuery) != .orderedSame
-            }
-            .prefix(Self.suggestionsLimit)
-            .map { $0 }
-    }
 
     // MARK: - Dependencies
 
@@ -106,6 +91,29 @@ final class SearchViewModel: ObservableObject {
             stations = []
             state = .failed(error.localizedDescription)
         }
+    }
+
+    /// Runs alongside `search()` rather than after it: both answer the same
+    /// keystroke, and the suggestions are useless once the results have landed.
+    ///
+    /// A failure stays silent — missing suggestions are a small loss, and the
+    /// search itself already reports when the service is down.
+    func loadSuggestions() async {
+        guard scope == .radio else {
+            suggestions = []
+            return
+        }
+
+        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedQuery.isEmpty else {
+            suggestions = []
+            return
+        }
+
+        suggestions = (try? await radioService.suggestions(
+            query: trimmedQuery,
+            limit: Self.suggestionsLimit
+        )) ?? []
     }
 
     // MARK: - Recents
